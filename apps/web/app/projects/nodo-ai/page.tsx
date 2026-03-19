@@ -305,28 +305,28 @@ export default function NodoAICaseStudy() {
         </div>
 
         {/* Persona spectrum */}
-        <div className="mt-16">
+        <div className="mt-20">
           <h3 className="text-sm font-medium text-foreground/80">Who We Designed For</h3>
           <p className="mt-2 max-w-[55ch] text-xs leading-relaxed text-muted-foreground/50">Six segments emerged from the research, each with distinct trust thresholds and conversion blockers.</p>
-          <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-px overflow-hidden rounded-xl border border-border/30 bg-border/30 md:grid-cols-2">
             {[
-              { name: "Passive Yield Seeker", desc: "Holds crypto on a CEX. Wants set-and-forget returns without the complexity of managing LP positions.", adoption: 50, color: "#f59e0b" },
-              { name: "LP-Confused Beginner", desc: "Crypto-curious but not DeFi-literate. Has a wallet but has never provided liquidity. Intimidated by technical concepts.", adoption: 30, color: "#ef4444" },
-              { name: "Skeptical Power User", desc: "Deep DeFi experience across multiple chains. Manages LP positions manually. Portfolio $25K to $250K+. Evaluates products like an analyst.", adoption: 70, color: "#3b82f6" },
-              { name: "Stablecoin Safety Optimizer", desc: "Risk-averse allocator seeking better-than-savings yield. Holds 80%+ in stablecoins. Preserves capital above all.", adoption: 50, color: "#8b5cf6" },
-              { name: "Sui-Native DeFi User", desc: "Already active in the Sui ecosystem. Uses Cetus and DeepBook. Follows Sui governance and ecosystem news closely.", adoption: 90, color: "#10b981" },
-              { name: "Reward-Driven Explorer", desc: "Motivated by points, boosts, and airdrops. Will try any protocol that offers a reward multiplier, but leaves when incentives end.", adoption: 85, color: "#06b6d4" },
-            ].map(({ name, desc, adoption, color }) => (
-              <div key={name} className="group relative overflow-hidden rounded-lg border border-border/30 bg-muted/10 p-4 transition-colors hover:bg-muted/20">
-                <div className="absolute top-0 left-0 h-full w-[3px]" style={{ backgroundColor: color }} />
-                <div className="flex items-center justify-between">
-                  <h4 className="text-xs font-medium">{name}</h4>
-                </div>
-                <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground/50">{desc}</p>
-                <div className="mt-3 flex items-center gap-2">
-                  <span className="text-[9px] text-muted-foreground/30">Adoption</span>
-                  <div className="h-1 flex-1 overflow-hidden rounded-full bg-muted/30">
-                    <div className="h-full rounded-full transition-all duration-500" style={{ width: `${adoption}%`, backgroundColor: color, opacity: 0.6 }} />
+              { name: "Passive Yield Seeker", oneliner: "Wants yield without managing positions", likelihood: "Medium", color: "#f59e0b", portfolio: "$5K to $25K" },
+              { name: "LP-Confused Beginner", oneliner: "Has a wallet but has never provided liquidity", likelihood: "Low", color: "#ef4444", portfolio: "Under $5K" },
+              { name: "Skeptical Power User", oneliner: "Evaluates products like an analyst", likelihood: "High if proven", color: "#3b82f6", portfolio: "$25K to $250K+" },
+              { name: "Stablecoin Safety Optimizer", oneliner: "Preserves capital above all", likelihood: "Medium", color: "#8b5cf6", portfolio: "$10K to $250K+" },
+              { name: "Sui-Native DeFi User", oneliner: "Already active on Cetus and DeepBook", likelihood: "Highest", color: "#10b981", portfolio: "$5K to $100K" },
+              { name: "Reward-Driven Explorer", oneliner: "Will try anything with a multiplier", likelihood: "High, then churns", color: "#06b6d4", portfolio: "$1K to $10K" },
+            ].map(({ name, oneliner, likelihood, color, portfolio }) => (
+              <div key={name} className="group relative bg-background p-5 transition-colors hover:bg-muted/20 md:p-6">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 size-2 shrink-0 rounded-full" style={{ backgroundColor: color }} />
+                  <div className="min-w-0">
+                    <h4 className="text-[13px] font-medium tracking-tight">{name}</h4>
+                    <p className="mt-1 text-[11px] leading-relaxed text-muted-foreground/50">{oneliner}</p>
+                    <div className="mt-3 flex items-center gap-4">
+                      <span className="text-[10px] text-muted-foreground/30">{portfolio}</span>
+                      <span className="rounded-full px-2 py-0.5 text-[9px] font-medium" style={{ backgroundColor: `${color}15`, color }}>{likelihood}</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -335,12 +335,12 @@ export default function NodoAICaseStudy() {
         </div>
 
         {/* Pain points + Trust barriers side by side */}
-        <div className="mt-16 grid gap-12 md:grid-cols-2">
+        <div className="mt-20 grid gap-16 md:grid-cols-2">
           {/* Pain points */}
           <div>
             <h3 className="text-sm font-medium text-foreground/80">Top Pain Points</h3>
-            <p className="mt-2 text-xs text-muted-foreground/50">Mentions across 24 interviews</p>
-            <div className="mt-6 space-y-4">
+            <p className="mt-1 text-xs text-muted-foreground/40">Mentions across 24 interviews</p>
+            <div className="mt-8 space-y-5">
               {[
                 { label: "AI claims without evidence", count: 8, max: 8 },
                 { label: "NDLP comprehension failure", count: 6, max: 8 },
@@ -350,17 +350,17 @@ export default function NodoAICaseStudy() {
                 { label: "Dual deposit barrier", count: 4, max: 8 },
               ].map(({ label, count, max }) => (
                 <div key={label} className="group">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] text-muted-foreground/60 transition-colors group-hover:text-foreground/70">{label}</span>
-                    <span className="font-mono text-[11px] font-medium" style={{ color: `oklch(0.65 0.18 ${30 + (1 - count / max) * 20})` }}>{count}</span>
+                  <div className="flex items-baseline gap-3">
+                    <span className="text-xl font-medium tabular-nums leading-none" style={{ color: `oklch(${0.55 + (1 - count / max) * 0.2} 0.17 25)` }}>{count}</span>
+                    <span className="text-[12px] text-muted-foreground/60 transition-colors group-hover:text-foreground/80">{label}</span>
                   </div>
-                  <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-muted/20">
+                  <div className="mt-2 h-[3px] overflow-hidden rounded-full bg-muted/15">
                     <div
-                      className="h-full rounded-full transition-all duration-500 group-hover:opacity-100"
+                      className="h-full rounded-full"
                       style={{
                         width: `${(count / max) * 100}%`,
-                        background: `linear-gradient(90deg, oklch(0.72 0.17 30), oklch(0.62 0.2 20))`,
-                        opacity: 0.7 + (count / max) * 0.3,
+                        background: `linear-gradient(90deg, oklch(0.68 0.19 30), oklch(0.58 0.21 18))`,
+                        opacity: 0.5 + (count / max) * 0.5,
                       }}
                     />
                   </div>
@@ -372,8 +372,8 @@ export default function NodoAICaseStudy() {
           {/* Trust barriers */}
           <div>
             <h3 className="text-sm font-medium text-foreground/80">Top Trust Barriers</h3>
-            <p className="mt-2 text-xs text-muted-foreground/50">What blocks first deposits</p>
-            <div className="mt-6 space-y-4">
+            <p className="mt-1 text-xs text-muted-foreground/40">What blocks first deposits</p>
+            <div className="mt-8 space-y-5">
               {[
                 { label: "Vague AI marketing", count: 8, max: 8 },
                 { label: "Unexplained yield source", count: 5, max: 8 },
@@ -382,17 +382,17 @@ export default function NodoAICaseStudy() {
                 { label: "Missing ecosystem endorsement", count: 3, max: 8 },
               ].map(({ label, count, max }) => (
                 <div key={label} className="group">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] text-muted-foreground/60 transition-colors group-hover:text-foreground/70">{label}</span>
-                    <span className="font-mono text-[11px] font-medium" style={{ color: `oklch(0.60 0.14 260)` }}>{count}</span>
+                  <div className="flex items-baseline gap-3">
+                    <span className="text-xl font-medium tabular-nums leading-none" style={{ color: `oklch(${0.50 + (1 - count / max) * 0.2} 0.15 260)` }}>{count}</span>
+                    <span className="text-[12px] text-muted-foreground/60 transition-colors group-hover:text-foreground/80">{label}</span>
                   </div>
-                  <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-muted/20">
+                  <div className="mt-2 h-[3px] overflow-hidden rounded-full bg-muted/15">
                     <div
-                      className="h-full rounded-full transition-all duration-500 group-hover:opacity-100"
+                      className="h-full rounded-full"
                       style={{
                         width: `${(count / max) * 100}%`,
-                        background: `linear-gradient(90deg, oklch(0.65 0.14 260), oklch(0.50 0.16 270))`,
-                        opacity: 0.6 + (count / max) * 0.4,
+                        background: `linear-gradient(90deg, oklch(0.60 0.15 260), oklch(0.48 0.17 270))`,
+                        opacity: 0.45 + (count / max) * 0.55,
                       }}
                     />
                   </div>
@@ -735,7 +735,7 @@ export default function NodoAICaseStudy() {
         </div>
         <div className="mt-24 md:mt-32">
           <p className="text-base text-muted-foreground md:text-lg">Interested in working together?</p>
-          <a href="mailto:hello@leon.design" className="mt-3 inline-block font-mono text-sm tracking-wide text-foreground underline decoration-foreground/20 underline-offset-4 transition-colors hover:decoration-foreground/60">hello@leon.design</a>
+          <a href="mailto:leondesigner221@gmail.com" className="mt-3 inline-block font-mono text-sm tracking-wide text-foreground underline decoration-foreground/20 underline-offset-4 transition-colors hover:decoration-foreground/60">leondesigner221@gmail.com</a>
         </div>
       </section>
 

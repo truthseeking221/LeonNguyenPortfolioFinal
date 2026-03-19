@@ -49,7 +49,7 @@ export default function GullNetworkCaseStudy() {
         <div>
 
       {/* 1. Hero */}
-      <section className="relative px-6 pt-28 pb-16 md:px-[250px] md:pt-36 md:pb-24">
+      <section className="relative px-6 pt-28 pb-16 md:px-[400px] md:pt-36 md:pb-24">
         <div className="flex items-center gap-3">
           <Badge variant="outline">DEX & Launchpad</Badge>
           <Badge variant="secondary">Shipped</Badge>
@@ -97,7 +97,7 @@ export default function GullNetworkCaseStudy() {
       </section>
 
       {/* 2. Snapshot */}
-      <section id="snapshot" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="snapshot" className="px-6 py-24 md:px-[400px] md:py-32">
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">At a glance</p>
         <div className="mt-10 grid gap-8 md:mt-14 md:grid-cols-2 lg:grid-cols-3 md:gap-12">
           {[
@@ -119,7 +119,7 @@ export default function GullNetworkCaseStudy() {
       <div className="mx-6 h-px bg-border/30 md:mx-[250px]" />
 
       {/* 3. Context */}
-      <section id="context" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="context" className="px-6 py-24 md:px-[400px] md:py-32">
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Context</p>
         <h2 className="mt-4 max-w-[20ch] text-3xl font-medium tracking-tight md:text-4xl">A chain without a heartbeat</h2>
         <div className="mt-12 grid gap-12 md:grid-cols-[1.5fr_0.7fr] md:gap-20">
@@ -149,7 +149,7 @@ export default function GullNetworkCaseStudy() {
       </section>
 
       {/* 4. Challenge */}
-      <section id="challenge" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="challenge" className="px-6 py-24 md:px-[400px] md:py-32">
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">The Challenge</p>
         <h2 className="mt-4 max-w-[24ch] text-3xl font-medium tracking-tight md:text-4xl">Two audiences. One product. Zero precedent.</h2>
         <blockquote className="mt-12 max-w-[32ch] border-l-2 border-foreground/10 pl-6 text-2xl leading-snug font-light tracking-tight text-foreground/80 md:ml-[10%] md:text-3xl">
@@ -175,7 +175,7 @@ export default function GullNetworkCaseStudy() {
       </section>
 
       {/* 5. Role */}
-      <section id="role" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="role" className="px-6 py-24 md:px-[400px] md:py-32">
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Role</p>
         <h2 className="mt-4 text-3xl font-medium tracking-tight md:text-4xl">My surface area</h2>
         <div className="mt-12 grid gap-8 md:grid-cols-3 md:gap-12">
@@ -214,7 +214,7 @@ export default function GullNetworkCaseStudy() {
       <div className="mx-6 h-px bg-border/30 md:mx-[250px]" />
 
       {/* 6. Objectives */}
-      <section id="objectives" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="objectives" className="px-6 py-24 md:px-[400px] md:py-32">
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Objectives</p>
         <h2 className="mt-4 max-w-[22ch] text-3xl font-medium tracking-tight md:text-4xl">The scoreboard</h2>
         <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-2 lg:grid-cols-3 md:gap-8">
@@ -237,7 +237,7 @@ export default function GullNetworkCaseStudy() {
       </section>
 
       {/* 7. Process */}
-      <section id="process" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="process" className="px-6 py-24 md:px-[400px] md:py-32">
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Process</p>
         <h2 className="mt-4 text-3xl font-medium tracking-tight md:text-4xl">The sequence</h2>
         <div className="mt-14 md:mt-20">
@@ -267,7 +267,7 @@ export default function GullNetworkCaseStudy() {
       <div className="mx-6 h-px bg-border/30 md:mx-[250px]" />
 
       {/* 8. Discovery */}
-      <section id="discovery" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="discovery" className="px-6 py-24 md:px-[400px] md:py-32">
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Discovery</p>
         <h2 className="mt-4 max-w-[22ch] text-3xl font-medium tracking-tight md:text-4xl">Two worlds, one audit</h2>
         <p className="mt-8 max-w-[58ch] text-base leading-relaxed text-muted-foreground md:text-lg">The research had two fronts. First: what does the DeFi infrastructure landscape on Manta actually look like, and where are the gaps? Second: how do memecoin communities actually behave, and what would make them adopt a new platform?</p>
@@ -408,7 +408,7 @@ export default function GullNetworkCaseStudy() {
       </section>
 
       {/* 9. Insights */}
-      <section id="insights" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="insights" className="px-6 py-24 md:px-[400px] md:py-32">
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Insights</p>
         <h2 className="mt-4 text-3xl font-medium tracking-tight md:text-4xl">Six things that shaped everything</h2>
 
@@ -504,7 +504,7 @@ export default function GullNetworkCaseStudy() {
       </section>
 
       {/* 10. Principles */}
-      <section id="principles" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="principles" className="px-6 py-24 md:px-[400px] md:py-32">
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Principles</p>
         <h2 className="mt-4 max-w-[20ch] text-3xl font-medium tracking-tight md:text-4xl">Six beliefs that held the work together</h2>
         <div className="mt-14 md:mt-20">
@@ -528,7 +528,7 @@ export default function GullNetworkCaseStudy() {
       <div className="mx-6 h-px bg-border/30 md:mx-[250px]" />
 
       {/* 11. Architecture */}
-      <section id="architecture" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="architecture" className="px-6 py-24 md:px-[400px] md:py-32">
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Architecture</p>
         <h2 className="mt-4 max-w-[22ch] text-3xl font-medium tracking-tight md:text-4xl">Three layers, one world</h2>
         <p className="mt-8 max-w-[58ch] text-base leading-relaxed text-muted-foreground md:text-lg">GullSwap is not one product. It is three experiences sharing a single brand. The GullGame is the community layer. The DEX is the utility layer. The landing page is the brand layer. Each serves a different intent. Each has its own entry point. The seagull and the ocean connect all three.</p>
@@ -543,7 +543,7 @@ export default function GullNetworkCaseStudy() {
       </section>
 
       {/* 12. Exploration */}
-      <section id="exploration" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="exploration" className="px-6 py-24 md:px-[400px] md:py-32">
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Exploration</p>
         <h2 className="mt-4 max-w-[22ch] text-3xl font-medium tracking-tight md:text-4xl">Finding the right weight</h2>
         <p className="mt-8 max-w-[58ch] text-base leading-relaxed text-muted-foreground md:text-lg">Three directions. Each represented a different answer to the same question: how much personality can infrastructure carry before it stops being taken seriously?</p>
@@ -571,7 +571,7 @@ export default function GullNetworkCaseStudy() {
       </section>
 
       {/* 13. Solution */}
-      <section id="solution" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="solution" className="px-6 py-24 md:px-[400px] md:py-32">
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Solution</p>
         <h2 className="mt-4 max-w-[22ch] text-3xl font-medium tracking-tight md:text-4xl">What we shipped</h2>
 
@@ -641,7 +641,7 @@ export default function GullNetworkCaseStudy() {
       </section>
 
       {/* 14. Brand & Character */}
-      <section id="brand" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="brand" className="px-6 py-24 md:px-[400px] md:py-32">
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Brand & Character</p>
         <h2 className="mt-4 max-w-[24ch] text-3xl font-medium tracking-tight md:text-4xl">The seagull is the product</h2>
         <blockquote className="mt-12 max-w-[32ch] border-l-2 border-foreground/10 pl-6 text-xl leading-snug font-light tracking-tight text-foreground/80 md:ml-[10%] md:text-2xl">
@@ -676,7 +676,7 @@ export default function GullNetworkCaseStudy() {
       <div className="mx-6 h-px bg-border/30 md:mx-[250px]" />
 
       {/* 15. Outcomes */}
-      <section id="outcomes" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="outcomes" className="px-6 py-24 md:px-[400px] md:py-32">
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Outcomes</p>
         <h2 className="mt-4 text-3xl font-medium tracking-tight md:text-4xl">What the numbers say</h2>
         <div className="mt-14 grid gap-6 md:mt-16 md:grid-cols-2 lg:grid-cols-4 md:gap-8">
@@ -707,7 +707,7 @@ export default function GullNetworkCaseStudy() {
       </section>
 
       {/* 16. Reflection */}
-      <section id="reflection" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="reflection" className="px-6 py-24 md:px-[400px] md:py-32">
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Reflection</p>
         <h2 className="mt-4 max-w-[22ch] text-3xl font-medium tracking-tight md:text-4xl">What I carry forward</h2>
         <div className="mt-12 grid gap-12 md:grid-cols-2 md:gap-20">
@@ -737,7 +737,7 @@ export default function GullNetworkCaseStudy() {
       <div className="mx-6 h-px bg-border/30 md:mx-[250px]" />
 
       {/* 17. Next / CTA */}
-      <section className="px-6 py-24 md:px-[250px] md:py-40">
+      <section className="px-6 py-24 md:px-[400px] md:py-40">
         <p className="max-w-[48ch] text-base leading-relaxed text-muted-foreground md:text-lg">Most projects ask for an interface. This one asked for a world. A seagull sketch became a community identity. A codeless form became the reason projects chose Manta. That is the kind of problem worth solving.</p>
         <div className="mt-16 border-t border-border/30 pt-10">
           <p className="font-mono text-[10px] tracking-wider text-muted-foreground/30 uppercase">Next case study</p>
@@ -751,11 +751,11 @@ export default function GullNetworkCaseStudy() {
         </div>
         <div className="mt-24 md:mt-32">
           <p className="text-base text-muted-foreground md:text-lg">Interested in working together?</p>
-          <a href="mailto:hello@leon.design" className="mt-3 inline-block font-mono text-sm tracking-wide text-foreground underline decoration-foreground/20 underline-offset-4 transition-colors hover:decoration-foreground/60">hello@leon.design</a>
+          <a href="mailto:leondesigner221@gmail.com" className="mt-3 inline-block font-mono text-sm tracking-wide text-foreground underline decoration-foreground/20 underline-offset-4 transition-colors hover:decoration-foreground/60">leondesigner221@gmail.com</a>
         </div>
       </section>
 
-      <footer className="border-t border-border/30 px-6 py-8 md:px-[250px]">
+      <footer className="border-t border-border/30 px-6 py-8 md:px-[400px]">
         <div className="flex items-center justify-between">
           <span className="text-xs text-muted-foreground/30">&copy; 2026 Leon</span>
           <span className="text-xs text-muted-foreground/30">Built with quiet intention</span>
