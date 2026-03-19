@@ -1,0 +1,153 @@
+"use client"
+
+import * as React from "react"
+import { cn } from "@workspace/ui/lib/utils"
+
+/* ─────────────────────────────────────────────────────
+   ScrollFloat — Parallax speed differential.
+   Elements drift at a different rate than scroll,
+   creating spatial depth. transform-only — no layout thrash.
+   ───────────────────────────────────────────────────── */
+
+interface ScrollFloatProps {
+  children: React.ReactNode
+  className?: string
+  /** Speed multiplier. 0.1 = subtle forward drift, -0.1 = subtle lag. */
+  speed?: number
+  /** Fade as element leaves center. 0 = none, 1 = full fade at edges. */
+  fade?: number
+}
+
+export function ScrollFloat({
+  children,
+  className,
+  speed = 0.1,
+  fade = 0,
+}: ScrollFloatProps) {
+  const ref = React.useRef<HTMLDivElement>(null)
+
+  React.useEffect(() => {
+    const el = ref.current
+    if (!el) return
+
+    // Respect reduced motion
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+
+    let ticking = false
+
+    function update() {
+      if (!el) return
+      const rect = el.getBoundingClientRect()
+      const vh = window.innerHeight
+      // -0.5 (above center) to 0.5 (below center)
+      const centered = (rect.top + rect.height / 2) / vh - 0.5
+      const y = -centered * speed * vh
+
+      if (fade > 0) {
+        const opacity = Math.max(0, 1 - Math.abs(centered) * fade * 2.5)
+        el.style.transform = `translateY(${y}px)`
+        el.style.opacity = String(opacity)
+      } else {
+        el.style.transform = `translateY(${y}px)`
+      }
+
+      ticking = false
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(update)
+        ticking = true
+      }
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true })
+    onScroll()
+
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [speed, fade])
+
+  return (
+    <div ref={ref} className={cn("will-change-transform", className)}>
+      {children}
+    </div>
+  )
+}
+
+/* ─────────────────────────────────────────────────────
+   SplitReveal — Word-by-word staggered entrance.
+   Each word rises independently with a cascade delay.
+   The rhythm creates anticipation — you read as it forms.
+   ───────────────────────────────────────────────────── */
+
+interface SplitRevealProps {
+  /** Plain text — newlines become <br/>. */
+  text: string
+  className?: string
+  /** Delay between each word in ms. */
+  stagger?: number
+  /** Base delay before the first word. */
+  delay?: number
+  threshold?: number
+}
+
+export function SplitReveal({
+  text,
+  className,
+  stagger = 70,
+  delay = 0,
+  threshold = 0.15,
+}: SplitRevealProps) {
+  const ref = React.useRef<HTMLSpanElement>(null)
+  const [isVisible, setIsVisible] = React.useState(false)
+
+  React.useEffect(() => {
+    const el = ref.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setIsVisible(true)
+          observer.unobserve(el)
+        }
+      },
+      { threshold, rootMargin: "0px 0px -40px 0px" }
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [threshold])
+
+  // Split into lines, then words
+  const lines = text.split("\n")
+  let wordIndex = 0
+
+  return (
+    <span ref={ref} className={cn("inline", className)}>
+      {lines.map((line, lineIdx) => (
+        <React.Fragment key={lineIdx}>
+          {lineIdx > 0 && <br />}
+          {line.split(/\s+/).filter(Boolean).map((word) => {
+            const i = wordIndex++
+            return (
+              <span
+                key={`${lineIdx}-${i}`}
+                className="inline-block"
+                style={{
+                  transition: `opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)`,
+                  transitionDelay: `${delay + i * stagger}ms`,
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? "translateY(0)" : "translateY(16px)",
+                }}
+              >
+                {word}
+                {"\u00A0"}
+              </span>
+            )
+          })}
+        </React.Fragment>
+      ))}
+    </span>
+  )
+}
