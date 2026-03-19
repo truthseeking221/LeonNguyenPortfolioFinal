@@ -66,8 +66,21 @@ export function Reveal({
 }: RevealProps) {
   const ref = React.useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = React.useState(false)
+  const [promoted, setPromoted] = React.useState(true)
+  const [reducedMotion, setReducedMotion] = React.useState(false)
+
+  // Check prefers-reduced-motion once on mount
+  React.useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setReducedMotion(true)
+      setIsVisible(true) // Show immediately
+      setPromoted(false)
+    }
+  }, [])
 
   React.useEffect(() => {
+    if (reducedMotion) return
+
     const el = ref.current
     if (!el) return
 
@@ -85,7 +98,23 @@ export function Reveal({
 
     observer.observe(el)
     return () => observer.disconnect()
-  }, [threshold, once])
+  }, [threshold, once, reducedMotion])
+
+  // Demote from GPU layer after transition completes
+  React.useEffect(() => {
+    if (!isVisible || !promoted) return
+    const duration = variant === "scale" ? 1000 : 800
+    const t = setTimeout(() => setPromoted(false), delay + duration + 100)
+    return () => clearTimeout(t)
+  }, [isVisible, promoted, delay, variant])
+
+  if (reducedMotion) {
+    return (
+      <div className={cn(className)}>
+        {children}
+      </div>
+    )
+  }
 
   const needsFilter = variant === "blur-up"
 
@@ -96,7 +125,7 @@ export function Reveal({
     transitionDuration: variant === "scale" ? "1s" : "0.8s",
     transitionTimingFunction: EASING,
     transitionDelay: `${delay}ms`,
-    willChange: "transform, opacity",
+    willChange: promoted ? "transform, opacity" : undefined,
   }
 
   return (

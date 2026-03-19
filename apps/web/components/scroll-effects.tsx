@@ -5,16 +5,17 @@ import { cn } from "@workspace/ui/lib/utils"
 
 /* ─────────────────────────────────────────────────────
    ScrollFloat — Parallax speed differential.
-   Elements drift at a different rate than scroll,
-   creating spatial depth. transform-only — no layout thrash.
+
+   Smoothed with a tiny CSS transition (80ms) to
+   eliminate micro-jitter on slow scroll. The transition
+   is short enough to feel direct, long enough to
+   prevent stutter.
    ───────────────────────────────────────────────────── */
 
 interface ScrollFloatProps {
   children: React.ReactNode
   className?: string
-  /** Speed multiplier. 0.1 = subtle forward drift, -0.1 = subtle lag. */
   speed?: number
-  /** Fade as element leaves center. 0 = none, 1 = full fade at edges. */
   fade?: number
 }
 
@@ -30,7 +31,6 @@ export function ScrollFloat({
     const el = ref.current
     if (!el) return
 
-    // Respect reduced motion
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
 
     let ticking = false
@@ -39,7 +39,6 @@ export function ScrollFloat({
       if (!el) return
       const rect = el.getBoundingClientRect()
       const vh = window.innerHeight
-      // -0.5 (above center) to 0.5 (below center)
       const centered = (rect.top + rect.height / 2) / vh - 0.5
       const y = -centered * speed * vh
 
@@ -68,7 +67,13 @@ export function ScrollFloat({
   }, [speed, fade])
 
   return (
-    <div ref={ref} className={cn("will-change-transform", className)}>
+    <div
+      ref={ref}
+      className={cn("will-change-transform", className)}
+      style={{
+        transition: "transform 80ms linear, opacity 80ms linear",
+      }}
+    >
       {children}
     </div>
   )
@@ -76,17 +81,12 @@ export function ScrollFloat({
 
 /* ─────────────────────────────────────────────────────
    SplitReveal — Word-by-word staggered entrance.
-   Each word rises independently with a cascade delay.
-   The rhythm creates anticipation — you read as it forms.
    ───────────────────────────────────────────────────── */
 
 interface SplitRevealProps {
-  /** Plain text — newlines become <br/>. */
   text: string
   className?: string
-  /** Delay between each word in ms. */
   stagger?: number
-  /** Base delay before the first word. */
   delay?: number
   threshold?: number
 }
@@ -100,8 +100,18 @@ export function SplitReveal({
 }: SplitRevealProps) {
   const ref = React.useRef<HTMLSpanElement>(null)
   const [isVisible, setIsVisible] = React.useState(false)
+  const [reducedMotion, setReducedMotion] = React.useState(false)
 
   React.useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setReducedMotion(true)
+      setIsVisible(true)
+    }
+  }, [])
+
+  React.useEffect(() => {
+    if (reducedMotion) return
+
     const el = ref.current
     if (!el) return
 
@@ -117,9 +127,8 @@ export function SplitReveal({
 
     observer.observe(el)
     return () => observer.disconnect()
-  }, [threshold])
+  }, [threshold, reducedMotion])
 
-  // Split into lines, then words
   const lines = text.split("\n")
   let wordIndex = 0
 
@@ -128,24 +137,33 @@ export function SplitReveal({
       {lines.map((line, lineIdx) => (
         <React.Fragment key={lineIdx}>
           {lineIdx > 0 && <br />}
-          {line.split(/\s+/).filter(Boolean).map((word) => {
-            const i = wordIndex++
-            return (
-              <span
-                key={`${lineIdx}-${i}`}
-                className="inline-block"
-                style={{
-                  transition: `opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)`,
-                  transitionDelay: `${delay + i * stagger}ms`,
-                  opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? "translateY(0)" : "translateY(16px)",
-                }}
-              >
-                {word}
-                {"\u00A0"}
-              </span>
-            )
-          })}
+          {line
+            .split(/\s+/)
+            .filter(Boolean)
+            .map((word) => {
+              const i = wordIndex++
+              return (
+                <span
+                  key={`${lineIdx}-${i}`}
+                  className="inline-block"
+                  style={
+                    reducedMotion
+                      ? undefined
+                      : {
+                          transition: `opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)`,
+                          transitionDelay: `${delay + i * stagger}ms`,
+                          opacity: isVisible ? 1 : 0,
+                          transform: isVisible
+                            ? "translateY(0)"
+                            : "translateY(16px)",
+                        }
+                  }
+                >
+                  {word}
+                  {"\u00A0"}
+                </span>
+              )
+            })}
         </React.Fragment>
       ))}
     </span>
