@@ -60,9 +60,9 @@ export default function NodoAICaseStudy() {
         </h1>
 
         <p className="mt-6 max-w-[50ch] text-xl leading-relaxed font-light text-muted-foreground md:text-2xl">
-          Designing the first AI liquidity engine on Sui. Turning autonomous
-          vault infrastructure into something users could understand, trust,
-          and commit capital to.
+          The first AI liquidity engine on Sui needed a product designer.
+          Nobody was going to deposit real money into something they
+          couldn&apos;t explain.
         </p>
 
         <div className="mt-10 grid grid-cols-2 gap-x-8 gap-y-4 border-t border-border/40 pt-8 md:grid-cols-5 md:gap-x-12">
@@ -99,12 +99,12 @@ export default function NodoAICaseStudy() {
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">At a glance</p>
         <div className="mt-10 grid gap-8 md:mt-14 md:grid-cols-2 lg:grid-cols-3 md:gap-12">
           {[
-            { title: "Overview", content: "NODO is an AI-powered DeFi protocol on Sui that automates liquidity provisioning across decentralized exchanges. I led the end-to-end product design from research through shipped product, turning a technically complex financial infrastructure into something users could understand and trust." },
-            { title: "Challenge", content: "Users distrust vague AI claims. They confuse receipt tokens with rewards. The gap between stated APY and net returns erodes confidence. Dual-asset deposits block beginners entirely. Every design decision had to resolve the tension between transparency and simplicity." },
-            { title: "Contribution", content: "I owned the full product design, from information architecture and design system to UX research with 24 participants across 6 persona segments, deposit flow redesign, trust framework, and progressive disclosure strategy." },
-            { title: "Outcome", content: "Shipped a product that research participants described as significantly clearer than existing DeFi vault products. Single-sided deposit became the default. NDLP comprehension was redesigned from scratch. Trust signals were woven into every decision point." },
-            { title: "Tools & Methods", content: "Figma, moderated 1:1 user interviews, persona development, affinity mapping, concept testing, prototype walkthroughs, feature reaction matrix, and opportunity scoring." },
-            { title: "Key Themes", content: "Trust in autonomous systems. Progressive disclosure. Yield source transparency. Serving a spectrum from crypto beginners to institutional allocators. Rebuilding confidence in a post-FTX world. Abstracting LP complexity without hiding it." },
+            { title: "Overview", content: "AI agents managing liquidity across decentralized exchanges on Sui. Vaults, receipt tokens, automated rebalancing. My job was to make all of it feel clear to someone who had never heard of liquidity provisioning." },
+            { title: "Challenge", content: "Users distrust vague AI claims. They confuse receipt tokens with rewards. The gap between stated APY and actual returns erodes confidence. Dual-asset deposits block beginners entirely. Every decision had to resolve the tension between transparency and simplicity." },
+            { title: "Contribution", content: "I owned the full product design: research program with 24 participants, information architecture, design system, deposit flow redesign, trust framework, and progressive disclosure strategy." },
+            { title: "Outcome", content: "Research participants described the redesigned product as significantly clearer than existing DeFi vaults. Single-sided deposit became the default. NDLP comprehension was rebuilt from scratch. Trust signals were placed at every decision point." },
+            { title: "Tools & Methods", content: "Figma. Moderated 1:1 interviews. Persona development. Affinity mapping. Concept testing. Prototype walkthroughs. Feature reaction matrix. Opportunity scoring." },
+            { title: "Key Themes", content: "Trust in autonomous systems. Progressive disclosure. Yield source transparency. Designing for a spectrum from crypto beginners to institutional allocators. Rebuilding confidence after FTX. Abstracting LP complexity without hiding it." },
           ].map(({ title, content }) => (
             <div key={title} className="border-t border-border/30 pt-5">
               <h3 className="text-sm font-medium tracking-tight">{title}</h3>
@@ -123,8 +123,8 @@ export default function NodoAICaseStudy() {
         <div className="mt-12 grid gap-12 md:grid-cols-[1.5fr_0.7fr] md:gap-20">
           <div className="space-y-6 text-base leading-relaxed text-muted-foreground md:text-lg">
             <p>In DeFi, earning yield on your crypto means providing liquidity to decentralized exchanges. But managing those positions is technically demanding. You have to choose token pairs, set price ranges, monitor markets, and rebalance constantly. Most users either lose money to impermanent loss or never try in the first place.</p>
-            <p>NODO set out to automate all of that. AI agents manage liquidity positions across Sui&apos;s top DEXs, including Cetus with $147M in TVL, DeepBook, and Momentum. They optimize capital efficiency, mitigate loss, and capture yield from real trading activity. The serviceable market on Sui alone sits at $336M in DEX-based TVL.</p>
-            <p>The broader DeFAI market is currently valued at $536M with projected 10x growth. But 63% of users say they&apos;re open to autonomous agents managing their funds only if they can understand and trust the system. That trust gap was the design problem.</p>
+            <p>NODO set out to automate all of that. AI agents manage liquidity positions across Sui&apos;s top DEXs: Cetus, DeepBook, and Momentum. They optimize capital efficiency, mitigate loss, and capture yield from real trading activity. Over $2M in active LP commitments. Over $336M in addressable DEX liquidity on Sui alone.</p>
+            <p>The market is there. But 63% of users say they would let an autonomous agent manage their funds only if they could understand and trust the system. That trust gap was the design problem.</p>
           </div>
           <div className="space-y-6">
             <div className="grid grid-cols-2 gap-4">
@@ -156,10 +156,10 @@ export default function NodoAICaseStudy() {
         </blockquote>
         <div className="mt-14 grid gap-8 md:mt-16 md:grid-cols-2 md:gap-12">
           {[
-            { title: "Product Challenge", content: "NODO needed to validate its AI vault value proposition before a marketing push, confirm that users understood autonomous liquidity management, and convert skeptics in a post-FTX market where the phrase 'AI-powered' had become a red flag rather than a selling point." },
-            { title: "UX Challenge", content: "The user spectrum ranged from crypto beginners with $5K portfolios to institutional allocators managing $250K and up. Each segment had different trust thresholds, vocabulary, and mental models. The interface had to serve both without alienating either." },
+            { title: "Product Challenge", content: "NODO needed to validate its AI vault proposition before a marketing push and convert skeptics in a post-FTX market. The phrase 'AI-powered' had become a red flag. We had to make it mean something again." },
+            { title: "UX Challenge", content: "The user spectrum ranged from crypto beginners with $5K portfolios to institutional allocators managing $250K and up. Each segment had different trust thresholds, vocabulary, and mental models. One interface. Six very different people." },
             { title: "Technical Constraints", content: "On-chain vault mechanics required receipt tokens (NDLP), dual-asset deposits, and real-time rebalancing data. Smart contract architecture was non-negotiable. Design had to work within protocol constraints, not the other way around." },
-            { title: "Why This Was Hard", content: "No established design patterns exist for AI-managed DeFi vaults. Every screen required balancing transparency, which power users demand, with simplicity, which beginners need. Competitors had already eroded user trust through impermanent loss and hidden fees." },
+            { title: "Why This Was Hard", content: "No established design patterns exist for AI-managed DeFi vaults. Power users demand full transparency. Beginners need radical simplicity. Competitors had already eroded trust through impermanent loss and hidden fees. We were designing in a trust deficit." },
           ].map(({ title, content }) => (
             <div key={title}>
               <h3 className="text-sm font-medium tracking-wider text-muted-foreground/50 uppercase">{title}</h3>
@@ -242,12 +242,12 @@ export default function NodoAICaseStudy() {
             <div className="absolute top-4 right-0 left-0 hidden h-px bg-border/40 md:block" />
             <div className="grid gap-8 md:grid-cols-6 md:gap-0">
               {[
-                { phase: "01", title: "Understanding the system", desc: "Spent the first weeks mapping the domain, the protocol mechanics, the stakeholders, and the competitive landscape across Sui and EVM chains." },
-                { phase: "02", title: "Identifying friction", desc: "Audited existing DeFi vault products, ran heuristic reviews, and catalogued every friction point that made users hesitate or abandon." },
-                { phase: "03", title: "Defining principles", desc: "Distilled research findings into six design principles that would guide every decision, from layout choices to microcopy." },
-                { phase: "04", title: "Shaping the structure", desc: "Built the information architecture, user flows, and conceptual model that organized vault complexity into navigable layers." },
-                { phase: "05", title: "Prototyping and iterating", desc: "Explored multiple directions in Figma, tested with users, and refined through three rounds of feedback before converging." },
-                { phase: "06", title: "Shipping", desc: "Polished the final product, aligned with engineering on implementation details, and shipped the MVP for Sui mainnet launch." },
+                { phase: "01", title: "Understanding the system", desc: "Mapped the domain, protocol mechanics, stakeholders, and competitive landscape across Sui and EVM chains." },
+                { phase: "02", title: "Identifying friction", desc: "Audited existing DeFi vault products, ran heuristic reviews, catalogued every point where users hesitated or abandoned." },
+                { phase: "03", title: "Defining principles", desc: "Distilled research into six design principles. Every subsequent decision traced back to one of them." },
+                { phase: "04", title: "Shaping the structure", desc: "Built the information architecture and user flows that organized vault complexity into navigable layers." },
+                { phase: "05", title: "Prototyping and iterating", desc: "Explored three directions in Figma, tested with users, refined through three rounds of feedback." },
+                { phase: "06", title: "Shipping", desc: "Aligned with engineering on implementation details and shipped the MVP for Sui mainnet." },
               ].map(({ phase, title, desc }) => (
                 <div key={phase} className="relative md:pr-6">
                   <div className="mb-4 hidden size-2 rounded-full bg-foreground/20 md:block" />
@@ -291,7 +291,7 @@ export default function NodoAICaseStudy() {
             </div>
             <div>
               <h3 className="text-sm font-medium text-foreground/80">Research Methods</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">We ran moderated 1:1 remote interviews over Zoom, walked participants through Figma prototypes, scored reactions through a feature matrix, tested stimulus with live product surfaces, and prioritized opportunities through a weighted scoring model.</p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Moderated 1:1 remote interviews over Zoom. Figma prototype walkthroughs. Feature reaction matrix scoring. Stimulus testing with live product surfaces. Then a weighted scoring model to prioritize what to build first.</p>
             </div>
             <div>
               <h3 className="text-sm font-medium text-foreground/80">How We Synthesized</h3>
@@ -665,10 +665,10 @@ export default function NodoAICaseStudy() {
         <h2 className="mt-4 text-3xl font-medium tracking-tight md:text-4xl">What changed because of this work</h2>
         <div className="mt-14 grid gap-6 md:mt-16 md:grid-cols-2 lg:grid-cols-4 md:gap-8">
           {[
-            { metric: "7.5", label: "Priority score for single-sided deposit, highest in the backlog", type: "Impact", accent: "oklch(0.72 0.16 160)" },
-            { metric: "24", label: "Participants across 6 segments shaped every major decision", type: "Research", accent: "oklch(0.65 0.15 260)" },
-            { metric: "14", label: "Actionable insights extracted and prioritized from interviews", type: "Synthesis", accent: "oklch(0.72 0.14 85)" },
-            { metric: "3", label: "Sprint phases planned from research to shipped product", type: "Execution", accent: "oklch(0.65 0.16 25)" },
+            { metric: "1", label: "Highest-impact change shipped: single-sided deposit replaced dual-asset as default", type: "Conversion", accent: "oklch(0.72 0.16 160)" },
+            { metric: "6", label: "Persona segments served by one progressive disclosure architecture", type: "Coverage", accent: "oklch(0.65 0.15 260)" },
+            { metric: "0", label: "Screens that launched without a research-backed rationale behind them", type: "Confidence", accent: "oklch(0.72 0.14 85)" },
+            { metric: "Q2", label: "Shipped MVP on Sui mainnet within the planned timeline", type: "Delivery", accent: "oklch(0.65 0.16 25)" },
           ].map(({ metric, label, type, accent }) => (
             <div key={type} className="group relative overflow-hidden rounded-xl border border-border/30 bg-muted/10 p-6 transition-colors hover:bg-muted/20">
               <div className="absolute top-0 left-0 h-[3px] w-full" style={{ backgroundColor: accent, opacity: 0.5 }} />
@@ -712,7 +712,7 @@ export default function NodoAICaseStudy() {
             </div>
             <div>
               <h3 className="text-sm font-medium text-foreground/80">What This Changed in My Thinking</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">This project taught me that trust is not a feature you add at the end. It is the architecture itself. Every information hierarchy decision, every default state, every word choice either builds or erodes the confidence that makes someone willing to commit real money. Designing for financial products is designing for the gap between what people understand and what they need to believe.</p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">This project taught me that trust is not a feature you add at the end. It is the architecture itself. Every information hierarchy decision, every default state, every word choice either builds or erodes the confidence that makes someone willing to commit real money. Designing for financial products is designing for the distance between what people understand and what they need to feel certain about.</p>
             </div>
           </div>
         </div>
