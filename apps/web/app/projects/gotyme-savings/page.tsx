@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowLeft, ArrowUpRight } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 import { Badge } from "@workspace/ui/components/badge"
 import { TableOfContents } from "@/components/case-study/table-of-contents"
 import { ImagePlaceholder } from "@/components/case-study/image-placeholder"
@@ -22,32 +22,22 @@ const tocItems = [
   { id: "reflection", label: "Reflection" },
 ]
 
+const contentRail = "mx-auto w-full max-w-[1100px] px-6 md:px-10 lg:px-14"
+const sectionRail = `${contentRail} py-24 md:py-32`
+const dividerRail = "mx-auto h-px w-[calc(100%-3rem)] max-w-[1100px] bg-border/30 md:w-[calc(100%-5rem)] lg:w-[calc(100%-7rem)]"
+
 export default function GoTymeSavingsCaseStudy() {
   return (
     <main className="min-h-screen overflow-x-hidden">
-      <header className="fixed inset-x-0 top-0 z-50 bg-background/80 backdrop-blur-xl">
-        <div className="flex h-14 items-center justify-between px-6 md:px-12">
-          <Link
-            href="/#work"
-            className="group flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <ArrowLeft className="size-3.5 transition-transform duration-200 group-hover:-translate-x-0.5" />
-            Selected work
-          </Link>
-          <Link href="/" className="text-sm font-medium tracking-tight">
-            Leon
-          </Link>
-        </div>
-      </header>
 
       <div className="xl:grid xl:grid-cols-[120px_1fr]">
         <aside className="hidden xl:block xl:pl-6">
           <TableOfContents items={tocItems} />
         </aside>
-        <div>
+        <div className="min-w-0">
 
           {/* 1. Hero */}
-          <section className="relative px-6 pt-28 pb-16 md:px-[250px] md:pt-36 md:pb-24">
+          <section className={`${contentRail} relative pt-28 pb-16 md:pt-36 md:pb-24`}>
             <div className="flex items-center gap-3">
               <Badge variant="outline">Fintech · Savings</Badge>
               <Badge variant="secondary">Shipped</Badge>
@@ -99,7 +89,7 @@ export default function GoTymeSavingsCaseStudy() {
           </section>
 
           {/* 2. Snapshot */}
-          <section id="snapshot" className="px-6 py-24 md:px-[250px] md:py-32">
+          <section id="snapshot" className={sectionRail}>
             <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">
               At a glance
             </p>
@@ -146,10 +136,10 @@ export default function GoTymeSavingsCaseStudy() {
             </div>
           </section>
 
-          <div className="mx-6 h-px bg-border/30 md:mx-[250px]" />
+          <div className={dividerRail} />
 
           {/* 3. Setting */}
-          <section id="setting" className="px-6 py-24 md:px-[250px] md:py-32">
+          <section id="setting" className={sectionRail}>
             <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">
               Setting
             </p>
@@ -235,7 +225,7 @@ export default function GoTymeSavingsCaseStudy() {
           </section>
 
           {/* 4. The Challenge */}
-          <section id="challenge" className="px-6 py-24 md:px-[250px] md:py-32">
+          <section id="challenge" className={sectionRail}>
             <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">
               The Challenge
             </p>
@@ -317,10 +307,10 @@ export default function GoTymeSavingsCaseStudy() {
             </div>
           </section>
 
-          <div className="mx-6 h-px bg-border/30 md:mx-[250px]" />
+          <div className={dividerRail} />
 
           {/* 5. What We Found */}
-          <section id="found" className="px-6 py-24 md:px-[250px] md:py-32">
+          <section id="found" className={sectionRail}>
             <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">
               What We Found
             </p>
@@ -424,7 +414,7 @@ export default function GoTymeSavingsCaseStudy() {
           </section>
 
           {/* 6. Approach */}
-          <section id="approach" className="px-6 py-24 md:px-[250px] md:py-32">
+          <section id="approach" className={sectionRail}>
             <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">
               Approach
             </p>
@@ -487,10 +477,10 @@ export default function GoTymeSavingsCaseStudy() {
             </div>
           </section>
 
-          <div className="mx-6 h-px bg-border/30 md:mx-[250px]" />
+          <div className={dividerRail} />
 
           {/* 7. The Product */}
-          <section id="product" className="px-6 py-24 md:px-[250px] md:py-32">
+          <section id="product" className={sectionRail}>
             <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">
               The Product
             </p>
@@ -662,10 +652,10 @@ export default function GoTymeSavingsCaseStudy() {
             </div>
           </section>
 
-          <div className="mx-6 h-px bg-border/30 md:mx-[250px]" />
+          <div className={dividerRail} />
 
           {/* 8. Outcome */}
-          <section id="outcome" className="px-6 py-24 md:px-[250px] md:py-32">
+          <section id="outcome" className={sectionRail}>
             <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">
               Outcome
             </p>
@@ -765,7 +755,7 @@ export default function GoTymeSavingsCaseStudy() {
           </section>
 
           {/* 9. Reflection */}
-          <section id="reflection" className="px-6 py-24 md:px-[250px] md:py-32">
+          <section id="reflection" className={sectionRail}>
             <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">
               Reflection
             </p>
@@ -838,10 +828,10 @@ export default function GoTymeSavingsCaseStudy() {
             </div>
           </section>
 
-          <div className="mx-6 h-px bg-border/30 md:mx-[250px]" />
+          <div className={dividerRail} />
 
           {/* 10. Next / CTA */}
-          <section className="px-6 py-24 md:px-[250px] md:py-40">
+          <section className={`${contentRail} py-24 md:py-40`}>
             <p className="max-w-[48ch] text-base leading-relaxed text-muted-foreground md:text-lg">
               Most people who wanted to save already knew how. GoalSave just
               made it harder to stop.
@@ -874,7 +864,7 @@ export default function GoTymeSavingsCaseStudy() {
             </div>
           </section>
 
-          <footer className="border-t border-border/30 px-6 py-8 md:px-[250px]">
+          <footer className={`${contentRail} border-t border-border/30 py-8`}>
             <div className="flex items-center justify-between">
               <span className="text-xs text-muted-foreground/30">
                 &copy; 2026 Leon

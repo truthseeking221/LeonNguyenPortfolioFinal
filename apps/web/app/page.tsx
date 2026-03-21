@@ -1,9 +1,10 @@
 import Link from "next/link"
 import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react"
-import { Button } from "@workspace/ui/components/button"
 import { Reveal } from "@/components/reveal"
 import { ScrollFloat, SplitReveal } from "@/components/scroll-effects"
 import { RotatingHeadline } from "@/components/rotating-headline"
+import { GradientButton } from "@/components/gradient-button"
+import { UnicornBg } from "@/components/unicorn-bg"
 
 /* ─────────────────────────────────────────────
    Data
@@ -82,69 +83,48 @@ export default function Page() {
         <div className="absolute left-[12%] right-[8%] top-[52%] h-px bg-foreground/[0.02]" />
       </div>
 
-      {/* ── Header ── */}
-      <header className="pointer-events-none animate-hero-header fixed inset-x-0 top-0 z-50 mix-blend-difference">
-        <div className="flex h-14 items-center justify-between px-6 md:px-[300px]">
-          <span className="pointer-events-auto text-sm font-medium tracking-tight text-white">
-            Leon
-          </span>
-          <nav className="pointer-events-auto flex items-center gap-8">
-            <a href="#work" className="text-sm text-white/50 transition-opacity hover:text-white">Work</a>
-            <a href="#about" className="text-sm text-white/50 transition-opacity hover:text-white">About</a>
-            <a href="#contact" className="text-sm text-white/50 transition-opacity hover:text-white">Contact</a>
-          </nav>
-        </div>
-      </header>
 
       {/* ══════════════════════════════════════════════════
-          ACT 1 — HERO
-          75vh. Three levels of hierarchy: label, headline,
-          positioning line. Two CTAs. Nothing else.
+          HERO — One unified block, vertically centered.
+          Eyebrow → headline → description → CTA
+          flow as a single authored composition.
           ══════════════════════════════════════════════════ */}
-      <section className="relative flex min-h-[75vh] flex-col justify-between px-6 pt-14 pb-10 md:px-[300px]">
+      <section className="relative flex min-h-screen items-center justify-center px-6 md:px-[120px]">
+        {/* UnicornStudio animated background */}
+        <UnicornBg />
 
-        <ScrollFloat speed={0.15}>
-          <div className="pt-10 md:pt-16">
-            {/* Identity row */}
-            <div className="animate-hero-label mb-5 flex items-center gap-3">
-              <div className="h-px w-6 bg-foreground/[0.12]" />
-              <span className="font-mono text-xs tracking-[0.22em] text-muted-foreground/55 uppercase">
-                Leon · Product Designer
-              </span>
-            </div>
+        <div className="relative z-10 text-center">
 
-            <h1 className="animate-hero-name text-[clamp(3rem,5.5vw,7.5rem)] leading-[0.88] font-medium tracking-tighter text-black">
-              <RotatingHeadline />
-            </h1>
+          {/* Eyebrow — small, earns the headline */}
+          <p className="animate-hero-label mb-6 text-lg font-medium tracking-tight text-foreground md:mb-8 md:text-xl">
+            Leon, product designer
+          </p>
 
-            {/* Single positioning line */}
-            <p className="animate-hero-tagline mt-6 max-w-[44ch] text-[15px] leading-relaxed text-muted-foreground/65 md:mt-8 md:text-base">
-              Systems, interfaces, and interactions that make complexity legible.
-            </p>
-          </div>
-        </ScrollFloat>
+          {/* Headline — the dominant statement */}
+          <h1
+            className="animate-hero-name font-medium tracking-tighter text-foreground"
+            style={{ fontSize: "clamp(48px, 9vw, 150px)", lineHeight: 0.88 }}
+          >
+            <RotatingHeadline />
+          </h1>
 
-        <ScrollFloat speed={-0.05}>
-          <div className="animate-hero-cta flex items-center gap-4">
-            <Button
-              asChild
-              size="lg"
-              className="gap-2 border-signal bg-signal text-white hover:bg-signal/90"
-            >
-              <a href="#work">
-                <ArrowDown className="size-4" />
+          {/* Description — close to the headline, clearly readable */}
+          <p className="animate-hero-body mx-auto mt-8 max-w-[42ch] text-base leading-relaxed text-foreground/55 md:mt-10 md:text-lg">
+            I design systems, interfaces, and interactions
+            that make complexity disappear.
+          </p>
+
+          {/* CTA — the natural conclusion */}
+          <div className="animate-hero-cta mt-10 md:mt-12">
+            <GradientButton href="#work">
+              <span className="inline-flex items-center gap-2">
                 See the work
-              </a>
-            </Button>
-
-            <Button asChild variant="outline" size="lg" className="gap-2">
-              <a href="#contact">
-                Start a project
-                <ArrowRight className="size-4" />
-              </a>
-            </Button>
+                <ArrowDown className="size-4" />
+              </span>
+            </GradientButton>
           </div>
-        </ScrollFloat>
+
+        </div>
       </section>
 
       {/* ══════════════════════════════════════════════════
@@ -181,7 +161,7 @@ export default function Page() {
                   NODO
                 </span>
                 {/* Hover outcome */}
-                <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-foreground/50 to-transparent p-6 opacity-0 transition-opacity duration-500 group-hover:opacity-100 md:p-8">
+                <div className="absolute right-0 bottom-0 flex flex-col justify-end bg-gradient-to-t from-foreground/50 to-transparent p-6 opacity-0 transition-opacity duration-500 group-hover:opacity-100 md:p-8">
                   <p className="max-w-[50ch] text-sm leading-relaxed text-background/55">
                     Vault management for non-crypto users. Clarity as the core
                     product decision.
@@ -214,7 +194,7 @@ export default function Page() {
                   Redesigned autonomous vault UX. Research to shipped MVP on Sui.
                 </p>
               </div>
-              <ArrowUpRight className="mt-1 size-4 shrink-0 text-muted-foreground/15 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-signal" />
+              <ArrowUpRight className="mt-1 size-4 shrink-0 text-muted-foreground/15 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground/50" />
             </div>
           </Link>
         </Reveal>
@@ -358,12 +338,16 @@ export default function Page() {
       <Reveal variant="fade">
         <div className="relative w-full overflow-hidden bg-foreground">
           <div className="flex flex-col items-center justify-center px-6 py-20 md:py-32">
-            <p className="max-w-[24ch] text-center text-[clamp(1.8rem,4vw,3.5rem)] font-medium leading-[1.15] tracking-tight text-background">
-              I do not make things look clear.
-            </p>
-            <p className="mt-3 max-w-[24ch] text-center text-[clamp(1.8rem,4vw,3.5rem)] font-medium leading-[1.15] tracking-tight text-background/50">
-              I make them become clear.
-            </p>
+            <ScrollFloat speed={0.08}>
+              <p className="max-w-[24ch] text-center text-[clamp(1.8rem,4vw,3.5rem)] font-medium leading-[1.15] tracking-tight text-background">
+                I do not make things look clear.
+              </p>
+            </ScrollFloat>
+            <ScrollFloat speed={-0.04}>
+              <p className="mt-3 max-w-[24ch] text-center text-[clamp(1.8rem,4vw,3.5rem)] font-medium leading-[1.15] tracking-tight text-background/50">
+                I make them become clear.
+              </p>
+            </ScrollFloat>
           </div>
         </div>
       </Reveal>
@@ -387,12 +371,14 @@ export default function Page() {
             <Reveal key={p.num} delay={i * 60}>
               <div className="group flex items-start gap-6 border-b border-border/8 py-8 last:border-0 md:gap-10 md:py-10">
                 {/* Ghost number */}
-                <span
-                  aria-hidden="true"
-                  className="shrink-0 select-none font-mono text-[clamp(2.5rem,5vw,4.5rem)] font-extralight leading-none tracking-tighter text-foreground/[0.04] transition-colors duration-400 group-hover:text-foreground/[0.08]"
-                >
-                  {p.num}
-                </span>
+                <ScrollFloat speed={0.06}>
+                  <span
+                    aria-hidden="true"
+                    className="shrink-0 select-none font-mono text-[clamp(2.5rem,5vw,4.5rem)] font-extralight leading-none tracking-tighter text-foreground/[0.04] transition-colors duration-400 group-hover:text-foreground/[0.08]"
+                  >
+                    {p.num}
+                  </span>
+                </ScrollFloat>
 
                 <div className="flex-1 pt-2">
                   {/* Statement */}
@@ -429,11 +415,13 @@ export default function Page() {
 
         {/* Opening line */}
         <Reveal delay={80}>
-          <p className="max-w-[28ch] text-[clamp(1.5rem,4vw,3rem)] leading-[1.12] font-light tracking-tight text-foreground/90">
-            I don&apos;t start with screens.
-            <br />
-            I start with what needs to become clear.
-          </p>
+          <ScrollFloat speed={0.07}>
+            <p className="max-w-[28ch] text-[clamp(1.5rem,4vw,3rem)] leading-[1.12] font-light tracking-tight text-foreground/90">
+              I don&apos;t start with screens.
+              <br />
+              I start with what needs to become clear.
+            </p>
+          </ScrollFloat>
         </Reveal>
 
         {/* Portrait + Bio grid */}
@@ -441,6 +429,7 @@ export default function Page() {
 
           {/* Portrait */}
           <Reveal delay={0} variant="scale">
+            <ScrollFloat speed={0.08}>
             <div className="relative overflow-hidden rounded-2xl border border-border/20 bg-foreground/[0.04]">
               <div className="aspect-[3/4]">
                 <div className="absolute top-3 left-3 h-4 w-4 border-t border-l border-foreground/[0.10]" />
@@ -458,6 +447,7 @@ export default function Page() {
                 </span>
               </div>
             </div>
+            </ScrollFloat>
           </Reveal>
 
           {/* Bio content */}
@@ -528,6 +518,17 @@ export default function Page() {
             <span className="text-foreground/80">Ship</span>
           </div>
         </Reveal>
+
+        <Reveal variant="fade" delay={200}>
+          <div className="mt-10">
+            <GradientButton href="/about">
+              <span className="inline-flex items-center gap-2">
+                Read more
+                <ArrowRight className="size-3" />
+              </span>
+            </GradientButton>
+          </div>
+        </Reveal>
       </section>
 
       {/* ══════════════════════════════════════════════════
@@ -546,37 +547,41 @@ export default function Page() {
         <Reveal delay={0} variant="fade">
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
 
-            <figure>
-              <blockquote>
-                <p className="text-[clamp(1.1rem,2.2vw,1.45rem)] font-light leading-[1.45] tracking-tight text-foreground/80">
-                  &ldquo;We had six months of confusion that Leon resolved
-                  in two weeks. He didn&apos;t redesign the interface.
-                  He redesigned the thinking behind it.&rdquo;
-                </p>
-              </blockquote>
-              <figcaption className="mt-6 flex items-center gap-3">
-                <div className="h-9 w-9 shrink-0 overflow-hidden rounded-full border border-border/20 bg-foreground/[0.06]" />
-                <span className="text-xs tracking-wide text-muted-foreground/55">
-                  Founder, B2B SaaS · Series A
-                </span>
-              </figcaption>
-            </figure>
+            <ScrollFloat speed={0.05}>
+              <figure>
+                <blockquote>
+                  <p className="text-[clamp(1.1rem,2.2vw,1.45rem)] font-light leading-[1.45] tracking-tight text-foreground/80">
+                    &ldquo;We had six months of confusion that Leon resolved
+                    in two weeks. He didn&apos;t redesign the interface.
+                    He redesigned the thinking behind it.&rdquo;
+                  </p>
+                </blockquote>
+                <figcaption className="mt-6 flex items-center gap-3">
+                  <div className="h-9 w-9 shrink-0 overflow-hidden rounded-full border border-border/20 bg-foreground/[0.06]" />
+                  <span className="text-xs tracking-wide text-muted-foreground/55">
+                    Founder, B2B SaaS · Series A
+                  </span>
+                </figcaption>
+              </figure>
+            </ScrollFloat>
 
-            <figure>
-              <blockquote>
-                <p className="text-[clamp(1.1rem,2.2vw,1.45rem)] font-light leading-[1.45] tracking-tight text-foreground/80">
-                  &ldquo;The best thing he did was tell us what not to build.
-                  That single call saved us three months and probably
-                  the product.&rdquo;
-                </p>
-              </blockquote>
-              <figcaption className="mt-6 flex items-center gap-3">
-                <div className="h-9 w-9 shrink-0 overflow-hidden rounded-full border border-border/20 bg-foreground/[0.06]" />
-                <span className="text-xs tracking-wide text-muted-foreground/55">
-                  CEO, TymeBank Crypto
-                </span>
-              </figcaption>
-            </figure>
+            <ScrollFloat speed={-0.03}>
+              <figure>
+                <blockquote>
+                  <p className="text-[clamp(1.1rem,2.2vw,1.45rem)] font-light leading-[1.45] tracking-tight text-foreground/80">
+                    &ldquo;The best thing he did was tell us what not to build.
+                    That single call saved us three months and probably
+                    the product.&rdquo;
+                  </p>
+                </blockquote>
+                <figcaption className="mt-6 flex items-center gap-3">
+                  <div className="h-9 w-9 shrink-0 overflow-hidden rounded-full border border-border/20 bg-foreground/[0.06]" />
+                  <span className="text-xs tracking-wide text-muted-foreground/55">
+                    CEO, TymeBank Crypto
+                  </span>
+                </figcaption>
+              </figure>
+            </ScrollFloat>
 
           </div>
         </Reveal>
@@ -593,20 +598,22 @@ export default function Page() {
       >
         <Reveal variant="fade" delay={0}>
           <div className="mb-10 flex items-center gap-2 md:mb-12">
-            <div className="h-1.5 w-1.5 animate-breathe rounded-full bg-signal" />
+            <div className="h-1.5 w-1.5 animate-breathe rounded-full bg-foreground/40" />
             <span className="font-mono text-[9px] tracking-[0.2em] text-muted-foreground/30 uppercase">
               Available for new projects
             </span>
           </div>
         </Reveal>
 
-        <h2 className="text-[clamp(2rem,5vw,4.5rem)] leading-[1.08] font-light tracking-tight">
-          <SplitReveal
-            text={"Let's build\nsomething clear."}
-            stagger={90}
-            delay={0}
-          />
-        </h2>
+        <ScrollFloat speed={0.1}>
+          <h2 className="text-[clamp(2rem,5vw,4.5rem)] leading-[1.08] font-light tracking-tight">
+            <SplitReveal
+              text={"Let's build\nsomething clear."}
+              stagger={90}
+              delay={0}
+            />
+          </h2>
+        </ScrollFloat>
 
         <Reveal delay={400}>
           <p className="mt-8 max-w-[44ch] text-base leading-relaxed text-muted-foreground/60">
@@ -615,15 +622,18 @@ export default function Page() {
           </p>
         </Reveal>
 
-        <Reveal delay={550} variant="fade">
-          <a
-            href="mailto:leondesigner221@gmail.com"
-            className="mt-8 inline-flex items-center gap-3 font-mono text-[clamp(1rem,2.5vw,1.5rem)] tracking-wide text-foreground underline decoration-signal/40 underline-offset-[6px] transition-all duration-300 hover:decoration-signal hover:underline-offset-8"
-          >
-            leondesigner221@gmail.com
-            <ArrowUpRight className="size-5 text-signal/50" />
-          </a>
-        </Reveal>
+        <ScrollFloat speed={-0.04}>
+          <Reveal delay={550} variant="fade">
+            <div className="mt-8">
+              <GradientButton href="mailto:leondesigner221@gmail.com">
+                <span className="inline-flex items-center gap-2">
+                  leondesigner221@gmail.com
+                  <ArrowUpRight className="size-4" />
+                </span>
+              </GradientButton>
+            </div>
+          </Reveal>
+        </ScrollFloat>
       </section>
 
       {/* ── Footer ── */}

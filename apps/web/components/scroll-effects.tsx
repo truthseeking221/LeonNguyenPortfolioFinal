@@ -1,15 +1,15 @@
 "use client"
 
 import * as React from "react"
+import { useLenis } from "lenis/react"
 import { cn } from "@workspace/ui/lib/utils"
 
 /* ─────────────────────────────────────────────────────
    ScrollFloat — Parallax speed differential.
 
-   Smoothed with a tiny CSS transition (80ms) to
-   eliminate micro-jitter on slow scroll. The transition
-   is short enough to feel direct, long enough to
-   prevent stutter.
+   Driven by Lenis's lerped scroll position instead of
+   raw browser scroll events. No CSS transition hack
+   needed — Lenis already provides smooth interpolation.
    ───────────────────────────────────────────────────── */
 
 interface ScrollFloatProps {
@@ -26,53 +26,37 @@ export function ScrollFloat({
   fade = 0,
 }: ScrollFloatProps) {
   const ref = React.useRef<HTMLDivElement>(null)
+  const [reducedMotion, setReducedMotion] = React.useState(false)
 
   React.useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setReducedMotion(true)
+    }
+  }, [])
+
+  useLenis(() => {
+    if (reducedMotion) return
     const el = ref.current
     if (!el) return
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+    const rect = el.getBoundingClientRect()
+    const vh = window.innerHeight
+    const centered = (rect.top + rect.height / 2) / vh - 0.5
+    const y = -centered * speed * vh
 
-    let ticking = false
-
-    function update() {
-      if (!el) return
-      const rect = el.getBoundingClientRect()
-      const vh = window.innerHeight
-      const centered = (rect.top + rect.height / 2) / vh - 0.5
-      const y = -centered * speed * vh
-
-      if (fade > 0) {
-        const opacity = Math.max(0, 1 - Math.abs(centered) * fade * 2.5)
-        el.style.transform = `translateY(${y}px)`
-        el.style.opacity = String(opacity)
-      } else {
-        el.style.transform = `translateY(${y}px)`
-      }
-
-      ticking = false
+    if (fade > 0) {
+      const opacity = Math.max(0, 1 - Math.abs(centered) * fade * 2.5)
+      el.style.transform = `translateY(${y}px)`
+      el.style.opacity = String(opacity)
+    } else {
+      el.style.transform = `translateY(${y}px)`
     }
-
-    function onScroll() {
-      if (!ticking) {
-        requestAnimationFrame(update)
-        ticking = true
-      }
-    }
-
-    window.addEventListener("scroll", onScroll, { passive: true })
-    onScroll()
-
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [speed, fade])
+  }, [speed, fade, reducedMotion])
 
   return (
     <div
       ref={ref}
       className={cn("will-change-transform", className)}
-      style={{
-        transition: "transform 80ms linear, opacity 80ms linear",
-      }}
     >
       {children}
     </div>

@@ -1,9 +1,15 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, ArrowUpRight } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 import { Badge } from "@workspace/ui/components/badge"
 import { TableOfContents } from "@/components/case-study/table-of-contents"
 import { ImagePlaceholder } from "@/components/case-study/image-placeholder"
+import { FeatureReactionMatrix } from "@/components/case-study/feature-reaction-matrix"
+import problemSpaceMap from "../../images/Problem Space Map.png"
+import nodoEcosystemPositioning from "../../images/NODO Ecosystem Positioning.png"
+import nodoResearch1 from "../../images/Nodo Research 1.png"
+import nodoResearch2 from "../../images/Nodo Research 2.png"
 
 export const metadata: Metadata = {
   title: "NODO AI — Case Study — Leon",
@@ -29,27 +35,23 @@ const tocItems = [
   { id: "reflection", label: "Reflection" },
 ]
 
+const contentRail = "mx-auto w-full max-w-[1100px] px-6 md:px-10 lg:px-14"
+const sectionRail = `${contentRail} py-24 md:py-32`
+const wideRail = "mx-auto w-full max-w-[1340px] px-6 md:px-10 lg:px-14"
+const dividerRail = "mx-auto h-px w-[calc(100%-3rem)] max-w-[1100px] bg-border/30 md:w-[calc(100%-5rem)] lg:w-[calc(100%-7rem)]"
+
 export default function NodoAICaseStudy() {
   return (
     <main className="min-h-screen overflow-x-hidden">
-      <header className="fixed inset-x-0 top-0 z-50 bg-background/80 backdrop-blur-xl">
-        <div className="flex h-14 items-center justify-between px-6 md:px-12">
-          <Link href="/#work" className="group flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground">
-            <ArrowLeft className="size-3.5 transition-transform duration-200 group-hover:-translate-x-0.5" />
-            Selected work
-          </Link>
-          <Link href="/" className="text-sm font-medium tracking-tight">Leon</Link>
-        </div>
-      </header>
 
       <div className="xl:grid xl:grid-cols-[120px_1fr]">
         <aside className="hidden xl:block xl:pl-6">
           <TableOfContents items={tocItems} />
         </aside>
-        <div>
+        <div className="min-w-0">
 
       {/* 1. Hero */}
-      <section className="relative px-6 pt-28 pb-16 md:px-[250px] md:pt-36 md:pb-24">
+      <section className={`${contentRail} relative pt-28 pb-16 md:pt-36 md:pb-24`}>
         <div className="flex items-center gap-3">
           <Badge variant="outline">DeFi Infrastructure</Badge>
           <Badge variant="secondary">Shipped</Badge>
@@ -95,7 +97,7 @@ export default function NodoAICaseStudy() {
       </section>
 
       {/* 2. Snapshot */}
-      <section id="snapshot" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="snapshot" className={sectionRail}>
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">At a glance</p>
         <div className="mt-10 grid gap-8 md:mt-14 md:grid-cols-2 lg:grid-cols-3 md:gap-12">
           {[
@@ -114,20 +116,20 @@ export default function NodoAICaseStudy() {
         </div>
       </section>
 
-      <div className="mx-6 h-px bg-border/30 md:mx-[250px]" />
+      <div className={dividerRail} />
 
       {/* 3. Context */}
-      <section id="context" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="context" className={sectionRail}>
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Context</p>
         <h2 className="mt-4 max-w-[20ch] text-3xl font-medium tracking-tight md:text-4xl">Why this project existed</h2>
-        <div className="mt-12 grid gap-12 md:grid-cols-[1.5fr_0.7fr] md:gap-20">
-          <div className="space-y-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-            <p>In DeFi, earning yield on your crypto means providing liquidity to decentralized exchanges. But managing those positions is technically demanding. You have to choose token pairs, set price ranges, monitor markets, and rebalance constantly. Most users either lose money to impermanent loss or never try in the first place.</p>
-            <p>NODO set out to automate all of that. AI agents manage liquidity positions across Sui&apos;s top DEXs: Cetus, DeepBook, and Momentum. They optimize capital efficiency, mitigate loss, and capture yield from real trading activity. Over $2M in active LP commitments. Over $336M in addressable DEX liquidity on Sui alone.</p>
-            <p>The market is there. But 63% of users say they would let an autonomous agent manage their funds only if they could understand and trust the system. That trust gap was the design problem.</p>
-          </div>
-          <div className="space-y-6">
-            <div className="grid grid-cols-2 gap-4">
+        <div className="mt-12 space-y-12">
+          <div className="grid gap-12 md:grid-cols-[1fr_1fr] md:items-start md:gap-20">
+            <div className="space-y-6 text-base leading-relaxed text-muted-foreground md:text-lg">
+              <p>In DeFi, earning yield on your crypto means providing liquidity to decentralized exchanges. But managing those positions is technically demanding. You have to choose token pairs, set price ranges, monitor markets, and rebalance constantly. Most users either lose money to impermanent loss or never try in the first place.</p>
+              <p>NODO set out to automate all of that. AI agents manage liquidity positions across Sui&apos;s top DEXs: Cetus, DeepBook, and Momentum. They optimize capital efficiency, mitigate loss, and capture yield from real trading activity. Over $2M in active LP commitments. Over $336M in addressable DEX liquidity on Sui alone.</p>
+              <p>The market is there. But 63% of users say they would let an autonomous agent manage their funds only if they could understand and trust the system. That trust gap was the design problem.</p>
+            </div>
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
               {[
                 { stat: "$536M", label: "DeFAI market cap", accent: "oklch(0.72 0.16 160)" },
                 { stat: "$336M", label: "Sui DEX TVL (SAM)", accent: "oklch(0.65 0.15 260)" },
@@ -141,13 +143,27 @@ export default function NodoAICaseStudy() {
                 </div>
               ))}
             </div>
-            <ImagePlaceholder label="[Insert Sui ecosystem map or NODO positioning diagram]" caption="NODO&apos;s position in the Sui DeFi ecosystem" aspectRatio="aspect-[4/3]" variant="artifact" />
           </div>
+          <figure className="group overflow-hidden rounded-lg border border-border/40 bg-muted/20">
+            <div className="relative aspect-[16/9]">
+              <Image
+                src={nodoEcosystemPositioning}
+                alt="NODO positioning and capital flow in the Sui DeFi ecosystem"
+                fill
+                className="object-contain"
+                sizes="(min-width: 768px) 80vw, 100vw"
+                priority
+              />
+            </div>
+            <figcaption className="px-3 py-2 text-[10px] text-muted-foreground/45">
+              NODO&apos;s position in the Sui DeFi ecosystem
+            </figcaption>
+          </figure>
         </div>
       </section>
 
       {/* 4. Challenge */}
-      <section id="challenge" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="challenge" className={sectionRail}>
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">The Challenge</p>
         <h2 className="mt-4 max-w-[24ch] text-3xl font-medium tracking-tight md:text-4xl">Defining the design problem</h2>
         <blockquote className="mt-12 max-w-[32ch] border-l-2 border-foreground/10 pl-6 text-2xl leading-snug font-light tracking-tight text-foreground/80 md:ml-[10%] md:text-3xl">
@@ -168,12 +184,26 @@ export default function NodoAICaseStudy() {
           ))}
         </div>
         <div className="mt-16">
-          <ImagePlaceholder label="[Insert visual showing the problem space or complexity map]" caption="The landscape of trust barriers and conversion blockers" aspectRatio="aspect-[21/9]" variant="hero" />
+          <figure className="group">
+            <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-muted/20 aspect-[21/9]">
+              <Image
+                src={problemSpaceMap}
+                alt="Problem space map showing trust barriers and conversion blockers"
+                fill
+                sizes="(min-width: 768px) 100vw, calc(100vw - 3rem)"
+                className="object-contain"
+                priority
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              The landscape of trust barriers and conversion blockers
+            </figcaption>
+          </figure>
         </div>
       </section>
 
       {/* 5. Role */}
-      <section id="role" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="role" className={sectionRail}>
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Role</p>
         <h2 className="mt-4 text-3xl font-medium tracking-tight md:text-4xl">What I owned</h2>
         <div className="mt-12 grid gap-8 md:grid-cols-3 md:gap-12">
@@ -208,10 +238,10 @@ export default function NodoAICaseStudy() {
         </div>
       </section>
 
-      <div className="mx-6 h-px bg-border/30 md:mx-[250px]" />
+      <div className={dividerRail} />
 
       {/* 6. Objectives */}
-      <section id="objectives" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="objectives" className={sectionRail}>
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Objectives</p>
         <h2 className="mt-4 max-w-[22ch] text-3xl font-medium tracking-tight md:text-4xl">What success looked like</h2>
         <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-2 lg:grid-cols-3 md:gap-8">
@@ -234,7 +264,7 @@ export default function NodoAICaseStudy() {
       </section>
 
       {/* 7. Process */}
-      <section id="process" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="process" className={sectionRail}>
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Process</p>
         <h2 className="mt-4 text-3xl font-medium tracking-tight md:text-4xl">How the work unfolded</h2>
         <div className="mt-14 md:mt-20">
@@ -261,158 +291,201 @@ export default function NodoAICaseStudy() {
         </div>
       </section>
 
-      <div className="mx-6 h-px bg-border/30 md:mx-[250px]" />
+      {/* 8. Discovery — rhythm: open → proof → dense → expand → interrupt → breathe */}
+      <section id="discovery" className="pt-24 md:pt-32">
 
-      {/* 8. Discovery */}
-      <section id="discovery" className="px-6 py-24 md:px-[250px] md:py-32">
-        <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Discovery</p>
-        <h2 className="mt-4 max-w-[22ch] text-3xl font-medium tracking-tight md:text-4xl">Understanding before designing</h2>
-        <p className="mt-8 max-w-[58ch] text-base leading-relaxed text-muted-foreground md:text-lg">Before touching a screen, I ran a structured research program to understand who we were designing for, what blocked them, and what would make them trust an autonomous system with their capital.</p>
-
-        <div className="mt-14 grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
-          {[
-            { stat: "24", label: "Participants interviewed", accent: "oklch(0.72 0.16 160)" },
-            { stat: "6", label: "Persona segments", accent: "oklch(0.65 0.15 260)" },
-            { stat: "45", label: "Minutes per session", accent: "oklch(0.72 0.14 85)" },
-            { stat: "14", label: "Insights synthesized", accent: "oklch(0.65 0.16 25)" },
-          ].map(({ stat, label, accent }) => (
-            <div key={label}>
-              <p className="text-3xl font-medium tracking-tight md:text-4xl" style={{ color: accent }}>{stat}</p>
-              <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground/50">{label}</p>
-            </div>
-          ))}
+        {/* Beat 1: Opening — standard column, sets the question */}
+        <div className={contentRail}>
+          <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Discovery</p>
+          <h2 className="mt-4 max-w-[22ch] text-3xl font-medium tracking-tight md:text-4xl">Understanding before designing</h2>
+          <p className="mt-6 max-w-[52ch] text-base leading-relaxed text-muted-foreground/70 md:text-lg">Before touching a screen, I ran a structured research program to understand who we were designing for, what blocked them, and what would make them trust an autonomous system with their capital.</p>
         </div>
 
-        <div className="mt-16 grid gap-12 md:grid-cols-[1.5fr_0.7fr] md:gap-20">
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-sm font-medium text-foreground/80">Assumptions We Tested</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">We went in believing that users could articulate the benefit of AI vaults after a 30-second explanation, that most people understood &quot;automated yield&quot; even if LP mechanics confused them, that NDLP would be intuitively understood as a vault share token, and that single-sided deposit would dramatically lower the barrier for first-time users. Some of these held up. Others shattered immediately.</p>
-            </div>
-            <div>
-              <h3 className="text-sm font-medium text-foreground/80">Research Methods</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Moderated 1:1 remote interviews over Zoom. Figma prototype walkthroughs. Feature reaction matrix scoring. Stimulus testing with live product surfaces. Then a weighted scoring model to prioritize what to build first.</p>
-            </div>
-            <div>
-              <h3 className="text-sm font-medium text-foreground/80">How We Synthesized</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">All 24 interviews were transcribed into a quotes library, tagged by theme and persona. From there I built an insight synthesis matrix, scoring each finding by evidence count, confidence level, and its impact on trust, conversion, and retention. That process surfaced 14 actionable insights and ranked them into a prioritized opportunity backlog.</p>
-            </div>
-          </div>
-          <div className="space-y-6">
-            <ImagePlaceholder label="[Insert research synthesis board or affinity map]" caption="Research synthesis: 24 interviews, 26 quotes, 14 insights" aspectRatio="aspect-square" variant="artifact" />
-            <ImagePlaceholder label="[Insert persona spectrum or session screenshot]" caption="6 persona segments mapped by DeFi literacy and risk appetite" aspectRatio="aspect-[4/3]" variant="artifact" />
-          </div>
-        </div>
-
-        {/* Persona spectrum */}
-        <div className="mt-20">
-          <h3 className="text-sm font-medium text-foreground/80">Who We Designed For</h3>
-          <p className="mt-2 max-w-[55ch] text-xs leading-relaxed text-muted-foreground/50">Six segments emerged from the research, each with distinct trust thresholds and conversion blockers.</p>
-          <div className="mt-8 grid gap-px overflow-hidden rounded-xl border border-border/30 bg-border/30 md:grid-cols-2">
+        {/* Beat 2: Stats — breaks wider. Numbers land with dramatic scale. */}
+        <div className="mt-16 border-y border-border/20 bg-foreground/[0.015] py-14 md:py-20">
+          <div className={`${wideRail} grid grid-cols-2 gap-y-10 md:grid-cols-4 md:gap-8`}>
             {[
-              { name: "Passive Yield Seeker", oneliner: "Wants yield without managing positions", likelihood: "Medium", color: "#f59e0b", portfolio: "$5K to $25K" },
-              { name: "LP-Confused Beginner", oneliner: "Has a wallet but has never provided liquidity", likelihood: "Low", color: "#ef4444", portfolio: "Under $5K" },
-              { name: "Skeptical Power User", oneliner: "Evaluates products like an analyst", likelihood: "High if proven", color: "#3b82f6", portfolio: "$25K to $250K+" },
-              { name: "Stablecoin Safety Optimizer", oneliner: "Preserves capital above all", likelihood: "Medium", color: "#8b5cf6", portfolio: "$10K to $250K+" },
-              { name: "Sui-Native DeFi User", oneliner: "Already active on Cetus and DeepBook", likelihood: "Highest", color: "#10b981", portfolio: "$5K to $100K" },
-              { name: "Reward-Driven Explorer", oneliner: "Will try anything with a multiplier", likelihood: "High, then churns", color: "#06b6d4", portfolio: "$1K to $10K" },
+              { stat: "24", label: "Participants interviewed", accent: "oklch(0.72 0.19 160)" },
+              { stat: "6", label: "Persona segments identified", accent: "oklch(0.62 0.18 260)" },
+              { stat: "45", label: "Minutes per session", accent: "oklch(0.75 0.17 85)" },
+              { stat: "14", label: "Insights synthesized", accent: "oklch(0.62 0.19 25)" },
+            ].map(({ stat, label, accent }) => (
+              <div key={label} className="relative">
+                <p className="text-5xl font-extralight tracking-tighter md:text-6xl" style={{ color: accent }}>{stat}</p>
+                <p className="mt-2 max-w-[14ch] text-[11px] leading-snug text-muted-foreground/45">{label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Beat 3: Methodology — text stays narrow, images break wider */}
+        <div className={`${contentRail} pt-20 md:pt-28`}>
+          <div className="grid gap-0 divide-y divide-border/20">
+            {[
+              { title: "Assumptions We Tested", body: "We went in believing users could articulate the benefit of AI vaults after a 30-second explanation, that most people understood \"automated yield\" even if LP mechanics confused them, that NDLP would be intuitively understood as a vault share token, and that single-sided deposit would dramatically lower the barrier. Some held up. Others shattered immediately." },
+              { title: "Research Methods", body: "Moderated 1:1 remote interviews over Zoom. Figma prototype walkthroughs. Feature reaction matrix scoring. Stimulus testing with live product surfaces. Then a weighted scoring model to prioritize what to build first." },
+              { title: "How We Synthesized", body: "All 24 interviews transcribed into a quotes library, tagged by theme and persona. From there I built an insight synthesis matrix — scoring each finding by evidence count, confidence level, and impact on trust, conversion, and retention. That surfaced 14 actionable insights ranked into a prioritized opportunity backlog." },
+            ].map(({ title, body }) => (
+              <div key={title} className="py-7 first:pt-0 last:pb-0">
+                <h3 className="text-xs font-medium tracking-wide text-foreground/70 uppercase">{title}</h3>
+                <p className="mt-3 text-[13px] leading-[1.7] text-muted-foreground/55">{body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Research images — break out wider for visual impact */}
+        <div className={`${wideRail} mt-14 flex flex-col gap-5`}>
+          <figure className="group">
+            <div className="overflow-hidden rounded-lg border border-border/40 bg-muted/20">
+              <Image
+                src={nodoResearch1}
+                alt="Research synthesis board and affinity map from NODO user interviews"
+                width={nodoResearch1.width}
+                height={nodoResearch1.height}
+                className="h-auto w-full"
+                sizes="(min-width: 1280px) 1340px, (min-width: 768px) 90vw, 100vw"
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              Research synthesis: 24 interviews, 26 quotes, 14 insights
+            </figcaption>
+          </figure>
+          <figure className="group">
+            <div className="overflow-hidden rounded-lg border border-border/40 bg-muted/20">
+              <Image
+                src={nodoResearch2}
+                alt="Persona spectrum: six segments by DeFi literacy and risk appetite"
+                width={nodoResearch2.width}
+                height={nodoResearch2.height}
+                className="h-auto w-full"
+                sizes="(min-width: 1280px) 1340px, (min-width: 768px) 90vw, 100vw"
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              6 persona segments mapped by DeFi literacy and risk appetite
+            </figcaption>
+          </figure>
+        </div>
+
+        {/* Beat 4: Personas — break wider for card grid */}
+        <div className={`${wideRail} pt-24 md:pt-32`}>
+          <div>
+            <h3 className="text-xs font-medium tracking-wide text-foreground/70 uppercase">Who We Designed For</h3>
+            <p className="mt-2 max-w-[52ch] text-[13px] leading-relaxed text-muted-foreground/45">Six segments emerged from the research, each with distinct trust thresholds and conversion blockers.</p>
+          </div>
+          <div className="mt-10 grid gap-3 md:grid-cols-3">
+            {[
+              { name: "Passive Yield Seeker", oneliner: "Wants yield without managing positions", likelihood: "Medium", color: "#f59e0b", portfolio: "$5K – $25K" },
+              { name: "LP-Confused Beginner", oneliner: "Has a wallet but never provided liquidity", likelihood: "Low", color: "#ef4444", portfolio: "Under $5K" },
+              { name: "Skeptical Power User", oneliner: "Evaluates products like an analyst", likelihood: "High if proven", color: "#3b82f6", portfolio: "$25K – $250K+" },
+              { name: "Stablecoin Safety Optimizer", oneliner: "Preserves capital above all", likelihood: "Medium", color: "#8b5cf6", portfolio: "$10K – $250K+" },
+              { name: "Sui-Native DeFi User", oneliner: "Already active on Cetus and DeepBook", likelihood: "Highest", color: "#10b981", portfolio: "$5K – $100K" },
+              { name: "Reward-Driven Explorer", oneliner: "Will try anything with a multiplier", likelihood: "High, then churns", color: "#06b6d4", portfolio: "$1K – $10K" },
             ].map(({ name, oneliner, likelihood, color, portfolio }) => (
-              <div key={name} className="group relative bg-background p-5 transition-colors hover:bg-muted/20 md:p-6">
-                <div className="flex items-start gap-3">
-                  <div className="mt-1 size-2 shrink-0 rounded-full" style={{ backgroundColor: color }} />
-                  <div className="min-w-0">
-                    <h4 className="text-[13px] font-medium tracking-tight">{name}</h4>
-                    <p className="mt-1 text-[11px] leading-relaxed text-muted-foreground/50">{oneliner}</p>
-                    <div className="mt-3 flex items-center gap-4">
-                      <span className="text-[10px] text-muted-foreground/30">{portfolio}</span>
-                      <span className="rounded-full px-2 py-0.5 text-[9px] font-medium" style={{ backgroundColor: `${color}15`, color }}>{likelihood}</span>
-                    </div>
-                  </div>
+              <div key={name} className="group relative overflow-hidden rounded-xl border border-border/20 bg-background p-5 transition-colors hover:bg-foreground/[0.02] md:p-6">
+                <div className="absolute inset-x-0 top-0 h-[2px]" style={{ background: `linear-gradient(90deg, ${color}, transparent)`, opacity: 0.5 }} />
+                <div className="flex items-center gap-2.5">
+                  <div className="size-2 shrink-0 rounded-full" style={{ backgroundColor: color }} />
+                  <h4 className="text-[13px] font-medium tracking-tight">{name}</h4>
+                </div>
+                <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground/45">{oneliner}</p>
+                <div className="mt-4 flex items-center justify-between border-t border-border/10 pt-3">
+                  <span className="text-[10px] text-muted-foreground/25">{portfolio}</span>
+                  <span className="rounded-full px-2 py-0.5 text-[9px] font-medium" style={{ backgroundColor: `${color}12`, color }}>{likelihood}</span>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Pain points + Trust barriers side by side */}
-        <div className="mt-20 grid gap-16 md:grid-cols-2">
-          {/* Pain points */}
-          <div>
-            <h3 className="text-sm font-medium text-foreground/80">Top Pain Points</h3>
-            <p className="mt-1 text-xs text-muted-foreground/40">Mentions across 24 interviews</p>
-            <div className="mt-8 space-y-5">
-              {[
-                { label: "AI claims without evidence", count: 8, max: 8 },
-                { label: "NDLP comprehension failure", count: 6, max: 8 },
-                { label: "Impermanent loss confusion", count: 6, max: 8 },
-                { label: "APY vs. net P&L gap", count: 5, max: 8 },
-                { label: "Hidden fee disclosure", count: 5, max: 8 },
-                { label: "Dual deposit barrier", count: 4, max: 8 },
-              ].map(({ label, count, max }) => (
-                <div key={label} className="group">
-                  <div className="flex items-baseline gap-3">
-                    <span className="text-xl font-medium tabular-nums leading-none" style={{ color: `oklch(${0.55 + (1 - count / max) * 0.2} 0.17 25)` }}>{count}</span>
-                    <span className="text-[12px] text-muted-foreground/60 transition-colors group-hover:text-foreground/80">{label}</span>
+        {/* Beat 5: Pain + Trust — asymmetric weight. Pain dominant (left). Trust supports (right). */}
+        <div className={`${contentRail} pt-24 md:pt-32`}>
+          <div className="grid gap-20 md:grid-cols-[1.2fr_1fr] md:gap-16">
+            <div>
+              <h3 className="text-xs font-medium tracking-wide text-foreground/70 uppercase">Top Pain Points</h3>
+              <p className="mt-1 text-[11px] text-muted-foreground/35">Mentions across 24 interviews</p>
+              <div className="mt-8 space-y-6">
+                {[
+                  { label: "AI claims without evidence", count: 8, max: 8 },
+                  { label: "NDLP comprehension failure", count: 6, max: 8 },
+                  { label: "Impermanent loss confusion", count: 6, max: 8 },
+                  { label: "APY vs. net P&L gap", count: 5, max: 8 },
+                  { label: "Hidden fee disclosure", count: 5, max: 8 },
+                  { label: "Dual deposit barrier", count: 4, max: 8 },
+                ].map(({ label, count, max }) => (
+                  <div key={label} className="group">
+                    <div className="flex items-baseline justify-between gap-4">
+                      <span className="text-[12px] text-muted-foreground/55 transition-colors group-hover:text-foreground/80">{label}</span>
+                      <span className="shrink-0 text-lg font-medium tabular-nums leading-none" style={{ color: `oklch(${0.55 + (1 - count / max) * 0.15} 0.19 25)` }}>{count}</span>
+                    </div>
+                    <div className="mt-2.5 h-[3px] overflow-hidden rounded-full bg-foreground/[0.04]">
+                      <div
+                        className="h-full rounded-full"
+                        style={{
+                          width: `${(count / max) * 100}%`,
+                          background: `linear-gradient(90deg, oklch(0.68 0.19 30), oklch(0.55 0.22 18))`,
+                          opacity: 0.4 + (count / max) * 0.6,
+                        }}
+                      />
+                    </div>
                   </div>
-                  <div className="mt-2 h-[3px] overflow-hidden rounded-full bg-muted/15">
-                    <div
-                      className="h-full rounded-full"
-                      style={{
-                        width: `${(count / max) * 100}%`,
-                        background: `linear-gradient(90deg, oklch(0.68 0.19 30), oklch(0.58 0.21 18))`,
-                        opacity: 0.5 + (count / max) * 0.5,
-                      }}
-                    />
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Trust barriers */}
-          <div>
-            <h3 className="text-sm font-medium text-foreground/80">Top Trust Barriers</h3>
-            <p className="mt-1 text-xs text-muted-foreground/40">What blocks first deposits</p>
-            <div className="mt-8 space-y-5">
-              {[
-                { label: "Vague AI marketing", count: 8, max: 8 },
-                { label: "Unexplained yield source", count: 5, max: 8 },
-                { label: "Incomplete fee transparency", count: 5, max: 8 },
-                { label: "No performance history", count: 4, max: 8 },
-                { label: "Missing ecosystem endorsement", count: 3, max: 8 },
-              ].map(({ label, count, max }) => (
-                <div key={label} className="group">
-                  <div className="flex items-baseline gap-3">
-                    <span className="text-xl font-medium tabular-nums leading-none" style={{ color: `oklch(${0.50 + (1 - count / max) * 0.2} 0.15 260)` }}>{count}</span>
-                    <span className="text-[12px] text-muted-foreground/60 transition-colors group-hover:text-foreground/80">{label}</span>
+            <div className="md:border-l md:border-border/15 md:pl-16">
+              <h3 className="text-xs font-medium tracking-wide text-foreground/70 uppercase">Top Trust Barriers</h3>
+              <p className="mt-1 text-[11px] text-muted-foreground/35">What blocks first deposits</p>
+              <div className="mt-8 space-y-6">
+                {[
+                  { label: "Vague AI marketing", count: 8, max: 8 },
+                  { label: "Unexplained yield source", count: 5, max: 8 },
+                  { label: "Incomplete fee transparency", count: 5, max: 8 },
+                  { label: "No performance history", count: 4, max: 8 },
+                  { label: "Missing ecosystem endorsement", count: 3, max: 8 },
+                ].map(({ label, count, max }) => (
+                  <div key={label} className="group">
+                    <div className="flex items-baseline justify-between gap-4">
+                      <span className="text-[12px] text-muted-foreground/55 transition-colors group-hover:text-foreground/80">{label}</span>
+                      <span className="shrink-0 text-lg font-medium tabular-nums leading-none" style={{ color: `oklch(${0.48 + (1 - count / max) * 0.15} 0.17 260)` }}>{count}</span>
+                    </div>
+                    <div className="mt-2.5 h-[3px] overflow-hidden rounded-full bg-foreground/[0.04]">
+                      <div
+                        className="h-full rounded-full"
+                        style={{
+                          width: `${(count / max) * 100}%`,
+                          background: `linear-gradient(90deg, oklch(0.58 0.16 260), oklch(0.45 0.18 270))`,
+                          opacity: 0.4 + (count / max) * 0.6,
+                        }}
+                      />
+                    </div>
                   </div>
-                  <div className="mt-2 h-[3px] overflow-hidden rounded-full bg-muted/15">
-                    <div
-                      className="h-full rounded-full"
-                      style={{
-                        width: `${(count / max) * 100}%`,
-                        background: `linear-gradient(90deg, oklch(0.60 0.15 260), oklch(0.48 0.17 270))`,
-                        opacity: 0.45 + (count / max) * 0.55,
-                      }}
-                    />
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
-        <blockquote className="mt-16 max-w-[36ch] border-l-2 border-foreground/10 pl-6 text-lg leading-snug font-light tracking-tight text-foreground/70 md:ml-[10%] md:text-xl">
-          &quot;Every DeFi product says &apos;AI-powered&apos; now. I need to see what the model actually does, not a buzzword on a landing page.&quot;
-          <cite className="mt-3 block font-mono text-[10px] font-normal tracking-wider text-muted-foreground/30 not-italic">P03, Skeptical Power User</cite>
-        </blockquote>
+        {/* Beat 6: Blockquote — full-width interruption. Stops the scroll. */}
+        <div className="mt-24 border-y border-border/15 bg-foreground/[0.012] py-16 md:mt-32 md:py-24">
+          <blockquote className="mx-auto max-w-[680px]">
+            <p className="text-center text-xl leading-[1.5] font-light tracking-tight text-foreground/65 md:text-2xl">
+              &quot;Every DeFi product says &apos;AI-powered&apos; now. I need to see what the model actually does, not a buzzword on a landing page.&quot;
+            </p>
+            <cite className="mt-6 block text-center font-mono text-[10px] tracking-wider text-muted-foreground/25 not-italic">P03 — Skeptical Power User</cite>
+          </blockquote>
+        </div>
+
+        <div className="h-24 md:h-32" />
       </section>
 
       {/* 9. Insights */}
-      <section id="insights" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="insights" className={sectionRail}>
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Insights</p>
         <h2 className="mt-4 text-3xl font-medium tracking-tight md:text-4xl">What the research revealed</h2>
-        <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-2 lg:grid-cols-3 md:gap-8">
+        <p className="mt-4 max-w-[48ch] text-base leading-relaxed text-muted-foreground md:text-lg">Six findings from 24 user interviews that shaped every design decision.</p>
+        <div className="mt-12 grid grid-cols-1 gap-3 md:mt-16 md:grid-cols-2 lg:grid-cols-3 md:gap-4">
           {[
             { number: "01", title: "AI is a red flag without proof", explanation: "Users are interested in passive yield but actively distrust vague AI claims. The word 'AI' triggers skepticism in sophisticated users unless backed by verifiable evidence. Eight of 24 participants flagged this unprompted.", implication: "We published two-tier strategy documentation: plain English for casual users, a technical brief for power users. On-chain verifiable metrics replaced marketing claims.", quote: "\"If you can't show me what the model does, 'AI-powered' is just a red flag.\"" },
             { number: "02", title: "NDLP is universally misunderstood", explanation: "NDLP is not intuitively understood as a vault share token. Users consistently confuse it with governance tokens, rewards, or speculative assets. This creates post-deposit anxiety when an unexpected token appears in their wallet.", implication: "We reframed NDLP as a 'position balance' in the UI and added an explanation modal at the exact moment of receipt. All speculative framing was eliminated.", quote: "\"NDLP isn't a reward? Then why does it need to be a token at all?\"" },
@@ -420,80 +493,26 @@ export default function NodoAICaseStudy() {
             { number: "04", title: "APY does not equal returns", explanation: "Users conflate APY with guaranteed return. When net P&L doesn't match stated APY, they interpret it as product failure, not as the result of fees, IL, or market conditions. This is the number one future support complaint.", implication: "We designed a P&L waterfall visualization: Gross APY, then fees, then IL, then Net Return. The interface leads with net outcome, not headline APY. Honesty over optimism.", quote: "\"It says 12% APY but I only made 7%. Where did the other 5% go?\"" },
             { number: "05", title: "Dual deposit kills beginner conversion", explanation: "Requiring two tokens to deposit is an immediate abandonment trigger for users without LP experience. They don't understand why two tokens are needed and leave the flow entirely.", implication: "Single-sided deposit became the default entry point. Dual deposit was moved to an advanced option. This was the highest-impact, lowest-effort change in the entire project, scoring 7.5 out of 10 on our priority scale.", quote: "\"I have to pick two coins? I only have USDC. This is already too complicated.\"" },
             { number: "06", title: "Trust blockers are informational, not technical", explanation: "First deposit confidence depends on audits, transparency, downside communication, and withdrawal flexibility. The blockers are about information, not capability. Users can deposit. They just won't until they feel they understand the risks.", implication: "We designed for two-phase deposits: welcome micro-tests with minimal friction first, then address all informational blockers before the meaningful deposit button appears.", quote: "\"I'd put in fifty bucks to test. But I'm not putting savings in unless I see it working for a month.\"" },
-          ].map(({ number, title, explanation, implication, quote }) => (
-            <div key={number} className="border-t border-border/30 pt-5">
-              <span className="font-mono text-[10px] text-muted-foreground/25">{number}</span>
-              <h3 className="mt-2 text-base font-medium tracking-tight">{title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground/60">{explanation}</p>
-              <p className="mt-3 text-xs leading-relaxed text-muted-foreground/30 italic">{quote}</p>
-              <p className="mt-3 border-l-2 border-foreground/10 pl-3 text-xs leading-relaxed text-muted-foreground/45">{implication}</p>
+          ].map(({ number, title, explanation, implication, quote }, i) => (
+            <div key={number} className={`group rounded-2xl bg-foreground/[0.02] p-6 transition-colors hover:bg-foreground/[0.045] md:p-8${i === 0 ? " lg:col-span-2" : ""}${i === 5 ? " lg:col-start-2 lg:col-span-2" : ""}`}>
+              <span className="block font-mono text-5xl font-extralight leading-none text-foreground/[0.07] select-none">{number}</span>
+              <h3 className="mt-5 text-lg font-semibold tracking-tight">{title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground/55">{explanation}</p>
+              <p className="mt-5 border-l-2 border-foreground/[0.06] pl-4 text-[13px] leading-relaxed text-foreground/35 italic">{quote}</p>
+              <div className="mt-5 flex items-start gap-2.5">
+                <div className="mt-[7px] size-1.5 shrink-0 rounded-full bg-foreground/15" />
+                <p className="text-xs leading-relaxed text-muted-foreground/45">{implication}</p>
+              </div>
             </div>
           ))}
         </div>
 
         {/* Feature reaction heatmap */}
-        <div className="mt-20">
-          <h3 className="text-sm font-medium text-foreground/80">Feature Reaction Matrix</h3>
-          <p className="mt-2 max-w-[55ch] text-xs text-muted-foreground/50">Trust levels across persona segments and core product surfaces.</p>
-          <div className="mt-6 overflow-x-auto">
-            <table className="w-full min-w-[640px] text-[11px]">
-              <thead>
-                <tr className="border-b border-border/20">
-                  <th className="pb-3 pr-4 text-left font-medium text-muted-foreground/50">Feature</th>
-                  <th className="px-2 pb-3 text-center font-medium text-muted-foreground/50">Passive</th>
-                  <th className="px-2 pb-3 text-center font-medium text-muted-foreground/50">Beginner</th>
-                  <th className="px-2 pb-3 text-center font-medium text-muted-foreground/50">Power</th>
-                  <th className="px-2 pb-3 text-center font-medium text-muted-foreground/50">Stable</th>
-                  <th className="px-2 pb-3 text-center font-medium text-muted-foreground/50">Sui</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  { feature: "AI strategy", values: [2, 1, 1, 1, 2] },
-                  { feature: "NDLP token", values: [1, 1, 3, 2, 3] },
-                  { feature: "Deposit flow", values: [2, 1, 2, 2, 3] },
-                  { feature: "Fee transparency", values: [2, 1, 3, 3, 3] },
-                  { feature: "P&L breakdown", values: [2, 1, 3, 3, 3] },
-                  { feature: "Strategy docs", values: [1, 1, 3, 2, 3] },
-                  { feature: "Audit signals", values: [2, 1, 3, 3, 3] },
-                ].map(({ feature, values }) => (
-                  <tr key={feature} className="border-b border-border/10">
-                    <td className="py-3 pr-4 text-muted-foreground/60">{feature}</td>
-                    {values.map((v, i) => (
-                      <td key={i} className="px-2 py-3">
-                        <div
-                          className="mx-auto h-5 w-full max-w-[52px] rounded-[4px] transition-opacity hover:opacity-100"
-                          style={{
-                            backgroundColor: v === 1 ? "oklch(0.65 0.16 25)" : v === 2 ? "oklch(0.75 0.14 85)" : "oklch(0.72 0.16 160)",
-                            opacity: v === 1 ? 0.35 : v === 2 ? 0.4 : 0.55,
-                          }}
-                        />
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <div className="mt-4 flex items-center gap-5 text-[9px] text-muted-foreground/40">
-              <div className="flex items-center gap-1.5">
-                <div className="h-3 w-6 rounded-[3px]" style={{ backgroundColor: "oklch(0.65 0.16 25)", opacity: 0.35 }} />
-                Low trust
-              </div>
-              <div className="flex items-center gap-1.5">
-                <div className="h-3 w-6 rounded-[3px]" style={{ backgroundColor: "oklch(0.75 0.14 85)", opacity: 0.4 }} />
-                Medium
-              </div>
-              <div className="flex items-center gap-1.5">
-                <div className="h-3 w-6 rounded-[3px]" style={{ backgroundColor: "oklch(0.72 0.16 160)", opacity: 0.55 }} />
-                High trust
-              </div>
-            </div>
-          </div>
-        </div>
+        <FeatureReactionMatrix />
       </section>
 
       {/* 10. Principles */}
-      <section id="principles" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="principles" className={sectionRail}>
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Principles</p>
         <h2 className="mt-4 max-w-[20ch] text-3xl font-medium tracking-tight md:text-4xl">The rules that guided every decision</h2>
         <div className="mt-14 md:mt-20">
@@ -514,10 +533,10 @@ export default function NodoAICaseStudy() {
         </div>
       </section>
 
-      <div className="mx-6 h-px bg-border/30 md:mx-[250px]" />
+      <div className={dividerRail} />
 
       {/* 11. Architecture */}
-      <section id="architecture" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="architecture" className={sectionRail}>
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Architecture</p>
         <h2 className="mt-4 max-w-[22ch] text-3xl font-medium tracking-tight md:text-4xl">Structuring the product, not just the screens</h2>
         <p className="mt-8 max-w-[58ch] text-base leading-relaxed text-muted-foreground md:text-lg">The core challenge was taking a system with multiple vault types, receipt tokens, rebalancing logic, fee structures, and risk parameters, and organizing it into something a user could navigate without a tutorial. The architecture had to serve both the beginner who just wants to deposit USDC and the power user who wants to verify every rebalancing decision.</p>
@@ -532,7 +551,7 @@ export default function NodoAICaseStudy() {
       </section>
 
       {/* 12. Exploration */}
-      <section id="exploration" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="exploration" className={sectionRail}>
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Exploration</p>
         <h2 className="mt-4 max-w-[22ch] text-3xl font-medium tracking-tight md:text-4xl">Thinking through alternatives</h2>
         <p className="mt-8 max-w-[58ch] text-base leading-relaxed text-muted-foreground md:text-lg">I explored three distinct directions before converging on the final approach. Each had strengths, and the final product borrowed elements from all of them. What mattered was understanding why certain directions were rejected, not just which one won.</p>
@@ -560,7 +579,7 @@ export default function NodoAICaseStudy() {
       </section>
 
       {/* 13. Solution */}
-      <section id="solution" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="solution" className={sectionRail}>
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Solution</p>
         <h2 className="mt-4 max-w-[22ch] text-3xl font-medium tracking-tight md:text-4xl">The product, explained</h2>
 
@@ -630,7 +649,7 @@ export default function NodoAICaseStudy() {
       </section>
 
       {/* 14. Trust */}
-      <section id="trust" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="trust" className={sectionRail}>
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Trust & Clarity</p>
         <h2 className="mt-4 max-w-[24ch] text-3xl font-medium tracking-tight md:text-4xl">Designing for confidence in uncertain systems</h2>
         <blockquote className="mt-12 max-w-[32ch] border-l-2 border-foreground/10 pl-6 text-xl leading-snug font-light tracking-tight text-foreground/80 md:ml-[10%] md:text-2xl">
@@ -657,10 +676,10 @@ export default function NodoAICaseStudy() {
         </div>
       </section>
 
-      <div className="mx-6 h-px bg-border/30 md:mx-[250px]" />
+      <div className={dividerRail} />
 
       {/* 15. Outcomes */}
-      <section id="outcomes" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="outcomes" className={sectionRail}>
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Outcomes</p>
         <h2 className="mt-4 text-3xl font-medium tracking-tight md:text-4xl">What changed because of this work</h2>
         <div className="mt-14 grid gap-6 md:mt-16 md:grid-cols-2 lg:grid-cols-4 md:gap-8">
@@ -691,7 +710,7 @@ export default function NodoAICaseStudy() {
       </section>
 
       {/* 16. Reflection */}
-      <section id="reflection" className="px-6 py-24 md:px-[250px] md:py-32">
+      <section id="reflection" className={sectionRail}>
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Reflection</p>
         <h2 className="mt-4 max-w-[22ch] text-3xl font-medium tracking-tight md:text-4xl">Looking back, looking forward</h2>
         <div className="mt-12 grid gap-12 md:grid-cols-2 md:gap-20">
@@ -718,10 +737,10 @@ export default function NodoAICaseStudy() {
         </div>
       </section>
 
-      <div className="mx-6 h-px bg-border/30 md:mx-[250px]" />
+      <div className={dividerRail} />
 
       {/* 17. Next / CTA */}
-      <section className="px-6 py-24 md:px-[250px] md:py-40">
+      <section className={`${contentRail} py-24 md:py-40`}>
         <p className="max-w-[48ch] text-base leading-relaxed text-muted-foreground md:text-lg">Every project is a chance to make something clearer than it was before. This one pushed me to think harder about trust, complexity, and what it means to design for systems people depend on.</p>
         <div className="mt-16 border-t border-border/30 pt-10">
           <p className="font-mono text-[10px] tracking-wider text-muted-foreground/30 uppercase">Next case study</p>
@@ -739,7 +758,7 @@ export default function NodoAICaseStudy() {
         </div>
       </section>
 
-      <footer className="border-t border-border/30 px-6 py-8 md:px-[250px]">
+      <footer className={`${contentRail} border-t border-border/30 py-8`}>
         <div className="flex items-center justify-between">
           <span className="text-xs text-muted-foreground/30">&copy; 2026 Leon</span>
           <span className="text-xs text-muted-foreground/30">Built with quiet intention</span>

@@ -126,7 +126,7 @@
     @apply border-border outline-ring/50;
     }
   html {
-    scroll-behavior: smooth;
+    /* scroll-behavior handled by Lenis */
     }
   body {
     @apply bg-background text-foreground;
@@ -153,9 +153,14 @@
 }
 
 @keyframes hero-name {
-  from { opacity: 0; transform: translateY(48px); filter: blur(6px); }
-  35% { filter: blur(0px); }
-  to { opacity: 1; transform: translateY(0); filter: blur(0px); }
+  from { opacity: 0; transform: translateY(32px) scale(0.96); filter: blur(10px); }
+  40% { filter: blur(2px); }
+  to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0px); }
+}
+
+@keyframes hero-clip-up {
+  from { clip-path: inset(100% 0 0 0); opacity: 0; }
+  to { clip-path: inset(0 0 0 0); opacity: 1; }
 }
 
 @keyframes breathe {
@@ -163,16 +168,25 @@
   50% { opacity: 0.9; transform: scale(1.15); }
 }
 
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-cursor {
+  animation: cursor-blink 0.8s step-end infinite;
+}
+
 .animate-hero-header {
   animation: hero-fade 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0s both;
 }
 
 .animate-hero-label {
-  animation: hero-fade 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+  animation: hero-clip-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }
 
 .animate-hero-name {
-  animation: hero-name 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  animation: hero-name 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
 }
 
 .animate-hero-line {
@@ -185,11 +199,11 @@
 }
 
 .animate-hero-body {
-  animation: hero-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
+  animation: hero-clip-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.9s both;
 }
 
 .animate-hero-cta {
-  animation: hero-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.95s both;
+  animation: hero-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.15s both;
 }
 
 .animate-breathe {
@@ -222,6 +236,7 @@
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;
+    clip-path: none !important;
   }
   .animate-breathe {
     animation: none !important;

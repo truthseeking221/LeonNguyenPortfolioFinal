@@ -2,6 +2,20 @@
 
 import * as React from "react"
 
+/* ─────────────────────────────────────────────────────
+   RotatingHeadline — Typewriter effect.
+
+   Choreography:
+   HOLD 2.8s → DELETE backward (35ms/char) → PAUSE 350ms
+   → TYPE forward (55ms/char) → HOLD
+
+   Line 2 staggers 100ms behind line 1 in both directions,
+   creating a cascading "live edit" rhythm.
+
+   Cursor: thin bar on line 2. Blinks at rest, solid
+   while typing/deleting. The punctuation that breathes.
+   ───────────────────────────────────────────────────── */
+
 const PHRASES: [string, string][] = [
   ["complexity", "clarity"],
   ["friction", "flow"],
@@ -9,108 +23,133 @@ const PHRASES: [string, string][] = [
   ["chaos", "systems"],
 ]
 
-const HOLD_MS = 2800
+// Timing (ms)
+const HOLD = 2800
+const DEL = 35
+const TYPE = 55
+const PAUSE = 350
+const STAGGER = 100
+
+type Phase = "hold" | "del" | "pause" | "type"
 
 export function RotatingHeadline({ className }: { className?: string }) {
-  const [index, setIndex] = React.useState(0)
+  const [idx, setIdx] = React.useState(0)
+  const [phase, setPhase] = React.useState<Phase>("hold")
+  const [c1, setC1] = React.useState(PHRASES[0]![0].length)
+  const [c2, setC2] = React.useState(PHRASES[0]![1].length)
+  const nextRef = React.useRef(1)
+  const [word1, setWord1] = React.useState(PHRASES[0]![0])
+  const [word2, setWord2] = React.useState(PHRASES[0]![1])
+  const [reducedMotion, setReducedMotion] = React.useState(false)
 
   React.useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((i) => (i + 1) % PHRASES.length)
-    }, HOLD_MS)
-    return () => clearInterval(interval)
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setReducedMotion(true)
+    }
   }, [])
 
-  const line1 = PHRASES.map(([w]) => `Turning ${w}`)
-  const line2 = PHRASES.map(([, w]) => `into ${w}.`)
+  // HOLD → DEL
+  React.useEffect(() => {
+    if (reducedMotion || phase !== "hold") return
+    const t = setTimeout(() => {
+      nextRef.current = (idx + 1) % PHRASES.length
+      setPhase("del")
+    }, HOLD)
+    return () => clearTimeout(t)
+  }, [phase, idx, reducedMotion])
+
+  // DEL — erase characters backward
+  React.useEffect(() => {
+    if (phase !== "del") return
+    const w1 = PHRASES[idx]![0]
+    const w2 = PHRASES[idx]![1]
+    setWord1(w1)
+    setWord2(w2)
+    setC1(w1.length)
+    setC2(w2.length)
+
+    const timers: ReturnType<typeof setTimeout>[] = []
+
+    for (let i = 1; i <= w1.length; i++)
+      timers.push(setTimeout(() => setC1(w1.length - i), i * DEL))
+
+    for (let i = 1; i <= w2.length; i++)
+      timers.push(setTimeout(() => setC2(w2.length - i), STAGGER + i * DEL))
+
+    const end = Math.max(w1.length * DEL, STAGGER + w2.length * DEL)
+    timers.push(setTimeout(() => setPhase("pause"), end + 30))
+
+    return () => timers.forEach(clearTimeout)
+  }, [phase, idx])
+
+  // PAUSE → TYPE
+  React.useEffect(() => {
+    if (phase !== "pause") return
+    const t = setTimeout(() => {
+      const ni = nextRef.current
+      setWord1(PHRASES[ni]![0])
+      setWord2(PHRASES[ni]![1])
+      setC1(0)
+      setC2(0)
+      setPhase("type")
+    }, PAUSE)
+    return () => clearTimeout(t)
+  }, [phase])
+
+  // TYPE — reveal characters forward
+  React.useEffect(() => {
+    if (phase !== "type") return
+    const ni = nextRef.current
+    const w1 = PHRASES[ni]![0]
+    const w2 = PHRASES[ni]![1]
+
+    const timers: ReturnType<typeof setTimeout>[] = []
+
+    for (let i = 1; i <= w1.length; i++)
+      timers.push(setTimeout(() => setC1(i), i * TYPE))
+
+    for (let i = 1; i <= w2.length; i++)
+      timers.push(setTimeout(() => setC2(i), STAGGER + i * TYPE))
+
+    const end = Math.max(w1.length * TYPE, STAGGER + w2.length * TYPE)
+    timers.push(setTimeout(() => {
+      setIdx(ni)
+      setPhase("hold")
+    }, end + 30))
+
+    return () => timers.forEach(clearTimeout)
+  }, [phase])
+
+  if (reducedMotion) {
+    return (
+      <span className={className}>
+        <span className="block">Turning {PHRASES[0]![0]}</span>
+        <span className="block">into {PHRASES[0]![1]}.</span>
+      </span>
+    )
+  }
+
+  const isMoving = phase === "del" || phase === "type"
 
   return (
     <span className={className}>
-      <TextStrip words={line1} activeIndex={index} delay={0} />
-      <TextStrip words={line2} activeIndex={index} delay={60} />
-    </span>
-  )
-}
-
-/* ─────────────────────────────────────────────────────
-   TextStrip — The slot machine.
-
-   Only 2 items exist at a time: [current, next].
-   Container height = exactly 1 measured line.
-   overflow: hidden = the mask.
-
-   To cycle:
-   1. Slide the strip up by 1 lineH (CSS transition)
-   2. After transition ends: swap content + reset
-      translateY to 0 with transition: none.
-      Visually identical — the swap is invisible.
-   ───────────────────────────────────────────────────── */
-
-function TextStrip({
-  words,
-  activeIndex,
-  delay = 0,
-}: {
-  words: string[]
-  activeIndex: number
-  delay?: number
-}) {
-  const slotRef = React.useRef<HTMLSpanElement>(null)
-  const [lineH, setLineH] = React.useState(0)
-  const [display, setDisplay] = React.useState(activeIndex)
-  const [sliding, setSliding] = React.useState(false)
-
-  // Measure one line's rendered height
-  React.useEffect(() => {
-    function measure() {
-      if (slotRef.current) setLineH(slotRef.current.offsetHeight)
-    }
-    measure()
-    window.addEventListener("resize", measure, { passive: true })
-    return () => window.removeEventListener("resize", measure)
-  }, [])
-
-  // activeIndex changed → trigger the slide
-  React.useEffect(() => {
-    if (activeIndex === display) return
-    setSliding(true)
-  }, [activeIndex, display])
-
-  // After slide completes → swap content & reset position (invisible)
-  React.useEffect(() => {
-    if (!sliding) return
-    const t = setTimeout(() => {
-      setDisplay(activeIndex)
-      setSliding(false)
-    }, 600 + delay)
-    return () => clearTimeout(t)
-  }, [sliding, activeIndex, delay])
-
-  const n = words.length
-  const currentWord = words[display % n]!
-  const nextWord = words[activeIndex % n]!
-
-  return (
-    <span
-      className="block overflow-hidden"
-      style={{ height: lineH > 0 ? lineH : undefined }}
-    >
-      <span
-        className="block will-change-transform"
-        style={{
-          transition: sliding
-            ? `transform 0.55s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`
-            : "none",
-          transform:
-            sliding && lineH > 0
-              ? `translateY(-${lineH}px)`
-              : "translateY(0)",
-        }}
-      >
-        <span ref={slotRef} className="block">
-          {currentWord}
-        </span>
-        <span className="block">{nextWord}</span>
+      <span className="block">
+        Turning {word1.slice(0, c1)}
+      </span>
+      <span className="block">
+        into {word2.slice(0, c2)}
+        {c2 > 0 ? "." : ""}
+        <span
+          className="animate-cursor inline-block align-middle bg-foreground"
+          style={{
+            width: "0.06em",
+            height: "0.72em",
+            marginLeft: "0.04em",
+            animationPlayState: isMoving ? "paused" : "running",
+            opacity: isMoving ? 1 : undefined,
+          }}
+          aria-hidden="true"
+        />
       </span>
     </span>
   )
