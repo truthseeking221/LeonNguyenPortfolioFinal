@@ -25,6 +25,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
   const portraitRef = useRef<HTMLDivElement>(null)
   const chaptersRef = useRef<HTMLDivElement>(null)
   const beliefsRef = useRef<HTMLDivElement>(null)
+  const studioRef = useRef<HTMLDivElement>(null)
 
   useGSAP(() => {
     if (!containerRef.current) return
@@ -102,6 +103,53 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
         // fade out last
         tl.to(beliefItems[beliefItems.length - 1]!, { opacity: 0, y: -50, scale: 0.95, duration: 1 })
       }
+    }
+
+    // 4. Studio Infographic Spine
+    if (studioRef.current) {
+      const spineProgress = studioRef.current.querySelector(".studio-spine-progress")
+      const studioNodes = gsap.utils.toArray(".studio-node") as HTMLElement[]
+      const studioItems = gsap.utils.toArray(".studio-item") as HTMLElement[]
+
+      if (spineProgress) {
+        gsap.fromTo(spineProgress, { height: "0%" }, { 
+          height: "100%", 
+          ease: "none",
+          scrollTrigger: {
+            trigger: studioRef.current,
+            start: "top 70%",
+            end: "bottom 70%",
+            scrub: 1,
+          }
+        })
+      }
+
+      studioItems.forEach((item, index) => {
+        const contentElements = item.querySelectorAll('.studio-content')
+        const marker = item.querySelector('.studio-node')
+        
+        const isEven = index % 2 === 0
+        const dirX = isEven ? 30 : -30
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: item,
+            start: "top 85%",
+            end: "top 60%",
+            scrub: 1,
+          }
+        })
+
+        if (marker) {
+          tl.fromTo(marker, { scale: 0 }, { scale: 1, duration: 0.5 }, 0)
+        }
+        
+        // Ensure fade in happens properly with scrub
+        tl.fromTo(contentElements, 
+          { opacity: 0, x: dirX }, 
+          { opacity: 1, x: 0, duration: 1, ease: "power2.out" }, 
+        0)
+      })
     }
 
   }, { scope: containerRef })
@@ -263,73 +311,145 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
       {/* ══════════════════════════════════════════════════
           ACT 4 — THE STUDIO & TOOLS
           ══════════════════════════════════════════════════ */}
-      <section className="relative z-10 border-t border-border/10 px-6 py-20 md:px-[15%] md:py-40 bg-foreground/[0.02]">
-        <p className="mb-16 font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 uppercase text-center block w-full">
+      <section ref={studioRef} className="relative z-10 border-t border-border/10 px-6 py-32 md:px-0 md:py-48 bg-foreground/[0.02] overflow-hidden">
+        <p className="mb-24 font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 uppercase text-center block w-full">
           The studio, right now
         </p>
-        <div className="grid gap-16 md:grid-cols-2 lg:gap-24">
-          <div className="space-y-12">
-            <div>
-              <p className="mb-3 font-mono text-[9px] tracking-[0.2em] text-foreground/40 uppercase flex items-center gap-2"><span className="w-2 h-2 rounded-full border border-foreground/30 inline-block"/> Working on</p>
-              <p className="text-[16px] font-light leading-relaxed text-foreground/80 pl-4 border-l border-foreground/10">
-                Crypto onboarding at TymeBank. Making blockchain invisible to
-                five&nbsp;million people who should never have to think about
-                gas fees.
-              </p>
-            </div>
-            <div>
-              <p className="mb-3 font-mono text-[9px] tracking-[0.2em] text-foreground/40 uppercase flex items-center gap-2"><span className="w-2 h-2 rounded-full border border-foreground/30 inline-block"/> Thinking about</p>
-              <p className="text-[16px] font-light leading-relaxed text-foreground/80 pl-4 border-l border-foreground/10">
-                What Buddhist philosophy and product design share: both are
-                practices of seeing things as they are, not as you wish they
-                were.
-              </p>
-            </div>
-            <div>
-              <p className="mb-3 font-mono text-[9px] tracking-[0.2em] text-foreground/40 uppercase flex items-center gap-2"><span className="w-2 h-2 rounded-full border border-foreground/30 inline-block"/> Obsessed with</p>
-              <p className="text-[16px] font-light leading-relaxed text-foreground/80 pl-4 border-l border-foreground/10">
-                The moment a complex product suddenly feels inevitable. That
-                breath of recognition. I reverse-engineer it.
-              </p>
-            </div>
-          </div>
+        
+        <div className="relative max-w-5xl mx-auto px-4 md:px-12">
+          {/* Spine Line */}
+          <div className="absolute left-[39px] md:left-1/2 top-0 bottom-0 w-px bg-foreground/10 -translate-x-1/2" />
+          <div 
+            className="studio-spine-progress absolute left-[39px] md:left-1/2 top-0 w-px bg-foreground -translate-x-1/2"
+            style={{ height: '0%' }}
+          />
 
-          <div>
-            <div className="mb-16">
-              <p className="mb-6 font-mono text-[9px] tracking-[0.2em] text-muted-foreground/40 uppercase">
-                Tools
-              </p>
-              <div className="space-y-5">
-                {tools.map((tool) => (
-                  <div key={tool.name} className="group flex items-baseline justify-between border-b border-border/10 pb-4">
-                    <span className="text-[15px] tracking-tight text-foreground/90 transition-colors group-hover:text-foreground">
-                      {tool.name}
-                    </span>
-                    <span className="text-[13px] text-muted-foreground/40 transition-colors group-hover:text-muted-foreground/60 italic font-light">
-                      {tool.why}
-                    </span>
-                  </div>
-                ))}
-              </div>
+          <div className="space-y-24 md:space-y-32">
+            
+            {/* Infographic Item 1 */}
+            <div className="studio-item flex flex-col md:flex-row items-start md:items-center relative">
+               {/* Left Label */}
+               <div className="studio-content opacity-0 md:w-1/2 md:pr-16 md:text-right flex-shrink-0 mb-4 md:mb-0 pl-16 md:pl-0 w-full z-10 flex flex-col md:items-end">
+                 <p className="font-mono text-[10px] tracking-[0.2em] text-foreground/40 uppercase bg-background px-4 py-2 border border-foreground/10 rounded-full inline-flex md:text-right shadow-sm">
+                   Working on
+                 </p>
+               </div>
+
+               {/* Center Marker */}
+               <div className="absolute left-[39px] md:left-1/2 top-2 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-8 h-8 flex items-center justify-center z-10 pointer-events-none">
+                  <div className="studio-node w-3 h-3 rounded-full border-[2px] border-foreground bg-background scale-0" />
+               </div>
+
+               {/* Right Content */}
+               <div className="studio-content opacity-0 md:w-1/2 md:pl-16 pl-16 md:pr-0 relative z-10 w-full">
+                  <p className="text-[clamp(1rem,1.3vw,1.125rem)] font-light leading-relaxed text-foreground/80 md:max-w-md">
+                    Crypto onboarding at TymeBank. Making blockchain invisible to
+                    five&nbsp;million people who should never have to think about
+                    gas fees.
+                  </p>
+               </div>
             </div>
 
-            <div>
-              <p className="mb-6 font-mono text-[9px] tracking-[0.2em] text-muted-foreground/40 uppercase">
-                Reading
-              </p>
-              <div className="space-y-5">
-                {reading.map((book) => (
-                  <div key={book.title} className="flex items-baseline justify-between border-b border-border/10 pb-4">
-                    <span className="text-[15px] text-foreground/90 leading-tight">
-                      {book.title}
-                    </span>
-                    <span className="text-[12px] font-mono text-muted-foreground/40 uppercase tracking-widest block text-right">
-                      {book.author}
-                    </span>
-                  </div>
-                ))}
-              </div>
+            {/* Infographic Item 2 */}
+            <div className="studio-item flex flex-col md:flex-row-reverse items-start md:items-center relative">
+               {/* Right Label (on desktop) */}
+               <div className="studio-content opacity-0 md:w-1/2 md:pl-16 md:text-left flex-shrink-0 mb-4 md:mb-0 pl-16 md:pl-0 w-full z-10 flex flex-col md:items-start">
+                 <p className="font-mono text-[10px] tracking-[0.2em] text-foreground/40 uppercase bg-background px-4 py-2 border border-foreground/10 rounded-full inline-flex shadow-sm">
+                   Thinking about
+                 </p>
+               </div>
+
+               {/* Center Marker */}
+               <div className="absolute left-[39px] md:left-1/2 top-2 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-8 h-8 flex items-center justify-center z-10 pointer-events-none">
+                  <div className="studio-node w-3 h-3 rounded-full border-[2px] border-foreground bg-background scale-0" />
+               </div>
+
+               {/* Left Content */}
+               <div className="studio-content opacity-0 md:w-1/2 md:pr-16 pl-16 md:pl-0 relative z-10 w-full md:text-right">
+                  <p className="text-[clamp(1rem,1.3vw,1.125rem)] font-light leading-relaxed text-foreground/80 md:ml-auto md:max-w-md">
+                    What Buddhist philosophy and product design share: both are
+                    practices of seeing things as they are, not as you wish they
+                    were.
+                  </p>
+               </div>
             </div>
+
+            {/* Infographic Item 3 */}
+            <div className="studio-item flex flex-col md:flex-row items-start md:items-center relative">
+               <div className="studio-content opacity-0 md:w-1/2 md:pr-16 md:text-right flex-shrink-0 mb-4 md:mb-0 pl-16 md:pl-0 w-full z-10 flex flex-col md:items-end">
+                 <p className="font-mono text-[10px] tracking-[0.2em] text-foreground/40 uppercase bg-background px-4 py-2 border border-foreground/10 rounded-full inline-flex shadow-sm">
+                   Obsessed with
+                 </p>
+               </div>
+
+               <div className="absolute left-[39px] md:left-1/2 top-2 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-8 h-8 flex items-center justify-center z-10 pointer-events-none">
+                  <div className="studio-node w-3 h-3 rounded-full border-[2px] border-foreground bg-background scale-0" />
+               </div>
+
+               <div className="studio-content opacity-0 md:w-1/2 md:pl-16 pl-16 md:pr-0 relative z-10 w-full">
+                  <p className="text-[clamp(1rem,1.3vw,1.125rem)] font-light leading-relaxed text-foreground/80 md:max-w-md">
+                    The moment a complex product suddenly feels inevitable. That
+                    breath of recognition. I reverse-engineer it.
+                  </p>
+               </div>
+            </div>
+
+            {/* Infographic Item 4 (Tools) */}
+            <div className="studio-item flex flex-col md:flex-row-reverse items-start relative">
+               <div className="studio-content opacity-0 md:w-1/2 md:pl-16 md:text-left flex-shrink-0 mb-6 md:mb-0 pl-16 md:pl-0 w-full z-10 flex flex-col md:items-start md:mt-2">
+                 <p className="font-mono text-[10px] tracking-[0.2em] text-foreground/40 uppercase bg-background px-4 py-2 border border-foreground/10 rounded-full inline-flex shadow-sm">
+                   Tools
+                 </p>
+               </div>
+
+               <div className="absolute left-[39px] md:left-1/2 top-2 md:top-6 -translate-x-1/2 md:-translate-y-1/2 w-8 h-8 flex items-center justify-center z-10 pointer-events-none">
+                  <div className="studio-node w-3 h-3 rounded-full border-[2px] border-foreground bg-background scale-0" />
+               </div>
+
+               <div className="studio-content opacity-0 md:w-1/2 md:pr-16 pl-16 md:pl-0 relative z-10 w-full">
+                  <div className="space-y-4 md:ml-auto md:max-w-md bg-background/50 backdrop-blur-sm p-6 rounded-2xl border border-foreground/5 shadow-sm hover:border-foreground/20 transition-colors duration-500">
+                    {tools.map((tool) => (
+                      <div key={tool.name} className="group flex items-baseline justify-between border-b border-border/10 pb-3 last:border-0 last:pb-0">
+                        <span className="text-[14px] tracking-tight text-foreground/90 transition-colors group-hover:text-foreground">
+                          {tool.name}
+                        </span>
+                        <span className="text-[12px] text-muted-foreground/40 transition-colors group-hover:text-muted-foreground/60 italic font-light">
+                          {tool.why}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+               </div>
+            </div>
+
+            {/* Infographic Item 5 (Reading) */}
+            <div className="studio-item flex flex-col md:flex-row items-start relative pb-12">
+               <div className="studio-content opacity-0 md:w-1/2 md:pr-16 md:text-right flex-shrink-0 mb-6 md:mb-0 pl-16 md:pl-0 w-full z-10 flex flex-col md:items-end md:mt-2">
+                 <p className="font-mono text-[10px] tracking-[0.2em] text-foreground/40 uppercase bg-background px-4 py-2 border border-foreground/10 rounded-full inline-flex shadow-sm">
+                   Reading
+                 </p>
+               </div>
+
+               <div className="absolute left-[39px] md:left-1/2 top-2 md:top-6 -translate-x-1/2 md:-translate-y-1/2 w-8 h-8 flex items-center justify-center z-10 pointer-events-none">
+                  <div className="studio-node w-3 h-3 rounded-full border-[2px] border-foreground bg-background scale-0" />
+               </div>
+
+               <div className="studio-content opacity-0 md:w-1/2 md:pl-16 pl-16 md:pr-0 relative z-10 w-full">
+                  <div className="space-y-4 md:max-w-md bg-background/50 backdrop-blur-sm p-6 rounded-2xl border border-foreground/5 shadow-sm hover:border-foreground/20 transition-colors duration-500">
+                    {reading.map((book) => (
+                      <div key={book.title} className="flex flex-col border-b border-border/10 pb-4 last:border-0 last:pb-0">
+                        <span className="text-[14px] text-foreground/90 leading-tight mb-1">
+                          {book.title}
+                        </span>
+                        <span className="text-[11px] font-mono text-muted-foreground/40 uppercase tracking-widest block">
+                          {book.author}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+               </div>
+            </div>
+
           </div>
         </div>
       </section>

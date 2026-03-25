@@ -1,14 +1,14 @@
 import Link from "next/link"
 import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react"
 import { Reveal } from "@/components/reveal"
-import { ScrollFloat, SplitReveal } from "@/components/scroll-effects"
-import { RotatingHeadline } from "@/components/rotating-headline"
-import { GradientButton } from "@/components/gradient-button"
-import { UnicornBg } from "@/components/unicorn-bg"
-import { WebglHeroBg } from "@/components/webgl-hero-bg"
-import { MagneticButton } from "@/components/magnetic-button"
+import { ScrollFloat } from "@/components/scroll-effects"
+import gullCover from "@/app/images/Gull.png"
+import { HorizontalWork, type CompactProject } from "@/components/horizontal-work"
 import { GsapTitle } from "@/components/gsap-title"
-import { HorizontalWork } from "@/components/horizontal-work"
+import { HeroSection } from "@/components/hero-section"
+import { GradientButton } from "@/components/gradient-button"
+import { MagneticButton } from "@/components/magnetic-button"
+import { ManifestoStrip } from "@/components/manifesto-strip"
 
 /* ─────────────────────────────────────────────
    Data
@@ -47,13 +47,14 @@ const PRINCIPLES = [
   },
 ] as const
 
-const COMPACT_PROJECTS = [
+const COMPACT_PROJECTS: CompactProject[] = [
   {
     name: "Gull Network",
     category: "DEX & Launchpad",
     year: "2023",
     href: "/projects/gull-network",
     desc: "Brand and product for the post-hype era.",
+    coverImage: gullCover,
   },
   {
     name: "GoTyme GoalSave",
@@ -69,7 +70,7 @@ const COMPACT_PROJECTS = [
     href: "#",
     desc: "Competitive gaming. Speed and legibility under pressure.",
   },
-] as const
+]
 
 /* ─────────────────────────────────────────────
    Page
@@ -79,77 +80,11 @@ export default function Page() {
   return (
     <main className="min-h-screen overflow-x-hidden">
 
-      {/* ── Infographic Spine & Grid Overlay ── */}
-      <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 flex justify-center">
-        <div className="relative w-full max-w-screen-2xl mx-auto h-full">
-          {/* Main vertical spine line */}
-          <div className="absolute inset-y-0 left-6 md:left-[120px] w-px bg-gradient-to-b from-transparent via-foreground/15 to-transparent" />
-          
-          {/* Subtle helper lines */}
-          <div className="absolute inset-y-0 left-1/2 w-px bg-foreground/[0.015] hidden md:block" />
-          <div className="absolute inset-y-0 right-6 md:right-[120px] w-px bg-foreground/[0.015] hidden md:block" />
-          
-          {/* Horizontal tracking line */}
-          <div className="absolute left-6 right-6 md:left-[120px] md:right-[120px] top-[50vh] h-px bg-foreground/[0.02] hidden md:block" />
-        </div>
-      </div>
-
 
       {/* ══════════════════════════════════════════════════
-          HERO — Infographic Node Start
+          HERO — REIMAGINED
           ══════════════════════════════════════════════════ */}
-      <section className="relative flex min-h-screen items-center px-12 md:px-[200px] max-w-screen-2xl mx-auto">
-        {/* WebGL animated liquid background */}
-        <div className="absolute inset-0">
-          <WebglHeroBg />
-        </div>
-
-        {/* Node indicator on spine */}
-        <div className="pointer-events-none absolute left-6 md:left-[120px] top-1/2 -translate-y-1/2 -translate-x-1/2 flex items-center justify-center">
-          <div className="h-4 w-4 rounded-full border-2 border-background bg-foreground shadow-[0_0_15px_rgba(0,0,0,0.3)] dark:shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
-          <div className="absolute h-8 w-8 animate-ping rounded-full border border-foreground/20" />
-        </div>
-
-        <div className="relative z-10 w-full max-w-4xl pt-20">
-          {/* Eyebrow */}
-          <div className="animate-hero-label mb-6 flex items-center gap-4">
-            <span className="h-px w-8 bg-foreground/30" />
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/70">
-              Leon, product designer
-            </p>
-          </div>
-
-          {/* Headline */}
-          <h1
-            className="animate-hero-name font-bold tracking-tight text-foreground"
-            style={{ fontSize: "clamp(48px, 8vw, 130px)", lineHeight: 0.95 }}
-          >
-            <RotatingHeadline />
-          </h1>
-
-          {/* Description */}
-          <p className="animate-hero-body mt-8 max-w-[48ch] text-base leading-relaxed text-foreground/60 md:mt-12 md:text-xl border-l-[3px] border-foreground/10 pl-6">
-            I design systems, interfaces, and interactions
-            that make complexity disappear.
-          </p>
-
-          {/* CTA */}
-          <div className="animate-hero-cta mt-12 md:mt-16 flex items-center gap-6">
-            <MagneticButton>
-              <GradientButton href="#work">
-                <span className="inline-flex items-center gap-2">
-                  See the work
-                  <ArrowDown className="size-4" />
-                </span>
-              </GradientButton>
-            </MagneticButton>
-            <div className="hidden md:flex items-center gap-3">
-              <span className="h-px w-16 bg-foreground/15" />
-              <span className="font-mono text-[9px] text-muted-foreground/40 uppercase tracking-widest">Scroll to explore</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* ══════════════════════════════════════════════════
           ACT 2 — FEATURED WORK (HORIZONTAL SCROLL)
@@ -159,37 +94,17 @@ export default function Page() {
       {/* ══════════════════════════════════════════════════
           MANIFESTO STRIP
           ══════════════════════════════════════════════════ */}
-      <Reveal variant="fade">
-        <div className="relative w-full overflow-hidden bg-foreground">
-          {/* Spine passing through dark block */}
-          <div className="absolute inset-y-0 left-6 md:left-[120px] w-px bg-background/10 z-0" />
-          <div className="pointer-events-none absolute left-6 md:left-[120px] top-1/2 -translate-y-1/2 -translate-x-1/2 flex items-center justify-center z-10">
-            <div className="h-3 w-3 rounded-full border-2 border-foreground bg-background/80" />
-          </div>
-
-          <div className="relative z-10 flex flex-col items-center justify-center px-12 py-20 md:py-32">
-            <Reveal variant="fade">
-              <GsapTitle 
-                text="I do not make things look clear." 
-                className="max-w-[24ch] justify-center text-center text-[clamp(2.5rem,4vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-background" 
-              />
-            </Reveal>
-            <Reveal variant="fade" delay={200}>
-              <GsapTitle 
-                text="I make them become clear." 
-                className="mt-6 max-w-[24ch] justify-center text-center text-[clamp(2.5rem,4vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-background/30" 
-              />
-            </Reveal>
-          </div>
-        </div>
-      </Reveal>
+      <ManifestoStrip />
 
       {/* ══════════════════════════════════════════════════
           PRINCIPLES
           Linked along the spine line as stages
           ══════════════════════════════════════════════════ */}
       <section className="relative px-12 py-20 md:px-[200px] md:py-32 max-w-screen-2xl mx-auto">
-        
+
+        {/* Timeline spine */}
+        <div className="pointer-events-none absolute inset-y-0 left-6 md:left-[120px] -translate-x-1/2 w-px bg-foreground/[0.08]" />
+
         {/* Node indicator */}
         <div className="pointer-events-none absolute left-6 md:left-[120px] top-32 -translate-x-1/2 flex items-center justify-center">
           <div className="h-3 w-3 rounded-full border-2 border-background bg-foreground/60" />
@@ -247,7 +162,10 @@ export default function Page() {
           ABOUT
           ══════════════════════════════════════════════════ */}
       <section id="about" className="relative px-12 py-20 md:px-[200px] md:py-32 max-w-screen-2xl mx-auto">
-        
+
+        {/* Timeline spine */}
+        <div className="pointer-events-none absolute inset-y-0 left-6 md:left-[120px] -translate-x-1/2 w-px bg-foreground/[0.08]" />
+
         {/* Node indicator */}
         <div className="pointer-events-none absolute left-6 md:left-[120px] top-32 -translate-x-1/2 flex items-center justify-center">
           <div className="h-3 w-3 rounded-full border-2 border-background bg-foreground/60" />
@@ -266,7 +184,7 @@ export default function Page() {
         <Reveal delay={80}>
           <GsapTitle 
             text="I don't start with screens. I start with what needs to become clear."
-            className="max-w-[28ch] text-[clamp(1.5rem,3.5vw,2.5rem)] leading-[1.2] font-semibold tracking-tight text-foreground/90"
+            className="max-w-[28ch] text-[clamp(1.5rem,3.5vw,2.5rem)] leading-[1.2] font-light tracking-tight text-foreground/90"
           />
         </Reveal>
 
@@ -383,7 +301,10 @@ export default function Page() {
           TESTIMONIALS
           ══════════════════════════════════════════════════ */}
       <section className="relative px-12 py-20 md:px-[200px] md:py-32 max-w-screen-2xl mx-auto">
-        
+
+        {/* Timeline spine */}
+        <div className="pointer-events-none absolute inset-y-0 left-6 md:left-[120px] -translate-x-1/2 w-px bg-foreground/[0.08]" />
+
         {/* Node indicator */}
         <div className="pointer-events-none absolute left-6 md:left-[120px] top-32 -translate-x-1/2 flex items-center justify-center">
           <div className="h-3 w-3 rounded-full border-2 border-background bg-foreground/60" />
@@ -450,6 +371,9 @@ export default function Page() {
         id="contact"
         className="relative px-12 py-20 pb-40 md:px-[200px] md:py-32 md:pb-52 max-w-screen-2xl mx-auto"
       >
+        {/* Timeline spine (ends at node) */}
+        <div className="pointer-events-none absolute top-0 left-6 md:left-[120px] -translate-x-1/2 w-px h-32 bg-foreground/[0.08]" />
+
         {/* Node indicator - Final End Node */}
         <div className="pointer-events-none absolute left-6 md:left-[120px] top-32 -translate-x-1/2 flex items-center justify-center">
           <div className="h-4 w-4 rounded-full border-2 border-background bg-foreground shadow-[0_0_15px_rgba(0,0,0,0.3)] dark:shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
@@ -467,10 +391,10 @@ export default function Page() {
           </div>
         </Reveal>
 
-        <ScrollFloat speed={0.06}>
+        <ScrollFloat speed={0.06} className="font-light">
           <GsapTitle 
             text="Let's build something clear." 
-            className="text-[clamp(2.5rem,5.5vw,5.5rem)] leading-[1.0] font-bold tracking-tight"
+            className="text-[clamp(2.5rem,5.5vw,5.5rem)] leading-[1.0] font-light tracking-tight"
           />
         </ScrollFloat>
 
