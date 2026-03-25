@@ -8,6 +8,7 @@ import { ArrowDown } from "lucide-react";
 import { WebglHeroBg } from "./webgl-hero-bg";
 import { RotatingHeadline } from "./rotating-headline";
 import { MagneticButton } from "./magnetic-button";
+import { GradientButton } from "./gradient-button";
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -54,8 +55,6 @@ export function HeroSection() {
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute bottom-0 left-0 w-full h-[30vh] bg-gradient-to-t from-background to-transparent" />
         <div className="absolute top-0 left-0 w-full h-[15vh] bg-gradient-to-b from-background to-transparent" />
-        <div className="absolute top-0 right-0 h-full w-[20vw] bg-gradient-to-l from-background to-transparent" />
-        <div className="absolute top-0 left-0 h-full w-[20vw] bg-gradient-to-r from-background to-transparent" />
       </div>
 
       {/* 3. Ultra-Minimal, Abstract UI Overlay */}
@@ -88,18 +87,12 @@ export function HeroSection() {
         {/* Premium CTA / Coordinates */}
         <div className="gk-element mt-16 flex flex-col md:flex-row items-center gap-10">
           <MagneticButton>
-            <a 
-              href="#work" 
-              className="group relative flex items-center justify-center gap-3 overflow-hidden rounded-full border border-foreground/[0.08] bg-foreground/[0.02] backdrop-blur-md px-8 py-4 transition-all hover:bg-foreground/[0.05] hover:border-foreground/[0.15]"
-            >
-              <div className="absolute inset-0 z-0 bg-gradient-to-r from-transparent via-foreground/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
-              <span className="relative z-10 text-[13px] font-medium tracking-wide text-foreground/90 uppercase">
+            <GradientButton href="#work">
+              <span className="inline-flex items-center gap-2">
                 Explore The Work
+                <ArrowDown className="size-3" />
               </span>
-              <div className="relative z-10 w-6 h-6 rounded-full border border-foreground/10 bg-background flex items-center justify-center">
-                <ArrowDown className="size-3 text-foreground/70" />
-              </div>
-            </a>
+            </GradientButton>
           </MagneticButton>
           
           <div className="hidden lg:flex items-center gap-4">

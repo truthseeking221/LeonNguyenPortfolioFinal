@@ -70,7 +70,7 @@ export function HorizontalWork({
           </p>
           <div className="flex items-center gap-4">
             <span className="h-px w-12 bg-foreground/20" />
-            <span className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground/40">Scroll to Explore</span>
+            <span className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground/40 dark:text-muted-foreground/60">Scroll to Explore</span>
           </div>
         </div>
 
@@ -179,10 +179,10 @@ export function HorizontalWork({
               ) : (
                 <>
                   <div className="flex justify-between items-start">
-                    <span className="font-mono text-[9px] tracking-[0.18em] text-foreground/[0.3] uppercase">
+                    <span className="font-mono text-[9px] tracking-[0.18em] text-foreground/[0.3] dark:text-foreground/50 dark:text-foreground/70 uppercase">
                       {project.name}
                     </span>
-                    <span className="font-mono text-[9px] text-muted-foreground/30">{project.year}</span>
+                    <span className="font-mono text-[9px] text-muted-foreground/30 dark:text-muted-foreground/50">{project.year}</span>
                   </div>
                   <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
                     <div className="relative h-5 w-5">
@@ -192,8 +192,8 @@ export function HorizontalWork({
                   </div>
                   <div className="relative z-10 mt-auto border-l-2 border-foreground/10 pl-4 transition-colors group-hover:border-foreground/30">
                     <h3 className="mb-2 text-3xl font-medium tracking-tight">{project.name}</h3>
-                    <p className="mb-4 max-w-sm text-sm text-foreground/50">{project.desc}</p>
-                    <div className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground/40">{project.category}</div>
+                    <p className="mb-4 max-w-sm text-sm text-foreground/50 dark:text-foreground/70">{project.desc}</p>
+                    <div className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground/40 dark:text-muted-foreground/60">{project.category}</div>
                   </div>
                 </>
               )}
@@ -205,10 +205,10 @@ export function HorizontalWork({
         <div className="horizontal-item relative mr-12 aspect-[4/3] w-[85vw] flex-shrink-0 rounded-xl border border-dashed border-border/30 bg-foreground/[0.04] md:mr-24 md:w-[50vw]">
           <Link href="#" className="absolute inset-0 block p-8 md:p-12 flex flex-col justify-between transition-all duration-500 hover:bg-foreground/[0.06] group">
             <div className="flex justify-between items-start">
-              <span className="font-mono text-[9px] tracking-[0.18em] text-foreground/[0.3] uppercase">
+              <span className="font-mono text-[9px] tracking-[0.18em] text-foreground/[0.3] dark:text-foreground/50 dark:text-foreground/70 uppercase">
                 Diag
               </span>
-              <span className="font-mono text-[9px] text-muted-foreground/30">2024</span>
+              <span className="font-mono text-[9px] text-muted-foreground/30 dark:text-muted-foreground/50">2024</span>
             </div>
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div className="relative h-5 w-5">
@@ -218,10 +218,10 @@ export function HorizontalWork({
             </div>
             <div className="z-10 relative mt-auto border-l-2 border-foreground/10 pl-4 group-hover:border-foreground/30 transition-colors">
               <h3 className="text-3xl font-medium tracking-tight mb-2">Diag</h3>
-              <p className="text-sm text-foreground/50 mb-4 max-w-sm">
+              <p className="text-sm text-foreground/50 dark:text-foreground/70 mb-4 max-w-sm">
                 Medical data made legible. A diagnostic experience people trust.
               </p>
-              <div className="font-mono text-[9px] text-muted-foreground/40 uppercase tracking-wider">Health Tech · Product Strategy</div>
+              <div className="font-mono text-[9px] text-muted-foreground/40 dark:text-muted-foreground/60 uppercase tracking-wider">Health Tech · Product Strategy</div>
             </div>
           </Link>
         </div>

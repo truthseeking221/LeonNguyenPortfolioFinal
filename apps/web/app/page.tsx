@@ -9,6 +9,7 @@ import { HeroSection } from "@/components/hero-section"
 import { GradientButton } from "@/components/gradient-button"
 import { MagneticButton } from "@/components/magnetic-button"
 import { ManifestoStrip } from "@/components/manifesto-strip"
+import { ClosingCTA } from "@/components/closing-cta"
 
 /* ─────────────────────────────────────────────
    Data
@@ -112,7 +113,7 @@ export default function Page() {
 
         <Reveal variant="fade">
           <div className="mb-12 flex items-center gap-4 md:mb-16">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 uppercase">
+            <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 dark:text-muted-foreground/70 uppercase">
               How I work
             </p>
             <span className="h-px flex-1 bg-border/40" />
@@ -147,7 +148,7 @@ export default function Page() {
 
                   {/* Detail — visible on mobile, revealed on hover for desktop */}
                   <div className="mt-3 overflow-hidden transition-all duration-400 md:mt-0 md:max-h-0 md:opacity-0 md:group-hover:mt-3 md:group-hover:max-h-24 md:group-hover:opacity-100">
-                    <p className="max-w-[52ch] text-sm leading-relaxed text-muted-foreground/50">
+                    <p className="max-w-[52ch] text-sm leading-relaxed text-muted-foreground/50 dark:text-muted-foreground/70">
                       {p.detail}
                     </p>
                   </div>
@@ -173,7 +174,7 @@ export default function Page() {
 
         <Reveal variant="fade">
           <div className="mb-12 flex items-center gap-4 md:mb-16">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 uppercase">
+            <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 dark:text-muted-foreground/70 uppercase">
               About
             </p>
             <span className="h-px flex-1 bg-border/40" />
@@ -184,117 +185,101 @@ export default function Page() {
         <Reveal delay={80}>
           <GsapTitle 
             text="I don't start with screens. I start with what needs to become clear."
-            className="max-w-[28ch] text-[clamp(1.5rem,3.5vw,2.5rem)] leading-[1.2] font-light tracking-tight text-foreground/90"
+            className="mt-6 md:mt-0 max-w-[28ch] text-[clamp(1.5rem,3.5vw,3rem)] leading-[1.1] font-light tracking-tight text-foreground/90"
           />
         </Reveal>
 
         {/* Portrait + Bio grid */}
-        <div className="mt-16 grid gap-10 md:mt-24 md:grid-cols-[1fr_2fr] md:gap-16">
+        <div className="mt-20 grid gap-16 md:mt-32 md:grid-cols-[1fr_1.4fr] md:gap-32 items-start">
 
-          {/* Portrait */}
-          <Reveal delay={0} variant="scale">
-            <ScrollFloat speed={0.08}>
-            <div className="relative overflow-hidden rounded-2xl border border-border/20 bg-foreground/[0.04]">
-              <div className="aspect-[3/4]">
-                <div className="absolute top-3 left-3 h-4 w-4 border-t border-l border-foreground/[0.10]" />
-                <div className="absolute top-3 right-3 h-4 w-4 border-t border-r border-foreground/[0.10]" />
-                <div className="absolute bottom-3 left-3 h-4 w-4 border-b border-l border-foreground/[0.10]" />
-                <div className="absolute bottom-3 right-3 h-4 w-4 border-b border-r border-foreground/[0.10]" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative h-4 w-4">
-                    <div className="absolute top-1/2 left-0 h-px w-full -translate-y-px bg-foreground/[0.07]" />
-                    <div className="absolute top-0 left-1/2 h-full w-px -translate-x-px bg-foreground/[0.07]" />
+          {/* Minimalist Cinematic Portrait Canvas */}
+          <Reveal delay={0} variant="fade">
+            <ScrollFloat speed={0.03}>
+              <div className="relative rounded-[24px] bg-foreground/[0.03] overflow-hidden">
+                <div className="aspect-[4/5] relative w-full h-full p-6 flex flex-col justify-between">
+                  {/* Focus corners static */}
+                  <div className="absolute top-6 left-6 h-4 w-4 border-t border-l border-foreground/10" />
+                  <div className="absolute top-6 right-6 h-4 w-4 border-t border-r border-foreground/10" />
+                  <div className="absolute bottom-6 left-6 h-4 w-4 border-b border-l border-foreground/10" />
+                  <div className="absolute bottom-6 right-6 h-4 w-4 border-b border-r border-foreground/10" />
+                  
+                  {/* Central geometric crosshair */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div className="relative h-4 w-4 opacity-10">
+                      <div className="absolute top-1/2 left-0 h-px w-full -translate-y-px bg-foreground" />
+                      <div className="absolute top-0 left-1/2 h-full w-px -translate-x-px bg-foreground" />
+                    </div>
+                  </div>
+                  
+                  <div className="mt-auto">
+                    <span className="font-mono text-[9px] tracking-widest text-foreground/30 uppercase">
+                      Portrait
+                    </span>
                   </div>
                 </div>
-                <span className="absolute bottom-3 left-3 font-mono text-[9px] text-foreground/[0.15]">
-                  Portrait
-                </span>
               </div>
-            </div>
+
+              {/* Process — four verbs placed under the image as per reference */}
+              <div className="mt-12 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[10px] tracking-widest uppercase md:mt-16 md:gap-x-6">
+                <span className="text-foreground/80">Ask</span>
+                <span className="text-foreground/20">·</span>
+                <span className="text-foreground/80">Reduce</span>
+                <span className="text-foreground/20">·</span>
+                <span className="text-foreground/80">Shape</span>
+                <span className="text-foreground/20">·</span>
+                <span className="text-foreground/80">Ship</span>
+              </div>
             </ScrollFloat>
           </Reveal>
 
-          {/* Bio content */}
-          <Reveal delay={200}>
-            <div className="md:pt-4">
+          {/* Interactive Bio content */}
+          <div className="md:pt-4 flex flex-col gap-20">
 
-              {/* Currently — live, present tense, first thing */}
-              <div className="space-y-4 border-b border-border/10 pb-8">
-                <p className="font-mono text-[9px] tracking-[0.22em] text-muted-foreground/45 uppercase">
-                  Right now
-                </p>
-                <div className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-3">
-                  <span className="self-baseline font-mono text-[9px] tracking-[0.15em] text-muted-foreground/42 uppercase">
-                    Working on
-                  </span>
-                  <span className="text-sm text-muted-foreground/70">
-                    TymeBank Crypto: crypto onboarding at scale
-                  </span>
-                  <span className="self-baseline font-mono text-[9px] tracking-[0.15em] text-muted-foreground/42 uppercase">
-                    Thinking about
-                  </span>
-                  <span className="text-sm text-muted-foreground/70">
-                    How AI reshapes what a product designer actually does
-                  </span>
-                  <span className="self-baseline font-mono text-[9px] tracking-[0.15em] text-muted-foreground/42 uppercase">
-                    Reading
-                  </span>
-                  <span className="text-sm text-muted-foreground/70">
-                    The Shape of Design, Frank Chimero
-                  </span>
-                  <span className="self-baseline font-mono text-[9px] tracking-[0.15em] text-muted-foreground/42 uppercase">
-                    Using
-                  </span>
-                  <span className="text-sm text-muted-foreground/70">
-                    Claude, Cursor, Figma, Linear
+            {/* STATUS BOARD: Ultra clean, no borders */}
+            <Reveal delay={100} variant="fade">
+              <div className="flex flex-col">
+                <div className="pb-8">
+                  <span className="font-mono text-[9px] tracking-[0.2em] text-muted-foreground/40 uppercase">
+                    Right now
                   </span>
                 </div>
+                
+                <div className="flex flex-col gap-6">
+                {[
+                  { label: "Working on", value: "TymeBank Crypto: crypto onboarding at scale" },
+                  { label: "Thinking about", value: "How AI reshapes what a product designer actually does" },
+                  { label: "Reading", value: "The Shape of Design, Frank Chimero" },
+                  { label: "Using", value: "Claude, Cursor, Figma, Linear" },
+                ].map((item, idx) => (
+                  <div key={idx} className="grid grid-cols-[140px_1fr] md:grid-cols-[160px_1fr] items-baseline">
+                    <span className="font-mono text-[9px] tracking-[0.15em] text-muted-foreground/40 uppercase">
+                      {item.label}
+                    </span>
+                    <span className="text-[13px] md:text-[14.5px] text-muted-foreground/80 font-light">
+                      {item.value}
+                    </span>
+                  </div>
+                ))}
+                </div>
               </div>
+            </Reveal>
 
-              {/* Bio */}
-              <div className="mt-8 space-y-5 text-[15px] leading-relaxed text-foreground/70 md:text-base">
+            {/* Smooth Bio paragraphs */}
+            <div className="space-y-6 text-[14.5px] leading-[1.8] text-muted-foreground/90 md:text-[15px] font-light">
+              <Reveal delay={200} variant="fade">
                 <p>
-                  I specialize in 0-to-1 work. Taking something that
-                  doesn&apos;t exist yet and giving it structure, logic, and
-                  a point of view. I start with what needs to become clear,
-                  then I remove everything that doesn&apos;t support it.
+                  I specialize in 0-to-1 work. Taking something that doesn't exist yet and giving it structure, logic, and a point of view. I start with what needs to become clear, then I remove everything that doesn't support it.
                 </p>
+              </Reveal>
+              <Reveal delay={300} variant="fade">
                 <p>
-                  AI is part of how I work — not as a trend, but as a way to
-                  think deeper and move faster through ambiguity. The best
-                  products don&apos;t have the most features. They have the
-                  clearest thinking behind them.
+                  AI is part of how I work — not as a trend, but as a way to think deeper and move faster through ambiguity. The best products don't have the most features. They have the clearest thinking behind them.
                 </p>
-              </div>
+              </Reveal>
             </div>
-          </Reveal>
+            
+          </div>
         </div>
-
-        {/* Process — four verbs */}
-        <Reveal variant="fade" delay={100}>
-          <div className="mt-16 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-sm tracking-widest uppercase md:mt-24 md:gap-x-5">
-            <span className="text-foreground/80">Ask</span>
-            <span className="text-foreground/25">·</span>
-            <span className="text-foreground/80">Reduce</span>
-            <span className="text-foreground/25">·</span>
-            <span className="text-foreground/80">Shape</span>
-            <span className="text-foreground/25">·</span>
-            <span className="text-foreground/80">Ship</span>
-          </div>
-        </Reveal>
-
-        <Reveal variant="fade" delay={200}>
-          <div className="mt-10">
-            <MagneticButton>
-              <GradientButton href="/about">
-                <span className="inline-flex items-center gap-2">
-                  Read more
-                  <ArrowRight className="size-3" />
-                </span>
-              </GradientButton>
-            </MagneticButton>
-          </div>
-        </Reveal>
       </section>
 
       {/* ══════════════════════════════════════════════════
@@ -312,7 +297,7 @@ export default function Page() {
 
         <Reveal variant="fade">
           <div className="mb-12 flex items-center gap-4 md:mb-16">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 uppercase">
+            <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 dark:text-muted-foreground/70 uppercase">
               What people say
             </p>
             <span className="h-px flex-1 bg-border/40" />
@@ -367,68 +352,25 @@ export default function Page() {
       {/* ══════════════════════════════════════════════════
           CTA — RESOLUTION
           ══════════════════════════════════════════════════ */}
-      <section
-        id="contact"
-        className="relative px-12 py-20 pb-40 md:px-[200px] md:py-32 md:pb-52 max-w-screen-2xl mx-auto"
-      >
-        {/* Timeline spine (ends at node) */}
-        <div className="pointer-events-none absolute top-0 left-6 md:left-[120px] -translate-x-1/2 w-px h-32 bg-foreground/[0.08]" />
+      <div id="contact" className="relative group">
+         {/* Timeline spine terminal node to connect to the previous section */}
+         <div className="pointer-events-none absolute top-0 left-6 md:left-[120px] -translate-x-1/2 w-px h-32 bg-foreground/[0.08] z-20" />
+         <div className="pointer-events-none absolute left-6 md:left-[120px] top-32 -translate-x-1/2 flex items-center justify-center z-20">
+           <div className="h-4 w-4 rounded-full border-2 border-background bg-foreground shadow-[0_0_15px_rgba(0,0,0,0.3)] dark:shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
+           <div className="absolute h-8 w-8 animate-ping rounded-full border border-foreground/30" />
+         </div>
 
-        {/* Node indicator - Final End Node */}
-        <div className="pointer-events-none absolute left-6 md:left-[120px] top-32 -translate-x-1/2 flex items-center justify-center">
-          <div className="h-4 w-4 rounded-full border-2 border-background bg-foreground shadow-[0_0_15px_rgba(0,0,0,0.3)] dark:shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
-          <div className="absolute h-8 w-8 animate-ping rounded-full border border-foreground/30" />
-        </div>
-
-        <Reveal variant="fade" delay={0}>
-          <div className="mb-10 flex items-center gap-3 md:mb-12">
-            <div className="flex items-center gap-2 rounded-full border border-foreground/10 bg-foreground/5 px-3 py-1">
-               <div className="h-1.5 w-1.5 animate-breathe rounded-full bg-foreground/80" />
-               <span className="font-mono text-[9px] font-bold tracking-[0.2em] text-foreground/70 uppercase">
-                 Available for new projects
-               </span>
-            </div>
-          </div>
-        </Reveal>
-
-        <ScrollFloat speed={0.06} className="font-light">
-          <GsapTitle 
-            text="Let's build something clear." 
-            className="text-[clamp(2.5rem,5.5vw,5.5rem)] leading-[1.0] font-light tracking-tight"
-          />
-        </ScrollFloat>
-
-        <Reveal delay={400}>
-          <p className="mt-8 max-w-[44ch] text-base leading-relaxed text-muted-foreground/60">
-            For products that need sharper structure, stronger interaction,
-            and a clearer point of view.
-          </p>
-        </Reveal>
-
-        <ScrollFloat speed={-0.04}>
-          <Reveal delay={550} variant="fade">
-            <div className="mt-8">
-              <MagneticButton>
-                <GradientButton href="mailto:leondesigner221@gmail.com">
-                  <span className="inline-flex items-center gap-2">
-                    leondesigner221@gmail.com
-                    <ArrowUpRight className="size-4" />
-                  </span>
-                </GradientButton>
-              </MagneticButton>
-            </div>
-          </Reveal>
-        </ScrollFloat>
-      </section>
+         <ClosingCTA />
+      </div>
 
       {/* ── Footer ── */}
       <Reveal variant="fade" delay={0} threshold={0.5}>
         <footer className="border-t border-border/10 px-6 py-8 md:px-[300px]">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] text-muted-foreground/20">
+            <span className="text-[10px] text-muted-foreground/20 dark:text-muted-foreground/40">
               &copy; 2026 Leon
             </span>
-            <span className="text-[10px] text-muted-foreground/20">
+            <span className="text-[10px] text-muted-foreground/20 dark:text-muted-foreground/40">
               Product Designer &amp; Builder
             </span>
           </div>
