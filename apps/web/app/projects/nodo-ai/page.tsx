@@ -18,6 +18,7 @@ import directionBGuidedOnboarding from "../../images/Direction B_ Guided Onboard
 import directionCProgressiveDisclosure from "../../images/Direction C_ Progressive Disclosure.png"
 import detailImage from "../../images/Detail.png"
 import manageLiquidityImage from "../../images/Manage Liquidity.png"
+import holdingPnLImage from "../../images/Holding PnL.png"
 
 export const metadata: Metadata = {
   title: "NODO AI — Case Study — Leon",
@@ -753,7 +754,22 @@ export default function NodoAICaseStudy() {
         </div>
 
         <div className="mt-20 md:mt-32">
-          <ImagePlaceholder label="[Insert P&L waterfall and holdings dashboard]" caption="Holdings dashboard with P&L waterfall breakdown" aspectRatio="aspect-[2.2/1]" variant="hero" />
+          <figure className="group overflow-hidden rounded-2xl border border-border/40 bg-muted/20">
+            <div className="flex justify-center">
+              <Image
+                src={holdingPnLImage}
+                alt="Holdings dashboard with P&L breakdown and position overview"
+                width={holdingPnLImage.width}
+                height={holdingPnLImage.height}
+                className="h-fit w-fit max-w-full object-contain"
+                sizes="(min-width: 1280px) 1100px, (min-width: 768px) 90vw, 100vw"
+                quality={100}
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              Holdings dashboard with P&L waterfall breakdown
+            </figcaption>
+          </figure>
           <div className="mt-8 grid gap-8 md:grid-cols-2 md:gap-16">
             <div>
               <span className="font-mono text-[10px] text-muted-foreground/25">03</span>
