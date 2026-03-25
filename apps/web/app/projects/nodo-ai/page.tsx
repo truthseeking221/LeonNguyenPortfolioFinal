@@ -10,6 +10,14 @@ import problemSpaceMap from "../../images/Problem Space Map.png"
 import nodoEcosystemPositioning from "../../images/NODO Ecosystem Positioning.png"
 import nodoResearch1 from "../../images/Nodo Research 1.png"
 import nodoResearch2 from "../../images/Nodo Research 2.png"
+import primaryUserFlow from "../../images/userflow.png"
+import informationLayers from "../../images/information layers.png"
+import nodoVaultSystemProductIARecolored from "../../images/NODO Vault System Product IA Recolored.png"
+import directionADashboardFirst from "../../images/Direction A_ Dashboard-first.png"
+import directionBGuidedOnboarding from "../../images/Direction B_ Guided Onboarding.png"
+import directionCProgressiveDisclosure from "../../images/Direction C_ Progressive Disclosure.png"
+import detailImage from "../../images/Detail.png"
+import manageLiquidityImage from "../../images/Manage Liquidity.png"
 
 export const metadata: Metadata = {
   title: "NODO AI — Case Study — Leon",
@@ -152,6 +160,7 @@ export default function NodoAICaseStudy() {
                 fill
                 className="object-contain"
                 sizes="(min-width: 768px) 80vw, 100vw"
+                quality={100}
                 priority
               />
             </div>
@@ -192,6 +201,7 @@ export default function NodoAICaseStudy() {
                 fill
                 sizes="(min-width: 768px) 100vw, calc(100vw - 3rem)"
                 className="object-contain"
+                quality={100}
                 priority
               />
             </div>
@@ -345,6 +355,7 @@ export default function NodoAICaseStudy() {
                 height={nodoResearch1.height}
                 className="h-auto w-full"
                 sizes="(min-width: 1280px) 1340px, (min-width: 768px) 90vw, 100vw"
+                quality={100}
               />
             </div>
             <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
@@ -360,6 +371,7 @@ export default function NodoAICaseStudy() {
                 height={nodoResearch2.height}
                 className="h-auto w-full"
                 sizes="(min-width: 1280px) 1340px, (min-width: 768px) 90vw, 100vw"
+                quality={100}
               />
             </div>
             <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
@@ -541,10 +553,56 @@ export default function NodoAICaseStudy() {
         <h2 className="mt-4 max-w-[22ch] text-3xl font-medium tracking-tight md:text-4xl">Structuring the product, not just the screens</h2>
         <p className="mt-8 max-w-[58ch] text-base leading-relaxed text-muted-foreground md:text-lg">The core challenge was taking a system with multiple vault types, receipt tokens, rebalancing logic, fee structures, and risk parameters, and organizing it into something a user could navigate without a tutorial. The architecture had to serve both the beginner who just wants to deposit USDC and the power user who wants to verify every rebalancing decision.</p>
         <div className="mt-14 space-y-8">
-          <ImagePlaceholder label="[Insert information architecture diagram]" caption="Product information architecture showing the vault system hierarchy" aspectRatio="aspect-[21/9]" variant="hero" />
-          <div className="grid gap-8 md:grid-cols-2">
-            <ImagePlaceholder label="[Insert primary user flow diagram]" caption="Primary user flow from landing to first deposit" aspectRatio="aspect-[4/3]" variant="artifact" />
-            <ImagePlaceholder label="[Insert progressive disclosure framework]" caption="How information layers from simple to detailed across the product" aspectRatio="aspect-[4/3]" variant="artifact" />
+          <figure className="group">
+            <div className="overflow-hidden rounded-2xl border border-border/40 bg-muted/20">
+              <Image
+                src={nodoVaultSystemProductIARecolored}
+                alt="NODO vault system product information architecture"
+                width={nodoVaultSystemProductIARecolored.width}
+                height={nodoVaultSystemProductIARecolored.height}
+                className="h-auto w-full"
+                sizes="(min-width: 1280px) 1100px, (min-width: 768px) 90vw, 100vw"
+                quality={100}
+                priority
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              Product information architecture showing the vault system hierarchy
+            </figcaption>
+          </figure>
+          <div className="flex flex-col gap-8">
+            <figure className="group">
+              <div className="overflow-hidden rounded-lg border border-border/40 bg-muted/20">
+                <Image
+                  src={primaryUserFlow}
+                  alt="Primary user flow from landing to first deposit"
+                  width={primaryUserFlow.width}
+                  height={primaryUserFlow.height}
+                  className="relative left-[3px] top-[-3px] h-auto w-full"
+                  sizes="(min-width: 1280px) 1100px, (min-width: 768px) 90vw, 100vw"
+                  quality={100}
+                />
+              </div>
+              <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                Primary user flow from landing to first deposit
+              </figcaption>
+            </figure>
+            <figure className="group">
+              <div className="overflow-hidden rounded-lg border border-border/40 bg-muted/20">
+                <Image
+                  src={informationLayers}
+                  alt="Progressive disclosure framework for the NODO product"
+                  width={informationLayers.width}
+                  height={informationLayers.height}
+                  className="relative left-[3px] top-[-3px] h-auto w-full"
+                  sizes="(min-width: 1280px) 1100px, (min-width: 768px) 90vw, 100vw"
+                  quality={100}
+                />
+              </div>
+              <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                How information layers from simple to detailed across the product
+              </figcaption>
+            </figure>
           </div>
         </div>
         <p className="mt-12 max-w-[58ch] text-base leading-relaxed text-muted-foreground md:ml-[15%]">The key architectural decision was to separate the vault system into three information layers. The overview layer shows what you need to decide. The detail layer shows what you need to trust. The technical layer shows what you need to verify. Most users never reach the third layer, and that is by design.</p>
@@ -558,9 +616,51 @@ export default function NodoAICaseStudy() {
         <div className="mt-14">
           <h3 className="text-sm font-medium text-foreground/80">Early Concepts</h3>
           <div className="mt-6 grid gap-6 md:grid-cols-3">
-            <ImagePlaceholder label="[Direction A: dashboard-first approach]" caption="Direction A emphasized data density for power users" aspectRatio="aspect-[3/4]" variant="screen" />
-            <ImagePlaceholder label="[Direction B: guided onboarding approach]" caption="Direction B prioritized step-by-step education" aspectRatio="aspect-[3/4]" variant="screen" />
-            <ImagePlaceholder label="[Direction C: progressive disclosure approach]" caption="Direction C layered information by user confidence" aspectRatio="aspect-[3/4]" variant="screen" />
+            <figure className="group overflow-hidden rounded-lg border border-border/40 bg-muted/20">
+              <div className="relative aspect-[3/4]">
+                <Image
+                  src={directionADashboardFirst}
+                  alt="Direction A dashboard-first approach"
+                  fill
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="object-contain"
+                  quality={100}
+                />
+              </div>
+              <figcaption className="px-3 py-2 text-[10px] text-muted-foreground/45">
+                Direction A emphasized data density for power users
+              </figcaption>
+            </figure>
+            <figure className="group overflow-hidden rounded-lg border border-border/40 bg-muted/20">
+              <div className="relative aspect-[3/4]">
+                <Image
+                  src={directionBGuidedOnboarding}
+                  alt="Direction B guided onboarding approach"
+                  fill
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="object-contain"
+                  quality={100}
+                />
+              </div>
+              <figcaption className="px-3 py-2 text-[10px] text-muted-foreground/45">
+                Direction B prioritized step-by-step education
+              </figcaption>
+            </figure>
+            <figure className="group overflow-hidden rounded-lg border border-border/40 bg-muted/20">
+              <div className="relative aspect-[3/4]">
+                <Image
+                  src={directionCProgressiveDisclosure}
+                  alt="Direction C progressive disclosure approach"
+                  fill
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="object-contain"
+                  quality={100}
+                />
+              </div>
+              <figcaption className="px-3 py-2 text-[10px] text-muted-foreground/45">
+                Direction C layered information by user confidence
+              </figcaption>
+            </figure>
           </div>
         </div>
         <div className="mt-16 grid gap-8 md:grid-cols-2">
@@ -574,7 +674,22 @@ export default function NodoAICaseStudy() {
           </div>
         </div>
         <div className="mt-12">
-          <ImagePlaceholder label="[Insert wireframe evolution from rough to refined]" caption="Design evolution across three rounds of iteration" aspectRatio="aspect-[2.5/1]" variant="hero" />
+          <figure className="group overflow-hidden rounded-2xl border border-border/40 bg-muted/20">
+            <div className="relative aspect-[2.5/1]">
+              <Image
+                src={detailImage}
+                alt="Wireframe evolution from rough to refined"
+                width={detailImage.width}
+                height={detailImage.height}
+                sizes="(min-width: 768px) 100vw, calc(100vw - 3rem)"
+                className="h-auto w-full object-contain"
+                quality={100}
+              />
+            </div>
+            <figcaption className="px-3 py-2 text-[10px] text-muted-foreground/45">
+              Design evolution across three rounds of iteration
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -592,11 +707,41 @@ export default function NodoAICaseStudy() {
               <p className="text-xs leading-relaxed text-muted-foreground/50"><span className="font-medium text-muted-foreground/70">Key decision:</span> We led with net yield after fees, not headline APY. This was a direct response to the research finding that APY creates false expectations.</p>
             </div>
           </div>
-          <ImagePlaceholder label="[Insert vault overview screen]" caption="Vault overview with simplified metrics" aspectRatio="aspect-[4/3]" variant="screen" />
+          <figure className="group overflow-hidden rounded-xl border border-border/40 bg-muted/20">
+            <div className="relative aspect-[4/3] w-fit">
+              <Image
+                src={manageLiquidityImage}
+                alt="Manage Liquidity screen for single-sided deposit"
+                width={manageLiquidityImage.width}
+                height={manageLiquidityImage.height}
+                sizes="(min-width: 768px) 40vw, 100vw"
+                className="h-fit w-fit object-contain"
+                quality={100}
+              />
+            </div>
+            <figcaption className="px-3 py-2 text-[10px] text-muted-foreground/45">
+              Single-sided deposit flow in the manage liquidity screen
+            </figcaption>
+          </figure>
         </div>
 
         <div className="mt-20 grid items-center gap-10 md:mt-32 md:grid-cols-[1.5fr_0.8fr] md:gap-16">
-          <ImagePlaceholder label="[Insert single-sided deposit flow]" caption="Single-sided deposit as the default entry point" aspectRatio="aspect-[4/3]" variant="screen" className="order-2 md:order-1" />
+          <figure className="group overflow-hidden rounded-xl border border-border/40 bg-muted/20 order-2 md:order-1 w-fit">
+            <div className="relative aspect-[4/3]">
+              <Image
+                src={manageLiquidityImage}
+                alt="Manage Liquidity screen for single-sided deposit"
+                width={manageLiquidityImage.width}
+                height={manageLiquidityImage.height}
+                sizes="(min-width: 768px) 40vw, 100vw"
+                className="h-fit w-fit object-contain"
+                quality={100}
+              />
+            </div>
+            <figcaption className="px-3 py-2 text-[10px] text-muted-foreground/45">
+              Single-sided deposit as the default entry point
+            </figcaption>
+          </figure>
           <div className="order-1 md:order-2">
             <span className="font-mono text-[10px] text-muted-foreground/25">02</span>
             <h3 className="mt-2 text-xl font-medium tracking-tight md:text-2xl">Single-Sided Deposit</h3>

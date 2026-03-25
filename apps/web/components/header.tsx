@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@workspace/ui/lib/utils"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export function Header() {
   const pathname = usePathname()
@@ -46,6 +47,7 @@ export function Header() {
           >
             CV ↓
           </a>
+          <ThemeToggle />
         </nav>
       </div>
     </header>

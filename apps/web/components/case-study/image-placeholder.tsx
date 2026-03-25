@@ -35,7 +35,7 @@ export function ImagePlaceholder({
             backgroundSize: "24px 24px",
           }}
         />
-        <div className="absolute inset-0 flex items-center justify-center px-8">
+        <div className="absolute right-0 bottom-0 flex items-center justify-center px-8">
           <span className="max-w-[36ch] text-center font-mono text-[11px] leading-relaxed text-muted-foreground/25">
             {label}
           </span>

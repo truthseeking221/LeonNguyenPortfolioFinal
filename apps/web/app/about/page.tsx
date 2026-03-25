@@ -1,8 +1,10 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, ArrowUpRight } from "lucide-react"
 import { Reveal } from "@/components/reveal"
 import { ScrollFloat, SplitReveal } from "@/components/scroll-effects"
+import dashboardFirstImage from "../images/Direction A_ Dashboard-first.png"
 
 export const metadata: Metadata = {
   title: "About — Leon",
@@ -138,11 +140,14 @@ export default function AboutPage() {
                   <div className="absolute top-4 right-4 h-5 w-5 border-t border-r border-foreground/[0.08]" />
                   <div className="absolute bottom-4 left-4 h-5 w-5 border-b border-l border-foreground/[0.08]" />
                   <div className="absolute bottom-4 right-4 h-5 w-5 border-b border-r border-foreground/[0.08]" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-mono text-[9px] tracking-widest text-foreground/[0.10] uppercase">
-                      Leon
-                    </span>
-                  </div>
+                  <Image
+                    src={dashboardFirstImage}
+                    alt="Dashboard-first direction"
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 40vw, 100vw"
+                    priority
+                  />
                 </div>
               </div>
             </ScrollFloat>
