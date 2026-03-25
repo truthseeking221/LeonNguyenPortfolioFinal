@@ -5,6 +5,10 @@ import { ScrollFloat, SplitReveal } from "@/components/scroll-effects"
 import { RotatingHeadline } from "@/components/rotating-headline"
 import { GradientButton } from "@/components/gradient-button"
 import { UnicornBg } from "@/components/unicorn-bg"
+import { WebglHeroBg } from "@/components/webgl-hero-bg"
+import { MagneticButton } from "@/components/magnetic-button"
+import { GsapTitle } from "@/components/gsap-title"
+import { HorizontalWork } from "@/components/horizontal-work"
 
 /* ─────────────────────────────────────────────
    Data
@@ -75,309 +79,149 @@ export default function Page() {
   return (
     <main className="min-h-screen overflow-x-hidden">
 
-      {/* ── Blueprint grid overlay ── */}
-      <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0">
-        <div className="absolute inset-y-0 left-[8%] w-px bg-foreground/[0.03]" />
-        <div className="absolute inset-y-0 left-[42%] w-px bg-foreground/[0.025] hidden md:block" />
-        <div className="absolute inset-y-0 left-[75%] w-px bg-foreground/[0.025] hidden md:block" />
-        <div className="absolute left-[12%] right-[8%] top-[52%] h-px bg-foreground/[0.02]" />
+      {/* ── Infographic Spine & Grid Overlay ── */}
+      <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 flex justify-center">
+        <div className="relative w-full max-w-screen-2xl mx-auto h-full">
+          {/* Main vertical spine line */}
+          <div className="absolute inset-y-0 left-6 md:left-[120px] w-px bg-gradient-to-b from-transparent via-foreground/15 to-transparent" />
+          
+          {/* Subtle helper lines */}
+          <div className="absolute inset-y-0 left-1/2 w-px bg-foreground/[0.015] hidden md:block" />
+          <div className="absolute inset-y-0 right-6 md:right-[120px] w-px bg-foreground/[0.015] hidden md:block" />
+          
+          {/* Horizontal tracking line */}
+          <div className="absolute left-6 right-6 md:left-[120px] md:right-[120px] top-[50vh] h-px bg-foreground/[0.02] hidden md:block" />
+        </div>
       </div>
 
 
       {/* ══════════════════════════════════════════════════
-          HERO — One unified block, vertically centered.
-          Eyebrow → headline → description → CTA
-          flow as a single authored composition.
+          HERO — Infographic Node Start
           ══════════════════════════════════════════════════ */}
-      <section className="relative flex min-h-screen items-center justify-center px-6 md:px-[120px]">
-        {/* UnicornStudio animated background */}
-        <UnicornBg />
+      <section className="relative flex min-h-screen items-center px-12 md:px-[200px] max-w-screen-2xl mx-auto">
+        {/* WebGL animated liquid background */}
+        <div className="absolute inset-0">
+          <WebglHeroBg />
+        </div>
 
-        <div className="relative z-10 text-center">
+        {/* Node indicator on spine */}
+        <div className="pointer-events-none absolute left-6 md:left-[120px] top-1/2 -translate-y-1/2 -translate-x-1/2 flex items-center justify-center">
+          <div className="h-4 w-4 rounded-full border-2 border-background bg-foreground shadow-[0_0_15px_rgba(0,0,0,0.3)] dark:shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
+          <div className="absolute h-8 w-8 animate-ping rounded-full border border-foreground/20" />
+        </div>
 
-          {/* Eyebrow — small, earns the headline */}
-          <p className="animate-hero-label mb-6 text-lg font-medium tracking-tight text-foreground md:mb-8 md:text-xl">
-            Leon, product designer
-          </p>
+        <div className="relative z-10 w-full max-w-4xl pt-20">
+          {/* Eyebrow */}
+          <div className="animate-hero-label mb-6 flex items-center gap-4">
+            <span className="h-px w-8 bg-foreground/30" />
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/70">
+              Leon, product designer
+            </p>
+          </div>
 
-          {/* Headline — the dominant statement */}
+          {/* Headline */}
           <h1
-            className="animate-hero-name font-medium tracking-tighter text-foreground"
-            style={{ fontSize: "clamp(48px, 9vw, 150px)", lineHeight: 0.88 }}
+            className="animate-hero-name font-bold tracking-tight text-foreground"
+            style={{ fontSize: "clamp(48px, 8vw, 130px)", lineHeight: 0.95 }}
           >
             <RotatingHeadline />
           </h1>
 
-          {/* Description — close to the headline, clearly readable */}
-          <p className="animate-hero-body mx-auto mt-8 max-w-[42ch] text-base leading-relaxed text-foreground/55 md:mt-10 md:text-lg">
+          {/* Description */}
+          <p className="animate-hero-body mt-8 max-w-[48ch] text-base leading-relaxed text-foreground/60 md:mt-12 md:text-xl border-l-[3px] border-foreground/10 pl-6">
             I design systems, interfaces, and interactions
             that make complexity disappear.
           </p>
 
-          {/* CTA — the natural conclusion */}
-          <div className="animate-hero-cta mt-10 md:mt-12">
-            <GradientButton href="#work">
-              <span className="inline-flex items-center gap-2">
-                See the work
-                <ArrowDown className="size-4" />
-              </span>
-            </GradientButton>
+          {/* CTA */}
+          <div className="animate-hero-cta mt-12 md:mt-16 flex items-center gap-6">
+            <MagneticButton>
+              <GradientButton href="#work">
+                <span className="inline-flex items-center gap-2">
+                  See the work
+                  <ArrowDown className="size-4" />
+                </span>
+              </GradientButton>
+            </MagneticButton>
+            <div className="hidden md:flex items-center gap-3">
+              <span className="h-px w-16 bg-foreground/15" />
+              <span className="font-mono text-[9px] text-muted-foreground/40 uppercase tracking-widest">Scroll to explore</span>
+            </div>
           </div>
-
         </div>
       </section>
 
       {/* ══════════════════════════════════════════════════
-          ACT 2 — FEATURED WORK
-          NODO leads at full width. Metadata row below.
-          The work arrives, then you understand what it is.
+          ACT 2 — FEATURED WORK (HORIZONTAL SCROLL)
           ══════════════════════════════════════════════════ */}
-      <section id="work" className="px-6 py-24 md:px-[300px] md:py-40">
-
-        <Reveal variant="fade">
-          <p className="mb-12 font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 uppercase md:mb-16">
-            Featured Work
-          </p>
-        </Reveal>
-
-        {/* ── NODO — Flagship ── */}
-        <Reveal delay={0}>
-          <Link href="/projects/nodo-ai" className="group block">
-            <div className="relative overflow-hidden rounded-xl bg-foreground transition-transform duration-700 ease-out group-hover:scale-[1.003]">
-              <div className="relative aspect-[21/9]">
-                {/* Corner brackets */}
-                <div className="absolute top-5 left-5 h-7 w-7 border-t border-l border-background/15" />
-                <div className="absolute top-5 right-5 h-7 w-7 border-t border-r border-background/15" />
-                <div className="absolute bottom-5 left-5 h-7 w-7 border-b border-l border-background/15" />
-                <div className="absolute bottom-5 right-5 h-7 w-7 border-b border-r border-background/15" />
-                {/* Center crosshair */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative h-6 w-6">
-                    <div className="absolute top-1/2 left-0 h-px w-full -translate-y-px bg-background/10" />
-                    <div className="absolute top-0 left-1/2 h-full w-px -translate-x-px bg-background/10" />
-                  </div>
-                </div>
-                <span className="absolute bottom-5 left-5 font-mono text-[8px] tracking-[0.18em] text-background/12 uppercase">
-                  NODO
-                </span>
-                {/* Hover outcome */}
-                <div className="absolute right-0 bottom-0 flex flex-col justify-end bg-gradient-to-t from-foreground/50 to-transparent p-6 opacity-0 transition-opacity duration-500 group-hover:opacity-100 md:p-8">
-                  <p className="max-w-[50ch] text-sm leading-relaxed text-background/55">
-                    Vault management for non-crypto users. Clarity as the core
-                    product decision.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Metadata row */}
-            <div className="mt-6 grid grid-cols-[1fr_auto] items-start gap-6 md:grid-cols-[auto_1fr_1.4fr_auto] md:gap-10">
-              <div>
-                <span className="text-xl font-medium tracking-tight">NODO</span>
-                <p className="mt-1 text-sm text-muted-foreground/50">
-                  DeFi Infrastructure · 2024
-                </p>
-              </div>
-              <div className="hidden md:block">
-                <span className="font-mono text-[9px] tracking-[0.15em] text-muted-foreground/30 uppercase">
-                  Role
-                </span>
-                <p className="mt-1 text-sm text-muted-foreground/60">
-                  Lead Product Designer
-                </p>
-              </div>
-              <div className="hidden md:block">
-                <span className="font-mono text-[9px] tracking-[0.15em] text-muted-foreground/30 uppercase">
-                  Outcome
-                </span>
-                <p className="mt-1 text-sm text-muted-foreground/60">
-                  Redesigned autonomous vault UX. Research to shipped MVP on Sui.
-                </p>
-              </div>
-              <ArrowUpRight className="mt-1 size-4 shrink-0 text-muted-foreground/15 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground/50" />
-            </div>
-          </Link>
-        </Reveal>
-
-        {/* ── Strong pair — 55/45 split ── */}
-        <div className="project-pair mt-14 grid grid-cols-1 gap-6 sm:grid-cols-[55fr_45fr]">
-
-          {/* Diag */}
-          <Reveal delay={200}>
-            <Link href="#" className="project-card group block">
-              <div className="relative overflow-hidden rounded-xl border border-dashed border-border/30 bg-foreground/[0.04] transition-all duration-500 group-hover:border-border/50">
-                <div className="relative aspect-[3/2]">
-                  <div className="absolute top-3 left-3 h-5 w-5 border-t border-l border-foreground/[0.08]" />
-                  <div className="absolute bottom-3 right-3 h-5 w-5 border-b border-r border-foreground/[0.08]" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="relative h-5 w-5">
-                      <div className="absolute top-1/2 left-0 h-px w-full -translate-y-px bg-foreground/[0.06]" />
-                      <div className="absolute top-0 left-1/2 h-full w-px -translate-x-px bg-foreground/[0.06]" />
-                    </div>
-                  </div>
-                  <span className="absolute bottom-3 left-3 font-mono text-[8px] tracking-[0.18em] text-foreground/[0.10] uppercase">
-                    Diag
-                  </span>
-                  <div className="absolute inset-x-4 bottom-8 translate-y-1 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                    <p className="text-xs leading-relaxed text-muted-foreground/45">
-                      Medical data made legible. A diagnostic experience people
-                      trust.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-3 flex items-baseline justify-between">
-                <div>
-                  <span className="text-base font-medium tracking-tight">
-                    Diag
-                  </span>
-                  <p className="mt-0.5 text-sm text-muted-foreground/50">
-                    Health Tech · Product Strategy
-                  </p>
-                </div>
-                <span className="font-mono text-[9px] text-muted-foreground/20">
-                  2024
-                </span>
-              </div>
-            </Link>
-          </Reveal>
-
-          {/* TymeBank Crypto */}
-          <Reveal delay={200}>
-            <Link
-              href="/projects/tymebank-crypto"
-              className="project-card group block"
-            >
-              <div className="relative overflow-hidden rounded-xl border border-dashed border-border/30 bg-foreground/[0.04] transition-all duration-500 group-hover:border-border/50">
-                <div className="relative aspect-[3/2]">
-                  <div className="absolute top-3 left-3 h-5 w-5 border-t border-l border-foreground/[0.08]" />
-                  <div className="absolute bottom-3 right-3 h-5 w-5 border-b border-r border-foreground/[0.08]" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="relative h-5 w-5">
-                      <div className="absolute top-1/2 left-0 h-px w-full -translate-y-px bg-foreground/[0.06]" />
-                      <div className="absolute top-0 left-1/2 h-full w-px -translate-x-px bg-foreground/[0.06]" />
-                    </div>
-                  </div>
-                  <span className="absolute bottom-3 left-3 font-mono text-[8px] tracking-[0.18em] text-foreground/[0.10] uppercase">
-                    TymeBank
-                  </span>
-                  <div className="absolute inset-x-4 bottom-8 translate-y-1 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                    <p className="text-xs leading-relaxed text-muted-foreground/45">
-                      Crypto onboarding for a 5-million-customer bank.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-3 flex items-baseline justify-between">
-                <div>
-                  <span className="text-base font-medium tracking-tight">
-                    TymeBank Crypto
-                  </span>
-                  <p className="mt-0.5 text-sm text-muted-foreground/50">
-                    Fintech · 0 to 1
-                  </p>
-                </div>
-                <span className="font-mono text-[9px] text-muted-foreground/20">
-                  2024
-                </span>
-              </div>
-            </Link>
-          </Reveal>
-        </div>
-
-        {/* ── Compact row — breadth, not depth ── */}
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
-          {COMPACT_PROJECTS.map((project) => (
-            <Reveal key={project.name} delay={400}>
-              <Link
-                href={project.href}
-                className="group block"
-              >
-                {/* Thumbnail placeholder */}
-                <div className="relative overflow-hidden rounded-lg border border-dashed border-border/25 bg-foreground/[0.03] transition-all duration-500 group-hover:border-border/40">
-                  <div className="relative aspect-[16/9]">
-                    <div className="absolute top-2.5 left-2.5 h-4 w-4 border-t border-l border-foreground/[0.06]" />
-                    <div className="absolute bottom-2.5 right-2.5 h-4 w-4 border-b border-r border-foreground/[0.06]" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="relative h-4 w-4">
-                        <div className="absolute top-1/2 left-0 h-px w-full -translate-y-px bg-foreground/[0.05]" />
-                        <div className="absolute top-0 left-1/2 h-full w-px -translate-x-px bg-foreground/[0.05]" />
-                      </div>
-                    </div>
-                    <span className="absolute bottom-2.5 left-2.5 font-mono text-[7px] tracking-[0.18em] text-foreground/[0.08] uppercase">
-                      {project.name}
-                    </span>
-                  </div>
-                </div>
-                {/* Meta */}
-                <div className="mt-3 flex items-baseline justify-between">
-                  <span className="text-sm font-medium tracking-tight transition-colors group-hover:text-foreground">
-                    {project.name}
-                  </span>
-                  <span className="font-mono text-[9px] text-muted-foreground/20">
-                    {project.year}
-                  </span>
-                </div>
-                <p className="mt-1 text-xs text-muted-foreground/40">
-                  {project.category}
-                </p>
-                <p className="mt-2 text-xs leading-relaxed text-muted-foreground/50 opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
-                  {project.desc}
-                </p>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+      <HorizontalWork compactProjects={COMPACT_PROJECTS} />
 
       {/* ══════════════════════════════════════════════════
           MANIFESTO STRIP
-          Full bleed black. One sentence. A verdict.
-          This is not a decorative separator — it's a poster.
           ══════════════════════════════════════════════════ */}
       <Reveal variant="fade">
         <div className="relative w-full overflow-hidden bg-foreground">
-          <div className="flex flex-col items-center justify-center px-6 py-20 md:py-32">
-            <ScrollFloat speed={0.08}>
-              <p className="max-w-[24ch] text-center text-[clamp(1.8rem,4vw,3.5rem)] font-medium leading-[1.15] tracking-tight text-background">
-                I do not make things look clear.
-              </p>
-            </ScrollFloat>
-            <ScrollFloat speed={-0.04}>
-              <p className="mt-3 max-w-[24ch] text-center text-[clamp(1.8rem,4vw,3.5rem)] font-medium leading-[1.15] tracking-tight text-background/50">
-                I make them become clear.
-              </p>
-            </ScrollFloat>
+          {/* Spine passing through dark block */}
+          <div className="absolute inset-y-0 left-6 md:left-[120px] w-px bg-background/10 z-0" />
+          <div className="pointer-events-none absolute left-6 md:left-[120px] top-1/2 -translate-y-1/2 -translate-x-1/2 flex items-center justify-center z-10">
+            <div className="h-3 w-3 rounded-full border-2 border-foreground bg-background/80" />
+          </div>
+
+          <div className="relative z-10 flex flex-col items-center justify-center px-12 py-20 md:py-32">
+            <Reveal variant="fade">
+              <GsapTitle 
+                text="I do not make things look clear." 
+                className="max-w-[24ch] justify-center text-center text-[clamp(2.5rem,4vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-background" 
+              />
+            </Reveal>
+            <Reveal variant="fade" delay={200}>
+              <GsapTitle 
+                text="I make them become clear." 
+                className="mt-6 max-w-[24ch] justify-center text-center text-[clamp(2.5rem,4vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-background/30" 
+              />
+            </Reveal>
           </div>
         </div>
       </Reveal>
 
       {/* ══════════════════════════════════════════════════
           PRINCIPLES
-          Five rows. Each one a conviction. Hover reveals
-          the method behind the conviction. Desktop-only
-          expansion; mobile shows detail by default.
+          Linked along the spine line as stages
           ══════════════════════════════════════════════════ */}
-      <section className="border-t border-border/10 px-6 py-20 md:px-[300px] md:py-32">
+      <section className="relative px-12 py-20 md:px-[200px] md:py-32 max-w-screen-2xl mx-auto">
+        
+        {/* Node indicator */}
+        <div className="pointer-events-none absolute left-6 md:left-[120px] top-32 -translate-x-1/2 flex items-center justify-center">
+          <div className="h-3 w-3 rounded-full border-2 border-background bg-foreground/60" />
+        </div>
 
         <Reveal variant="fade">
-          <p className="mb-12 font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 uppercase md:mb-16">
-            How I work
-          </p>
+          <div className="mb-12 flex items-center gap-4 md:mb-16">
+            <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 uppercase">
+              How I work
+            </p>
+            <span className="h-px flex-1 bg-border/40" />
+          </div>
         </Reveal>
 
-        <div>
+        <div className="relative ml-0 md:ml-12 border-l border-border/20 pl-8 md:pl-16">
           {PRINCIPLES.map((p, i) => (
             <Reveal key={p.num} delay={i * 60}>
-              <div className="group flex items-start gap-6 border-b border-border/8 py-8 last:border-0 md:gap-10 md:py-10">
-                {/* Ghost number */}
-                <ScrollFloat speed={0.06}>
-                  <span
-                    aria-hidden="true"
-                    className="shrink-0 select-none font-mono text-[clamp(2.5rem,5vw,4.5rem)] font-extralight leading-none tracking-tighter text-foreground/[0.04] transition-colors duration-400 group-hover:text-foreground/[0.08]"
-                  >
-                    {p.num}
-                  </span>
+              <div className="group relative flex flex-col md:flex-row items-start gap-4 md:gap-8 pb-16 last:pb-0">
+                {/* Branch connection for infographic */}
+                <div className="absolute -left-8 md:-left-16 top-6 h-px w-8 md:w-12 bg-border/30 transition-colors group-hover:bg-foreground/40" />
+                <div className="absolute -left-[37px] md:-left-[69px] top-5 h-2 w-2 rounded-full border border-border bg-background transition-colors group-hover:border-foreground group-hover:bg-foreground/10" />
+
+                {/* Number block */}
+                <ScrollFloat speed={0.03}>
+                  <div className="flex h-12 w-16 items-center rounded-lg border border-border/10 bg-foreground/[0.02] px-3 transition-colors group-hover:bg-foreground/[0.04]">
+                    <span
+                      aria-hidden="true"
+                      className="text-2xl font-bold tracking-tight text-foreground/40 transition-colors duration-400 group-hover:text-foreground/80"
+                    >
+                      {p.num}
+                    </span>
+                  </div>
                 </ScrollFloat>
 
                 <div className="flex-1 pt-2">
@@ -401,31 +245,33 @@ export default function Page() {
 
       {/* ══════════════════════════════════════════════════
           ABOUT
-          Portrait left. Currently block + bio right.
-          The Currently block comes first — it's the most
-          human, most differentiating element on the page.
           ══════════════════════════════════════════════════ */}
-      <section id="about" className="border-t border-border/10 px-6 py-20 md:px-[300px] md:py-32">
+      <section id="about" className="relative px-12 py-20 md:px-[200px] md:py-32 max-w-screen-2xl mx-auto">
+        
+        {/* Node indicator */}
+        <div className="pointer-events-none absolute left-6 md:left-[120px] top-32 -translate-x-1/2 flex items-center justify-center">
+          <div className="h-3 w-3 rounded-full border-2 border-background bg-foreground/60" />
+        </div>
 
         <Reveal variant="fade">
-          <p className="mb-12 font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 uppercase md:mb-16">
-            About
-          </p>
+          <div className="mb-12 flex items-center gap-4 md:mb-16">
+            <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 uppercase">
+              About
+            </p>
+            <span className="h-px flex-1 bg-border/40" />
+          </div>
         </Reveal>
 
         {/* Opening line */}
         <Reveal delay={80}>
-          <ScrollFloat speed={0.07}>
-            <p className="max-w-[28ch] text-[clamp(1.5rem,4vw,3rem)] leading-[1.12] font-light tracking-tight text-foreground/90">
-              I don&apos;t start with screens.
-              <br />
-              I start with what needs to become clear.
-            </p>
-          </ScrollFloat>
+          <GsapTitle 
+            text="I don't start with screens. I start with what needs to become clear."
+            className="max-w-[28ch] text-[clamp(1.5rem,3.5vw,2.5rem)] leading-[1.2] font-semibold tracking-tight text-foreground/90"
+          />
         </Reveal>
 
         {/* Portrait + Bio grid */}
-        <div className="mt-16 grid gap-10 md:mt-24 md:grid-cols-[1fr_1.8fr] md:gap-16">
+        <div className="mt-16 grid gap-10 md:mt-24 md:grid-cols-[1fr_2fr] md:gap-16">
 
           {/* Portrait */}
           <Reveal delay={0} variant="scale">
@@ -521,62 +367,72 @@ export default function Page() {
 
         <Reveal variant="fade" delay={200}>
           <div className="mt-10">
-            <GradientButton href="/about">
-              <span className="inline-flex items-center gap-2">
-                Read more
-                <ArrowRight className="size-3" />
-              </span>
-            </GradientButton>
+            <MagneticButton>
+              <GradientButton href="/about">
+                <span className="inline-flex items-center gap-2">
+                  Read more
+                  <ArrowRight className="size-3" />
+                </span>
+              </GradientButton>
+            </MagneticButton>
           </div>
         </Reveal>
       </section>
 
       {/* ══════════════════════════════════════════════════
           TESTIMONIALS
-          Two quotes. Side by side. Evidence, not decoration.
-          Both appear together — no stagger.
           ══════════════════════════════════════════════════ */}
-      <section className="border-t border-border/10 px-6 py-20 md:px-[300px] md:py-32">
+      <section className="relative px-12 py-20 md:px-[200px] md:py-32 max-w-screen-2xl mx-auto">
+        
+        {/* Node indicator */}
+        <div className="pointer-events-none absolute left-6 md:left-[120px] top-32 -translate-x-1/2 flex items-center justify-center">
+          <div className="h-3 w-3 rounded-full border-2 border-background bg-foreground/60" />
+        </div>
 
         <Reveal variant="fade">
-          <p className="mb-12 font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 uppercase md:mb-16">
-            What people say
-          </p>
+          <div className="mb-12 flex items-center gap-4 md:mb-16">
+            <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 uppercase">
+              What people say
+            </p>
+            <span className="h-px flex-1 bg-border/40" />
+          </div>
         </Reveal>
 
         <Reveal delay={0} variant="fade">
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
 
-            <ScrollFloat speed={0.05}>
-              <figure>
-                <blockquote>
-                  <p className="text-[clamp(1.1rem,2.2vw,1.45rem)] font-light leading-[1.45] tracking-tight text-foreground/80">
-                    &ldquo;We had six months of confusion that Leon resolved
+            <ScrollFloat speed={0.02}>
+              <figure className="relative p-8 rounded-2xl border border-border/15 bg-primary/[0.02]">
+                <div className="absolute -top-3 left-8 text-4xl text-foreground/15">&ldquo;</div>
+                <blockquote className="relative z-10">
+                  <p className="text-[clamp(1.1rem,2vw,1.25rem)] font-medium leading-[1.5] tracking-tight text-foreground/80">
+                    We had six months of confusion that Leon resolved
                     in two weeks. He didn&apos;t redesign the interface.
-                    He redesigned the thinking behind it.&rdquo;
+                    He redesigned the thinking behind it.
                   </p>
                 </blockquote>
-                <figcaption className="mt-6 flex items-center gap-3">
-                  <div className="h-9 w-9 shrink-0 overflow-hidden rounded-full border border-border/20 bg-foreground/[0.06]" />
-                  <span className="text-xs tracking-wide text-muted-foreground/55">
+                <figcaption className="mt-8 flex items-center gap-4 border-t border-border/10 pt-6">
+                  <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full border border-border/20 bg-foreground/[0.06]" />
+                  <span className="text-sm font-medium tracking-wide text-muted-foreground/80">
                     Founder, B2B SaaS · Series A
                   </span>
                 </figcaption>
               </figure>
             </ScrollFloat>
 
-            <ScrollFloat speed={-0.03}>
-              <figure>
-                <blockquote>
-                  <p className="text-[clamp(1.1rem,2.2vw,1.45rem)] font-light leading-[1.45] tracking-tight text-foreground/80">
-                    &ldquo;The best thing he did was tell us what not to build.
+            <ScrollFloat speed={-0.01}>
+              <figure className="relative p-8 rounded-2xl border border-border/15 bg-primary/[0.02]">
+                 <div className="absolute -top-3 left-8 text-4xl text-foreground/15">&ldquo;</div>
+                <blockquote className="relative z-10">
+                  <p className="text-[clamp(1.1rem,2vw,1.25rem)] font-medium leading-[1.5] tracking-tight text-foreground/80">
+                    The best thing he did was tell us what not to build.
                     That single call saved us three months and probably
-                    the product.&rdquo;
+                    the product.
                   </p>
                 </blockquote>
-                <figcaption className="mt-6 flex items-center gap-3">
-                  <div className="h-9 w-9 shrink-0 overflow-hidden rounded-full border border-border/20 bg-foreground/[0.06]" />
-                  <span className="text-xs tracking-wide text-muted-foreground/55">
+                <figcaption className="mt-8 flex items-center gap-4 border-t border-border/10 pt-6">
+                  <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full border border-border/20 bg-foreground/[0.06]" />
+                  <span className="text-sm font-medium tracking-wide text-muted-foreground/80">
                     CEO, TymeBank Crypto
                   </span>
                 </figcaption>
@@ -589,30 +445,33 @@ export default function Page() {
 
       {/* ══════════════════════════════════════════════════
           CTA — RESOLUTION
-          The page built tension through hierarchy, proof,
-          and conviction. The CTA releases it.
           ══════════════════════════════════════════════════ */}
       <section
         id="contact"
-        className="border-t border-border/15 px-6 py-20 md:px-[300px] md:py-32"
+        className="relative px-12 py-20 pb-40 md:px-[200px] md:py-32 md:pb-52 max-w-screen-2xl mx-auto"
       >
+        {/* Node indicator - Final End Node */}
+        <div className="pointer-events-none absolute left-6 md:left-[120px] top-32 -translate-x-1/2 flex items-center justify-center">
+          <div className="h-4 w-4 rounded-full border-2 border-background bg-foreground shadow-[0_0_15px_rgba(0,0,0,0.3)] dark:shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
+          <div className="absolute h-8 w-8 animate-ping rounded-full border border-foreground/30" />
+        </div>
+
         <Reveal variant="fade" delay={0}>
-          <div className="mb-10 flex items-center gap-2 md:mb-12">
-            <div className="h-1.5 w-1.5 animate-breathe rounded-full bg-foreground/40" />
-            <span className="font-mono text-[9px] tracking-[0.2em] text-muted-foreground/30 uppercase">
-              Available for new projects
-            </span>
+          <div className="mb-10 flex items-center gap-3 md:mb-12">
+            <div className="flex items-center gap-2 rounded-full border border-foreground/10 bg-foreground/5 px-3 py-1">
+               <div className="h-1.5 w-1.5 animate-breathe rounded-full bg-foreground/80" />
+               <span className="font-mono text-[9px] font-bold tracking-[0.2em] text-foreground/70 uppercase">
+                 Available for new projects
+               </span>
+            </div>
           </div>
         </Reveal>
 
-        <ScrollFloat speed={0.1}>
-          <h2 className="text-[clamp(2rem,5vw,4.5rem)] leading-[1.08] font-light tracking-tight">
-            <SplitReveal
-              text={"Let's build\nsomething clear."}
-              stagger={90}
-              delay={0}
-            />
-          </h2>
+        <ScrollFloat speed={0.06}>
+          <GsapTitle 
+            text="Let's build something clear." 
+            className="text-[clamp(2.5rem,5.5vw,5.5rem)] leading-[1.0] font-bold tracking-tight"
+          />
         </ScrollFloat>
 
         <Reveal delay={400}>
@@ -625,12 +484,14 @@ export default function Page() {
         <ScrollFloat speed={-0.04}>
           <Reveal delay={550} variant="fade">
             <div className="mt-8">
-              <GradientButton href="mailto:leondesigner221@gmail.com">
-                <span className="inline-flex items-center gap-2">
-                  leondesigner221@gmail.com
-                  <ArrowUpRight className="size-4" />
-                </span>
-              </GradientButton>
+              <MagneticButton>
+                <GradientButton href="mailto:leondesigner221@gmail.com">
+                  <span className="inline-flex items-center gap-2">
+                    leondesigner221@gmail.com
+                    <ArrowUpRight className="size-4" />
+                  </span>
+                </GradientButton>
+              </MagneticButton>
             </div>
           </Reveal>
         </ScrollFloat>
