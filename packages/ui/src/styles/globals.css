@@ -133,6 +133,15 @@
     }
 }
 
+/* ── Hide scrollbar ── */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* ── Hero entrance animations ──
    Sequence: header(0) → label(0.15) → name(0.3) → line(0.7) → tagline(0.55) → cta(0.95)
    Easing: cubic-bezier(0.16, 1, 0.3, 1) — fast attack, gentle settle.

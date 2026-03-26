@@ -211,49 +211,50 @@ export default function Page() {
           </div>
         </Reveal>
 
-        <Reveal delay={0} variant="fade">
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
-
-            <ScrollFloat speed={0.02}>
-              <figure className="relative p-8 rounded-2xl border border-border/15 bg-primary/[0.02]">
-                <div className="absolute -top-3 left-8 text-4xl text-foreground/15">&ldquo;</div>
-                <blockquote className="relative z-10">
-                  <p className="text-[clamp(1.1rem,2vw,1.25rem)] font-medium leading-[1.5] tracking-tight text-foreground/80">
-                    We had six months of confusion that Leon resolved
-                    in two weeks. He didn&apos;t redesign the interface.
-                    He redesigned the thinking behind it.
+        <div className="space-y-0 divide-y divide-border/10">
+          {[
+            {
+              quote: "Leon consistently demonstrated a sharp product mindset, user-obsessed design thinking, and strong execution capability. One of his greatest strengths is his ability to turn minimal product requirements into fully realized, high-impact product experiences.",
+              name: "Sowmya Raghavan",
+              role: "Venture Builder · RWA, DeFi, Payments",
+            },
+            {
+              quote: "I have been always impressed with how high quality An\u2019s mobile designs turned out to be. Not only they accomplish in catching eyes of the users but also very straightforward for our development team to follow through. We experienced a 22% increase in Proposal Win Rate when we switched to rely on his creativity.",
+              name: "Huy (Jim)",
+              role: "Business & Digital Transformation Expert",
+            },
+            {
+              quote: "An is a person who will never exchange the quality of products for the sake of time. His spirit of responsibility, as well as pixel-perfect consciousness, is the one that makes him really stand out.",
+              name: "Nghia Mai",
+              role: "Senior Software Engineer",
+            },
+          ].map((t, i) => (
+            <Reveal key={i} delay={i * 100} variant="fade">
+              <figure className="grid grid-cols-1 md:grid-cols-[1fr_200px] gap-6 md:gap-16 py-12 md:py-16 items-start">
+                <blockquote>
+                  <p className="text-[clamp(1.1rem,2vw,1.4rem)] font-light leading-[1.6] tracking-tight text-foreground/80">
+                    &ldquo;{t.quote}&rdquo;
                   </p>
                 </blockquote>
-                <figcaption className="mt-8 flex items-center gap-4 border-t border-border/10 pt-6">
-                  <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full border border-border/20 bg-foreground/[0.06]" />
-                  <span className="text-sm font-medium tracking-wide text-muted-foreground/80">
-                    Founder, B2B SaaS · Series A
-                  </span>
+                <figcaption className="flex md:flex-col items-center md:items-end gap-3 md:gap-2 md:text-right md:pt-2">
+                  <div className="h-9 w-9 md:h-10 md:w-10 shrink-0 overflow-hidden rounded-full border border-border/20 bg-foreground/[0.06]">
+                    {t.name === "Huy (Jim)" ? (
+                      <img
+                        src="https://media.licdn.com/dms/image/v2/D5603AQFNLaqiZ0pTtg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1689523074193?e=1776297600&v=beta&t=dntNniYXKbYvpKzlN_7EvPPd5s7GCz4oSiBzuMiwI_o"
+                        alt="Profile photo"
+                        className="h-full w-full object-cover"
+                      />
+                    ) : null}
+                  </div>
+                  <div className="flex flex-col md:items-end">
+                    <span className="text-sm font-medium text-foreground/80">{t.name}</span>
+                    <span className="text-xs text-muted-foreground/50 dark:text-muted-foreground/70">{t.role}</span>
+                  </div>
                 </figcaption>
               </figure>
-            </ScrollFloat>
-
-            <ScrollFloat speed={-0.01}>
-              <figure className="relative p-8 rounded-2xl border border-border/15 bg-primary/[0.02]">
-                 <div className="absolute -top-3 left-8 text-4xl text-foreground/15">&ldquo;</div>
-                <blockquote className="relative z-10">
-                  <p className="text-[clamp(1.1rem,2vw,1.25rem)] font-medium leading-[1.5] tracking-tight text-foreground/80">
-                    The best thing he did was tell us what not to build.
-                    That single call saved us three months and probably
-                    the product.
-                  </p>
-                </blockquote>
-                <figcaption className="mt-8 flex items-center gap-4 border-t border-border/10 pt-6">
-                  <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full border border-border/20 bg-foreground/[0.06]" />
-                  <span className="text-sm font-medium tracking-wide text-muted-foreground/80">
-                    CEO, TymeBank Crypto
-                  </span>
-                </figcaption>
-              </figure>
-            </ScrollFloat>
-
-          </div>
-        </Reveal>
+            </Reveal>
+          ))}
+        </div>
       </section>
 
       {/* ══════════════════════════════════════════════════
