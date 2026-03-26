@@ -12,8 +12,26 @@ export function Header() {
   return (
     <header className="pointer-events-none animate-hero-header fixed inset-x-0 top-0 z-50 mix-blend-difference">
       <div className="flex h-16 items-center justify-between px-6 md:px-[300px]">
-        <Link href="/" className="pointer-events-auto text-xl font-semibold tracking-[-0.04em] text-white">
-          Leon
+        <Link 
+          href="/" 
+          className="pointer-events-auto group flex items-center text-xl font-semibold tracking-[-0.04em] text-white"
+        >
+          <span>L</span>
+          <span className="flex w-0 items-center justify-center overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-2" style={{ transitionDelay: '0ms' }}>
+            <span className="h-[1.5px] w-full origin-left scale-x-0 bg-white/50 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100" style={{ transitionDelay: '50ms' }} />
+          </span>
+          <span>e</span>
+          <span className="flex w-0 items-center justify-center overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-2" style={{ transitionDelay: '50ms' }}>
+            <span className="h-[1.5px] w-full origin-left scale-x-0 bg-white/50 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100" style={{ transitionDelay: '100ms' }} />
+          </span>
+          <span>o</span>
+          <span className="flex w-0 items-center justify-center overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-2" style={{ transitionDelay: '100ms' }}>
+            <span className="h-[1.5px] w-full origin-left scale-x-0 bg-white/50 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100" style={{ transitionDelay: '150ms' }} />
+          </span>
+          <span>n</span>
+          <span className="flex w-0 items-center justify-end overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-2.5" style={{ transitionDelay: '150ms' }}>
+            <span className="h-[4px] w-[4px] scale-0 rounded-full bg-white transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-100" style={{ transitionDelay: '200ms' }} />
+          </span>
         </Link>
         <nav className="pointer-events-auto flex items-center gap-1">
           <Link

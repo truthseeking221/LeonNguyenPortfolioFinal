@@ -31,17 +31,17 @@ function LiquidChromeOrb() {
 
   return (
     <group scale={scale}>
-      <Float speed={2} rotationIntensity={0.5} floatIntensity={2}>
-        <Sphere ref={orb} args={[1.5, 256, 256]}>
+      <Float speed={1.5} rotationIntensity={0.5} floatIntensity={1.5}>
+        <Sphere ref={orb} args={[1.5, 64, 64]}>
           <MeshDistortMaterial
-            color="#f8fafc"
+            color="#ffffff"
             metalness={1}
-            roughness={0.15}
-            distort={0.35}
-            speed={1.5}
-            envMapIntensity={2}
+            roughness={0.02}
+            distort={0.25}
+            speed={0.8}
+            envMapIntensity={3}
             clearcoat={1}
-            clearcoatRoughness={0.1}
+            clearcoatRoughness={0}
           />
         </Sphere>
       </Float>
@@ -52,32 +52,31 @@ function LiquidChromeOrb() {
 export function WebglHeroBg() {
   return (
     <div className="absolute inset-0 z-0 h-full w-full pointer-events-none opacity-90 isolate">
-      <Canvas camera={{ position: [0, 0, 10], fov: 35 }} gl={{ antialias: true, alpha: true }}>
+      <Canvas dpr={[1, 1.5]} camera={{ position: [0, 0, 10], fov: 35 }} gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}>
         {/* Soft fill light */}
         <ambientLight intensity={1.5} />
         
         {/* 
-          Vibrant dramatic lighting to reflect off the chrome surface.
-          This will create the "Gleb" holographic/iridescent aesthetic. 
+          Futuristic, electric lighting for the ultimate Gleb aesthetic.
         */}
-        <directionalLight position={[10, 10, 5]} intensity={4} color="#06b6d4" /> {/* Cyan/Teal */}
-        <directionalLight position={[-10, -10, -5]} intensity={3} color="#a855f7" /> {/* Purple */}
-        <directionalLight position={[0, 10, 10]} intensity={3} color="#ffffff" /> {/* Bright White Top */}
-        <pointLight position={[5, -5, 5]} intensity={2} color="#ec4899" /> {/* Pink pop */}
+        <directionalLight position={[10, 10, 5]} intensity={5} color="#00f3ff" /> {/* Electric Cyan */}
+        <directionalLight position={[-10, -10, -5]} intensity={4} color="#7b2cbf" /> {/* Deep Purple */}
+        <directionalLight position={[0, 10, 10]} intensity={4} color="#ffffff" /> {/* Bright White Top */}
+        <pointLight position={[5, -5, 5]} intensity={3} color="#f72585" /> {/* Hot Pink pop */}
         
         <LiquidChromeOrb />
         
         {/* The environment map provides the sharp, realistic studio reflections on the chrome */}
         <Environment preset="studio" />
         
-        <ContactShadows 
-          resolution={1024} 
-          scale={20} 
-          blur={2.5} 
-          opacity={0.3} 
-          far={10} 
-          color="#000000" 
-          position={[0, -4, 0]} 
+        <ContactShadows
+          resolution={256}
+          scale={20}
+          blur={2}
+          opacity={0.4}
+          far={10}
+          color="#000000"
+          position={[0, -4, 0]}
         />
       </Canvas>
     </div>

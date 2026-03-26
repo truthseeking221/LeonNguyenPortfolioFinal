@@ -60,10 +60,10 @@ export function GsapTitle({
   return (
     <h2
       ref={containerRef}
-      className={cn("flex flex-wrap gap-x-[0.3em] overflow-visible", className)}
+      className={cn("inline-block overflow-visible", className)}
     >
       {words.map((word, i) => (
-        <span key={i} className="inline-flex overflow-hidden pb-2 -mb-2">
+        <span key={i} className="inline-flex overflow-hidden pb-2 -mb-2 mr-[0.25em]">
           {word.split("").map((char, j) => (
             <span
               key={j}

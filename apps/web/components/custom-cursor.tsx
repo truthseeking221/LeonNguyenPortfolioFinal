@@ -16,23 +16,29 @@ export function CustomCursor() {
 
     let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
     let cursorX = mouseX, cursorY = mouseY;
-    
-    // Smoothly follow the mouse
+    let rafId: number;
+
+    // Initial centering
+    cursor.style.transform = `translate(${mouseX - 20}px, ${mouseY - 20}px)`;
+    dot.style.transform = `translate(${mouseX - 2}px, ${mouseY - 2}px)`;
+
     const onMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
-
-      gsap.to(dot, { x: mouseX, y: mouseY, duration: 0.1 });
     };
 
     const render = () => {
       // Lerp for the outer circle
       cursorX += (mouseX - cursorX) * 0.15;
       cursorY += (mouseY - cursorY) * 0.15;
-      gsap.set(cursor, { x: cursorX, y: cursorY });
-      requestAnimationFrame(render);
+
+      // Direct style writes — no GSAP overhead per frame
+      cursor.style.transform = `translate(${cursorX - 20}px, ${cursorY - 20}px)`;
+      dot.style.transform = `translate(${mouseX - 2}px, ${mouseY - 2}px)`;
+
+      rafId = requestAnimationFrame(render);
     };
-    
+
     // Add hover states for interactive elements
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
@@ -50,19 +56,16 @@ export function CustomCursor() {
       }
     };
 
-    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mousemove", onMouseMove, { passive: true });
     document.addEventListener("mouseover", handleMouseOver);
     document.addEventListener("mouseout", handleMouseOut);
-    requestAnimationFrame(render);
-
-    // Initial positioning
-    gsap.set(cursor, { x: mouseX, y: mouseY, xPercent: -50, yPercent: -50 });
-    gsap.set(dot, { x: mouseX, y: mouseY, xPercent: -50, yPercent: -50 });
+    rafId = requestAnimationFrame(render);
 
     return () => {
       window.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("mouseover", handleMouseOver);
       document.removeEventListener("mouseout", handleMouseOut);
+      cancelAnimationFrame(rafId);
     };
   }, []);
 

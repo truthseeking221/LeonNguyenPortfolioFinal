@@ -41,15 +41,19 @@ export function ScrollFloat({
 
     const rect = el.getBoundingClientRect()
     const vh = window.innerHeight
+
+    // Skip work when element is off-screen
+    if (rect.bottom < -100 || rect.top > vh + 100) return
+
     const centered = (rect.top + rect.height / 2) / vh - 0.5
     const y = -centered * speed * vh
 
     if (fade > 0) {
       const opacity = Math.max(0, 1 - Math.abs(centered) * fade * 2.5)
-      el.style.transform = `translateY(${y}px)`
+      el.style.transform = `translate3d(0,${y}px,0)`
       el.style.opacity = String(opacity)
     } else {
-      el.style.transform = `translateY(${y}px)`
+      el.style.transform = `translate3d(0,${y}px,0)`
     }
   }, [speed, fade, reducedMotion])
 

@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { ArrowLeft, ArrowUpRight } from "lucide-react"
 
 import { GsapTitle } from "./gsap-title"
+import { ClosingCTA } from "./closing-cta"
 import { MagneticButton } from "./magnetic-button"
 
 gsap.registerPlugin(ScrollTrigger)
@@ -58,11 +59,14 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
       
       const chapterItems = gsap.utils.toArray(".chapter-item") as HTMLElement[]
       chapterItems.forEach((item) => {
-        gsap.fromTo(item, 
-          { opacity: 0, x: 50 }, 
-          { 
-            opacity: 1, 
-            x: 0, 
+        const yearEl = item.querySelector(".chapter-year") as HTMLElement
+
+        // Fade in the content block
+        gsap.fromTo(item,
+          { opacity: 0, x: 50 },
+          {
+            opacity: 1,
+            x: 0,
             duration: 1,
             ease: "expo.out",
             scrollTrigger: {
@@ -73,6 +77,19 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
             }
           }
         )
+
+        // Highlight the year when in view
+        if (yearEl) {
+          ScrollTrigger.create({
+            trigger: item,
+            start: "top 60%",
+            end: "bottom 40%",
+            onEnter: () => yearEl.classList.add("chapter-year-active"),
+            onLeave: () => yearEl.classList.remove("chapter-year-active"),
+            onEnterBack: () => yearEl.classList.add("chapter-year-active"),
+            onLeaveBack: () => yearEl.classList.remove("chapter-year-active"),
+          })
+        }
       })
     }
 
@@ -155,14 +172,8 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
   }, { scope: containerRef })
 
   return (
-    <div ref={containerRef} className="w-full relative">
+    <div ref={containerRef} className="w-full relative overflow-x-hidden">
       
-      {/* ── Blueprint grid overlay ── */}
-      <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0">
-        <div className="absolute inset-y-0 left-[8%] w-px bg-foreground/[0.03]" />
-        <div className="absolute inset-y-0 left-[42%] w-px bg-foreground/[0.025] hidden md:block" />
-        <div className="absolute inset-y-0 left-[75%] w-px bg-foreground/[0.025] hidden md:block" />
-      </div>
 
       {/* ══════════════════════════════════════════════════
           ACT 1 — THE OPENING
@@ -285,21 +296,24 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
             </h2>
           </div>
 
-          <div className="chapters-right flex flex-col pt-12 md:pt-32 pb-32">
-            {chapters.map((ch, i) => (
-              <div key={ch.year} className="chapter-item group relative border-b border-border/10 py-16 last:border-0 pl-12 border-l border-l-transparent hover:border-l-foreground/20 transition-all duration-500">
-                {/* Year tag absolute to left */}
-                <div className="absolute left-[-2rem] md:left-[-4rem] top-16 -rotate-90 origin-left text-foreground/5 opacity-40 font-mono text-[clamp(4rem,8vw,6rem)] font-bold tracking-tighter leading-none mix-blend-difference group-hover:opacity-100 group-hover:text-foreground/20 transition-all duration-700">
-                  {ch.year}
-                </div>
-                
-                <div className="relative z-10 pl-6 md:pl-12">
-                  <h3 className="text-[clamp(1.5rem,2.5vw,2rem)] leading-[1.2] tracking-tight text-foreground/90 mb-4">
-                    &ldquo;{ch.conviction}&rdquo;
-                  </h3>
-                  <p className="max-w-[45ch] text-base leading-relaxed text-muted-foreground/60">
-                    {ch.context}
-                  </p>
+          <div className="chapters-right flex flex-col">
+            {chapters.map((ch) => (
+              <div key={ch.year} className="chapter-item group relative border-b border-border/10 py-16 last:border-0">
+                <div className="flex items-start gap-6 md:gap-10">
+                  {/* Year label — left-aligned, highlights on scroll */}
+                  <div className="chapter-year shrink-0 w-16 md:w-20 pt-1 font-mono text-sm md:text-base font-semibold tracking-tight text-foreground/10 transition-all duration-500">
+                    {ch.year}
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex-1">
+                    <h3 className="text-[clamp(1.3rem,2.2vw,1.75rem)] leading-[1.25] tracking-tight text-foreground/90 mb-4">
+                      &ldquo;{ch.conviction}&rdquo;
+                    </h3>
+                    <p className="max-w-[45ch] text-base leading-relaxed text-muted-foreground/60 dark:text-muted-foreground/75">
+                      {ch.context}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -316,7 +330,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
           The studio, right now
         </p>
         
-        <div className="relative max-w-5xl mx-auto px-4 md:px-12">
+        <div className="relative max-w-5xl mx-auto px-4 md:px-12 overflow-hidden">
           {/* Spine Line */}
           <div className="absolute left-[39px] md:left-1/2 top-0 bottom-0 w-px bg-foreground/10 -translate-x-1/2" />
           <div 
@@ -498,39 +512,9 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
       </section>
 
       {/* ══════════════════════════════════════════════════
-          ACT 6 — THE CLOSING
+          ACT 6 — THE CLOSING (Grand Finale)
           ══════════════════════════════════════════════════ */}
-      <section className="relative z-10 px-6 py-32 md:px-[15%] md:py-48 bg-background flex flex-col items-center text-center">
-        <div className="mb-12 flex items-center justify-center gap-3">
-          <div className="h-2 w-2 rounded-full border border-foreground/30 animate-pulse" />
-          <span className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground/40 uppercase">
-            You&apos;ve read this far
-          </span>
-          <div className="h-2 w-2 rounded-full border border-foreground/30 animate-pulse" />
-        </div>
-
-        <GsapTitle 
-          text={"That says something about how you think."}
-          className="max-w-[20ch] text-[clamp(3rem,6vw,5.5rem)] leading-[1.08] font-light tracking-tight mx-auto block"
-        />
-
-        <p className="mt-12 max-w-[50ch] text-[17px] leading-relaxed text-muted-foreground/60 mx-auto">
-          I work best with people who see making as a practice, not a
-          transaction. If that resonates, let&apos;s talk.
-        </p>
-
-        <MagneticButton className="mt-16">
-          <a
-            href="mailto:leondesigner221@gmail.com"
-            className="group flex flex-col items-center relative"
-          >
-            <span className="text-[clamp(1.2rem,3vw,2rem)] tracking-tight text-foreground font-medium relative z-10 transition-colors">
-              leondesigner221@gmail.com
-            </span>
-            <div className="h-[2px] w-full bg-foreground/20 mt-1 transition-all duration-300 group-hover:bg-foreground group-hover:scale-x-110" />
-          </a>
-        </MagneticButton>
-      </section>
+      <ClosingCTA />
 
       {/* ── Footer ── */}
       <footer className="relative z-10 border-t border-border/10 px-6 py-8 md:px-[15%] flex items-center justify-between">
