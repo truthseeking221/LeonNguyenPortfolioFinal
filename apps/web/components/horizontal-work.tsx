@@ -111,7 +111,7 @@ export function HorizontalWork({
 
         {/* --- Card 2: TymeBank Crypto --- */}
         <div className="horizontal-item relative mr-12 aspect-[4/3] w-[85vw] flex-shrink-0 overflow-hidden rounded-xl border border-dashed border-border/30 bg-foreground/[0.04] md:mr-24 md:w-[50vw]">
-          <Link href="/projects/tymebank-crypto" className="absolute inset-0 block p-8 md:p-12 flex flex-col justify-between transition-all duration-500 hover:bg-black/10 group">
+          <Link href="/projects/tymebank-crypto" className="absolute right-0 bottom-0 h-full w-full block p-8 md:p-12 flex flex-col justify-between transition-all duration-500 hover:bg-black/10 group">
             <div className="relative z-10 flex justify-between items-start">
               <span className="font-mono text-[9px] tracking-[0.18em] text-white/45 uppercase">
                 TymeBank

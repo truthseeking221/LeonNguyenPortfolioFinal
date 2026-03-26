@@ -10,6 +10,7 @@ import { GradientButton } from "@/components/gradient-button"
 import { MagneticButton } from "@/components/magnetic-button"
 import { ManifestoStrip } from "@/components/manifesto-strip"
 import { ClosingCTA } from "@/components/closing-cta"
+import gotymeSavingCover from "@/app/images/GoTyme Saving.png"
 
 /* ─────────────────────────────────────────────
    Data
@@ -63,6 +64,7 @@ const COMPACT_PROJECTS: CompactProject[] = [
     year: "2023",
     href: "/projects/gotyme-savings",
     desc: "Saving as a habit. Designed for the Philippines.",
+    coverImage: gotymeSavingCover,
   },
   {
     name: "DuelZone",
