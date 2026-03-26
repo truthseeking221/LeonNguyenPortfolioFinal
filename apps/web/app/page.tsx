@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react"
+import Image from "next/image"
 import { Reveal } from "@/components/reveal"
 import { ScrollFloat } from "@/components/scroll-effects"
 import gullCover from "@/app/images/Gull.png"
@@ -13,6 +14,7 @@ import { ClosingCTA } from "@/components/closing-cta"
 import { HowIWork } from "@/components/how-i-work"
 import gotymeSavingCover from "@/app/images/GoTyme Saving.png"
 import lovebirdsCover from "@/app/images/lovebirds.png"
+import leonPortrait from "@/app/images/Leon.jpg"
 
 /* ─────────────────────────────────────────────
    Data
@@ -112,26 +114,15 @@ export default function Page() {
           <Reveal delay={0} variant="fade">
             <ScrollFloat speed={0.03}>
               <div className="relative rounded-[24px] bg-foreground/[0.03] overflow-hidden">
-                <div className="aspect-[4/5] relative w-full h-full p-6 flex flex-col justify-between">
-                  {/* Focus corners static */}
-                  <div className="absolute top-6 left-6 h-4 w-4 border-t border-l border-foreground/10" />
-                  <div className="absolute top-6 right-6 h-4 w-4 border-t border-r border-foreground/10" />
-                  <div className="absolute bottom-6 left-6 h-4 w-4 border-b border-l border-foreground/10" />
-                  <div className="absolute bottom-6 right-6 h-4 w-4 border-b border-r border-foreground/10" />
-                  
-                  {/* Central geometric crosshair */}
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <div className="relative h-4 w-4 opacity-10">
-                      <div className="absolute top-1/2 left-0 h-px w-full -translate-y-px bg-foreground" />
-                      <div className="absolute top-0 left-1/2 h-full w-px -translate-x-px bg-foreground" />
-                    </div>
-                  </div>
-                  
-                  <div className="mt-auto">
-                    <span className="font-mono text-[9px] tracking-widest text-foreground/30 uppercase">
-                      Portrait
-                    </span>
-                  </div>
+                <div className="aspect-[4/5] relative w-full h-full">
+                  <Image
+                    src={leonPortrait}
+                    alt="Leon portrait"
+                    fill
+                    className="object-cover object-center"
+                    sizes="(min-width: 768px) 40vw, 100vw"
+                    quality={100}
+                  />
                 </div>
               </div>
 

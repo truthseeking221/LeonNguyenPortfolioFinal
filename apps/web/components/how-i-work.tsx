@@ -89,17 +89,14 @@ export function HowIWork() {
 
                 {/* Number block */}
                 <ScrollFloat speed={0.03}>
-                  <div 
-                    className={cn(
-                      "flex h-12 w-16 items-center rounded-lg border px-3 transition-colors duration-500",
-                      isHovered ? "border-foreground/30 bg-foreground/[0.05]" : "border-border/10 bg-foreground/[0.02]"
-                    )}
-                  >
+                  <div className="shrink-0 w-12 md:w-16 pt-0 md:pt-1">
                     <span
                       aria-hidden="true"
                       className={cn(
-                        "text-2xl font-bold tracking-tight transition-colors duration-500",
-                        isHovered ? "text-foreground/90" : "text-foreground/40"
+                        "block font-bold tracking-tight transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] origin-left",
+                        isHovered 
+                          ? "text-foreground scale-[2.2] -translate-y-1 md:-translate-y-2" 
+                          : "text-foreground/30 text-2xl md:text-3xl scale-100"
                       )}
                     >
                       {p.num}
