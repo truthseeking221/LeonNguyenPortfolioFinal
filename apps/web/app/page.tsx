@@ -80,13 +80,13 @@ export default function Page() {
       {/* ══════════════════════════════════════════════════
           ABOUT
           ══════════════════════════════════════════════════ */}
-      <section id="about" className="relative px-12 py-20 md:px-[200px] md:py-32 max-w-screen-2xl mx-auto">
+      <section id="about" className="relative px-6 py-12 md:px-[200px] md:py-32 max-w-screen-2xl mx-auto">
 
         {/* Timeline spine */}
-        <div className="pointer-events-none absolute inset-y-0 left-6 md:left-[120px] -translate-x-1/2 w-px bg-foreground/[0.08]" />
+        <div className="pointer-events-none absolute inset-y-0 left-3 md:left-[120px] -translate-x-1/2 w-px bg-foreground/[0.08]" />
 
         {/* Node indicator */}
-        <div className="pointer-events-none absolute left-6 md:left-[120px] top-32 -translate-x-1/2 flex items-center justify-center">
+        <div className="pointer-events-none absolute left-3 md:left-[120px] top-16 md:top-32 -translate-x-1/2 flex items-center justify-center">
           <div className="h-3 w-3 rounded-full border-2 border-background bg-foreground/60" />
         </div>
 
@@ -192,15 +192,8 @@ export default function Page() {
       {/* ══════════════════════════════════════════════════
           TESTIMONIALS
           ══════════════════════════════════════════════════ */}
-      <section className="relative px-12 py-20 md:px-[200px] md:py-32 max-w-screen-2xl mx-auto">
+      <section className="relative px-6 py-12 md:px-[200px] md:py-32 max-w-screen-2xl mx-auto">
 
-        {/* Timeline spine */}
-        <div className="pointer-events-none absolute inset-y-0 left-6 md:left-[120px] -translate-x-1/2 w-px bg-foreground/[0.08]" />
-
-        {/* Node indicator */}
-        <div className="pointer-events-none absolute left-6 md:left-[120px] top-32 -translate-x-1/2 flex items-center justify-center">
-          <div className="h-3 w-3 rounded-full border-2 border-background bg-foreground/60" />
-        </div>
 
         <Reveal variant="fade">
           <div className="mb-12 flex items-center gap-4 md:mb-16">
@@ -261,12 +254,6 @@ export default function Page() {
           CTA — RESOLUTION
           ══════════════════════════════════════════════════ */}
       <div id="contact" className="relative group">
-         {/* Timeline spine terminal node to connect to the previous section */}
-         <div className="pointer-events-none absolute top-0 left-6 md:left-[120px] -translate-x-1/2 w-px h-32 bg-foreground/[0.08] z-20" />
-         <div className="pointer-events-none absolute left-6 md:left-[120px] top-32 -translate-x-1/2 flex items-center justify-center z-20">
-           <div className="h-4 w-4 rounded-full border-2 border-background bg-foreground shadow-[0_0_15px_rgba(0,0,0,0.3)] dark:shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
-           <div className="absolute h-8 w-8 animate-ping rounded-full border border-foreground/30" />
-         </div>
 
          <ClosingCTA />
       </div>

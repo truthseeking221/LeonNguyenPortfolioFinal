@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react"
 import { Badge } from "@workspace/ui/components/badge"
 import { TableOfContents } from "@/components/case-study/table-of-contents"
 import { ImagePlaceholder } from "@/components/case-study/image-placeholder"
+import cryptoImage from "../../images/Crypto.png"
 
 export const metadata: Metadata = {
   title: "Gull Network — Case Study — Leon",
@@ -87,7 +88,18 @@ export default function GullNetworkCaseStudy() {
         </p>
 
         <div className="mt-16">
-          <ImagePlaceholder label="[Insert hero visual]" caption="GullSwap landing page with layered ocean environment" aspectRatio="aspect-[2.2/1]" variant="hero" />
+          <figure className="group">
+            <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-muted/20 aspect-[2.2/1]">
+              <img
+                src={cryptoImage.src}
+                alt="GullSwap landing page with layered ocean environment"
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              GullSwap landing page with layered ocean environment
+            </figcaption>
+          </figure>
         </div>
       </section>
 

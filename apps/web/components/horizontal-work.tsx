@@ -55,7 +55,7 @@ export function HorizontalWork({
     >
       <div 
         ref={wrapperRef} 
-        className="flex h-full items-center pl-12 md:pl-[200px]"
+        className="flex h-full items-center pl-6 md:pl-[200px]"
       >
         {/* Intro Slide */}
         <div className="horizontal-item flex-shrink-0 w-[80vw] md:w-[40vw] h-full flex flex-col justify-center pr-12 md:pr-24">

@@ -211,7 +211,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
       {/* ══════════════════════════════════════════════════
           ACT 2 — THE PERSON
           ══════════════════════════════════════════════════ */}
-      <section className="relative z-10 border-t border-border/10 px-6 py-20 md:px-[15%] md:py-40">
+      <section className="relative z-10 border-t border-border/10 px-6 py-12 md:px-[15%] md:py-40">
         <div className="grid gap-16 md:grid-cols-[1.2fr_1fr] lg:gap-24">
 
           {/* Portrait */}
@@ -282,7 +282,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
       {/* ══════════════════════════════════════════════════
           ACT 3 — CHAPTERS (Pinned Left, Scrolled Right)
           ══════════════════════════════════════════════════ */}
-      <section ref={chaptersRef} className="relative z-10 border-t border-border/10 px-6 py-20 md:px-[15%] md:py-40">
+      <section ref={chaptersRef} className="relative z-10 border-t border-border/10 px-6 py-12 md:px-[15%] md:py-40">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-12 lg:gap-24 relative">
           
           <div className="chapters-left h-fit flex flex-col justify-start">

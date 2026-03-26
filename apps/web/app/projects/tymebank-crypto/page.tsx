@@ -5,6 +5,7 @@ import { Badge } from "@workspace/ui/components/badge"
 import { TableOfContents } from "@/components/case-study/table-of-contents"
 import { ImagePlaceholder } from "@/components/case-study/image-placeholder"
 import { FigmaEmbed } from "@/components/case-study/figma-embed"
+import cryptoImage from "../../images/Crypto.png"
 
 export const metadata: Metadata = {
   title: "TymeBank Crypto · Case Study · Leon",
@@ -81,12 +82,18 @@ export default function TymeBankCryptoCaseStudy() {
             </p>
 
             <div className="mt-16">
-              <ImagePlaceholder
-                label="[Insert hero: home screen with Crypto card + coin list side by side]"
-                caption="TymeBank Crypto inside the TymeBank mobile app"
-                aspectRatio="aspect-[2.2/1]"
-                variant="hero"
-              />
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-muted/20 aspect-[4/3]">
+                  <img
+                    src={cryptoImage.src}
+                    alt="TymeBank Crypto inside the TymeBank mobile app"
+                    className="h-fit w-fit object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  TymeBank Crypto inside the TymeBank mobile app
+                </figcaption>
+              </figure>
             </div>
           </section>
 

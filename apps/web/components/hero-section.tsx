@@ -58,21 +58,23 @@ export function HeroSection() {
       </div>
 
       {/* 3. Ultra-Minimal, Abstract UI Overlay */}
-      <div className="relative z-10 w-full flex flex-col items-center md:items-start text-center md:text-left pt-32 pb-16">
+      <div className="relative z-10 w-full flex flex-col items-start text-left pt-32 pb-16 mt-12 md:mt-24">
         
-        {/* Caption */}
-        <div className="gk-element mb-6 flex flex-col md:flex-row items-center gap-4">
-          <p className="font-mono text-[9px] uppercase tracking-[0.4em] text-foreground/50">
-            Leon &mdash; Product Design &amp; Direction
+        {/* Premium Glassmorphic Badge Caption */}
+        <div className="gk-element mb-8 inline-flex items-center gap-3 rounded-full border border-foreground/10 bg-background/20 py-1.5 pl-2 pr-5 backdrop-blur-lg">
+          <div className="flex items-center justify-center rounded-full bg-foreground/10 p-1">
+            <div className="h-1.5 w-1.5 rounded-full bg-foreground animate-pulse" />
+          </div>
+          <p className="font-mono text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] text-foreground/80 pt-px">
+            <span className="text-foreground font-bold">Leon</span> &mdash; Product Design &amp; Direction
           </p>
-          <div className="gk-line h-px w-16 bg-foreground/20 hidden md:block" />
         </div>
 
         {/* Huge, crisp typography */}
-        <div className="gk-element w-full max-w-[15ch] md:max-w-none">
+        <div className="gk-element w-full max-w-[90vw] md:max-w-none">
           <h1
             className="font-light tracking-tighter text-foreground"
-            style={{ fontSize: "clamp(3.5rem, 9vw, 9.5rem)", lineHeight: 0.95 }}
+            style={{ fontSize: "clamp(3.5rem, 10vw, 9.5rem)", lineHeight: 0.95 }}
           >
             <div className="overflow-hidden inline-block pb-[0.15em]"><RotatingHeadline /></div>
           </h1>
@@ -85,7 +87,7 @@ export function HeroSection() {
         </p>
 
         {/* Premium CTA / Coordinates */}
-        <div className="gk-element mt-16 flex flex-col md:flex-row items-center gap-10">
+        <div className="gk-element mt-16 flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-12">
           <MagneticButton>
             <GradientButton href="#work">
               <span className="inline-flex items-center gap-2">
@@ -95,10 +97,10 @@ export function HeroSection() {
             </GradientButton>
           </MagneticButton>
           
-          <div className="hidden lg:flex items-center gap-4">
-            <span className="h-[2px] w-2 bg-foreground/20 rounded-full" />
+          <div className="flex items-center gap-4">
+            <span className="h-[2px] w-2 bg-foreground/20 rounded-full hidden sm:block" />
             <div className="flex flex-col">
-              <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-foreground/30">Locus</span>
+              <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-foreground/30">HO CHI MINH CITY</span>
               <span className="font-mono text-[10px] tracking-widest text-foreground/70">
                 10.7626° N, 106.6601° E
               </span>
