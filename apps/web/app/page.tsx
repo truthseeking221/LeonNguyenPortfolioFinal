@@ -10,44 +10,12 @@ import { GradientButton } from "@/components/gradient-button"
 import { MagneticButton } from "@/components/magnetic-button"
 import { ManifestoStrip } from "@/components/manifesto-strip"
 import { ClosingCTA } from "@/components/closing-cta"
+import { HowIWork } from "@/components/how-i-work"
 import gotymeSavingCover from "@/app/images/GoTyme Saving.png"
 
 /* ─────────────────────────────────────────────
    Data
    ───────────────────────────────────────────── */
-
-const PRINCIPLES = [
-  {
-    num: "01",
-    statement: "Start with what needs to become clear — not with a screen.",
-    detail:
-      "Every project begins with the same question: what is the single most important thing this product needs to communicate? The screen comes after the answer.",
-  },
-  {
-    num: "02",
-    statement: "Design the system, not just the surface.",
-    detail:
-      "A beautiful screen that doesn't scale is a prototype. The system — tokens, components, patterns, rules — is what lets a team move fast without breaking things.",
-  },
-  {
-    num: "03",
-    statement: "If removing it doesn't break anything, it was never needed.",
-    detail:
-      "Every element must earn its place. Decoration is debt. Clarity comes from subtraction, not addition.",
-  },
-  {
-    num: "04",
-    statement: "Every transition should say something or say nothing at all.",
-    detail:
-      "Motion is communication. If an animation doesn't reinforce meaning, hierarchy, or spatial relationships, it's noise.",
-  },
-  {
-    num: "05",
-    statement: "Speed is a design input. If the team can't move with it, it's wrong.",
-    detail:
-      "A design system that slows down the team is not a design system. It's overhead. Pragmatism over perfection.",
-  },
-] as const
 
 const COMPACT_PROJECTS: CompactProject[] = [
   {
@@ -59,19 +27,19 @@ const COMPACT_PROJECTS: CompactProject[] = [
     coverImage: gullCover,
   },
   {
+    name: "Love Birds",
+    category: "AI Dating",
+    year: "2025",
+    href: "/projects/love-birds",
+    desc: "AI matchmaker that gets you a date in 48 hours.",
+  },
+  {
     name: "GoTyme GoalSave",
     category: "Fintech",
     year: "2023",
     href: "/projects/gotyme-savings",
     desc: "Saving as a habit. Designed for the Philippines.",
     coverImage: gotymeSavingCover,
-  },
-  {
-    name: "DuelZone",
-    category: "Gaming",
-    year: "2023",
-    href: "#",
-    desc: "Competitive gaming. Speed and legibility under pressure.",
   },
 ]
 
@@ -100,66 +68,10 @@ export default function Page() {
       <ManifestoStrip />
 
       {/* ══════════════════════════════════════════════════
-          PRINCIPLES
+          PRINCIPLES - REIMAGINED GSAP "HOW I WORK"
           Linked along the spine line as stages
           ══════════════════════════════════════════════════ */}
-      <section className="relative px-12 py-20 md:px-[200px] md:py-32 max-w-screen-2xl mx-auto">
-
-        {/* Timeline spine */}
-        <div className="pointer-events-none absolute inset-y-0 left-6 md:left-[120px] -translate-x-1/2 w-px bg-foreground/[0.08]" />
-
-        {/* Node indicator */}
-        <div className="pointer-events-none absolute left-6 md:left-[120px] top-32 -translate-x-1/2 flex items-center justify-center">
-          <div className="h-3 w-3 rounded-full border-2 border-background bg-foreground/60" />
-        </div>
-
-        <Reveal variant="fade">
-          <div className="mb-12 flex items-center gap-4 md:mb-16">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 dark:text-muted-foreground/70 uppercase">
-              How I work
-            </p>
-            <span className="h-px flex-1 bg-border/40" />
-          </div>
-        </Reveal>
-
-        <div className="relative ml-0 md:ml-12 border-l border-border/20 pl-8 md:pl-16">
-          {PRINCIPLES.map((p, i) => (
-            <Reveal key={p.num} delay={i * 60}>
-              <div className="group relative flex flex-col md:flex-row items-start gap-4 md:gap-8 pb-16 last:pb-0">
-                {/* Branch connection for infographic */}
-                <div className="absolute -left-8 md:-left-16 top-6 h-px w-8 md:w-12 bg-border/30 transition-colors group-hover:bg-foreground/40" />
-                <div className="absolute -left-[37px] md:-left-[69px] top-5 h-2 w-2 rounded-full border border-border bg-background transition-colors group-hover:border-foreground group-hover:bg-foreground/10" />
-
-                {/* Number block */}
-                <ScrollFloat speed={0.03}>
-                  <div className="flex h-12 w-16 items-center rounded-lg border border-border/10 bg-foreground/[0.02] px-3 transition-colors group-hover:bg-foreground/[0.04]">
-                    <span
-                      aria-hidden="true"
-                      className="text-2xl font-bold tracking-tight text-foreground/40 transition-colors duration-400 group-hover:text-foreground/80"
-                    >
-                      {p.num}
-                    </span>
-                  </div>
-                </ScrollFloat>
-
-                <div className="flex-1 pt-2">
-                  {/* Statement */}
-                  <p className="text-[clamp(1.05rem,2vw,1.5rem)] leading-[1.35] tracking-tight text-foreground/85 transition-colors duration-300 group-hover:text-foreground">
-                    {p.statement}
-                  </p>
-
-                  {/* Detail — visible on mobile, revealed on hover for desktop */}
-                  <div className="mt-3 overflow-hidden transition-all duration-400 md:mt-0 md:max-h-0 md:opacity-0 md:group-hover:mt-3 md:group-hover:max-h-24 md:group-hover:opacity-100">
-                    <p className="max-w-[52ch] text-sm leading-relaxed text-muted-foreground/50 dark:text-muted-foreground/70">
-                      {p.detail}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+      <HowIWork />
 
       {/* ══════════════════════════════════════════════════
           ABOUT

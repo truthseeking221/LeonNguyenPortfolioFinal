@@ -69,7 +69,7 @@ export function ClosingCTA({ className }: { className?: string }) {
 
       {/* Massive Vertical Typographic Sequence */}
       <div className="flex flex-col items-center justify-center w-full my-12 md:my-24 perspective-1000">
-        {["That", "says", "something", "about", "how", "you", "think."].map((word, i) => (
+        {["The", "work", "speaks.", "Let's", "talk."].map((word, i) => (
            <div key={i} className="overflow-hidden">
              <span className="closing-word block font-light text-[clamp(4rem,14vw,14rem)] leading-[0.85] tracking-tighter text-foreground will-change-transform pb-2 md:pb-6">
                {word}
