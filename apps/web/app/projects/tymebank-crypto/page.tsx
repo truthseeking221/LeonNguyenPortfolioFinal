@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react"
 import { Badge } from "@workspace/ui/components/badge"
 import { TableOfContents } from "@/components/case-study/table-of-contents"
 import { ImagePlaceholder } from "@/components/case-study/image-placeholder"
+import { FigmaEmbed } from "@/components/case-study/figma-embed"
 
 export const metadata: Metadata = {
   title: "TymeBank Crypto · Case Study · Leon",
@@ -20,6 +21,7 @@ const tocItems = [
   { id: "solution", label: "Solution" },
   { id: "outcome", label: "Outcome" },
   { id: "reflection", label: "Reflection" },
+  { id: "prototype", label: "Prototype" },
 ]
 
 const contentRail = "mx-auto w-full max-w-[1100px] px-6 md:px-10 lg:px-14"
@@ -928,7 +930,58 @@ export default function TymeBankCryptoCaseStudy() {
 
           <div className={dividerRail} />
 
-          {/* 10. Next / CTA */}
+          {/* 10. Prototype */}
+          <section id="prototype" className="py-24 md:py-32">
+            <div className={contentRail}>
+              <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">
+                Prototype
+              </p>
+              <h2 className="mt-4 max-w-[22ch] text-3xl font-medium tracking-tight md:text-4xl">
+                Walk through the flows
+              </h2>
+              <p className="mt-6 max-w-[52ch] text-base leading-relaxed text-muted-foreground/70 md:text-lg">
+                Three interactive prototypes covering the core journeys: onboarding
+                and first purchase, portfolio management, and the sell flow. Click
+                through each to experience the trust architecture in action.
+              </p>
+            </div>
+
+            <div className="mt-14 space-y-10">
+              <div>
+                <p className={`${contentRail} mb-4 font-mono text-[10px] tracking-wider text-muted-foreground/40 uppercase`}>
+                  Flow 1 — Onboarding &amp; First Buy
+                </p>
+                <FigmaEmbed
+                  src="https://embed.figma.com/proto/O2jD267TqtyharU5WbNyBW/SA-CRYPTO?node-id=6276-233416&viewport=1350%2C744%2C0.11&scaling=scale-down&content-scaling=fixed&starting-point-node-id=6276%3A233416&show-proto-sidebar=1&page-id=6276%3A232672&embed-host=share"
+                  title="TymeBank Crypto — Onboarding & First Buy"
+                />
+              </div>
+
+              <div>
+                <p className={`${contentRail} mb-4 font-mono text-[10px] tracking-wider text-muted-foreground/40 uppercase`}>
+                  Flow 2 — Portfolio &amp; Holdings
+                </p>
+                <FigmaEmbed
+                  src="https://embed.figma.com/proto/O2jD267TqtyharU5WbNyBW/SA-CRYPTO?node-id=6545-240049&viewport=1350%2C744%2C0.11&scaling=scale-down&content-scaling=fixed&starting-point-node-id=6545%3A240049&show-proto-sidebar=1&page-id=6276%3A232672&embed-host=share"
+                  title="TymeBank Crypto — Portfolio & Holdings"
+                />
+              </div>
+
+              <div>
+                <p className={`${contentRail} mb-4 font-mono text-[10px] tracking-wider text-muted-foreground/40 uppercase`}>
+                  Flow 3 — Sell Flow
+                </p>
+                <FigmaEmbed
+                  src="https://embed.figma.com/proto/O2jD267TqtyharU5WbNyBW/SA-CRYPTO?node-id=6545-241076&viewport=1350%2C744%2C0.11&scaling=scale-down&content-scaling=fixed&starting-point-node-id=6545%3A241076&show-proto-sidebar=1&page-id=6276%3A232672&embed-host=share"
+                  title="TymeBank Crypto — Sell Flow"
+                />
+              </div>
+            </div>
+          </section>
+
+          <div className={dividerRail} />
+
+          {/* 11. Next / CTA */}
           <section className={`${contentRail} py-24 md:py-40`}>
             <p className="max-w-[48ch] text-base leading-relaxed text-muted-foreground md:text-lg">
               Bringing crypto to a mass-market banking app in a regulated

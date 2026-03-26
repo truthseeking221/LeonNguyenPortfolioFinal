@@ -12,6 +12,7 @@ import { ManifestoStrip } from "@/components/manifesto-strip"
 import { ClosingCTA } from "@/components/closing-cta"
 import { HowIWork } from "@/components/how-i-work"
 import gotymeSavingCover from "@/app/images/GoTyme Saving.png"
+import lovebirdsCover from "@/app/images/lovebirds.png"
 
 /* ─────────────────────────────────────────────
    Data
@@ -32,6 +33,7 @@ const COMPACT_PROJECTS: CompactProject[] = [
     year: "2025",
     href: "/projects/love-birds",
     desc: "AI matchmaker that gets you a date in 48 hours.",
+    coverImage: lovebirdsCover,
   },
   {
     name: "GoTyme GoalSave",
