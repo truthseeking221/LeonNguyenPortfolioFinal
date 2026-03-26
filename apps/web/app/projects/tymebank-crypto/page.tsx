@@ -9,6 +9,7 @@ import tymebankHomeImage from "../../images/Tymebank home.png"
 import balanceBarImage from "../../images/The balance bar instead of a warning.png"
 import livePriceImage from "../../images/Live price with an honest disclaimer.png"
 import complianceGatesImage from "../../images/Compliance gates as separate screens.png"
+import errorStatesImage from "../../images/Error states that don't conflate failures.png"
 import cryptoImage from "../../images/Crypto.png"
 
 export const metadata: Metadata = {
@@ -571,6 +572,19 @@ export default function TymeBankCryptoCaseStudy() {
                             </div>
                             <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
                               Compliance gates separated into distinct screens
+                            </figcaption>
+                          </figure>
+                        ) : number === "05" ? (
+                          <figure className="group">
+                            <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[16/9]">
+                              <img
+                                src={errorStatesImage.src}
+                                alt="Error states that do not conflate failures"
+                                className="h-full w-full object-cover"
+                              />
+                            </div>
+                            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                              Error states that do not conflate failures
                             </figcaption>
                           </figure>
                         ) : (

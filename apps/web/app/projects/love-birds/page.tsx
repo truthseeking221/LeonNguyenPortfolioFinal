@@ -3,6 +3,13 @@ import { Badge } from "@workspace/ui/components/badge"
 import { TableOfContents } from "@/components/case-study/table-of-contents"
 import { ImagePlaceholder } from "@/components/case-study/image-placeholder"
 import { FigmaEmbed } from "@/components/case-study/figma-embed"
+import aiMatchReasoningImage from "../../images/The AI surfaces matches with reasoning, not just photos.png"
+import chapterProfilesImage from "../../images/Chapter profiles go deeper than any swipe card.png"
+import conversationalMatchmakingImage from "../../images/The conversational matchmaking experience.png"
+import competitiveLandscapeImage from "../../images/Competitive landscape analysis — dating app market positioning 2 (1).png"
+import act1Image from "../../images/Act 1_ The AI concierge welcomes and initiates.png"
+import act2Image from "../../images/Act 2_ Bridging the gap from match to conversation.png"
+import act3Image from "../../images/Act 3_ From conversation to confirmed date.png"
 
 export const metadata: Metadata = {
   title: "Love Birds — Case Study — Leon",
@@ -73,12 +80,18 @@ export default function LoveBirdsCaseStudy() {
             </div>
 
             <div className="mt-16">
-              <ImagePlaceholder
-                label="Love Birds — AI dating assistant interface"
-                caption="The conversational matchmaking experience"
-                aspectRatio="aspect-[2.2/1]"
-                variant="hero"
-              />
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-muted/20 aspect-[16/9]">
+                  <img
+                    src={conversationalMatchmakingImage.src}
+                    alt="The conversational matchmaking experience"
+                    className="h-fit w-fit object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  The conversational matchmaking experience
+                </figcaption>
+              </figure>
             </div>
           </section>
 
@@ -189,12 +202,18 @@ export default function LoveBirdsCaseStudy() {
                 </div>
               </div>
 
-              <ImagePlaceholder
-                label="Competitive landscape analysis — dating app market positioning"
-                caption="Mapping the gap between engagement-optimized and outcome-optimized dating products"
-                aspectRatio="aspect-[21/9]"
-                variant="artifact"
-              />
+              <figure className="group">
+                <div className="relative flex items-center justify-center overflow-hidden rounded-lg border border-border/40 bg-muted/20 aspect-[21/9]">
+                  <img
+                    src={competitiveLandscapeImage.src}
+                    alt="Competitive landscape analysis — dating app market positioning"
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  Mapping the gap between engagement-optimized and outcome-optimized dating products
+                </figcaption>
+              </figure>
             </div>
           </section>
 
@@ -352,18 +371,30 @@ export default function LoveBirdsCaseStudy() {
 
             {/* Profile card + soulmate index screenshots */}
             <div className={`${wideRail} mt-14 grid gap-5 md:grid-cols-2`}>
-              <ImagePlaceholder
-                label="Match card — AI presents a compatible match with context and compatibility score"
-                caption="The AI surfaces matches with reasoning, not just photos"
-                aspectRatio="aspect-[3/4]"
-                variant="screen"
-              />
-              <ImagePlaceholder
-                label="Chapter profile — deep personality insights, soulmate index, suggested openers"
-                caption="Chapter profiles go deeper than any swipe card"
-                aspectRatio="aspect-[3/4]"
-                variant="screen"
-              />
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[3/4]">
+                  <img
+                    src={aiMatchReasoningImage.src}
+                    alt="The AI surfaces matches with reasoning, not just photos"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  The AI surfaces matches with reasoning, not just photos
+                </figcaption>
+              </figure>
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[3/4]">
+                  <img
+                    src={chapterProfilesImage.src}
+                    alt="Chapter profiles go deeper than any swipe card"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  Chapter profiles go deeper than any swipe card
+                </figcaption>
+              </figure>
             </div>
           </section>
 
@@ -447,24 +478,42 @@ export default function LoveBirdsCaseStudy() {
 
             {/* Flow screens */}
             <div className="mt-14 grid gap-5 md:grid-cols-3">
-              <ImagePlaceholder
-                label="Onboarding — GM Lovefish! The AI greets and offers to find a date"
-                caption="Act 1: The AI concierge welcomes and initiates"
-                aspectRatio="aspect-[9/16]"
-                variant="screen"
-              />
-              <ImagePlaceholder
-                label="Interest signal — AI bridges the connection between matched users"
-                caption="Act 2: Bridging the gap from match to conversation"
-                aspectRatio="aspect-[9/16]"
-                variant="screen"
-              />
-              <ImagePlaceholder
-                label="Date confirmed — venue booked, time set, both parties notified"
-                caption="Act 3: From conversation to confirmed date"
-                aspectRatio="aspect-[9/16]"
-                variant="screen"
-              />
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[9/16]">
+                  <img
+                    src={act1Image.src}
+                    alt="Onboarding — GM Lovefish! The AI greets and offers to find a date"
+                    className="h-full w-full object-cover object-center"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  Act 1: The AI concierge welcomes and initiates
+                </figcaption>
+              </figure>
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[9/16]">
+                  <img
+                    src={act2Image.src}
+                    alt="Interest signal — AI bridges the connection between matched users"
+                    className="h-full w-full object-cover object-center"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  Act 2: Bridging the gap from match to conversation
+                </figcaption>
+              </figure>
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[9/16]">
+                  <img
+                    src={act3Image.src}
+                    alt="Date confirmed — venue booked, time set, both parties notified"
+                    className="h-full w-full object-cover object-center"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  Act 3: From conversation to confirmed date
+                </figcaption>
+              </figure>
             </div>
           </section>
 
