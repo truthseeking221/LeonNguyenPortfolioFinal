@@ -4,6 +4,13 @@ import { ArrowUpRight } from "lucide-react"
 import { Badge } from "@workspace/ui/components/badge"
 import { TableOfContents } from "@/components/case-study/table-of-contents"
 import { ImagePlaceholder } from "@/components/case-study/image-placeholder"
+import { FigmaEmbed } from "@/components/case-study/figma-embed"
+import tymebankHomeImage from "../../images/Tymebank home.png"
+import balanceBarImage from "../../images/The balance bar instead of a warning.png"
+import livePriceImage from "../../images/Live price with an honest disclaimer.png"
+import complianceGatesImage from "../../images/Compliance gates as separate screens.png"
+import errorStatesImage from "../../images/Error states that don't conflate failures.png"
+import cryptoImage from "../../images/Crypto.png"
 
 export const metadata: Metadata = {
   title: "TymeBank Crypto · Case Study · Leon",
@@ -20,6 +27,7 @@ const tocItems = [
   { id: "solution", label: "Solution" },
   { id: "outcome", label: "Outcome" },
   { id: "reflection", label: "Reflection" },
+  { id: "prototype", label: "Prototype" },
 ]
 
 const contentRail = "mx-auto w-full max-w-[1100px] px-6 md:px-10 lg:px-14"
@@ -79,12 +87,18 @@ export default function TymeBankCryptoCaseStudy() {
             </p>
 
             <div className="mt-16">
-              <ImagePlaceholder
-                label="[Insert hero: home screen with Crypto card + coin list side by side]"
-                caption="TymeBank Crypto inside the TymeBank mobile app"
-                aspectRatio="aspect-[2.2/1]"
-                variant="hero"
-              />
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-muted/20 aspect-[4/3]">
+                  <img
+                    src={cryptoImage.src}
+                    alt="TymeBank Crypto inside the TymeBank mobile app"
+                    className="h-fit w-fit object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  TymeBank Crypto inside the TymeBank mobile app
+                </figcaption>
+              </figure>
             </div>
           </section>
 
@@ -215,13 +229,21 @@ export default function TymeBankCryptoCaseStudy() {
                     </div>
                   ))}
                 </div>
-                <ImagePlaceholder
-                  label="[Insert home screen showing Crypto card in context]"
-                  caption="Crypto surfaced as a first-class product on the TymeBank home screen"
-                  aspectRatio="aspect-[3/4]"
-                  variant="screen"
-                />
               </div>
+            </div>
+            <div className="mt-16">
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[16/9]">
+                  <img
+                    src={tymebankHomeImage.src}
+                    alt="Crypto surfaced as a first-class product on the TymeBank home screen"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  Crypto surfaced as a first-class product on the TymeBank home screen
+                </figcaption>
+              </figure>
             </div>
           </section>
 
@@ -297,6 +319,15 @@ export default function TymeBankCryptoCaseStudy() {
               the moment of entering a number. Not because of complexity, but
               because they couldn&apos;t see what would happen to their bank account.
             </p>
+
+            <div className="mt-12">
+              <ImagePlaceholder
+                label="[Insert: Amount entry screen showing the trust gap — empty state with no balance context, user hesitation point]"
+                caption="The amount screen is where trust is won or lost. Users stop here — not at onboarding, not at coin selection."
+                aspectRatio="aspect-[16/9]"
+                variant="hero"
+              />
+            </div>
 
             <div className="mt-14 grid gap-12 md:grid-cols-[1.5fr_1fr] md:gap-20">
               <div className="space-y-10">
@@ -408,6 +439,7 @@ export default function TymeBankCryptoCaseStudy() {
                   tradeoff:
                     "The bar had to be prominently placed at the expense of screen real estate in an already constrained mobile layout. The amount input and keyboard take up most of the viewport. Compact but legible, with no room to negotiate.",
                   color: "oklch(0.88 0.18 86)",
+                  image: "[Insert balance bar UI — before/after state as user types amount]",
                 },
                 {
                   number: "02",
@@ -419,6 +451,7 @@ export default function TymeBankCryptoCaseStudy() {
                   tradeoff:
                     "Some users interpreted the disclaimer as uncertainty or unreliability. The phrasing had to be neutral enough to set expectations without creating anxiety. &quot;Price may change&quot; is softer than &quot;price will change&quot; but still honest.",
                   color: "oklch(0.60 0.16 250)",
+                  image: "[Insert live price display with disclaimer in nav bar]",
                 },
                 {
                   number: "03",
@@ -430,6 +463,7 @@ export default function TymeBankCryptoCaseStudy() {
                   tradeoff:
                     "Separating gates into individual screens adds steps to the ineligible-user path. The bet was that context-appropriate explanations would reduce support contacts more than consolidation would reduce friction.",
                   color: "oklch(0.70 0.16 155)",
+                  image: "[Insert compliance gate screens — age, identity, T&C]",
                 },
                 {
                   number: "04",
@@ -441,6 +475,7 @@ export default function TymeBankCryptoCaseStudy() {
                   tradeoff:
                     "Using playful crypto language risked feeling tone-deaf to users who were cautious about crypto. The bet was that users who got through the story screens were already curious enough to appreciate the signal that the team understood the space.",
                   color: "oklch(0.68 0.14 30)",
+                  image: "[Insert FTUE story cards — value prop, funding, market awareness]",
                 },
                 {
                   number: "05",
@@ -452,8 +487,9 @@ export default function TymeBankCryptoCaseStudy() {
                   tradeoff:
                     "Mapping every failure state separately added significant design and content scope. The alternative, a single generic error screen, would have been faster to build and catastrophically worse for user trust in a financial context.",
                   color: "oklch(0.62 0.18 22)",
+                  image: "[Insert error state screens — API fail, compliance block, connectivity]",
                 },
-              ].map(({ number, title, observation, decision, tradeoff, color }) => (
+              ].map(({ number, title, observation, decision, tradeoff, color, image }) => (
                 <div
                   key={number}
                   className="group border-t border-border/20 py-10 md:py-14"
@@ -497,6 +533,67 @@ export default function TymeBankCryptoCaseStudy() {
                             dangerouslySetInnerHTML={{ __html: tradeoff }}
                           />
                         </div>
+                      </div>
+                      <div className="mt-8">
+                        {number === "01" ? (
+                          <figure className="group">
+                            <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[16/9]">
+                              <img
+                                src={balanceBarImage.src}
+                                alt="Before and after balance bar shown while typing an amount"
+                                className="h-full w-full object-cover"
+                              />
+                            </div>
+                            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                              Before and after balance bar shown while typing an amount
+                            </figcaption>
+                          </figure>
+                        ) : number === "02" ? (
+                          <figure className="group">
+                            <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[16/9]">
+                              <img
+                                src={livePriceImage.src}
+                                alt="Live price display with an honest disclaimer"
+                                className="h-full w-full object-cover"
+                              />
+                            </div>
+                            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                              Live price display with an honest disclaimer
+                            </figcaption>
+                          </figure>
+                        ) : number === "03" ? (
+                          <figure className="group">
+                            <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[16/9]">
+                              <img
+                                src={complianceGatesImage.src}
+                                alt="Compliance gates separated into distinct screens"
+                                className="h-full w-full object-cover"
+                              />
+                            </div>
+                            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                              Compliance gates separated into distinct screens
+                            </figcaption>
+                          </figure>
+                        ) : number === "05" ? (
+                          <figure className="group">
+                            <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[16/9]">
+                              <img
+                                src={errorStatesImage.src}
+                                alt="Error states that do not conflate failures"
+                                className="h-full w-full object-cover"
+                              />
+                            </div>
+                            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                              Error states that do not conflate failures
+                            </figcaption>
+                          </figure>
+                        ) : (
+                          <ImagePlaceholder
+                            label={image}
+                            aspectRatio="aspect-[16/9]"
+                            variant="screen"
+                          />
+                        )}
                       </div>
                     </div>
                   </div>
@@ -928,7 +1025,58 @@ export default function TymeBankCryptoCaseStudy() {
 
           <div className={dividerRail} />
 
-          {/* 10. Next / CTA */}
+          {/* 10. Prototype */}
+          <section id="prototype" className="py-24 md:py-32">
+            <div className={contentRail}>
+              <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">
+                Prototype
+              </p>
+              <h2 className="mt-4 max-w-[22ch] text-3xl font-medium tracking-tight md:text-4xl">
+                Walk through the flows
+              </h2>
+              <p className="mt-6 max-w-[52ch] text-base leading-relaxed text-muted-foreground/70 md:text-lg">
+                Three interactive prototypes covering the core journeys: onboarding
+                and first purchase, portfolio management, and the sell flow. Click
+                through each to experience the trust architecture in action.
+              </p>
+            </div>
+
+            <div className="mt-14 space-y-10">
+              <div>
+                <p className={`${contentRail} mb-4 font-mono text-[10px] tracking-wider text-muted-foreground/40 uppercase`}>
+                  Flow 1 — Onboarding &amp; First Buy
+                </p>
+                <FigmaEmbed
+                  src="https://embed.figma.com/proto/O2jD267TqtyharU5WbNyBW/SA-CRYPTO?node-id=6276-233416&viewport=1350%2C744%2C0.11&scaling=scale-down&content-scaling=fixed&starting-point-node-id=6276%3A233416&show-proto-sidebar=1&page-id=6276%3A232672&embed-host=share"
+                  title="TymeBank Crypto — Onboarding & First Buy"
+                />
+              </div>
+
+              <div>
+                <p className={`${contentRail} mb-4 font-mono text-[10px] tracking-wider text-muted-foreground/40 uppercase`}>
+                  Flow 2 — Portfolio &amp; Holdings
+                </p>
+                <FigmaEmbed
+                  src="https://embed.figma.com/proto/O2jD267TqtyharU5WbNyBW/SA-CRYPTO?node-id=6545-240049&viewport=1350%2C744%2C0.11&scaling=scale-down&content-scaling=fixed&starting-point-node-id=6545%3A240049&show-proto-sidebar=1&page-id=6276%3A232672&embed-host=share"
+                  title="TymeBank Crypto — Portfolio & Holdings"
+                />
+              </div>
+
+              <div>
+                <p className={`${contentRail} mb-4 font-mono text-[10px] tracking-wider text-muted-foreground/40 uppercase`}>
+                  Flow 3 — Sell Flow
+                </p>
+                <FigmaEmbed
+                  src="https://embed.figma.com/proto/O2jD267TqtyharU5WbNyBW/SA-CRYPTO?node-id=6545-241076&viewport=1350%2C744%2C0.11&scaling=scale-down&content-scaling=fixed&starting-point-node-id=6545%3A241076&show-proto-sidebar=1&page-id=6276%3A232672&embed-host=share"
+                  title="TymeBank Crypto — Sell Flow"
+                />
+              </div>
+            </div>
+          </section>
+
+          <div className={dividerRail} />
+
+          {/* 11. Next / CTA */}
           <section className={`${contentRail} py-24 md:py-40`}>
             <p className="max-w-[48ch] text-base leading-relaxed text-muted-foreground md:text-lg">
               Bringing crypto to a mass-market banking app in a regulated

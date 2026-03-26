@@ -56,7 +56,7 @@
     --secondary: oklch(0.14 0 0);
     --secondary-foreground: oklch(0.80 0 0);
     --muted: oklch(0.14 0 0);
-    --muted-foreground: oklch(0.55 0 0);
+    --muted-foreground: oklch(0.65 0 0);
     --accent: oklch(0.14 0 0);
     --accent-foreground: oklch(0.93 0 0);
     --destructive: oklch(0.704 0.191 22.216);
@@ -131,6 +131,15 @@
   body {
     @apply bg-background text-foreground;
     }
+}
+
+/* ── Hide scrollbar ── */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
 /* ── Hero entrance animations ──
@@ -221,6 +230,12 @@
   .project-pair .project-card:hover {
     transform: translateY(-4px);
   }
+}
+
+/* ── Chapter year highlight ── */
+.chapter-year-active {
+  color: var(--foreground) !important;
+  opacity: 1;
 }
 
 /* ── Reduced motion ── */

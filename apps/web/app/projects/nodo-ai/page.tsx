@@ -6,6 +6,7 @@ import { Badge } from "@workspace/ui/components/badge"
 import { TableOfContents } from "@/components/case-study/table-of-contents"
 import { ImagePlaceholder } from "@/components/case-study/image-placeholder"
 import { FeatureReactionMatrix } from "@/components/case-study/feature-reaction-matrix"
+import nodoAiMainImage from "../../images/Nodo AI main.png"
 import problemSpaceMap from "../../images/Problem Space Map.png"
 import nodoEcosystemPositioning from "../../images/NODO Ecosystem Positioning.png"
 import nodoResearch1 from "../../images/Nodo Research 1.png"
@@ -17,8 +18,9 @@ import directionADashboardFirst from "../../images/Direction A_ Dashboard-first.
 import directionBGuidedOnboarding from "../../images/Direction B_ Guided Onboarding.png"
 import directionCProgressiveDisclosure from "../../images/Direction C_ Progressive Disclosure.png"
 import detailImage from "../../images/Detail.png"
+import ndlpEducationImage from "../../images/NDLP education.png"
 import manageLiquidityImage from "../../images/Manage Liquidity.png"
-import holdingPnLImage from "../../images/Holding PnL.png"
+import breakdownImage from "../../images/breakdown.png"
 
 export const metadata: Metadata = {
   title: "NODO AI — Case Study — Leon",
@@ -101,7 +103,22 @@ export default function NodoAICaseStudy() {
         </p>
 
         <div className="mt-16">
-          <ImagePlaceholder label="[Insert hero visual]" caption="NODO AI vault interface overview" aspectRatio="aspect-[2.2/1]" variant="hero" />
+          <figure className="group">
+            <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-muted/20 aspect-[4/3]">
+              <Image
+                src={nodoAiMainImage}
+                alt="NODO AI vault interface overview"
+                width={nodoAiMainImage.width}
+                height={nodoAiMainImage.height}
+                className="object-cover object-center"
+                sizes="(min-width: 1024px) 1100px, 100vw"
+                priority
+              />
+            </div>
+            <figcaption className="mt-3 mb-3 text-center font-mono text-[11px] text-muted-foreground/35">
+              NODO AI vault interface overview
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -153,19 +170,21 @@ export default function NodoAICaseStudy() {
               ))}
             </div>
           </div>
-          <figure className="group overflow-hidden rounded-lg border border-border/40 bg-muted/20">
-            <div className="relative aspect-[16/9]">
-              <Image
-                src={nodoEcosystemPositioning}
-                alt="NODO positioning and capital flow in the Sui DeFi ecosystem"
-                fill
-                className="object-contain"
-                sizes="(min-width: 768px) 80vw, 100vw"
-                quality={100}
-                priority
-              />
+          <figure className="group">
+            <div className="overflow-hidden rounded-lg border border-border/40 bg-muted/20">
+              <div className="relative aspect-[16/9]">
+                <Image
+                  src={nodoEcosystemPositioning}
+                  alt="NODO positioning and capital flow in the Sui DeFi ecosystem"
+                  fill
+                  className="object-contain"
+                  sizes="(min-width: 768px) 80vw, 100vw"
+                  quality={100}
+                  priority
+                />
+              </div>
             </div>
-            <figcaption className="px-3 py-2 text-[10px] text-muted-foreground/45">
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
               NODO&apos;s position in the Sui DeFi ecosystem
             </figcaption>
           </figure>
@@ -600,7 +619,7 @@ export default function NodoAICaseStudy() {
                   quality={100}
                 />
               </div>
-              <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              <figcaption className="mt-3 text-center font-mono text-[11px] text-muted-foreground/35">
                 How information layers from simple to detailed across the product
               </figcaption>
             </figure>
@@ -617,48 +636,54 @@ export default function NodoAICaseStudy() {
         <div className="mt-14">
           <h3 className="text-sm font-medium text-foreground/80">Early Concepts</h3>
           <div className="mt-6 grid gap-6 md:grid-cols-3">
-            <figure className="group overflow-hidden rounded-lg border border-border/40 bg-muted/20">
-              <div className="relative aspect-[3/4]">
-                <Image
-                  src={directionADashboardFirst}
-                  alt="Direction A dashboard-first approach"
-                  fill
-                  sizes="(min-width: 768px) 33vw, 100vw"
-                  className="object-contain"
-                  quality={100}
-                />
+            <figure className="group">
+              <div className="overflow-hidden rounded-lg border border-border/40 bg-muted/20">
+                <div className="relative aspect-[3/4]">
+                  <Image
+                    src={directionADashboardFirst}
+                    alt="Direction A dashboard-first approach"
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-contain"
+                    quality={100}
+                  />
+                </div>
               </div>
-              <figcaption className="px-3 py-2 text-[10px] text-muted-foreground/45">
+              <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
                 Direction A emphasized data density for power users
               </figcaption>
             </figure>
-            <figure className="group overflow-hidden rounded-lg border border-border/40 bg-muted/20">
-              <div className="relative aspect-[3/4]">
-                <Image
-                  src={directionBGuidedOnboarding}
-                  alt="Direction B guided onboarding approach"
-                  fill
-                  sizes="(min-width: 768px) 33vw, 100vw"
-                  className="object-contain"
-                  quality={100}
-                />
+            <figure className="group">
+              <div className="overflow-hidden rounded-lg border border-border/40 bg-muted/20">
+                <div className="relative aspect-[3/4]">
+                  <Image
+                    src={directionBGuidedOnboarding}
+                    alt="Direction B guided onboarding approach"
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-contain"
+                    quality={100}
+                  />
+                </div>
               </div>
-              <figcaption className="px-3 py-2 text-[10px] text-muted-foreground/45">
+              <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
                 Direction B prioritized step-by-step education
               </figcaption>
             </figure>
-            <figure className="group overflow-hidden rounded-lg border border-border/40 bg-muted/20">
-              <div className="relative aspect-[3/4]">
-                <Image
-                  src={directionCProgressiveDisclosure}
-                  alt="Direction C progressive disclosure approach"
-                  fill
-                  sizes="(min-width: 768px) 33vw, 100vw"
-                  className="object-contain"
-                  quality={100}
-                />
+            <figure className="group">
+              <div className="overflow-hidden rounded-lg border border-border/40 bg-muted/20">
+                <div className="relative aspect-[3/4]">
+                  <Image
+                    src={directionCProgressiveDisclosure}
+                    alt="Direction C progressive disclosure approach"
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-contain"
+                    quality={100}
+                  />
+                </div>
               </div>
-              <figcaption className="px-3 py-2 text-[10px] text-muted-foreground/45">
+              <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
                 Direction C layered information by user confidence
               </figcaption>
             </figure>
@@ -675,19 +700,21 @@ export default function NodoAICaseStudy() {
           </div>
         </div>
         <div className="mt-12">
-          <figure className="group overflow-hidden rounded-2xl border border-border/40 bg-muted/20">
-            <div className="relative aspect-[2.5/1]">
-              <Image
-                src={detailImage}
-                alt="Wireframe evolution from rough to refined"
-                width={detailImage.width}
-                height={detailImage.height}
-                sizes="(min-width: 768px) 100vw, calc(100vw - 3rem)"
-                className="h-auto w-full object-contain"
-                quality={100}
-              />
+          <figure className="group">
+            <div className="overflow-hidden rounded-2xl border border-border/40 bg-muted/20">
+              <div className="relative aspect-[2.5/1]">
+                <Image
+                  src={detailImage}
+                  alt="Wireframe evolution from rough to refined"
+                  width={detailImage.width}
+                  height={detailImage.height}
+                  sizes="(min-width: 768px) 100vw, calc(100vw - 3rem)"
+                  className="h-auto w-full object-contain"
+                  quality={100}
+                />
+              </div>
             </div>
-            <figcaption className="px-3 py-2 text-[10px] text-muted-foreground/45">
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
               Design evolution across three rounds of iteration
             </figcaption>
           </figure>
@@ -708,38 +735,42 @@ export default function NodoAICaseStudy() {
               <p className="text-xs leading-relaxed text-muted-foreground/50"><span className="font-medium text-muted-foreground/70">Key decision:</span> We led with net yield after fees, not headline APY. This was a direct response to the research finding that APY creates false expectations.</p>
             </div>
           </div>
-          <figure className="group overflow-hidden rounded-xl border border-border/40 bg-muted/20">
-            <div className="relative aspect-[4/3] w-fit">
-              <Image
-                src={manageLiquidityImage}
-                alt="Manage Liquidity screen for single-sided deposit"
-                width={manageLiquidityImage.width}
-                height={manageLiquidityImage.height}
-                sizes="(min-width: 768px) 40vw, 100vw"
-                className="h-fit w-fit object-contain"
-                quality={100}
-              />
+          <figure className="group">
+            <div className="overflow-hidden rounded-xl border border-border/40 bg-muted/20">
+              <div className="relative aspect-[4/3] w-fit">
+                <Image
+                  src={manageLiquidityImage}
+                  alt="Manage Liquidity screen for single-sided deposit"
+                  width={manageLiquidityImage.width}
+                  height={manageLiquidityImage.height}
+                  sizes="(min-width: 768px) 40vw, 100vw"
+                  className="h-fit w-fit object-contain"
+                  quality={100}
+                />
+              </div>
             </div>
-            <figcaption className="px-3 py-2 text-[10px] text-muted-foreground/45">
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
               Single-sided deposit flow in the manage liquidity screen
             </figcaption>
           </figure>
         </div>
 
         <div className="mt-20 grid items-center gap-10 md:mt-32 md:grid-cols-[1.5fr_0.8fr] md:gap-16">
-          <figure className="group overflow-hidden rounded-xl border border-border/40 bg-muted/20 order-2 md:order-1 w-fit">
-            <div className="relative aspect-[4/3]">
-              <Image
-                src={manageLiquidityImage}
-                alt="Manage Liquidity screen for single-sided deposit"
-                width={manageLiquidityImage.width}
-                height={manageLiquidityImage.height}
-                sizes="(min-width: 768px) 40vw, 100vw"
-                className="h-fit w-fit object-contain"
-                quality={100}
-              />
+          <figure className="group order-2 md:order-1 w-fit">
+            <div className="overflow-hidden rounded-xl border border-border/40 bg-muted/20">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={manageLiquidityImage}
+                  alt="Manage Liquidity screen for single-sided deposit"
+                  width={manageLiquidityImage.width}
+                  height={manageLiquidityImage.height}
+                  sizes="(min-width: 768px) 40vw, 100vw"
+                  className="h-fit w-fit object-contain"
+                  quality={100}
+                />
+              </div>
             </div>
-            <figcaption className="px-3 py-2 text-[10px] text-muted-foreground/45">
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
               Single-sided deposit as the default entry point
             </figcaption>
           </figure>
@@ -754,17 +785,19 @@ export default function NodoAICaseStudy() {
         </div>
 
         <div className="mt-20 md:mt-32">
-          <figure className="group overflow-hidden rounded-2xl border border-border/40 bg-muted/20">
-            <div className="flex justify-center">
-              <Image
-                src={holdingPnLImage}
-                alt="Holdings dashboard with P&L breakdown and position overview"
-                width={holdingPnLImage.width}
-                height={holdingPnLImage.height}
-                className="h-fit w-fit max-w-full object-contain"
-                sizes="(min-width: 1280px) 1100px, (min-width: 768px) 90vw, 100vw"
-                quality={100}
-              />
+          <figure className="group">
+            <div className="overflow-hidden rounded-2xl border border-border/40 bg-muted/20">
+              <div className="flex justify-center">
+                <Image
+                  src={breakdownImage}
+                  alt="Holdings dashboard with P&L breakdown and position overview"
+                  width={breakdownImage.width}
+                  height={breakdownImage.height}
+                  className="h-fit w-fit max-w-full object-contain"
+                  sizes="(min-width: 1280px) 1100px, (min-width: 768px) 90vw, 100vw"
+                  quality={100}
+                />
+              </div>
             </div>
             <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
               Holdings dashboard with P&L waterfall breakdown
@@ -797,7 +830,25 @@ export default function NodoAICaseStudy() {
         </div>
 
         <div className="mt-20 grid items-center gap-10 md:mt-32 md:grid-cols-[1.5fr_0.8fr] md:gap-16">
-          <ImagePlaceholder label="[Insert NDLP explainer and strategy documentation]" caption="NDLP explanation at point of receipt" aspectRatio="aspect-[4/3]" variant="screen" className="order-2 md:order-1" />
+          <figure className="group order-2 md:order-1">
+            <div className="overflow-hidden rounded-xl border border-border/40 bg-muted/20">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={ndlpEducationImage}
+                  alt="NDLP education"
+                  width={ndlpEducationImage.width}
+                  height={ndlpEducationImage.height}
+                  className="h-fit w-fit object-contain"
+                  style={{ width: "fit-content", height: "fit-content" }}
+                  sizes="(min-width: 768px) 40vw, 100vw"
+                  quality={100}
+                />
+              </div>
+            </div>
+            <figcaption className="mt-3 text-center font-mono text-[11px] text-muted-foreground/35">
+              NDLP explanation at point of receipt
+            </figcaption>
+          </figure>
           <div className="order-1 md:order-2">
             <span className="font-mono text-[10px] text-muted-foreground/25">05</span>
             <h3 className="mt-2 text-xl font-medium tracking-tight md:text-2xl">NDLP Education and Strategy Transparency</h3>

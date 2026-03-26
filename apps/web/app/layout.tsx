@@ -6,6 +6,7 @@ import "lenis/dist/lenis.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { SmoothScroll } from "@/components/smooth-scroll"
 import { Header } from "@/components/header"
+import { CustomCursor } from "@/components/custom-cursor"
 import { cn } from "@workspace/ui/lib/utils"
 
 const fontSans = Geist({
@@ -42,6 +43,7 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider defaultTheme="light">
+          <CustomCursor />
           <Header />
           <SmoothScroll>{children}</SmoothScroll>
         </ThemeProvider>
@@ -49,3 +51,4 @@ export default function RootLayout({
     </html>
   )
 }
+
