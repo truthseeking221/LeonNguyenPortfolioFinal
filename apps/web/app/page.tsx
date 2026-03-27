@@ -9,7 +9,7 @@ import { GsapTitle } from "@/components/gsap-title"
 import { HeroSection } from "@/components/hero-section"
 import { GradientButton } from "@/components/gradient-button"
 import { MagneticButton } from "@/components/magnetic-button"
-import { ManifestoStrip } from "@/components/manifesto-strip"
+import { ClientLogos } from "@/components/client-logos"
 import { ClosingCTA } from "@/components/closing-cta"
 import { HowIWork } from "@/components/how-i-work"
 import gotymeSavingCover from "@/app/images/GoTyme Saving.png"
@@ -27,6 +27,8 @@ const COMPACT_PROJECTS: CompactProject[] = [
     year: "2023",
     href: "/projects/gull-network",
     desc: "Brand and product for the post-hype era.",
+    role: "Product Designer",
+    outcome: "Full rebrand and DEX interface. Shipped token launchpad to mainnet.",
     coverImage: gullCover,
   },
   {
@@ -35,6 +37,8 @@ const COMPACT_PROJECTS: CompactProject[] = [
     year: "2025",
     href: "/projects/love-birds",
     desc: "AI matchmaker that gets you a date in 48 hours.",
+    role: "Product Designer & Builder",
+    outcome: "Designed and built 0-to-1 MVP. AI-driven matching flow.",
     coverImage: lovebirdsCover,
   },
   {
@@ -43,6 +47,8 @@ const COMPACT_PROJECTS: CompactProject[] = [
     year: "2023",
     href: "/projects/gotyme-savings",
     desc: "Saving as a habit. Designed for the Philippines.",
+    role: "UX Designer",
+    outcome: "Goal-based savings feature shipped to millions of Filipino users.",
     coverImage: gotymeSavingCover,
   },
 ]
@@ -62,14 +68,14 @@ export default function Page() {
       <HeroSection />
 
       {/* ══════════════════════════════════════════════════
-          ACT 2 — FEATURED WORK (HORIZONTAL SCROLL)
+          CLIENT LOGOS
           ══════════════════════════════════════════════════ */}
-      <HorizontalWork compactProjects={COMPACT_PROJECTS} />
+      <ClientLogos />
 
       {/* ══════════════════════════════════════════════════
-          MANIFESTO STRIP
+          FEATURED WORK (HORIZONTAL SCROLL)
           ══════════════════════════════════════════════════ */}
-      <ManifestoStrip />
+      <HorizontalWork compactProjects={COMPACT_PROJECTS} />
 
       {/* ══════════════════════════════════════════════════
           PRINCIPLES - REIMAGINED GSAP "HOW I WORK"
@@ -80,18 +86,18 @@ export default function Page() {
       {/* ══════════════════════════════════════════════════
           ABOUT
           ══════════════════════════════════════════════════ */}
-      <section id="about" className="relative px-6 py-12 md:px-[200px] md:py-32 max-w-screen-2xl mx-auto">
+      <section id="about" className="relative px-6 py-10 md:px-[200px] md:py-32 max-w-screen-2xl mx-auto">
 
-        {/* Timeline spine */}
-        <div className="pointer-events-none absolute inset-y-0 left-3 md:left-[120px] -translate-x-1/2 w-px bg-foreground/[0.08]" />
+        {/* Timeline spine — desktop only (mobile has no gutter for it) */}
+        <div className="pointer-events-none hidden md:block absolute inset-y-0 md:left-[120px] -translate-x-1/2 w-px bg-foreground/[0.08]" />
 
-        {/* Node indicator */}
-        <div className="pointer-events-none absolute left-3 md:left-[120px] top-16 md:top-32 -translate-x-1/2 flex items-center justify-center">
+        {/* Node indicator — desktop only */}
+        <div className="pointer-events-none absolute md:left-[120px] top-16 md:top-32 -translate-x-1/2 hidden md:flex items-center justify-center">
           <div className="h-3 w-3 rounded-full border-2 border-background bg-foreground/60" />
         </div>
 
         <Reveal variant="fade">
-          <div className="mb-12 flex items-center gap-4 md:mb-16">
+          <div className="mb-8 flex items-center gap-4 md:mb-16">
             <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 dark:text-muted-foreground/70 uppercase">
               About
             </p>
@@ -108,7 +114,7 @@ export default function Page() {
         </Reveal>
 
         {/* Portrait + Bio grid */}
-        <div className="mt-20 grid gap-16 md:mt-32 md:grid-cols-[1fr_1.4fr] md:gap-32 items-start">
+        <div className="mt-12 grid gap-10 md:mt-32 md:grid-cols-[1fr_1.4fr] md:gap-32 items-start">
 
           {/* Minimalist Cinematic Portrait Canvas */}
           <Reveal delay={0} variant="fade">
@@ -127,7 +133,7 @@ export default function Page() {
               </div>
 
               {/* Process — four verbs placed under the image as per reference */}
-              <div className="mt-12 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[10px] tracking-widest uppercase md:mt-16 md:gap-x-6">
+              <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[10px] tracking-widest uppercase md:mt-16 md:gap-x-6">
                 <span className="text-foreground/80">Ask</span>
                 <span className="text-foreground/20">·</span>
                 <span className="text-foreground/80">Reduce</span>
@@ -140,7 +146,7 @@ export default function Page() {
           </Reveal>
 
           {/* Interactive Bio content */}
-          <div className="md:pt-4 flex flex-col gap-20">
+          <div className="md:pt-4 flex flex-col gap-12 md:gap-20">
 
             {/* STATUS BOARD: Ultra clean, no borders */}
             <Reveal delay={100} variant="fade">
@@ -192,11 +198,11 @@ export default function Page() {
       {/* ══════════════════════════════════════════════════
           TESTIMONIALS
           ══════════════════════════════════════════════════ */}
-      <section className="relative px-6 py-12 md:px-[200px] md:py-32 max-w-screen-2xl mx-auto">
+      <section className="relative px-6 py-10 md:px-[200px] md:py-32 max-w-screen-2xl mx-auto">
 
 
         <Reveal variant="fade">
-          <div className="mb-12 flex items-center gap-4 md:mb-16">
+          <div className="mb-8 flex items-center gap-4 md:mb-16">
             <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 dark:text-muted-foreground/70 uppercase">
               What people say
             </p>
@@ -223,7 +229,7 @@ export default function Page() {
             },
           ].map((t, i) => (
             <Reveal key={i} delay={i * 100} variant="fade">
-              <figure className="grid grid-cols-1 md:grid-cols-[1fr_200px] gap-6 md:gap-16 py-12 md:py-16 items-start">
+              <figure className="grid grid-cols-1 md:grid-cols-[1fr_200px] gap-4 md:gap-16 py-8 md:py-16 items-start">
                 <blockquote>
                   <p className="text-[clamp(1.1rem,2vw,1.4rem)] font-light leading-[1.6] tracking-tight text-foreground/80">
                     &ldquo;{t.quote}&rdquo;

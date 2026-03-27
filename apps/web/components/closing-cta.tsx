@@ -52,14 +52,14 @@ export function ClosingCTA({ className }: { className?: string }) {
   }, { scope: containerRef })
 
   return (
-    <section ref={containerRef} className={cn("relative z-10 w-full min-h-screen bg-background flex flex-col items-center justify-center text-center px-6 md:px-[15%] py-32 md:py-48 overflow-hidden", className)}>
+    <section ref={containerRef} className={cn("relative z-10 w-full bg-background flex flex-col items-center justify-center text-center px-6 md:px-[15%] py-20 md:min-h-screen md:py-48 overflow-hidden", className)}>
       
       {/* Immersive glow expanding on scrub */}
       <div className="closing-glow absolute inset-0 flex items-center justify-center pointer-events-none -z-10 mt-[-10vh]">
            <div className="w-[80vw] h-[80vw] md:w-[50vw] md:h-[50vw] bg-foreground/[0.03] blur-[100px] rounded-full" />
       </div>
 
-      <div className="closing-label mb-10 md:mb-16 flex items-center justify-center gap-4">
+      <div className="closing-label mb-6 md:mb-16 flex items-center justify-center gap-4">
         <div className="h-1.5 w-1.5 rounded-full bg-foreground/30 animate-pulse" />
         <span className="font-mono text-[10px] md:text-[12px] tracking-[0.3em] text-muted-foreground/40 uppercase">
           You&apos;ve read this far
@@ -67,23 +67,23 @@ export function ClosingCTA({ className }: { className?: string }) {
         <div className="h-1.5 w-1.5 rounded-full bg-foreground/30 animate-pulse" />
       </div>
 
-      {/* Massive Vertical Typographic Sequence */}
-      <div className="flex flex-col items-center justify-center w-full my-12 md:my-24 perspective-1000">
-        {["The", "work", "speaks.", "Let's", "talk."].map((word, i) => (
+      {/* Massive Horizontal/Vertical Typographic Sequence */}
+      <div className="flex flex-col items-center justify-center w-full my-4 md:my-16 perspective-1000">
+        {["The work speaks.", "Let's talk."].map((line, i) => (
            <div key={i} className="overflow-hidden">
-             <span className="closing-word block font-light text-[clamp(4rem,14vw,14rem)] leading-[0.85] tracking-tighter text-foreground will-change-transform pb-2 md:pb-6">
-               {word}
+             <span className="closing-word block font-light text-[clamp(3rem,9vw,10.5rem)] leading-[0.9] tracking-tighter text-foreground will-change-transform pb-2 md:pb-4">
+               {line}
              </span>
            </div>
         ))}
       </div>
 
-      <p className="closing-desc mt-10 md:mt-16 max-w-[45ch] text-[16px] md:text-[18px] leading-relaxed text-muted-foreground/60 mx-auto font-light">
+      <p className="closing-desc mt-6 md:mt-16 max-w-[45ch] text-[16px] md:text-[18px] leading-relaxed text-muted-foreground/60 mx-auto font-light">
         I work best with people who see making as a practice, not a
         transaction. If that resonates, let&apos;s talk.
       </p>
 
-      <div className="closing-cta mt-12 md:mt-20">
+      <div className="closing-cta mt-8 md:mt-20">
         <MagneticButton>
           <a
             href="mailto:leondesigner221@gmail.com"

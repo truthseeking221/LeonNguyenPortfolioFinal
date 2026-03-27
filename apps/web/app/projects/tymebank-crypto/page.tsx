@@ -9,7 +9,18 @@ import tymebankHomeImage from "../../images/Tymebank home.png"
 import balanceBarImage from "../../images/The balance bar instead of a warning.png"
 import livePriceImage from "../../images/Live price with an honest disclaimer.png"
 import complianceGatesImage from "../../images/Compliance gates as separate screens.png"
+import complianceGatesMomentsImage from "../../images/Compliance gates designed as moments, not walls. Clear language and a forward path for each one..png"
 import errorStatesImage from "../../images/Error states that don't conflate failures.png"
+import tymebankStoryFormatImage from "../../images/Three-card onboarding using TymeBank's existing story format.png"
+import availableCoinsImage from "../../images/Available coins with live ZAR price, sparkline, and percentage change.png"
+import coinDetailImage from "../../images/Coin detail with price chart, timeframe selector, and Buy CTA.png"
+import buyAmountImage from "../../images/The amount screen is where trust is won or lost. Users stop here — not at onboarding, not at coin selection..png"
+import orderSummaryImage from "../../images/Order summary with locked price before confirmation.png"
+import sellFlowImage from "../../images/Sell flow with coin quantity input.png"
+import ageGateImage from "../../images/Age gate with human language and error code.png"
+import profileVerificationImage from "../../images/Profile verification required, with a clear resolution path.png"
+import technicalFailureImage from "../../images/Technical failure with support contact and error code.png"
+import amountEntryImage from "../../images/Amount entry screen showing the trust gap — empty state with no balance context, user hesitation point].png"
 import cryptoImage from "../../images/Crypto.png"
 
 export const metadata: Metadata = {
@@ -107,7 +118,7 @@ export default function TymeBankCryptoCaseStudy() {
             <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">
               At a glance
             </p>
-            <div className="mt-10 grid gap-8 md:mt-14 md:grid-cols-2 lg:grid-cols-3 md:gap-12">
+            <div className="mt-10 grid gap-8 md:mt-14 md:grid-cols-2 md:gap-12">
               {[
                 {
                   title: "The Product",
@@ -125,19 +136,9 @@ export default function TymeBankCryptoCaseStudy() {
                     "The full buy/sell lifecycle: discovery on the home screen, story-format onboarding, coin selection and detail, amount entry with live balance impact, order confirmation, success state, and all error and edge-case flows. On iOS and Android.",
                 },
                 {
-                  title: "The Central Bet",
-                  content:
-                    "Trust had to be built at the moment of entering an amount, not in the onboarding screens. The bet: make the transaction legible. Real-time balance, live price, honest disclaimers. That would do more than any onboarding screen.",
-                },
-                {
                   title: "Paxos Integration",
                   content:
                     "Paxos handles all custody, settlement, and compliance infrastructure. The UX never surfaces this. Users interact entirely with TymeBank's brand, design system, and account data. The abstraction was intentional: users trust TymeBank, not an unfamiliar US fintech.",
-                },
-                {
-                  title: "Regulatory Context",
-                  content:
-                    "South Africa's FSCA required explicit risk disclosure, age-gating at 18+, and biometric identity verification before trading. Each compliance gate was designed as a moment in the experience, not a legal wall in front of the product.",
                 },
               ].map(({ title, content }) => (
                 <div key={title} className="border-t border-border/30 pt-5">
@@ -295,12 +296,18 @@ export default function TymeBankCryptoCaseStudy() {
               ))}
             </div>
             <div className="mt-16">
-              <ImagePlaceholder
-                label="[Insert risk disclosure screen + age gate error screen side by side]"
-                caption="Compliance gates designed as moments, not walls. Clear language and a forward path for each one."
-                aspectRatio="aspect-[21/9]"
-                variant="hero"
-              />
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-muted/20 aspect-[21/9]">
+                  <img
+                    src={complianceGatesMomentsImage.src}
+                    alt="Compliance gates designed as moments, not walls. Clear language and a forward path for each one."
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  Compliance gates designed as moments, not walls. Clear language and a forward path for each one.
+                </figcaption>
+              </figure>
             </div>
           </section>
 
@@ -321,99 +328,57 @@ export default function TymeBankCryptoCaseStudy() {
             </p>
 
             <div className="mt-12">
-              <ImagePlaceholder
-                label="[Insert: Amount entry screen showing the trust gap — empty state with no balance context, user hesitation point]"
-                caption="The amount screen is where trust is won or lost. Users stop here — not at onboarding, not at coin selection."
-                aspectRatio="aspect-[16/9]"
-                variant="hero"
-              />
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-muted/20 aspect-[16/9]">
+                  <img
+                    src={amountEntryImage.src}
+                    alt="The amount screen is where trust is won or lost. Users stop here — not at onboarding, not at coin selection."
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  The amount screen is where trust is won or lost. Users stop here — not at onboarding, not at coin selection.
+                </figcaption>
+              </figure>
             </div>
 
-            <div className="mt-14 grid gap-12 md:grid-cols-[1.5fr_1fr] md:gap-20">
-              <div className="space-y-10">
-                <div>
-                  <h3 className="text-sm font-medium text-foreground/80">
-                    Where Abandonment Actually Happened
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    Users got through the onboarding stories. They selected a
-                    coin. They tapped Buy. Then they stopped at the amount
-                    screen. The anxiety was not about crypto. It was about their
-                    bank balance. They didn&apos;t know how much would leave their
-                    account, or when, or if they could reverse it.
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    This meant the onboarding screens, no matter how well-written,
-                    could not solve the trust problem. The trust problem was
-                    transactional, not educational. It needed to be resolved inside
-                    the buy flow itself, at the exact moment the user was most
-                    uncertain.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-sm font-medium text-foreground/80">
-                    The First Purchase Is the Only Metric That Matters
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    Getting someone to make a first purchase, even R50 of
-                    Bitcoin, was more important than designing for active traders.
-                    Portfolio management, advanced chart timeframes, and coin
-                    switching were all available. But they weren&apos;t the
-                    conversion lever. First-buy completion was.
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    This shaped every priority: reduce friction at the amount
-                    screen, surface balance impact before commitment, set honest
-                    price expectations, and make the confirmation screen feel
-                    like a receipt, not a risk disclosure.
-                  </p>
-                </div>
+            <div className="mt-14 grid gap-12 md:grid-cols-2 md:gap-20">
+              <div>
+                <h3 className="text-sm font-medium text-foreground/80">
+                  Where Abandonment Actually Happened
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  Users got through the onboarding stories. They selected a
+                  coin. They tapped Buy. Then they stopped at the amount
+                  screen. The anxiety was not about crypto. It was about their
+                  bank balance. They didn&apos;t know how much would leave their
+                  account, or when, or if they could reverse it.
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  This meant the onboarding screens, no matter how well-written,
+                  could not solve the trust problem. The trust problem was
+                  transactional, not educational. It needed to be resolved inside
+                  the buy flow itself, at the exact moment the user was most
+                  uncertain.
+                </p>
               </div>
-              <div className="space-y-6">
-                <div className="rounded-xl border border-border/30 bg-muted/10 p-6">
-                  <p
-                    className="font-mono text-[10px] tracking-wider uppercase"
-                    style={{ color: "oklch(0.88 0.18 86)", opacity: 0.7 }}
-                  >
-                    The design bet
-                  </p>
-                  <p className="mt-3 text-base leading-relaxed text-foreground/70">
-                    Show users exactly what happens to their balance before they
-                    confirm. Real-time. In rand. Without them having to calculate
-                    anything.
-                  </p>
-                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground/60">
-                    A live &quot;Before / After&quot; balance bar at the top of
-                    the buy screen, updating as they type. Not a warning.
-                    A transparency mechanism.
-                  </p>
-                </div>
-                <div className="rounded-xl border border-border/30 bg-muted/10 p-6">
-                  <p
-                    className="font-mono text-[10px] tracking-wider uppercase"
-                    style={{ color: "oklch(0.60 0.16 250)", opacity: 0.7 }}
-                  >
-                    ZAR first, always
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground/60">
-                    Users enter &quot;R500&quot; not &quot;0.00053 BTC.&quot; The
-                    coin equivalent is secondary. Rand literacy is
-                    universal. Satoshi literacy is not.
-                  </p>
-                </div>
-                <div className="rounded-xl border border-border/30 bg-muted/10 p-6">
-                  <p
-                    className="font-mono text-[10px] tracking-wider uppercase"
-                    style={{ color: "oklch(0.70 0.16 155)", opacity: 0.7 }}
-                  >
-                    Compliance as experience
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground/60">
-                    Each eligibility gate, age, identity, terms, gets its own
-                    screen with a human explanation and a clear path forward.
-                    Regulation doesn&apos;t have to feel like punishment.
-                  </p>
-                </div>
+              <div>
+                <h3 className="text-sm font-medium text-foreground/80">
+                  The First Purchase Is the Only Metric That Matters
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  Getting someone to make a first purchase, even R50 of
+                  Bitcoin, was more important than designing for active traders.
+                  Portfolio management, advanced chart timeframes, and coin
+                  switching were all available. But they weren&apos;t the
+                  conversion lever. First-buy completion was.
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  This shaped every priority: reduce friction at the amount
+                  screen, surface balance impact before commitment, set honest
+                  price expectations, and make the confirmation screen feel
+                  like a receipt, not a risk disclosure.
+                </p>
               </div>
             </div>
           </section>
@@ -424,7 +389,7 @@ export default function TymeBankCryptoCaseStudy() {
               Decisions
             </p>
             <h2 className="mt-4 max-w-[20ch] text-3xl font-medium tracking-tight md:text-4xl">
-              Five calls that shaped the experience
+              Four calls that shaped the experience
             </h2>
 
             <div className="mt-14 space-y-0 md:mt-20">
@@ -467,18 +432,6 @@ export default function TymeBankCryptoCaseStudy() {
                 },
                 {
                   number: "04",
-                  title: "Story-format FTUE with a crypto-native CTA",
-                  observation:
-                    "TymeBank already used a horizontal swipe story format elsewhere in the app for product introductions. Crypto was being introduced to users who had no prior context for trading, but many were already familiar with the story pattern from social media and from other TymeBank surfaces.",
-                  decision:
-                    "The first-time user experience uses three story cards: value proposition, funding method, and market awareness. The CTA at the end: &quot;To the moon&quot;, crypto slang, familiar to enthusiasts, harmless to newcomers. The final screen before the coin list: &quot;Ready for lift off!&quot; with eligibility information and a &quot;Get started&quot; CTA that accepts the terms.",
-                  tradeoff:
-                    "Using playful crypto language risked feeling tone-deaf to users who were cautious about crypto. The bet was that users who got through the story screens were already curious enough to appreciate the signal that the team understood the space.",
-                  color: "oklch(0.68 0.14 30)",
-                  image: "[Insert FTUE story cards — value prop, funding, market awareness]",
-                },
-                {
-                  number: "05",
                   title: "Error states that don't conflate failures",
                   observation:
                     "In financial products, &quot;something went wrong&quot; is not an error message. It is the beginning of a trust collapse. A user who receives an unhelpful error after trying to buy Bitcoin with their savings has lost confidence in the bank, not just the feature.",
@@ -574,7 +527,7 @@ export default function TymeBankCryptoCaseStudy() {
                               Compliance gates separated into distinct screens
                             </figcaption>
                           </figure>
-                        ) : number === "05" ? (
+                        ) : number === "04" ? (
                           <figure className="group">
                             <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[16/9]">
                               <img
@@ -655,12 +608,18 @@ export default function TymeBankCryptoCaseStudy() {
 
             {/* Flow 2: FTUE */}
             <div className="mt-20 md:mt-32">
-              <ImagePlaceholder
-                label="[Insert 3 story cards side by side: value prop, buy from account, market updates]"
-                caption="Three-card onboarding using TymeBank's existing story format"
-                aspectRatio="aspect-[2.5/1]"
-                variant="hero"
-              />
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-muted/20 aspect-[2.5/1]">
+                  <img
+                    src={tymebankStoryFormatImage.src}
+                    alt="Three-card onboarding using TymeBank's existing story format"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  Three-card onboarding using TymeBank's existing story format
+                </figcaption>
+              </figure>
               <div className="mt-8 grid gap-8 md:grid-cols-2 md:gap-16">
                 <div>
                   <span className="font-mono text-[10px] text-muted-foreground/25">
@@ -672,30 +631,30 @@ export default function TymeBankCryptoCaseStudy() {
                 </div>
                 <div>
                   <p className="text-sm leading-relaxed text-muted-foreground">
-                    Three story cards introduce the product: what it does, how
-                    funding works, and that real-time market data is available.
-                    The final screen, &quot;Ready for lift off!&quot;, sets eligibility
-                    expectations (18+, verified account) and captures T&C
-                    acceptance before handing off to the coin list.
+                    Three story cards cover the value proposition, funding
+                    method, and market data. The final screen captures T&C
+                    acceptance and eligibility before handing off to the coin
+                    list. Risk disclosure appears once, before the first trade,
+                    and never again.
                   </p>
-                  <div className="mt-4 border-l-2 border-foreground/10 pl-4">
-                    <p className="text-xs leading-relaxed text-muted-foreground/50">
-                      The risk disclosure and T&C screens appear once,
-                      before a user&apos;s first trade. They never appear again.
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>
 
             {/* Flow 3: Coin List + Detail */}
             <div className="mt-20 grid items-start gap-10 md:mt-32 md:grid-cols-[1fr_1.3fr] md:gap-16">
-              <ImagePlaceholder
-                label="[Insert coin list screen: Bitcoin, Ethereum, Paxos USD, etc.]"
-                caption="Available coins with live ZAR price, sparkline, and percentage change"
-                aspectRatio="aspect-[3/4]"
-                variant="screen"
-              />
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[3/4]">
+                  <img
+                    src={availableCoinsImage.src}
+                    alt="Available coins with live ZAR price, sparkline, and percentage change"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  Available coins with live ZAR price, sparkline, and percentage change
+                </figcaption>
+              </figure>
               <div>
                 <span className="font-mono text-[10px] text-muted-foreground/25">
                   03
@@ -716,24 +675,36 @@ export default function TymeBankCryptoCaseStudy() {
                   &quot;About&quot; section for users who want context on the
                   asset itself. The Buy CTA is persistent at the bottom.
                 </p>
-                <ImagePlaceholder
-                  label="[Insert Bitcoin detail screen: chart 1H view with Buy CTA]"
-                  caption="Coin detail with price chart, timeframe selector, and Buy CTA"
-                  aspectRatio="aspect-[3/4]"
-                  variant="screen"
-                  className="mt-6"
-                />
+                <figure className="group mt-6">
+                  <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[3/4]">
+                    <img
+                      src={coinDetailImage.src}
+                      alt="Coin detail with price chart, timeframe selector, and Buy CTA"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                    Coin detail with price chart, timeframe selector, and Buy CTA
+                  </figcaption>
+                </figure>
               </div>
             </div>
 
             {/* Flow 4: Buy */}
             <div className="mt-20 md:mt-32">
-              <ImagePlaceholder
-                label="[Insert buy screen: R 0.00 empty, R 500 valid, R 0.1 over balance, three states side by side]"
-                caption="Buy flow amount screen: empty, valid, and over-balance states"
-                aspectRatio="aspect-[2.5/1]"
-                variant="hero"
-              />
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-muted/20 aspect-[2.5/1]">
+                  <img
+                    src={buyAmountImage.src}
+                    alt="Buy flow amount screen: empty, valid, and over-balance states"
+                    className="h-full w-full object-cover"
+                    style={{ left: "-3px", top: "-5px", position: "relative" }}
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  Buy flow amount screen: empty, valid, and over-balance states
+                </figcaption>
+              </figure>
               <div className="mt-8 grid gap-8 md:grid-cols-2 md:gap-16">
                 <div>
                   <span className="font-mono text-[10px] text-muted-foreground/25">
@@ -746,20 +717,11 @@ export default function TymeBankCryptoCaseStudy() {
                 <div>
                   <p className="text-sm leading-relaxed text-muted-foreground">
                     Users enter an amount in rand using a custom numpad. The
-                    Before / After balance bar updates live at the top. The coin
-                    equivalent and market price are shown below the input.
-                    Validation is inline: empty state, minimum violation (R50),
-                    maximum violation, and over-balance, each with a specific,
+                    balance bar, coin equivalent, and market price update live
+                    as they type. Validation is inline: empty state, minimum
+                    (R50), maximum, and over-balance, each with a specific,
                     non-alarming message.
                   </p>
-                  <div className="mt-4 border-l-2 border-foreground/10 pl-4">
-                    <p className="text-xs leading-relaxed text-muted-foreground/50">
-                      The custom numpad removes the system keyboard entirely.
-                      This was intentional: it eliminates accidental decimal
-                      placement and keeps the user in a controlled input
-                      environment for a financial transaction.
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>
@@ -793,12 +755,18 @@ export default function TymeBankCryptoCaseStudy() {
                 </div>
               </div>
               <div className="space-y-4">
-                <ImagePlaceholder
-                  label="[Insert summary screen: R500, EveryDay account, BTC 0.00071]"
-                  caption="Order summary with locked price before confirmation"
-                  aspectRatio="aspect-[3/4]"
-                  variant="screen"
-                />
+                <figure className="group">
+                  <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[3/4]">
+                    <img
+                      src={orderSummaryImage.src}
+                      alt="Order summary with locked price before confirmation"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                    Order summary with locked price before confirmation
+                  </figcaption>
+                </figure>
               </div>
             </div>
 
@@ -808,38 +776,60 @@ export default function TymeBankCryptoCaseStudy() {
                 Sell flow and error states
               </h3>
               <p className="mt-3 max-w-[55ch] text-sm leading-relaxed text-muted-foreground">
-                The sell flow mirrors the buy flow with coin quantity as the
-                input denomination: the balance bar shows BTC before/after
-                rather than ZAR. Every failure mode has its own screen, API
-                failure, connectivity loss, age gate, unverified profile,
-                account on debit hold. Each includes a human-readable
-                explanation and an error code for support.
+                The sell flow mirrors buy with coin quantity as the input.
+                Each failure mode, from API errors to compliance blocks,
+                has a dedicated screen with plain-language explanation and
+                error code for support.
               </p>
               <div className="mt-8 grid gap-4 md:grid-cols-4">
-                <ImagePlaceholder
-                  label="[Insert sell screen: BTC 0.00 input]"
-                  caption="Sell flow with coin quantity input"
-                  aspectRatio="aspect-[3/4]"
-                  variant="screen"
-                />
-                <ImagePlaceholder
-                  label="[Insert age gate error: 18+ required]"
-                  caption="Age gate with human language and error code"
-                  aspectRatio="aspect-[3/4]"
-                  variant="screen"
-                />
-                <ImagePlaceholder
-                  label="[Insert unverified profile gate]"
-                  caption="Profile verification required, with a clear resolution path"
-                  aspectRatio="aspect-[3/4]"
-                  variant="screen"
-                />
-                <ImagePlaceholder
-                  label="[Insert technical failure screen]"
-                  caption="Technical failure with support contact and error code"
-                  aspectRatio="aspect-[3/4]"
-                  variant="screen"
-                />
+                <figure className="group">
+                  <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[3/4]">
+                    <img
+                      src={sellFlowImage.src}
+                      alt="Sell flow with coin quantity input"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                    Sell flow with coin quantity input
+                  </figcaption>
+                </figure>
+                <figure className="group">
+                  <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[3/4]">
+                    <img
+                      src={ageGateImage.src}
+                      alt="Age gate with human language and error code"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                    Age gate with human language and error code
+                  </figcaption>
+                </figure>
+                <figure className="group">
+                  <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[3/4]">
+                    <img
+                      src={profileVerificationImage.src}
+                      alt="Profile verification required, with a clear resolution path"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                    Profile verification required, with a clear resolution path
+                  </figcaption>
+                </figure>
+                <figure className="group">
+                  <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[3/4]">
+                    <img
+                      src={technicalFailureImage.src}
+                      alt="Technical failure with support contact and error code"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                    Technical failure with support contact and error code
+                  </figcaption>
+                </figure>
               </div>
             </div>
           </section>
@@ -954,19 +944,12 @@ export default function TymeBankCryptoCaseStudy() {
                     What Worked
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    The decision to treat the amount screen as the primary trust
-                    surface, rather than the onboarding, was the right call.
-                    Every element of that screen was designed to answer the
-                    question users actually had: &quot;What happens to my bank
-                    account?&quot; Real-time balance impact, live price, min/max
-                    constraints, and a disclaimer about price lock at
-                    confirmation all exist to answer that single question.
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    ZAR-first denominations throughout the entire flow removed
-                    a cognitive burden that would have disproportionately
-                    impacted first-time buyers. Users never had to convert
-                    mentally. They entered a number they understood.
+                    Treating the amount screen as the primary trust surface
+                    was the right call. The balance bar, live pricing, and
+                    ZAR-first denomination all served a single question:
+                    &quot;What happens to my bank account?&quot; Answering
+                    that at the point of commitment mattered more than any
+                    educational onboarding.
                   </p>
                 </div>
                 <div>
@@ -1103,10 +1086,10 @@ export default function TymeBankCryptoCaseStudy() {
                 Interested in working together?
               </p>
               <a
-                href="mailto:hello@leon.design"
+                href="mailto:leondesigner221@gmail.com"
                 className="mt-3 inline-block font-mono text-sm tracking-wide text-foreground underline decoration-foreground/20 underline-offset-4 transition-colors hover:decoration-foreground/60"
               >
-                hello@leon.design
+                leondesigner221@gmail.com
               </a>
             </div>
           </section>

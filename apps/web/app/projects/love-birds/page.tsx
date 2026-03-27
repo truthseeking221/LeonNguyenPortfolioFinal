@@ -10,6 +10,8 @@ import competitiveLandscapeImage from "../../images/Competitive landscape analys
 import act1Image from "../../images/Act 1_ The AI concierge welcomes and initiates.png"
 import act2Image from "../../images/Act 2_ Bridging the gap from match to conversation.png"
 import act3Image from "../../images/Act 3_ From conversation to confirmed date.png"
+import aiMediatedChatImage from "../../images/AI-mediated chat with contextual tooltips and date planning.png"
+import humanToHumanMessagingImage from "../../images/Human-to-human messaging with a deliberately warmer visual tone.png"
 
 export const metadata: Metadata = {
   title: "Love Birds — Case Study — Leon",
@@ -203,11 +205,11 @@ export default function LoveBirdsCaseStudy() {
               </div>
 
               <figure className="group">
-                <div className="relative flex items-center justify-center overflow-hidden rounded-lg border border-border/40 bg-muted/20 aspect-[21/9]">
+                <div className="relative overflow-hidden rounded-lg border border-border/40 bg-muted/20">
                   <img
                     src={competitiveLandscapeImage.src}
                     alt="Competitive landscape analysis — dating app market positioning"
-                    className="h-full w-full object-contain"
+                    className="w-full h-auto block"
                   />
                 </div>
                 <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
@@ -600,18 +602,30 @@ export default function LoveBirdsCaseStudy() {
             </div>
 
             <div className="mt-14 grid gap-5 md:grid-cols-2">
-              <ImagePlaceholder
-                label="Dark mode AI chat — matchmaker orchestrating the connection"
-                caption="AI-mediated chat with contextual tooltips and date planning"
-                aspectRatio="aspect-[9/16]"
-                variant="screen"
-              />
-              <ImagePlaceholder
-                label="Light mode direct messaging — the conversation belongs to the users"
-                caption="Human-to-human messaging with a deliberately warmer visual tone"
-                aspectRatio="aspect-[9/16]"
-                variant="screen"
-              />
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[9/16]">
+                  <img
+                    src={aiMediatedChatImage.src}
+                    alt="Dark mode AI chat — matchmaker orchestrating the connection"
+                    className="h-full w-full object-cover object-center"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  AI-mediated chat with contextual tooltips and date planning
+                </figcaption>
+              </figure>
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[9/16]">
+                  <img
+                    src={humanToHumanMessagingImage.src}
+                    alt="Light mode direct messaging — the conversation belongs to the users"
+                    className="h-full w-full object-cover object-center"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  Human-to-human messaging with a deliberately warmer visual tone
+                </figcaption>
+              </figure>
             </div>
           </section>
 
