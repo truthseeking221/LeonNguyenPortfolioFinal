@@ -180,11 +180,11 @@ export function MobileToC({ items }: { items: TOCItem[] }) {
       </div>
 
       {/* Floating Pill Button */}
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
         <button
           ref={buttonRef}
           onClick={toggleMenu}
-          className={`flex items-center gap-3 overflow-hidden rounded-full border border-border/20 shadow-2xl backdrop-blur-md transition-all duration-500 hover:border-border/40 hover:bg-foreground/[0.04] active:scale-95 px-5 py-3 ${
+          className={`flex items-center gap-3 rounded-full border border-border/20 shadow-2xl backdrop-blur-md transition-all duration-500 hover:border-border/40 hover:bg-foreground/[0.04] active:scale-95 px-5 py-3 ${
             isOpen ? "bg-foreground text-background" : "bg-background/80 text-foreground"
           }`}
         >
