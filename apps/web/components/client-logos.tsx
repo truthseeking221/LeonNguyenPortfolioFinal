@@ -31,10 +31,10 @@ const CLIENTS: { name: string; logo: StaticImageData }[] = [
 
 export function ClientLogos() {
   return (
-    <section className="px-6 py-10 md:px-[200px] md:py-20 max-w-screen-2xl mx-auto">
+    <section className="mx-auto max-w-screen-2xl px-6 pt-4 pb-10 md:px-[200px] md:py-20">
       <Reveal variant="fade">
-        <div className="mb-8 md:mb-12 flex items-center gap-4">
-          <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 dark:text-muted-foreground/70 uppercase">
+        <div className="mb-8 flex items-center gap-4 md:mb-12">
+          <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 uppercase dark:text-muted-foreground/70">
             Companies I&apos;ve worked with
           </p>
           <span className="h-px flex-1 bg-border/40" />
@@ -42,9 +42,9 @@ export function ClientLogos() {
       </Reveal>
 
       <Reveal delay={100} variant="fade">
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-x-2 gap-y-2 md:gap-x-3 md:gap-y-3">
+        <div className="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-6 md:gap-5">
           {CLIENTS.map((client) => (
-            <div key={client.name} className="relative aspect-[2/1] w-full">
+            <div key={client.name} className="relative aspect-[57/32] w-full">
               <Image
                 src={client.logo}
                 alt={client.name}

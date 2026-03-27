@@ -30,6 +30,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
 
   useGSAP(() => {
     if (!containerRef.current) return
+    const mm = gsap.matchMedia()
 
     // 1. Portrait Parallax & Scale
     if (portraitRef.current) {
@@ -49,12 +50,16 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
     // 2. Chapters Pinned Section
     if (chaptersRef.current) {
       const leftCol = chaptersRef.current.querySelector(".chapters-left")
-      ScrollTrigger.create({
-        trigger: chaptersRef.current,
-        start: "top 20%",
-        end: "bottom bottom",
-        pin: leftCol,
-        pinSpacing: false,
+      mm.add("(min-width: 768px)", () => {
+        if (!leftCol) return
+
+        ScrollTrigger.create({
+          trigger: chaptersRef.current,
+          start: "top 20%",
+          end: "bottom bottom",
+          pin: leftCol,
+          pinSpacing: false,
+        })
       })
       
       const chapterItems = gsap.utils.toArray(".chapter-item") as HTMLElement[]
@@ -169,6 +174,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
       })
     }
 
+    return () => mm.revert()
   }, { scope: containerRef })
 
   return (
@@ -178,7 +184,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
       {/* ══════════════════════════════════════════════════
           ACT 1 — THE OPENING
           ══════════════════════════════════════════════════ */}
-      <section className="relative flex min-h-screen flex-col justify-center px-6 md:px-[15%] z-10 w-full overflow-hidden">
+      <section className="relative z-10 flex min-h-[82svh] w-full flex-col justify-center overflow-hidden px-6 md:min-h-screen md:px-[15%]">
         <div className="mb-8 flex items-center gap-3">
           <div className="h-px w-8 bg-foreground/[0.2]" />
           <span className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground/60 uppercase">
@@ -198,7 +204,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
         </p>
 
         {/* Scroll hint */}
-        <div className="absolute bottom-12 left-6 md:left-[15%]">
+        <div className="absolute bottom-12 left-6 hidden md:block md:left-[15%]">
           <div className="flex items-center gap-3">
             <div className="h-8 w-px origin-top bg-foreground/20 animate-breathe" />
             <span className="font-mono text-[9px] tracking-[0.2em] text-muted-foreground/30 uppercase">
@@ -211,8 +217,8 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
       {/* ══════════════════════════════════════════════════
           ACT 2 — THE PERSON
           ══════════════════════════════════════════════════ */}
-      <section className="relative z-10 border-t border-border/10 px-6 py-12 md:px-[15%] md:py-40">
-        <div className="grid gap-16 md:grid-cols-[1.2fr_1fr] lg:gap-24">
+      <section className="relative z-10 border-t border-border/10 px-6 py-10 md:px-[15%] md:py-40">
+        <div className="grid gap-10 md:grid-cols-[1.2fr_1fr] md:gap-16 lg:gap-24">
 
           {/* Portrait */}
           <div className="relative overflow-hidden rounded-2xl border border-border/15 bg-foreground/[0.03]">
@@ -235,7 +241,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
 
           {/* Bio */}
           <div className="flex flex-col justify-center">
-            <p className="mb-8 font-mono text-[9px] tracking-[0.25em] text-muted-foreground/40 uppercase relative overflow-hidden">
+            <p className="relative mb-6 overflow-hidden font-mono text-[9px] tracking-[0.25em] text-muted-foreground/40 uppercase md:mb-8">
                Beyond the work
                <span className="absolute bottom-0 left-0 w-full h-px bg-foreground/20" />
             </p>
@@ -268,7 +274,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
               </p>
             </div>
 
-            <div className="mt-12 flex items-center gap-3">
+            <div className="mt-8 flex items-center gap-3 md:mt-12">
               <div className="h-px flex-1 bg-foreground/[0.1]" />
               <span className="font-mono text-[9px] tracking-[0.15em] text-muted-foreground/40 uppercase">
                 Ask &middot; Reduce &middot; Shape &middot; Ship
@@ -282,11 +288,11 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
       {/* ══════════════════════════════════════════════════
           ACT 3 — CHAPTERS (Pinned Left, Scrolled Right)
           ══════════════════════════════════════════════════ */}
-      <section ref={chaptersRef} className="relative z-10 border-t border-border/10 px-6 py-12 md:px-[15%] md:py-40">
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-12 lg:gap-24 relative">
+      <section ref={chaptersRef} className="relative z-10 border-t border-border/10 px-6 py-10 md:px-[15%] md:py-40">
+        <div className="relative grid grid-cols-1 gap-8 md:grid-cols-[1fr_1.5fr] md:gap-12 lg:gap-24">
           
           <div className="chapters-left h-fit flex flex-col justify-start">
-            <p className="mb-12 font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 uppercase">
+            <p className="mb-6 font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 uppercase md:mb-12">
               Chapters, not résumé
             </p>
             <h2 className="max-w-[15ch] text-[clamp(2rem,3.5vw,3rem)] leading-[1.15] font-light tracking-tight text-foreground/90">
@@ -298,8 +304,8 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
 
           <div className="chapters-right flex flex-col">
             {chapters.map((ch) => (
-              <div key={ch.year} className="chapter-item group relative border-b border-border/10 py-16 last:border-0">
-                <div className="flex items-start gap-6 md:gap-10">
+              <div key={ch.year} className="chapter-item group relative border-b border-border/10 py-10 md:py-16 last:border-0">
+                <div className="flex items-start gap-5 md:gap-10">
                   {/* Year label — left-aligned, highlights on scroll */}
                   <div className="chapter-year shrink-0 w-16 md:w-20 pt-1 font-mono text-sm md:text-base font-semibold tracking-tight text-foreground/10 transition-all duration-500">
                     {ch.year}
@@ -325,20 +331,20 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
       {/* ══════════════════════════════════════════════════
           ACT 4 — THE STUDIO & TOOLS
           ══════════════════════════════════════════════════ */}
-      <section ref={studioRef} className="relative z-10 border-t border-border/10 px-6 py-32 md:px-0 md:py-48 bg-foreground/[0.02] overflow-hidden">
-        <p className="mb-24 font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 uppercase text-center block w-full">
+      <section ref={studioRef} className="relative z-10 overflow-hidden border-t border-border/10 bg-foreground/[0.02] px-6 py-16 md:px-0 md:py-48">
+        <p className="mb-12 block w-full text-center font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 uppercase md:mb-24">
           The studio, right now
         </p>
         
-        <div className="relative max-w-5xl mx-auto px-4 md:px-12 overflow-hidden">
+        <div className="relative mx-auto max-w-5xl overflow-hidden px-4 [--studio-spine-x:39px] md:px-12 md:[--studio-spine-x:50%]">
           {/* Spine Line */}
-          <div className="absolute left-[39px] md:left-1/2 top-0 bottom-0 w-px bg-foreground/10 -translate-x-1/2" />
+          <div className="absolute top-0 bottom-0 left-[calc(var(--studio-spine-x)-0.5px)] w-px bg-foreground/10" />
           <div 
-            className="studio-spine-progress absolute left-[39px] md:left-1/2 top-0 w-px bg-foreground -translate-x-1/2"
+            className="studio-spine-progress absolute top-0 left-[calc(var(--studio-spine-x)-0.5px)] w-px bg-foreground"
             style={{ height: '0%' }}
           />
 
-          <div className="space-y-24 md:space-y-32">
+          <div className="space-y-14 md:space-y-32">
             
             {/* Infographic Item 1 */}
             <div className="studio-item flex flex-col md:flex-row items-start md:items-center relative">
@@ -350,7 +356,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
                </div>
 
                {/* Center Marker */}
-               <div className="absolute left-[39px] md:left-1/2 top-2 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-8 h-8 flex items-center justify-center z-10 pointer-events-none">
+               <div className="absolute top-2 left-[var(--studio-spine-x)] z-10 flex h-8 w-8 -translate-x-1/2 items-center justify-center pointer-events-none md:top-1/2 md:-translate-y-1/2">
                   <div className="studio-node w-3 h-3 rounded-full border-[2px] border-foreground bg-background scale-0" />
                </div>
 
@@ -374,7 +380,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
                </div>
 
                {/* Center Marker */}
-               <div className="absolute left-[39px] md:left-1/2 top-2 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-8 h-8 flex items-center justify-center z-10 pointer-events-none">
+               <div className="absolute top-2 left-[var(--studio-spine-x)] z-10 flex h-8 w-8 -translate-x-1/2 items-center justify-center pointer-events-none md:top-1/2 md:-translate-y-1/2">
                   <div className="studio-node w-3 h-3 rounded-full border-[2px] border-foreground bg-background scale-0" />
                </div>
 
@@ -396,7 +402,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
                  </p>
                </div>
 
-               <div className="absolute left-[39px] md:left-1/2 top-2 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-8 h-8 flex items-center justify-center z-10 pointer-events-none">
+               <div className="absolute top-2 left-[var(--studio-spine-x)] z-10 flex h-8 w-8 -translate-x-1/2 items-center justify-center pointer-events-none md:top-1/2 md:-translate-y-1/2">
                   <div className="studio-node w-3 h-3 rounded-full border-[2px] border-foreground bg-background scale-0" />
                </div>
 
@@ -416,12 +422,12 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
                  </p>
                </div>
 
-               <div className="absolute left-[39px] md:left-1/2 top-2 md:top-6 -translate-x-1/2 md:-translate-y-1/2 w-8 h-8 flex items-center justify-center z-10 pointer-events-none">
+               <div className="absolute top-2 left-[var(--studio-spine-x)] z-10 flex h-8 w-8 -translate-x-1/2 items-center justify-center pointer-events-none md:top-6 md:-translate-y-1/2">
                   <div className="studio-node w-3 h-3 rounded-full border-[2px] border-foreground bg-background scale-0" />
                </div>
 
                <div className="studio-content opacity-0 md:w-1/2 md:pr-16 pl-16 md:pl-0 relative z-10 w-full">
-                  <div className="space-y-4 md:ml-auto md:max-w-md bg-background/50 backdrop-blur-sm p-6 rounded-2xl border border-foreground/5 shadow-sm hover:border-foreground/20 transition-colors duration-500">
+                  <div className="space-y-4 rounded-2xl border border-foreground/5 bg-background/50 p-5 shadow-sm backdrop-blur-sm transition-colors duration-500 hover:border-foreground/20 md:ml-auto md:max-w-md md:p-6">
                     {tools.map((tool) => (
                       <div key={tool.name} className="group flex items-baseline justify-between border-b border-border/10 pb-3 last:border-0 last:pb-0">
                         <span className="text-[14px] tracking-tight text-foreground/90 transition-colors group-hover:text-foreground">
@@ -437,19 +443,19 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
             </div>
 
             {/* Infographic Item 5 (Reading) */}
-            <div className="studio-item flex flex-col md:flex-row items-start relative pb-12">
+            <div className="studio-item relative flex flex-col items-start pb-8 md:flex-row md:pb-12">
                <div className="studio-content opacity-0 md:w-1/2 md:pr-16 md:text-right flex-shrink-0 mb-6 md:mb-0 pl-16 md:pl-0 w-full z-10 flex flex-col md:items-end md:mt-2">
                  <p className="font-mono text-[10px] tracking-[0.2em] text-foreground/40 uppercase bg-background px-4 py-2 border border-foreground/10 rounded-full inline-flex shadow-sm">
                    Reading
                  </p>
                </div>
 
-               <div className="absolute left-[39px] md:left-1/2 top-2 md:top-6 -translate-x-1/2 md:-translate-y-1/2 w-8 h-8 flex items-center justify-center z-10 pointer-events-none">
+               <div className="absolute top-2 left-[var(--studio-spine-x)] z-10 flex h-8 w-8 -translate-x-1/2 items-center justify-center pointer-events-none md:top-6 md:-translate-y-1/2">
                   <div className="studio-node w-3 h-3 rounded-full border-[2px] border-foreground bg-background scale-0" />
                </div>
 
                <div className="studio-content opacity-0 md:w-1/2 md:pl-16 pl-16 md:pr-0 relative z-10 w-full">
-                  <div className="space-y-4 md:max-w-md bg-background/50 backdrop-blur-sm p-6 rounded-2xl border border-foreground/5 shadow-sm hover:border-foreground/20 transition-colors duration-500">
+                  <div className="space-y-4 rounded-2xl border border-foreground/5 bg-background/50 p-5 shadow-sm backdrop-blur-sm transition-colors duration-500 hover:border-foreground/20 md:max-w-md md:p-6">
                     {reading.map((book) => (
                       <div key={book.title} className="flex flex-col border-b border-border/10 pb-4 last:border-0 last:pb-0">
                         <span className="text-[14px] text-foreground/90 leading-tight mb-1">
@@ -471,7 +477,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
       {/* ══════════════════════════════════════════════════
           ACT 5 — BELIEFS (Pinned fullscreen sequence)
           ══════════════════════════════════════════════════ */}
-      <section ref={beliefsRef} className="relative z-10 w-full h-[100vh] flex flex-col items-center justify-center bg-foreground overflow-hidden">
+      <section ref={beliefsRef} className="relative z-10 flex h-[82svh] w-full flex-col items-center justify-center overflow-hidden bg-foreground md:h-[100vh]">
         <div className="absolute top-12 left-0 w-full text-center">
             <p className="font-mono text-[10px] tracking-[0.3em] text-background/30 uppercase">
               Truths

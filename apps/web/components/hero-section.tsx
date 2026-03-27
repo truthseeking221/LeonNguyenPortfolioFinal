@@ -45,7 +45,7 @@ export function HeroSection() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="relative flex min-h-[100vh] w-full items-center px-6 md:px-[200px] max-w-[2500px] mx-auto overflow-hidden">
+    <section ref={containerRef} className="relative flex min-h-0 w-full items-start px-6 pt-24 pb-8 md:min-h-[100vh] md:items-center md:px-[200px] md:pt-0 md:pb-0 max-w-[2500px] mx-auto overflow-hidden">
       {/* 1. Underlying WebGL Liquid/Abstract Geometry */}
       <div className="absolute inset-0 z-0 opacity-80 md:opacity-100">
         <WebglHeroBg />
@@ -58,7 +58,7 @@ export function HeroSection() {
       </div>
 
       {/* 3. Ultra-Minimal, Abstract UI Overlay */}
-      <div className="relative z-10 w-full flex flex-col items-start text-left pt-24 md:pt-32 pb-12 md:pb-16 mt-8 md:mt-24">
+      <div className="relative z-10 w-full flex flex-col items-start text-left pt-0 pb-0 mt-0 md:pt-32 md:pb-16 md:mt-24">
         
         {/* Premium Glassmorphic Badge Caption */}
         <div className="gk-element mb-8 inline-flex items-center gap-3 rounded-full border border-foreground/10 bg-background/20 py-1.5 pl-2 pr-5 backdrop-blur-lg">
@@ -110,7 +110,7 @@ export function HeroSection() {
       </div>
       
       {/* Super minimal scroll indicator at bottom */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 gk-floating opacity-50">
+      <div className="absolute bottom-12 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-4 opacity-50 md:flex gk-floating">
         <div className="h-12 w-px bg-gradient-to-b from-foreground/5 to-foreground/40 origin-top animate-breathe" />
         <span className="font-mono text-[8px] uppercase tracking-[0.4em] text-foreground/40">Scroll</span>
       </div>
