@@ -9,6 +9,7 @@ import tymebankHomeImage from "../../images/Tymebank home.png"
 import balanceBarImage from "../../images/The balance bar instead of a warning.png"
 import livePriceImage from "../../images/Live price with an honest disclaimer.png"
 import complianceGatesImage from "../../images/Compliance gates as separate screens.png"
+import complianceGatesMomentsImage from "../../images/Compliance gates designed as moments, not walls. Clear language and a forward path for each one..png"
 import errorStatesImage from "../../images/Error states that don't conflate failures.png"
 import tymebankStoryFormatImage from "../../images/Three-card onboarding using TymeBank's existing story format.png"
 import availableCoinsImage from "../../images/Available coins with live ZAR price, sparkline, and percentage change.png"
@@ -19,6 +20,7 @@ import sellFlowImage from "../../images/Sell flow with coin quantity input.png"
 import ageGateImage from "../../images/Age gate with human language and error code.png"
 import profileVerificationImage from "../../images/Profile verification required, with a clear resolution path.png"
 import technicalFailureImage from "../../images/Technical failure with support contact and error code.png"
+import amountEntryImage from "../../images/Amount entry screen showing the trust gap — empty state with no balance context, user hesitation point].png"
 import cryptoImage from "../../images/Crypto.png"
 
 export const metadata: Metadata = {
@@ -294,12 +296,18 @@ export default function TymeBankCryptoCaseStudy() {
               ))}
             </div>
             <div className="mt-16">
-              <ImagePlaceholder
-                label="[Insert risk disclosure screen + age gate error screen side by side]"
-                caption="Compliance gates designed as moments, not walls. Clear language and a forward path for each one."
-                aspectRatio="aspect-[21/9]"
-                variant="hero"
-              />
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-muted/20 aspect-[21/9]">
+                  <img
+                    src={complianceGatesMomentsImage.src}
+                    alt="Compliance gates designed as moments, not walls. Clear language and a forward path for each one."
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  Compliance gates designed as moments, not walls. Clear language and a forward path for each one.
+                </figcaption>
+              </figure>
             </div>
           </section>
 
@@ -320,12 +328,18 @@ export default function TymeBankCryptoCaseStudy() {
             </p>
 
             <div className="mt-12">
-              <ImagePlaceholder
-                label="[Insert: Amount entry screen showing the trust gap — empty state with no balance context, user hesitation point]"
-                caption="The amount screen is where trust is won or lost. Users stop here — not at onboarding, not at coin selection."
-                aspectRatio="aspect-[16/9]"
-                variant="hero"
-              />
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-muted/20 aspect-[16/9]">
+                  <img
+                    src={amountEntryImage.src}
+                    alt="The amount screen is where trust is won or lost. Users stop here — not at onboarding, not at coin selection."
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  The amount screen is where trust is won or lost. Users stop here — not at onboarding, not at coin selection.
+                </figcaption>
+              </figure>
             </div>
 
             <div className="mt-14 grid gap-12 md:grid-cols-2 md:gap-20">

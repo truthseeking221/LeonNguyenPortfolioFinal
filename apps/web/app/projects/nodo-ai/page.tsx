@@ -956,13 +956,13 @@ export default function NodoAICaseStudy() {
         <p className="max-w-[48ch] text-base leading-relaxed text-muted-foreground md:text-lg">Every project is a chance to make something clearer than it was before. This one pushed me to think harder about trust, complexity, and what it means to design for systems people depend on.</p>
         <div className="mt-16 border-t border-border/30 pt-10">
           <p className="font-mono text-[10px] tracking-wider text-muted-foreground/30 uppercase">Next case study</p>
-          <Link href="#" className="group mt-4 block">
+          <Link href="/projects/tymebank-crypto" className="group mt-4 block">
             <h3 className="text-[clamp(2rem,6vw,5rem)] leading-[0.9] font-medium tracking-tighter text-foreground/30 transition-colors duration-300 group-hover:text-foreground/60">
-              Diag
+              TymeBank Crypto
               <ArrowUpRight className="mb-1 ml-2 inline-block size-[0.25em] transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
             </h3>
           </Link>
-          <p className="mt-4 max-w-[40ch] text-sm text-muted-foreground/40">Rethinking preventive healthcare for the Vietnamese market. Product strategy and end-to-end design.</p>
+          <p className="mt-4 max-w-[40ch] text-sm text-muted-foreground/40">Bringing crypto to a mass-market banking app in a regulated African market.</p>
         </div>
         <div className="mt-24 md:mt-32">
           <p className="text-base text-muted-foreground md:text-lg">Interested in working together?</p>
