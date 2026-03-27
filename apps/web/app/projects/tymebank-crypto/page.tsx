@@ -10,7 +10,15 @@ import balanceBarImage from "../../images/The balance bar instead of a warning.p
 import livePriceImage from "../../images/Live price with an honest disclaimer.png"
 import complianceGatesImage from "../../images/Compliance gates as separate screens.png"
 import errorStatesImage from "../../images/Error states that don't conflate failures.png"
-import ftueStoryCardsImage from "../../images/[Insert FTUE story cards — value prop, funding, market awareness].png"
+import tymebankStoryFormatImage from "../../images/Three-card onboarding using TymeBank's existing story format.png"
+import availableCoinsImage from "../../images/Available coins with live ZAR price, sparkline, and percentage change.png"
+import coinDetailImage from "../../images/Coin detail with price chart, timeframe selector, and Buy CTA.png"
+import buyAmountImage from "../../images/The amount screen is where trust is won or lost. Users stop here — not at onboarding, not at coin selection..png"
+import orderSummaryImage from "../../images/Order summary with locked price before confirmation.png"
+import sellFlowImage from "../../images/Sell flow with coin quantity input.png"
+import ageGateImage from "../../images/Age gate with human language and error code.png"
+import profileVerificationImage from "../../images/Profile verification required, with a clear resolution path.png"
+import technicalFailureImage from "../../images/Technical failure with support contact and error code.png"
 import cryptoImage from "../../images/Crypto.png"
 
 export const metadata: Metadata = {
@@ -367,7 +375,7 @@ export default function TymeBankCryptoCaseStudy() {
               Decisions
             </p>
             <h2 className="mt-4 max-w-[20ch] text-3xl font-medium tracking-tight md:text-4xl">
-              Five calls that shaped the experience
+              Four calls that shaped the experience
             </h2>
 
             <div className="mt-14 space-y-0 md:mt-20">
@@ -410,18 +418,6 @@ export default function TymeBankCryptoCaseStudy() {
                 },
                 {
                   number: "04",
-                  title: "Story-format FTUE with a crypto-native CTA",
-                  observation:
-                    "TymeBank already used a horizontal swipe story format elsewhere in the app for product introductions. Crypto was being introduced to users who had no prior context for trading, but many were already familiar with the story pattern from social media and from other TymeBank surfaces.",
-                  decision:
-                    "The first-time user experience uses three story cards: value proposition, funding method, and market awareness. The CTA at the end: &quot;To the moon&quot;, crypto slang, familiar to enthusiasts, harmless to newcomers. The final screen before the coin list: &quot;Ready for lift off!&quot; with eligibility information and a &quot;Get started&quot; CTA that accepts the terms.",
-                  tradeoff:
-                    "Using playful crypto language risked feeling tone-deaf to users who were cautious about crypto. The bet was that users who got through the story screens were already curious enough to appreciate the signal that the team understood the space.",
-                  color: "oklch(0.68 0.14 30)",
-                  image: "[Insert FTUE story cards — value prop, funding, market awareness]",
-                },
-                {
-                  number: "05",
                   title: "Error states that don't conflate failures",
                   observation:
                     "In financial products, &quot;something went wrong&quot; is not an error message. It is the beginning of a trust collapse. A user who receives an unhelpful error after trying to buy Bitcoin with their savings has lost confidence in the bank, not just the feature.",
@@ -521,19 +517,6 @@ export default function TymeBankCryptoCaseStudy() {
                           <figure className="group">
                             <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[16/9]">
                               <img
-                                src={ftueStoryCardsImage.src}
-                                alt="FTUE story cards — value prop, funding, market awareness"
-                                className="h-full w-full object-cover"
-                              />
-                            </div>
-                            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
-                              FTUE story cards — value prop, funding, market awareness
-                            </figcaption>
-                          </figure>
-                        ) : number === "05" ? (
-                          <figure className="group">
-                            <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[16/9]">
-                              <img
                                 src={errorStatesImage.src}
                                 alt="Error states that do not conflate failures"
                                 className="h-full w-full object-cover"
@@ -611,12 +594,18 @@ export default function TymeBankCryptoCaseStudy() {
 
             {/* Flow 2: FTUE */}
             <div className="mt-20 md:mt-32">
-              <ImagePlaceholder
-                label="[Insert 3 story cards side by side: value prop, buy from account, market updates]"
-                caption="Three-card onboarding using TymeBank's existing story format"
-                aspectRatio="aspect-[2.5/1]"
-                variant="hero"
-              />
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-muted/20 aspect-[2.5/1]">
+                  <img
+                    src={tymebankStoryFormatImage.src}
+                    alt="Three-card onboarding using TymeBank's existing story format"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  Three-card onboarding using TymeBank's existing story format
+                </figcaption>
+              </figure>
               <div className="mt-8 grid gap-8 md:grid-cols-2 md:gap-16">
                 <div>
                   <span className="font-mono text-[10px] text-muted-foreground/25">
@@ -640,12 +629,18 @@ export default function TymeBankCryptoCaseStudy() {
 
             {/* Flow 3: Coin List + Detail */}
             <div className="mt-20 grid items-start gap-10 md:mt-32 md:grid-cols-[1fr_1.3fr] md:gap-16">
-              <ImagePlaceholder
-                label="[Insert coin list screen: Bitcoin, Ethereum, Paxos USD, etc.]"
-                caption="Available coins with live ZAR price, sparkline, and percentage change"
-                aspectRatio="aspect-[3/4]"
-                variant="screen"
-              />
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[3/4]">
+                  <img
+                    src={availableCoinsImage.src}
+                    alt="Available coins with live ZAR price, sparkline, and percentage change"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  Available coins with live ZAR price, sparkline, and percentage change
+                </figcaption>
+              </figure>
               <div>
                 <span className="font-mono text-[10px] text-muted-foreground/25">
                   03
@@ -666,24 +661,36 @@ export default function TymeBankCryptoCaseStudy() {
                   &quot;About&quot; section for users who want context on the
                   asset itself. The Buy CTA is persistent at the bottom.
                 </p>
-                <ImagePlaceholder
-                  label="[Insert Bitcoin detail screen: chart 1H view with Buy CTA]"
-                  caption="Coin detail with price chart, timeframe selector, and Buy CTA"
-                  aspectRatio="aspect-[3/4]"
-                  variant="screen"
-                  className="mt-6"
-                />
+                <figure className="group mt-6">
+                  <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[3/4]">
+                    <img
+                      src={coinDetailImage.src}
+                      alt="Coin detail with price chart, timeframe selector, and Buy CTA"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                    Coin detail with price chart, timeframe selector, and Buy CTA
+                  </figcaption>
+                </figure>
               </div>
             </div>
 
             {/* Flow 4: Buy */}
             <div className="mt-20 md:mt-32">
-              <ImagePlaceholder
-                label="[Insert buy screen: R 0.00 empty, R 500 valid, R 0.1 over balance, three states side by side]"
-                caption="Buy flow amount screen: empty, valid, and over-balance states"
-                aspectRatio="aspect-[2.5/1]"
-                variant="hero"
-              />
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-muted/20 aspect-[2.5/1]">
+                  <img
+                    src={buyAmountImage.src}
+                    alt="Buy flow amount screen: empty, valid, and over-balance states"
+                    className="h-full w-full object-cover"
+                    style={{ left: "-3px", top: "-5px", position: "relative" }}
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  Buy flow amount screen: empty, valid, and over-balance states
+                </figcaption>
+              </figure>
               <div className="mt-8 grid gap-8 md:grid-cols-2 md:gap-16">
                 <div>
                   <span className="font-mono text-[10px] text-muted-foreground/25">
@@ -734,12 +741,18 @@ export default function TymeBankCryptoCaseStudy() {
                 </div>
               </div>
               <div className="space-y-4">
-                <ImagePlaceholder
-                  label="[Insert summary screen: R500, EveryDay account, BTC 0.00071]"
-                  caption="Order summary with locked price before confirmation"
-                  aspectRatio="aspect-[3/4]"
-                  variant="screen"
-                />
+                <figure className="group">
+                  <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[3/4]">
+                    <img
+                      src={orderSummaryImage.src}
+                      alt="Order summary with locked price before confirmation"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                    Order summary with locked price before confirmation
+                  </figcaption>
+                </figure>
               </div>
             </div>
 
@@ -755,30 +768,54 @@ export default function TymeBankCryptoCaseStudy() {
                 error code for support.
               </p>
               <div className="mt-8 grid gap-4 md:grid-cols-4">
-                <ImagePlaceholder
-                  label="[Insert sell screen: BTC 0.00 input]"
-                  caption="Sell flow with coin quantity input"
-                  aspectRatio="aspect-[3/4]"
-                  variant="screen"
-                />
-                <ImagePlaceholder
-                  label="[Insert age gate error: 18+ required]"
-                  caption="Age gate with human language and error code"
-                  aspectRatio="aspect-[3/4]"
-                  variant="screen"
-                />
-                <ImagePlaceholder
-                  label="[Insert unverified profile gate]"
-                  caption="Profile verification required, with a clear resolution path"
-                  aspectRatio="aspect-[3/4]"
-                  variant="screen"
-                />
-                <ImagePlaceholder
-                  label="[Insert technical failure screen]"
-                  caption="Technical failure with support contact and error code"
-                  aspectRatio="aspect-[3/4]"
-                  variant="screen"
-                />
+                <figure className="group">
+                  <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[3/4]">
+                    <img
+                      src={sellFlowImage.src}
+                      alt="Sell flow with coin quantity input"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                    Sell flow with coin quantity input
+                  </figcaption>
+                </figure>
+                <figure className="group">
+                  <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[3/4]">
+                    <img
+                      src={ageGateImage.src}
+                      alt="Age gate with human language and error code"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                    Age gate with human language and error code
+                  </figcaption>
+                </figure>
+                <figure className="group">
+                  <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[3/4]">
+                    <img
+                      src={profileVerificationImage.src}
+                      alt="Profile verification required, with a clear resolution path"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                    Profile verification required, with a clear resolution path
+                  </figcaption>
+                </figure>
+                <figure className="group">
+                  <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[3/4]">
+                    <img
+                      src={technicalFailureImage.src}
+                      alt="Technical failure with support contact and error code"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                    Technical failure with support contact and error code
+                  </figcaption>
+                </figure>
               </div>
             </div>
           </section>
