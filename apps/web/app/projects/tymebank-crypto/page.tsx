@@ -10,6 +10,7 @@ import balanceBarImage from "../../images/The balance bar instead of a warning.p
 import livePriceImage from "../../images/Live price with an honest disclaimer.png"
 import complianceGatesImage from "../../images/Compliance gates as separate screens.png"
 import errorStatesImage from "../../images/Error states that don't conflate failures.png"
+import ftueStoryCardsImage from "../../images/[Insert FTUE story cards — value prop, funding, market awareness].png"
 import cryptoImage from "../../images/Crypto.png"
 
 export const metadata: Metadata = {
@@ -107,7 +108,7 @@ export default function TymeBankCryptoCaseStudy() {
             <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">
               At a glance
             </p>
-            <div className="mt-10 grid gap-8 md:mt-14 md:grid-cols-2 lg:grid-cols-3 md:gap-12">
+            <div className="mt-10 grid gap-8 md:mt-14 md:grid-cols-2 md:gap-12">
               {[
                 {
                   title: "The Product",
@@ -125,19 +126,9 @@ export default function TymeBankCryptoCaseStudy() {
                     "The full buy/sell lifecycle: discovery on the home screen, story-format onboarding, coin selection and detail, amount entry with live balance impact, order confirmation, success state, and all error and edge-case flows. On iOS and Android.",
                 },
                 {
-                  title: "The Central Bet",
-                  content:
-                    "Trust had to be built at the moment of entering an amount, not in the onboarding screens. The bet: make the transaction legible. Real-time balance, live price, honest disclaimers. That would do more than any onboarding screen.",
-                },
-                {
                   title: "Paxos Integration",
                   content:
                     "Paxos handles all custody, settlement, and compliance infrastructure. The UX never surfaces this. Users interact entirely with TymeBank's brand, design system, and account data. The abstraction was intentional: users trust TymeBank, not an unfamiliar US fintech.",
-                },
-                {
-                  title: "Regulatory Context",
-                  content:
-                    "South Africa's FSCA required explicit risk disclosure, age-gating at 18+, and biometric identity verification before trading. Each compliance gate was designed as a moment in the experience, not a legal wall in front of the product.",
                 },
               ].map(({ title, content }) => (
                 <div key={title} className="border-t border-border/30 pt-5">
@@ -329,91 +320,43 @@ export default function TymeBankCryptoCaseStudy() {
               />
             </div>
 
-            <div className="mt-14 grid gap-12 md:grid-cols-[1.5fr_1fr] md:gap-20">
-              <div className="space-y-10">
-                <div>
-                  <h3 className="text-sm font-medium text-foreground/80">
-                    Where Abandonment Actually Happened
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    Users got through the onboarding stories. They selected a
-                    coin. They tapped Buy. Then they stopped at the amount
-                    screen. The anxiety was not about crypto. It was about their
-                    bank balance. They didn&apos;t know how much would leave their
-                    account, or when, or if they could reverse it.
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    This meant the onboarding screens, no matter how well-written,
-                    could not solve the trust problem. The trust problem was
-                    transactional, not educational. It needed to be resolved inside
-                    the buy flow itself, at the exact moment the user was most
-                    uncertain.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-sm font-medium text-foreground/80">
-                    The First Purchase Is the Only Metric That Matters
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    Getting someone to make a first purchase, even R50 of
-                    Bitcoin, was more important than designing for active traders.
-                    Portfolio management, advanced chart timeframes, and coin
-                    switching were all available. But they weren&apos;t the
-                    conversion lever. First-buy completion was.
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    This shaped every priority: reduce friction at the amount
-                    screen, surface balance impact before commitment, set honest
-                    price expectations, and make the confirmation screen feel
-                    like a receipt, not a risk disclosure.
-                  </p>
-                </div>
+            <div className="mt-14 grid gap-12 md:grid-cols-2 md:gap-20">
+              <div>
+                <h3 className="text-sm font-medium text-foreground/80">
+                  Where Abandonment Actually Happened
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  Users got through the onboarding stories. They selected a
+                  coin. They tapped Buy. Then they stopped at the amount
+                  screen. The anxiety was not about crypto. It was about their
+                  bank balance. They didn&apos;t know how much would leave their
+                  account, or when, or if they could reverse it.
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  This meant the onboarding screens, no matter how well-written,
+                  could not solve the trust problem. The trust problem was
+                  transactional, not educational. It needed to be resolved inside
+                  the buy flow itself, at the exact moment the user was most
+                  uncertain.
+                </p>
               </div>
-              <div className="space-y-6">
-                <div className="rounded-xl border border-border/30 bg-muted/10 p-6">
-                  <p
-                    className="font-mono text-[10px] tracking-wider uppercase"
-                    style={{ color: "oklch(0.88 0.18 86)", opacity: 0.7 }}
-                  >
-                    The design bet
-                  </p>
-                  <p className="mt-3 text-base leading-relaxed text-foreground/70">
-                    Show users exactly what happens to their balance before they
-                    confirm. Real-time. In rand. Without them having to calculate
-                    anything.
-                  </p>
-                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground/60">
-                    A live &quot;Before / After&quot; balance bar at the top of
-                    the buy screen, updating as they type. Not a warning.
-                    A transparency mechanism.
-                  </p>
-                </div>
-                <div className="rounded-xl border border-border/30 bg-muted/10 p-6">
-                  <p
-                    className="font-mono text-[10px] tracking-wider uppercase"
-                    style={{ color: "oklch(0.60 0.16 250)", opacity: 0.7 }}
-                  >
-                    ZAR first, always
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground/60">
-                    Users enter &quot;R500&quot; not &quot;0.00053 BTC.&quot; The
-                    coin equivalent is secondary. Rand literacy is
-                    universal. Satoshi literacy is not.
-                  </p>
-                </div>
-                <div className="rounded-xl border border-border/30 bg-muted/10 p-6">
-                  <p
-                    className="font-mono text-[10px] tracking-wider uppercase"
-                    style={{ color: "oklch(0.70 0.16 155)", opacity: 0.7 }}
-                  >
-                    Compliance as experience
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground/60">
-                    Each eligibility gate, age, identity, terms, gets its own
-                    screen with a human explanation and a clear path forward.
-                    Regulation doesn&apos;t have to feel like punishment.
-                  </p>
-                </div>
+              <div>
+                <h3 className="text-sm font-medium text-foreground/80">
+                  The First Purchase Is the Only Metric That Matters
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  Getting someone to make a first purchase, even R50 of
+                  Bitcoin, was more important than designing for active traders.
+                  Portfolio management, advanced chart timeframes, and coin
+                  switching were all available. But they weren&apos;t the
+                  conversion lever. First-buy completion was.
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  This shaped every priority: reduce friction at the amount
+                  screen, surface balance impact before commitment, set honest
+                  price expectations, and make the confirmation screen feel
+                  like a receipt, not a risk disclosure.
+                </p>
               </div>
             </div>
           </section>
@@ -574,6 +517,19 @@ export default function TymeBankCryptoCaseStudy() {
                               Compliance gates separated into distinct screens
                             </figcaption>
                           </figure>
+                        ) : number === "04" ? (
+                          <figure className="group">
+                            <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[16/9]">
+                              <img
+                                src={ftueStoryCardsImage.src}
+                                alt="FTUE story cards — value prop, funding, market awareness"
+                                className="h-full w-full object-cover"
+                              />
+                            </div>
+                            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                              FTUE story cards — value prop, funding, market awareness
+                            </figcaption>
+                          </figure>
                         ) : number === "05" ? (
                           <figure className="group">
                             <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[16/9]">
@@ -672,18 +628,12 @@ export default function TymeBankCryptoCaseStudy() {
                 </div>
                 <div>
                   <p className="text-sm leading-relaxed text-muted-foreground">
-                    Three story cards introduce the product: what it does, how
-                    funding works, and that real-time market data is available.
-                    The final screen, &quot;Ready for lift off!&quot;, sets eligibility
-                    expectations (18+, verified account) and captures T&C
-                    acceptance before handing off to the coin list.
+                    Three story cards cover the value proposition, funding
+                    method, and market data. The final screen captures T&C
+                    acceptance and eligibility before handing off to the coin
+                    list. Risk disclosure appears once, before the first trade,
+                    and never again.
                   </p>
-                  <div className="mt-4 border-l-2 border-foreground/10 pl-4">
-                    <p className="text-xs leading-relaxed text-muted-foreground/50">
-                      The risk disclosure and T&C screens appear once,
-                      before a user&apos;s first trade. They never appear again.
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>
@@ -746,20 +696,11 @@ export default function TymeBankCryptoCaseStudy() {
                 <div>
                   <p className="text-sm leading-relaxed text-muted-foreground">
                     Users enter an amount in rand using a custom numpad. The
-                    Before / After balance bar updates live at the top. The coin
-                    equivalent and market price are shown below the input.
-                    Validation is inline: empty state, minimum violation (R50),
-                    maximum violation, and over-balance, each with a specific,
+                    balance bar, coin equivalent, and market price update live
+                    as they type. Validation is inline: empty state, minimum
+                    (R50), maximum, and over-balance, each with a specific,
                     non-alarming message.
                   </p>
-                  <div className="mt-4 border-l-2 border-foreground/10 pl-4">
-                    <p className="text-xs leading-relaxed text-muted-foreground/50">
-                      The custom numpad removes the system keyboard entirely.
-                      This was intentional: it eliminates accidental decimal
-                      placement and keeps the user in a controlled input
-                      environment for a financial transaction.
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>
@@ -808,12 +749,10 @@ export default function TymeBankCryptoCaseStudy() {
                 Sell flow and error states
               </h3>
               <p className="mt-3 max-w-[55ch] text-sm leading-relaxed text-muted-foreground">
-                The sell flow mirrors the buy flow with coin quantity as the
-                input denomination: the balance bar shows BTC before/after
-                rather than ZAR. Every failure mode has its own screen, API
-                failure, connectivity loss, age gate, unverified profile,
-                account on debit hold. Each includes a human-readable
-                explanation and an error code for support.
+                The sell flow mirrors buy with coin quantity as the input.
+                Each failure mode, from API errors to compliance blocks,
+                has a dedicated screen with plain-language explanation and
+                error code for support.
               </p>
               <div className="mt-8 grid gap-4 md:grid-cols-4">
                 <ImagePlaceholder
@@ -954,19 +893,12 @@ export default function TymeBankCryptoCaseStudy() {
                     What Worked
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    The decision to treat the amount screen as the primary trust
-                    surface, rather than the onboarding, was the right call.
-                    Every element of that screen was designed to answer the
-                    question users actually had: &quot;What happens to my bank
-                    account?&quot; Real-time balance impact, live price, min/max
-                    constraints, and a disclaimer about price lock at
-                    confirmation all exist to answer that single question.
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    ZAR-first denominations throughout the entire flow removed
-                    a cognitive burden that would have disproportionately
-                    impacted first-time buyers. Users never had to convert
-                    mentally. They entered a number they understood.
+                    Treating the amount screen as the primary trust surface
+                    was the right call. The balance bar, live pricing, and
+                    ZAR-first denomination all served a single question:
+                    &quot;What happens to my bank account?&quot; Answering
+                    that at the point of commitment mattered more than any
+                    educational onboarding.
                   </p>
                 </div>
                 <div>

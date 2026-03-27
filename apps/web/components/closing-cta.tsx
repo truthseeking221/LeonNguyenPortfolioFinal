@@ -67,12 +67,12 @@ export function ClosingCTA({ className }: { className?: string }) {
         <div className="h-1.5 w-1.5 rounded-full bg-foreground/30 animate-pulse" />
       </div>
 
-      {/* Massive Vertical Typographic Sequence */}
-      <div className="flex flex-col items-center justify-center w-full my-12 md:my-24 perspective-1000">
-        {["The", "work", "speaks.", "Let's", "talk."].map((word, i) => (
+      {/* Massive Horizontal/Vertical Typographic Sequence */}
+      <div className="flex flex-col items-center justify-center w-full my-8 md:my-16 perspective-1000">
+        {["The work speaks.", "Let's talk."].map((line, i) => (
            <div key={i} className="overflow-hidden">
-             <span className="closing-word block font-light text-[clamp(4rem,14vw,14rem)] leading-[0.85] tracking-tighter text-foreground will-change-transform pb-2 md:pb-6">
-               {word}
+             <span className="closing-word block font-light text-[clamp(3rem,9vw,10.5rem)] leading-[0.9] tracking-tighter text-foreground will-change-transform pb-2 md:pb-4">
+               {line}
              </span>
            </div>
         ))}
