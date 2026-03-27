@@ -1086,10 +1086,10 @@ export default function TymeBankCryptoCaseStudy() {
                 Interested in working together?
               </p>
               <a
-                href="mailto:hello@leon.design"
+                href="mailto:leondesigner221@gmail.com"
                 className="mt-3 inline-block font-mono text-sm tracking-wide text-foreground underline decoration-foreground/20 underline-offset-4 transition-colors hover:decoration-foreground/60"
               >
-                hello@leon.design
+                leondesigner221@gmail.com
               </a>
             </div>
           </section>

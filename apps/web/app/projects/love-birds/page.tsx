@@ -205,11 +205,11 @@ export default function LoveBirdsCaseStudy() {
               </div>
 
               <figure className="group">
-                <div className="relative flex items-center justify-center overflow-hidden rounded-lg border border-border/40 bg-muted/20 aspect-[21/9]">
+                <div className="relative overflow-hidden rounded-lg border border-border/40 bg-muted/20">
                   <img
                     src={competitiveLandscapeImage.src}
                     alt="Competitive landscape analysis — dating app market positioning"
-                    className="h-full w-full object-contain"
+                    className="w-full h-auto block"
                   />
                 </div>
                 <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">

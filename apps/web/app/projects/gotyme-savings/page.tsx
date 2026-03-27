@@ -4,6 +4,14 @@ import { ArrowUpRight } from "lucide-react"
 import { Badge } from "@workspace/ui/components/badge"
 import { TableOfContents } from "@/components/case-study/table-of-contents"
 import { ImagePlaceholder } from "@/components/case-study/image-placeholder"
+import goalSaveDashboardImage from "../../images/GoalSave dashboard. Multiple goals, each with its own progress and identity..png"
+import threeGoalsImage from "../../images/Three goals. Three names. Three reasons to not touch the money..png"
+import goalNamingImage from "../../images/The first step is giving it a name, not a number..png"
+import paluwaganImage from "../../images/The paluwagan works not because it is convenient, but because you decided once..png"
+import autoSaveImage from "../../images/Set it once. The money moves on its own..png"
+import onTrackImage from "../../images/On track. Affirms without over-celebrating..png"
+import nearlyThereImage from "../../images/Nearly there. A specific action, not generic encouragement..png"
+import missedDateImage from "../../images/Missed the date. Honest without shame..png"
 
 export const metadata: Metadata = {
   title: "GoTyme GoalSave \u00b7 Case Study \u00b7 Leon",
@@ -78,12 +86,18 @@ export default function GoTymeSavingsCaseStudy() {
             </p>
 
             <div className="mt-16">
-              <ImagePlaceholder
-                label="[Insert: GoalSave dashboard showing multiple goals — Paris trip, School fees, New car — each with a progress bubble and saved amount]"
-                caption="Three goals. Three names. Three reasons to not touch the money."
-                aspectRatio="aspect-[2.2/1]"
-                variant="hero"
-              />
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-muted/20 aspect-[4/3]">
+                  <img
+                    src={threeGoalsImage.src}
+                    alt="Three goals. Three names. Three reasons to not touch the money."
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  Three goals. Three names. Three reasons to not touch the money.
+                </figcaption>
+              </figure>
             </div>
           </section>
 
@@ -162,12 +176,18 @@ export default function GoTymeSavingsCaseStudy() {
             </div>
 
             <div className="mt-16 md:mt-20">
-              <ImagePlaceholder
-                label="[Insert: Auto-Save setup screen — frequency options (daily, weekly, monthly), amount field, projected reach date]"
-                caption="The paluwagan works not because it is convenient, but because you decided once."
-                aspectRatio="aspect-[21/9]"
-                variant="hero"
-              />
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-muted/20 aspect-[4/3]">
+                  <img
+                    src={paluwaganImage.src}
+                    alt="The paluwagan works not because it is convenient, but because you decided once."
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  The paluwagan works not because it is convenient, but because you decided once.
+                </figcaption>
+              </figure>
             </div>
           </section>
 
@@ -288,22 +308,34 @@ export default function GoTymeSavingsCaseStudy() {
                   </p>
                 </div>
               </div>
-              <ImagePlaceholder
-                label="[Insert: Goal naming screen — 'Paris trip' in text input, savings image grid with travel photos below]"
-                caption="The first step is giving it a name, not a number."
-                aspectRatio="aspect-[3/4]"
-                variant="screen"
-              />
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20 aspect-[3/4]">
+                  <img
+                    src={goalNamingImage.src}
+                    alt="The first step is giving it a name, not a number."
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  The first step is giving it a name, not a number.
+                </figcaption>
+              </figure>
             </div>
 
             {/* Feature 2 — Auto-Save */}
             <div className="mt-24 md:mt-36">
-              <ImagePlaceholder
-                label="[Insert: Auto-Save setup — ₱500 weekly, frequency tabs (daily/weekly/monthly), calendar picker, projected completion date]"
-                caption="Set it once. The money moves on its own."
-                aspectRatio="aspect-[2.5/1]"
-                variant="hero"
-              />
+              <figure className="group">
+                <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-muted/20 aspect-[2.5/1]">
+                  <img
+                    src={autoSaveImage.src}
+                    alt="Set it once. The money moves on its own."
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  Set it once. The money moves on its own.
+                </figcaption>
+              </figure>
               <div className="mt-10 grid gap-8 md:grid-cols-2 md:gap-16">
                 <div>
                   <p className="font-mono text-[10px] text-muted-foreground/25">
@@ -384,49 +416,61 @@ export default function GoTymeSavingsCaseStudy() {
                 <div className="mt-6 space-y-5">
                   <p className="text-sm leading-relaxed text-muted-foreground">
                     GoalSave does not show a number and leave you to interpret
-                    it.
+                    it. It tells you where you stand&nbsp;&mdash; and what to
+                    do next.
                   </p>
                   <p className="text-sm leading-relaxed text-muted-foreground">
-                    Twelve distinct states. On track. Ahead. Behind. Near the
-                    deadline. Past it. Done. Each state has its own message.
-                    Each message has its own next action.
+                    On track? It affirms without over-celebrating. Close to
+                    the finish line? It suggests a specific action to cross it.
+                    Missed the deadline? It acknowledges what happened and
+                    offers a way forward.
                   </p>
                   <p className="text-sm leading-relaxed text-muted-foreground/60">
-                    The hardest one to write: a user who missed their target
-                    date but still has money in the goal. &ldquo;You&apos;re
+                    The tone mattered more than the UI. &ldquo;You&apos;re
                     behind&rdquo; feels accusatory. &ldquo;That&apos;s
-                    OK&rdquo; feels hollow. The right tone sits somewhere
-                    between honest and encouraging. Finding it took more
-                    iteration than anything visual.
+                    OK&rdquo; feels hollow. Finding the line between honest and
+                    encouraging took more iteration than anything visual.
                   </p>
                 </div>
               </div>
 
-              <div className="mt-12 grid gap-4 md:grid-cols-4">
-                <ImagePlaceholder
-                  label="[Insert: 'You're on track' — 66% progress, target July 2022, affirming message]"
-                  caption="On track. Affirms without over-celebrating."
-                  aspectRatio="aspect-[3/4]"
-                  variant="screen"
-                />
-                <ImagePlaceholder
-                  label="[Insert: 'Nearly there!' — 88% progress, suggestion to save change to cross the line]"
-                  caption="Nearly there. A specific action, not generic encouragement."
-                  aspectRatio="aspect-[3/4]"
-                  variant="screen"
-                />
-                <ImagePlaceholder
-                  label="[Insert: 'Your target date was 2 days ago' — 50% progress, gentle redirect with auto-save suggestion]"
-                  caption="Missed the date. Honest without shame."
-                  aspectRatio="aspect-[3/4]"
-                  variant="screen"
-                />
-                <ImagePlaceholder
-                  label="[Insert: Goal achieved celebration state — confetti, final balance shown]"
-                  caption="Done. The moment the whole system was building toward."
-                  aspectRatio="aspect-[3/4]"
-                  variant="screen"
-                />
+              <div className="mt-12 grid gap-4 md:grid-cols-3">
+                <figure className="group">
+                  <div className="relative h-fit overflow-hidden rounded-xl border border-border/40 bg-muted/20">
+                    <img
+                      src={onTrackImage.src}
+                      alt="On track. Affirms without over-celebrating."
+                      className="h-auto w-full"
+                    />
+                  </div>
+                  <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                    On track. Affirms without over-celebrating.
+                  </figcaption>
+                </figure>
+                <figure className="group">
+                  <div className="relative h-fit overflow-hidden rounded-xl border border-border/40 bg-muted/20">
+                    <img
+                      src={nearlyThereImage.src}
+                      alt="Nearly there. A specific action, not generic encouragement."
+                      className="h-auto w-full"
+                    />
+                  </div>
+                  <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                    Nearly there. A specific action, not generic encouragement.
+                  </figcaption>
+                </figure>
+                <figure className="group">
+                  <div className="relative h-fit overflow-hidden rounded-xl border border-border/40 bg-muted/20">
+                    <img
+                      src={missedDateImage.src}
+                      alt="Missed the date. Honest without shame."
+                      className="h-auto w-full"
+                    />
+                  </div>
+                  <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                    Missed the date. Honest without shame.
+                  </figcaption>
+                </figure>
               </div>
             </div>
           </section>
@@ -562,10 +606,10 @@ export default function GoTymeSavingsCaseStudy() {
                 Interested in working together?
               </p>
               <a
-                href="mailto:hello@leon.design"
+                href="mailto:leondesigner221@gmail.com"
                 className="mt-3 inline-block font-mono text-sm tracking-wide text-foreground underline decoration-foreground/20 underline-offset-4 transition-colors hover:decoration-foreground/60"
               >
-                hello@leon.design
+                leondesigner221@gmail.com
               </a>
             </div>
           </section>
