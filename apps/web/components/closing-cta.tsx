@@ -83,7 +83,7 @@ export function ClosingCTA({ className }: { className?: string }) {
         transaction. If that resonates, let&apos;s talk.
       </p>
 
-      <div className="closing-cta mt-8 md:mt-20">
+      <div className="closing-cta mt-8 md:mt-20 flex flex-col items-center gap-5">
         <MagneticButton>
           <a
             href="mailto:leondesigner221@gmail.com"
@@ -95,6 +95,24 @@ export function ClosingCTA({ className }: { className?: string }) {
             <div className="absolute bottom-4 h-[2px] w-full bg-foreground/15 transition-all duration-500 group-hover:bg-foreground group-hover:scale-x-110" />
           </a>
         </MagneticButton>
+        <div className="flex items-center gap-6">
+          <a
+            href="https://t.me/yangtinakpo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-[11px] tracking-widest text-muted-foreground/40 uppercase transition-colors hover:text-foreground/70"
+          >
+            Telegram &rarr;
+          </a>
+          <a
+            href="https://www.linkedin.com/in/nguyentuongan/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-[11px] tracking-widest text-muted-foreground/40 uppercase transition-colors hover:text-foreground/70"
+          >
+            LinkedIn &rarr;
+          </a>
+        </div>
       </div>
     </section>
   )

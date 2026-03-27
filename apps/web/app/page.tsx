@@ -253,9 +253,14 @@ export default function Page() {
             <span className="text-[10px] text-muted-foreground/20 dark:text-muted-foreground/40">
               &copy; 2026 Leon
             </span>
-            <span className="text-[10px] text-muted-foreground/20 dark:text-muted-foreground/40">
-              Product Designer &amp; Builder
-            </span>
+            <div className="flex items-center gap-4">
+              <a href="https://www.linkedin.com/in/nguyentuongan/" target="_blank" rel="noopener noreferrer" className="text-[10px] text-muted-foreground/20 dark:text-muted-foreground/40 hover:text-foreground/60 transition-colors">
+                LinkedIn
+              </a>
+              <a href="https://t.me/yangtinakpo" target="_blank" rel="noopener noreferrer" className="text-[10px] text-muted-foreground/20 dark:text-muted-foreground/40 hover:text-foreground/60 transition-colors">
+                Telegram
+              </a>
+            </div>
           </div>
         </footer>
       </Reveal>

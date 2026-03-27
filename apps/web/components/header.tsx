@@ -222,9 +222,8 @@ export function Header() {
           <div className="absolute bottom-12 left-6 right-6 flex items-end justify-between border-t border-foreground/10 pt-6">
             <div className="flex flex-col gap-3">
               {[
-                { label: 'LinkedIn', url: '#' }, 
-                { label: 'Twitter', url: '#' }, 
-                { label: 'Behance', url: '#' }
+                { label: 'LinkedIn', url: 'https://www.linkedin.com/in/nguyentuongan/' },
+                { label: 'Telegram', url: 'https://t.me/yangtinakpo' }
               ].map((social) => (
                 <a 
                   key={social.label} 
