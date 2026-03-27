@@ -37,17 +37,17 @@ export function HowIWork() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   return (
-    <section className="relative px-6 py-12 md:px-[200px] md:py-32 max-w-screen-2xl mx-auto">
-      {/* Timeline spine */}
-      <div className="pointer-events-none absolute inset-y-0 left-3 md:left-[120px] -translate-x-1/2 w-px bg-foreground/[0.08]" />
+    <section className="relative px-6 py-10 md:px-[200px] md:py-32 max-w-screen-2xl mx-auto">
+      {/* Timeline spine — desktop only (mobile has no gutter for it) */}
+      <div className="pointer-events-none hidden md:block absolute inset-y-0 md:left-[120px] -translate-x-1/2 w-px bg-foreground/[0.08]" />
 
-      {/* Node indicator */}
-      <div className="pointer-events-none absolute left-3 md:left-[120px] top-16 md:top-32 -translate-x-1/2 flex items-center justify-center">
+      {/* Node indicator — desktop only */}
+      <div className="pointer-events-none absolute md:left-[120px] top-16 md:top-32 -translate-x-1/2 hidden md:flex items-center justify-center">
         <div className="h-3 w-3 rounded-full border-2 border-background bg-foreground/60" />
       </div>
 
       <Reveal variant="fade">
-        <div className="mb-12 flex items-center gap-4 md:mb-16">
+        <div className="mb-8 flex items-center gap-4 md:mb-16">
           <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 dark:text-muted-foreground/70 uppercase">
             How I work
           </p>

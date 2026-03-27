@@ -58,7 +58,7 @@ export function HeroSection() {
       </div>
 
       {/* 3. Ultra-Minimal, Abstract UI Overlay */}
-      <div className="relative z-10 w-full flex flex-col items-start text-left pt-32 pb-16 mt-12 md:mt-24">
+      <div className="relative z-10 w-full flex flex-col items-start text-left pt-24 md:pt-32 pb-12 md:pb-16 mt-8 md:mt-24">
         
         {/* Premium Glassmorphic Badge Caption */}
         <div className="gk-element mb-8 inline-flex items-center gap-3 rounded-full border border-foreground/10 bg-background/20 py-1.5 pl-2 pr-5 backdrop-blur-lg">
@@ -81,13 +81,13 @@ export function HeroSection() {
         </div>
 
         {/* Sophisticated Description */}
-        <p className="gk-element mt-10 max-w-[42ch] text-[1.1rem] leading-[1.65] text-foreground/50 md:text-[1.35rem] font-light">
+        <p className="gk-element mt-6 md:mt-10 max-w-[42ch] text-[1.1rem] leading-[1.65] text-foreground/50 md:text-[1.35rem] font-light">
           Sculpting clarity from complexity. <br className="hidden md:block"/>
           I design premium systems, ethereal interfaces, and interactions that feel inevitable.
         </p>
 
         {/* Premium CTA / Coordinates */}
-        <div className="gk-element mt-16 flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-12">
+        <div className="gk-element mt-10 md:mt-16 flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-12">
           <MagneticButton>
             <GradientButton href="#work">
               <span className="inline-flex items-center gap-2">

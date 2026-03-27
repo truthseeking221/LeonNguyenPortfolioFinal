@@ -131,7 +131,7 @@ export function Header() {
                   : "border-white/25 text-white/70 hover:border-white/60 hover:text-white"
               )}
             >
-              CV ↓
+              The Story So Far ↓
             </a>
             {/* <ThemeToggle /> */}
           </nav>
@@ -188,7 +188,7 @@ export function Header() {
                 download
                 className="mobile-link-inner inline-flex items-center gap-3 text-sm font-mono uppercase tracking-[0.2em] text-foreground/70 border border-foreground/20 rounded-full px-6 py-4 hover:border-foreground/50 transition-colors"
               >
-                Download CV 
+                The Story So Far ↓
               </a>
             </div>
           </nav>

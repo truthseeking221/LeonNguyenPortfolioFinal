@@ -128,7 +128,7 @@ export function ManifestoStrip({ className }: { className?: string }) {
             Instead, it must be absolutely
           </h2>
           <div className="relative mt-4 md:mt-6 overflow-hidden pb-4 md:pb-8">
-              <h2 className="text-[20vw] md:text-[18vw] font-black tracking-[-0.06em] leading-[0.85] text-foreground flex drop-shadow-2xl">
+              <h2 className="text-[20vw] md:text-[18vw] font-black tracking-[-0.06em] leading-[0.85] text-foreground flex">
                    {"CLEAR.".split("").map((c, i) => (
                       <span key={i} className="clear-letter inline-block will-change-transform">
                           {c === " " ? "\u00A0" : c}
