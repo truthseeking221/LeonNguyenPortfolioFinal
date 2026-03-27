@@ -6,7 +6,13 @@ import { TableOfContents } from "@/components/case-study/table-of-contents"
 import { ImagePlaceholder } from "@/components/case-study/image-placeholder"
 import { CaseStudyFooter } from "@/components/case-study/case-study-footer"
 import { MobileToC } from "@/components/case-study/mobile-toc"
+import Image from "next/image"
 import airdropPageImage from "../../images/Airdrop Page.png"
+import gullSwapNativeDex from "../../images/GullSwap as the native DEX in the Manta ecosystem.png"
+import tensionImage from "../../images/The tension between infrastructure utility and meme culture appeal.png"
+import memeTradersBehavior from "../../images/How meme traders move across 3 chains.png"
+import utilityVsPersonality from "../../images/Utility vs. personality across the DEX landscape.png"
+import threeLayersImage from "../../images/Three layers_ brand, community, and utility under one roof.png"
 
 export const metadata: Metadata = {
   title: "Gull Network — Case Study — Leon",
@@ -172,7 +178,22 @@ export default function GullNetworkCaseStudy() {
         </div>
 
         <div className="mt-14">
-          <ImagePlaceholder label="[Insert Manta ecosystem positioning diagram]" caption="GullSwap as the native DEX in the Manta ecosystem" aspectRatio="aspect-[21/9]" variant="hero" />
+          <figure className="group">
+            <div className="overflow-hidden rounded-2xl border border-border/40 bg-muted/20">
+              <Image
+                src={gullSwapNativeDex}
+                alt="GullSwap as the native DEX in the Manta ecosystem"
+                width={gullSwapNativeDex.width}
+                height={gullSwapNativeDex.height}
+                sizes="(min-width: 768px) 100vw, calc(100vw - 3rem)"
+                className="h-auto w-full"
+                quality={100}
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              GullSwap as the native DEX in the Manta ecosystem
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -215,7 +236,22 @@ export default function GullNetworkCaseStudy() {
         </div>
 
         <div className="mt-16">
-          <ImagePlaceholder label="[Insert visual showing the dual-audience problem space]" caption="The tension between infrastructure utility and meme culture appeal" aspectRatio="aspect-[21/9]" variant="hero" />
+          <figure className="group">
+            <div className="overflow-hidden rounded-2xl border border-border/40 bg-muted/20">
+              <Image
+                src={tensionImage}
+                alt="The tension between infrastructure utility and meme culture appeal"
+                width={tensionImage.width}
+                height={tensionImage.height}
+                sizes="(min-width: 768px) 100vw, calc(100vw - 3rem)"
+                className="h-auto w-full"
+                quality={100}
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              The tension between infrastructure utility and meme culture appeal
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -340,8 +376,38 @@ export default function GullNetworkCaseStudy() {
         </div>
 
         <div className="mt-12 grid gap-8 md:grid-cols-2">
-          <ImagePlaceholder label="[Insert competitive audit matrix]" caption="Utility vs. personality across the DEX landscape" aspectRatio="aspect-square" variant="artifact" />
-          <ImagePlaceholder label="[Insert memecoin community behavior map]" caption="How meme traders move across 3 chains" aspectRatio="aspect-[4/3]" variant="artifact" />
+          <figure className="group">
+            <div className="overflow-hidden rounded-lg border border-border/40 bg-muted/20">
+              <Image
+                src={utilityVsPersonality}
+                alt="Utility vs. personality across the DEX landscape"
+                width={utilityVsPersonality.width}
+                height={utilityVsPersonality.height}
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="h-auto w-full"
+                quality={100}
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              Utility vs. personality across the DEX landscape
+            </figcaption>
+          </figure>
+          <figure className="group">
+            <div className="overflow-hidden rounded-lg border border-border/40 bg-muted/20">
+              <Image
+                src={memeTradersBehavior}
+                alt="How meme traders move across 3 chains"
+                width={memeTradersBehavior.width}
+                height={memeTradersBehavior.height}
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="h-auto w-full"
+                quality={100}
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              How meme traders move across 3 chains
+            </figcaption>
+          </figure>
         </div>
 
         {/* User segments — kept but tighter */}
@@ -616,7 +682,22 @@ export default function GullNetworkCaseStudy() {
         </p>
 
         <div className="mt-14 space-y-8">
-          <ImagePlaceholder label="[Insert information architecture diagram]" caption="Three layers: brand, community, and utility under one roof" aspectRatio="aspect-[21/9]" variant="hero" />
+          <figure className="group">
+            <div className="overflow-hidden rounded-2xl border border-border/40 bg-muted/20">
+              <Image
+                src={threeLayersImage}
+                alt="Three layers: brand, community, and utility under one roof"
+                width={threeLayersImage.width}
+                height={threeLayersImage.height}
+                sizes="(min-width: 768px) 100vw, calc(100vw - 3rem)"
+                className="h-auto w-full"
+                quality={100}
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              Three layers: brand, community, and utility under one roof
+            </figcaption>
+          </figure>
           <div className="grid gap-8 md:grid-cols-2">
             <ImagePlaceholder label="[Insert GullGame user flow]" caption="GullGame: wallet connection to seagull evolution" aspectRatio="aspect-[4/3]" variant="artifact" />
             <ImagePlaceholder label="[Insert DEX token launch flow]" caption="Token launch: configuration to live trading" aspectRatio="aspect-[4/3]" variant="artifact" />
