@@ -98,11 +98,14 @@ export default function GullNetworkCaseStudy() {
 
         <div className="mt-16">
           <figure className="group">
-            <div className="relative h-fit overflow-hidden rounded-2xl border border-border/40 bg-muted/20">
-              <img
-                src={airdropPageImage.src}
+            <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-muted/20">
+              <Image
+                src={airdropPageImage}
                 alt="GullGame Airdrop Page — the entry point for most users"
-                className="h-fit w-full object-cover"
+                className="h-auto w-full"
+                sizes="(max-width: 768px) 100vw, 1100px"
+                priority
+                placeholder="blur"
               />
             </div>
             <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
