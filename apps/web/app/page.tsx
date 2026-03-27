@@ -9,7 +9,7 @@ import { GsapTitle } from "@/components/gsap-title"
 import { HeroSection } from "@/components/hero-section"
 import { GradientButton } from "@/components/gradient-button"
 import { MagneticButton } from "@/components/magnetic-button"
-import { ManifestoStrip } from "@/components/manifesto-strip"
+import { ClientLogos } from "@/components/client-logos"
 import { ClosingCTA } from "@/components/closing-cta"
 import { HowIWork } from "@/components/how-i-work"
 import gotymeSavingCover from "@/app/images/GoTyme Saving.png"
@@ -68,14 +68,14 @@ export default function Page() {
       <HeroSection />
 
       {/* ══════════════════════════════════════════════════
-          ACT 2 — FEATURED WORK (HORIZONTAL SCROLL)
+          CLIENT LOGOS
           ══════════════════════════════════════════════════ */}
-      <HorizontalWork compactProjects={COMPACT_PROJECTS} />
+      <ClientLogos />
 
       {/* ══════════════════════════════════════════════════
-          MANIFESTO STRIP
+          FEATURED WORK (HORIZONTAL SCROLL)
           ══════════════════════════════════════════════════ */}
-      <ManifestoStrip />
+      <HorizontalWork compactProjects={COMPACT_PROJECTS} />
 
       {/* ══════════════════════════════════════════════════
           PRINCIPLES - REIMAGINED GSAP "HOW I WORK"

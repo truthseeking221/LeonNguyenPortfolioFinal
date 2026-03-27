@@ -52,7 +52,7 @@ export function ClosingCTA({ className }: { className?: string }) {
   }, { scope: containerRef })
 
   return (
-    <section ref={containerRef} className={cn("relative z-10 w-full min-h-screen bg-background flex flex-col items-center justify-center text-center px-6 md:px-[15%] py-16 md:py-48 overflow-hidden", className)}>
+    <section ref={containerRef} className={cn("relative z-10 w-full bg-background flex flex-col items-center justify-center text-center px-6 md:px-[15%] py-20 md:min-h-screen md:py-48 overflow-hidden", className)}>
       
       {/* Immersive glow expanding on scrub */}
       <div className="closing-glow absolute inset-0 flex items-center justify-center pointer-events-none -z-10 mt-[-10vh]">

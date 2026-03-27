@@ -91,7 +91,7 @@ export function ManifestoStrip({ className }: { className?: string }) {
   return (
     <section 
       ref={containerRef} 
-      className={cn("relative z-20 w-full h-screen bg-background overflow-hidden", className)}
+      className={cn("relative z-20 w-full h-[70vh] md:h-screen bg-background overflow-hidden", className)}
     >
       {/* Screen 1: The Status Quo */}
       <div className="s1-container absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none">
