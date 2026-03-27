@@ -520,27 +520,61 @@ export default function NodoAICaseStudy() {
       <section id="insights" className={sectionRail}>
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Insights</p>
         <h2 className="mt-4 text-3xl font-medium tracking-tight md:text-4xl">What the research revealed</h2>
-        <p className="mt-4 max-w-[48ch] text-base leading-relaxed text-muted-foreground md:text-lg">Six findings from 24 user interviews that shaped every design decision.</p>
-        <div className="mt-12 grid grid-cols-1 gap-3 md:mt-16 md:grid-cols-2 lg:grid-cols-3 md:gap-4">
+        <p className="mt-4 max-w-[48ch] text-base leading-relaxed text-muted-foreground md:text-lg">Six findings from 24 interviews that shaped every design decision.</p>
+
+        {/* ── Movement 1: The Trust Deficit (compact 3-up) ── */}
+        <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border/20 bg-border/20 md:mt-20 md:grid-cols-3">
           {[
-            { number: "01", title: "AI is a red flag without proof", explanation: "Users are interested in passive yield but actively distrust vague AI claims. The word 'AI' triggers skepticism in sophisticated users unless backed by verifiable evidence. Eight of 24 participants flagged this unprompted.", implication: "We published two-tier strategy documentation: plain English for casual users, a technical brief for power users. On-chain verifiable metrics replaced marketing claims.", quote: "\"If you can't show me what the model does, 'AI-powered' is just a red flag.\"" },
-            { number: "02", title: "NDLP is universally misunderstood", explanation: "NDLP is not intuitively understood as a vault share token. Users consistently confuse it with governance tokens, rewards, or speculative assets. This creates post-deposit anxiety when an unexpected token appears in their wallet.", implication: "We reframed NDLP as a 'position balance' in the UI and added an explanation modal at the exact moment of receipt. All speculative framing was eliminated.", quote: "\"NDLP isn't a reward? Then why does it need to be a token at all?\"" },
-            { number: "03", title: "Yield source opacity triggers Ponzi suspicion", explanation: "Users need a clear, specific explanation of where returns come from. Vague yield attribution actively triggers Ponzi suspicion, especially among risk-aware users managing stablecoins.", implication: "We built a yield attribution module showing specific sources: trading fees, LP incentives, and rebalancing gains. It became a core element of every vault detail page.", quote: "\"If you can't tell me where the 8% comes from, I assume it comes from new depositors.\"" },
-            { number: "04", title: "APY does not equal returns", explanation: "Users conflate APY with guaranteed return. When net P&L doesn't match stated APY, they interpret it as product failure, not as the result of fees, IL, or market conditions. This is the number one future support complaint.", implication: "We designed a P&L waterfall visualization: Gross APY, then fees, then IL, then Net Return. The interface leads with net outcome, not headline APY. Honesty over optimism.", quote: "\"It says 12% APY but I only made 7%. Where did the other 5% go?\"" },
-            { number: "05", title: "Dual deposit kills beginner conversion", explanation: "Requiring two tokens to deposit is an immediate abandonment trigger for users without LP experience. They don't understand why two tokens are needed and leave the flow entirely.", implication: "Single-sided deposit became the default entry point. Dual deposit was moved to an advanced option. This was the highest-impact, lowest-effort change in the entire project, scoring 7.5 out of 10 on our priority scale.", quote: "\"I have to pick two coins? I only have USDC. This is already too complicated.\"" },
-            { number: "06", title: "Trust blockers are informational, not technical", explanation: "First deposit confidence depends on audits, transparency, downside communication, and withdrawal flexibility. The blockers are about information, not capability. Users can deposit. They just won't until they feel they understand the risks.", implication: "We designed for two-phase deposits: welcome micro-tests with minimal friction first, then address all informational blockers before the meaningful deposit button appears.", quote: "\"I'd put in fifty bucks to test. But I'm not putting savings in unless I see it working for a month.\"" },
-          ].map(({ number, title, explanation, implication, quote }, i) => (
-            <div key={number} className={`group rounded-2xl bg-foreground/[0.02] p-6 transition-colors hover:bg-foreground/[0.045] md:p-8${i === 0 ? " lg:col-span-2" : ""}${i === 5 ? " lg:col-start-2 lg:col-span-2" : ""}`}>
-              <span className="block font-mono text-5xl font-extralight leading-none text-foreground/[0.07] select-none">{number}</span>
-              <h3 className="mt-5 text-lg font-semibold tracking-tight">{title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground/55">{explanation}</p>
-              <p className="mt-5 border-l-2 border-foreground/[0.06] pl-4 text-[13px] leading-relaxed text-foreground/35 italic">{quote}</p>
-              <div className="mt-5 flex items-start gap-2.5">
-                <div className="mt-[7px] size-1.5 shrink-0 rounded-full bg-foreground/15" />
-                <p className="text-xs leading-relaxed text-muted-foreground/45">{implication}</p>
+            { n: "01", title: "AI is a red flag without proof", quote: "If you can't show me what the model does, 'AI-powered' is just a red flag." },
+            { n: "02", title: "NDLP is universally misunderstood", quote: "NDLP isn't a reward? Then why does it need to be a token at all?" },
+            { n: "03", title: "Yield opacity triggers Ponzi suspicion", quote: "If you can't tell me where the 8% comes from, I assume it comes from new depositors." },
+          ].map(({ n, title, quote }) => (
+            <div key={n} className="flex flex-col justify-between bg-background p-6 md:p-8">
+              <div>
+                <span className="font-mono text-[10px] text-muted-foreground/25">{n}</span>
+                <h3 className="mt-3 text-sm font-medium tracking-tight text-foreground/80">{title}</h3>
               </div>
+              <p className="mt-6 text-[13px] leading-[1.7] font-light italic text-foreground/40">&ldquo;{quote}&rdquo;</p>
             </div>
           ))}
+        </div>
+
+        {/* ── Movement 2: The Devastating Quote (full-width break) ── */}
+        <div className="my-20 md:my-28">
+          <blockquote className="relative mx-auto max-w-[22ch] md:max-w-none">
+            <p className="text-center text-[clamp(1.5rem,3.5vw,2.75rem)] font-light leading-[1.25] tracking-tight text-foreground/70">
+              &ldquo;It says 12% APY but I only made 7%.
+              <br className="hidden md:block" />
+              <span className="text-foreground"> Where did the other 5% go?</span>&rdquo;
+            </p>
+            <cite className="mt-6 block text-center font-mono text-[10px] tracking-widest text-muted-foreground/30 not-italic uppercase">
+              P11, Active DeFi Trader — on APY vs. actual returns
+            </cite>
+          </blockquote>
+        </div>
+
+        {/* ── Movement 3: The Conversion Killer + Resolution (asymmetric 2-up) ── */}
+        <div className="grid gap-6 md:grid-cols-[1.4fr_1fr] md:gap-8">
+          {/* Insight 05 — highest impact, gets visual weight */}
+          <div className="relative overflow-hidden rounded-2xl bg-foreground/[0.03] p-8 md:p-10">
+            <span className="absolute -right-2 -top-6 select-none font-mono text-[8rem] font-black leading-none text-foreground/[0.03] md:text-[10rem]">05</span>
+            <div className="relative">
+              <span className="font-mono text-[10px] tracking-widest text-muted-foreground/30 uppercase">Highest impact</span>
+              <h3 className="mt-3 text-xl font-medium tracking-tight md:text-2xl">Dual deposit kills beginner conversion</h3>
+              <p className="mt-3 max-w-[45ch] text-sm leading-relaxed text-muted-foreground/50">Requiring two tokens to deposit was an immediate abandonment trigger for every user without LP experience. Single-sided deposit became the default — the highest-impact, lowest-effort change in the entire project.</p>
+              <p className="mt-6 text-[15px] font-light italic text-foreground/45">&ldquo;I have to pick two coins? I only have USDC. This is already too complicated.&rdquo;</p>
+            </div>
+          </div>
+
+          {/* Insight 06 — the resolution */}
+          <div className="flex flex-col justify-between rounded-2xl border border-border/15 p-8 md:p-10">
+            <div>
+              <span className="font-mono text-[10px] text-muted-foreground/25">06</span>
+              <h3 className="mt-3 text-lg font-medium tracking-tight">Trust blockers are informational, not technical</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground/50">Users can deposit. They just won&apos;t until they feel they understand the risks. The blockers are about information, not capability.</p>
+            </div>
+            <p className="mt-8 text-[13px] font-light italic text-foreground/40">&ldquo;I&apos;d put in fifty bucks to test. But I&apos;m not putting savings in unless I see it working for a month.&rdquo;</p>
+          </div>
         </div>
 
         {/* Feature reaction heatmap */}
@@ -759,10 +793,10 @@ export default function NodoAICaseStudy() {
           </figure>
         </div>
 
-        <div className="mt-20 grid items-center gap-10 md:mt-32 md:grid-cols-[1.5fr_0.8fr] md:gap-16">
+        <div className="mt-20 grid items-center gap-10 md:mt-24 md:grid-cols-[1.5fr_0.8fr] md:gap-16">
           <figure className="group order-2 md:order-1 w-fit">
             <div className="overflow-hidden rounded-xl border border-border/40 bg-muted/20">
-              <div className="relative aspect-[4/3] w-fit">
+              <div className="relative w-fit">
                 <Image
                   src={manageLiquidityImage}
                   alt="Manage Liquidity screen for single-sided deposit"
@@ -770,11 +804,12 @@ export default function NodoAICaseStudy() {
                   height={manageLiquidityImage.height}
                   sizes="(min-width: 768px) 40vw, 100vw"
                   className="h-fit w-fit object-contain"
+                  style={{ width: 'fit-content', height: 'fit-content' }}
                   quality={100}
                 />
               </div>
             </div>
-            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+            <figcaption className="mt-3 text-center font-mono text-[11px] text-muted-foreground/35">
               Single-sided deposit as the default entry point
             </figcaption>
           </figure>

@@ -106,7 +106,7 @@ export default function TymeBankCryptoCaseStudy() {
                   <img
                     src={cryptoImage.src}
                     alt="TymeBank Crypto inside the TymeBank mobile app"
-                    className="h-fit w-fit object-cover"
+                    className="h-full w-full object-cover"
                   />
                 </div>
                 <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
