@@ -3,6 +3,8 @@ import { Badge } from "@workspace/ui/components/badge"
 import { TableOfContents } from "@/components/case-study/table-of-contents"
 import { ImagePlaceholder } from "@/components/case-study/image-placeholder"
 import { FigmaEmbed } from "@/components/case-study/figma-embed"
+import { CaseStudyFooter } from "@/components/case-study/case-study-footer"
+import { MobileToC } from "@/components/case-study/mobile-toc"
 import aiMatchReasoningImage from "../../images/The AI surfaces matches with reasoning, not just photos.png"
 import chapterProfilesImage from "../../images/Chapter profiles go deeper than any swipe card.png"
 import conversationalMatchmakingImage from "../../images/The conversational matchmaking experience.png"
@@ -44,6 +46,7 @@ export default function LoveBirdsCaseStudy() {
       <div className="xl:grid xl:grid-cols-[120px_1fr]">
         <aside className="hidden xl:block xl:pl-6">
           <TableOfContents items={tocItems} />
+          <MobileToC items={tocItems} />
         </aside>
         <div className="min-w-0">
 
@@ -751,6 +754,7 @@ export default function LoveBirdsCaseStudy() {
 
         </div>
       </div>
+      <CaseStudyFooter currentProject="love-birds" />
     </main>
   )
 }

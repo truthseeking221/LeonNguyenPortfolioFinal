@@ -5,6 +5,8 @@ import { Badge } from "@workspace/ui/components/badge"
 import { TableOfContents } from "@/components/case-study/table-of-contents"
 import { ImagePlaceholder } from "@/components/case-study/image-placeholder"
 import { FigmaEmbed } from "@/components/case-study/figma-embed"
+import { CaseStudyFooter } from "@/components/case-study/case-study-footer"
+import { MobileToC } from "@/components/case-study/mobile-toc"
 import tymebankHomeImage from "../../images/Tymebank home.png"
 import balanceBarImage from "../../images/The balance bar instead of a warning.png"
 import livePriceImage from "../../images/Live price with an honest disclaimer.png"
@@ -53,6 +55,7 @@ export default function TymeBankCryptoCaseStudy() {
         <aside className="hidden xl:block xl:pl-6">
           <TableOfContents items={tocItems} />
         </aside>
+        <MobileToC items={tocItems} />
         <div className="min-w-0">
 
           {/* 1. Hero */}
@@ -1059,51 +1062,7 @@ export default function TymeBankCryptoCaseStudy() {
 
           <div className={dividerRail} />
 
-          {/* 11. Next / CTA */}
-          <section className={`${contentRail} py-24 md:py-40`}>
-            <p className="max-w-[48ch] text-base leading-relaxed text-muted-foreground md:text-lg">
-              Bringing crypto to a mass-market banking app in a regulated
-              African market is not a UX problem. It&apos;s a trust problem
-              with a UX solution. The product shipped. The architecture holds.
-            </p>
-            <div className="mt-16 border-t border-border/30 pt-10">
-              <p className="font-mono text-[10px] tracking-wider text-muted-foreground/30 uppercase">
-                Next case study
-              </p>
-              <Link href="/projects/nodo-ai" className="group mt-4 block">
-                <h3 className="text-[clamp(2rem,6vw,5rem)] leading-[0.9] font-medium tracking-tighter text-foreground/30 transition-colors duration-300 group-hover:text-foreground/60">
-                  NODO AI
-                  <ArrowUpRight className="mb-1 ml-2 inline-block size-[0.25em] transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
-                </h3>
-              </Link>
-              <p className="mt-4 max-w-[40ch] text-sm text-muted-foreground/40">
-                Making autonomous yield infrastructure feel clear enough to
-                trust with real money.
-              </p>
-            </div>
-            <div className="mt-24 md:mt-32">
-              <p className="text-base text-muted-foreground md:text-lg">
-                Interested in working together?
-              </p>
-              <a
-                href="mailto:leondesigner221@gmail.com"
-                className="mt-3 inline-block font-mono text-sm tracking-wide text-foreground underline decoration-foreground/20 underline-offset-4 transition-colors hover:decoration-foreground/60"
-              >
-                leondesigner221@gmail.com
-              </a>
-            </div>
-          </section>
-
-          <footer className={`${contentRail} border-t border-border/30 py-8`}>
-            <div className="flex items-center justify-between">
-              <span className="text-xs text-muted-foreground/30">
-                &copy; 2026 Leon
-              </span>
-              <span className="text-xs text-muted-foreground/30">
-                Built with quiet intention
-              </span>
-            </div>
-          </footer>
+      <CaseStudyFooter currentProject="tymebank-crypto" />
         </div>
       </div>
     </main>

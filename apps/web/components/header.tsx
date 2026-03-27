@@ -5,6 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@workspace/ui/lib/utils"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { GradientButton } from "@/components/gradient-button"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 
@@ -125,13 +126,27 @@ export function Header() {
               href="/cv-an-nguyen-leon-2026.pdf"
               download
               className={cn(
-                "ml-3 rounded-full border px-4 py-1.5 font-mono text-xs font-medium tracking-[0.15em] uppercase transition-all duration-300",
+                "group/cv relative ml-3 inline-flex items-center gap-2.5 overflow-hidden rounded-full border px-5 py-2 font-mono text-xs font-medium tracking-[0.15em] uppercase transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-black hover:text-white",
                 scrolled
-                  ? "border-foreground/20 text-foreground/60 hover:border-foreground/50 hover:text-foreground"
-                  : "border-white/25 text-white/70 hover:border-white/60 hover:text-white"
+                  ? "border-foreground/15 text-foreground/50"
+                  : "border-white/20 text-white/60"
               )}
             >
-              The Story So Far ↓
+              {/* Sweep fill — black */}
+              <span className="absolute inset-0 origin-left scale-x-0 rounded-full bg-black transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/cv:scale-x-100" />
+              {/* Text roll */}
+              <span className="relative block overflow-hidden">
+                <span className="block transition-transform duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/cv:-translate-y-full">
+                  The Story So Far
+                </span>
+                <span className="absolute inset-0 translate-y-full transition-transform duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/cv:translate-y-0" aria-hidden="true">
+                  The Story So Far
+                </span>
+              </span>
+              {/* Arrow — delayed second beat */}
+              <span className="relative z-10 inline-block transition-all duration-700 delay-75 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/cv:translate-y-1">
+                ↓
+              </span>
             </a>
             {/* <ThemeToggle /> */}
           </nav>
@@ -186,9 +201,19 @@ export function Header() {
               <a
                 href="/cv-an-nguyen-leon-2026.pdf"
                 download
-                className="mobile-link-inner inline-flex items-center gap-3 text-sm font-mono uppercase tracking-[0.2em] text-foreground/70 border border-foreground/20 rounded-full px-6 py-4 hover:border-foreground/50 transition-colors"
+                className="group/cv mobile-link-inner relative inline-flex items-center gap-3 overflow-hidden rounded-full border border-foreground/20 px-6 py-4 font-mono text-sm uppercase tracking-[0.2em] text-foreground/70 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-[0.97]"
               >
-                The Story So Far ↓
+                <span className="relative block overflow-hidden">
+                  <span className="block transition-transform duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/cv:-translate-y-full">
+                    The Story So Far
+                  </span>
+                  <span className="absolute inset-0 translate-y-full transition-transform duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/cv:translate-y-0" aria-hidden="true">
+                    The Story So Far
+                  </span>
+                </span>
+                <span className="relative inline-block text-foreground/40 transition-all duration-700 delay-75 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/cv:translate-y-1 group-hover/cv:text-foreground">
+                  ↓
+                </span>
               </a>
             </div>
           </nav>

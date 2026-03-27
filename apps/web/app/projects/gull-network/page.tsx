@@ -4,6 +4,8 @@ import { ArrowUpRight } from "lucide-react"
 import { Badge } from "@workspace/ui/components/badge"
 import { TableOfContents } from "@/components/case-study/table-of-contents"
 import { ImagePlaceholder } from "@/components/case-study/image-placeholder"
+import { CaseStudyFooter } from "@/components/case-study/case-study-footer"
+import { MobileToC } from "@/components/case-study/mobile-toc"
 import airdropPageImage from "../../images/Airdrop Page.png"
 
 export const metadata: Metadata = {
@@ -42,6 +44,7 @@ export default function GullNetworkCaseStudy() {
         <aside className="hidden xl:block xl:pl-6">
           <TableOfContents items={tocItems} />
         </aside>
+        <MobileToC items={tocItems} />
         <div className="min-w-0">
 
       {/* ═══ HERO ═══ */}
@@ -855,31 +858,7 @@ export default function GullNetworkCaseStudy() {
 
       <div className={dividerRail} />
 
-      {/* ═══ CTA ═══ */}
-      <section className={`${contentRail} py-24 md:py-40`}>
-        <p className="max-w-[42ch] text-base leading-relaxed text-muted-foreground md:text-lg">A dead chain needed a heartbeat. A seagull sketch became a community identity. A codeless form became the reason projects chose Manta.</p>
-        <div className="mt-16 border-t border-border/30 pt-10">
-          <p className="font-mono text-[10px] tracking-wider text-muted-foreground/30 uppercase">Next case study</p>
-          <Link href="/projects/nodo-ai" className="group mt-4 block">
-            <h3 className="text-[clamp(2rem,6vw,5rem)] leading-[0.9] font-medium tracking-tighter text-foreground/30 transition-colors duration-300 group-hover:text-foreground/60">
-              NODO AI
-              <ArrowUpRight className="mb-1 ml-2 inline-block size-[0.25em] transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
-            </h3>
-          </Link>
-          <p className="mt-4 max-w-[40ch] text-sm text-muted-foreground/40">Making autonomous yield infrastructure feel clear enough to trust with real money.</p>
-        </div>
-        <div className="mt-24 md:mt-32">
-          <p className="text-base text-muted-foreground md:text-lg">Interested in working together?</p>
-          <a href="mailto:leondesigner221@gmail.com" className="mt-3 inline-block font-mono text-sm tracking-wide text-foreground underline decoration-foreground/20 underline-offset-4 transition-colors hover:decoration-foreground/60">leondesigner221@gmail.com</a>
-        </div>
-      </section>
-
-      <footer className={`${contentRail} border-t border-border/30 py-8`}>
-        <div className="flex items-center justify-between">
-          <span className="text-xs text-muted-foreground/30">&copy; 2026 Leon</span>
-          <span className="text-xs text-muted-foreground/30">Built with quiet intention</span>
-        </div>
-      </footer>
+      <CaseStudyFooter currentProject="gull-network" />
 
         </div>
       </div>

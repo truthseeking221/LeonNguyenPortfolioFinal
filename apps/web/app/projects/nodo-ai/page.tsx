@@ -6,6 +6,8 @@ import { Badge } from "@workspace/ui/components/badge"
 import { TableOfContents } from "@/components/case-study/table-of-contents"
 import { ImagePlaceholder } from "@/components/case-study/image-placeholder"
 import { FeatureReactionMatrix } from "@/components/case-study/feature-reaction-matrix"
+import { MobileToC } from "@/components/case-study/mobile-toc"
+import { CaseStudyFooter } from "@/components/case-study/case-study-footer"
 import nodoAiMainImage from "../../images/Nodo AI main.png"
 import problemSpaceMap from "../../images/Problem Space Map.png"
 import nodoEcosystemPositioning from "../../images/NODO Ecosystem Positioning.png"
@@ -54,6 +56,9 @@ const dividerRail = "mx-auto h-px w-[calc(100%-3rem)] max-w-[1100px] bg-border/3
 export default function NodoAICaseStudy() {
   return (
     <main className="min-h-screen overflow-x-hidden">
+
+      {/* Mobile Table of Contents */}
+      <MobileToC items={tocItems} />
 
       <div className="xl:grid xl:grid-cols-[120px_1fr]">
         <aside className="hidden xl:block xl:pl-6">
@@ -155,17 +160,16 @@ export default function NodoAICaseStudy() {
               <p>NODO set out to automate all of that. AI agents manage liquidity positions across Sui&apos;s top DEXs: Cetus, DeepBook, and Momentum. They optimize capital efficiency, mitigate loss, and capture yield from real trading activity. Over $2M in active LP commitments. Over $336M in addressable DEX liquidity on Sui alone.</p>
               <p>The market is there. But 63% of users say they would let an autonomous agent manage their funds only if they could understand and trust the system. That trust gap was the design problem.</p>
             </div>
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            <div className="grid grid-cols-2 gap-x-8 gap-y-10 md:gap-x-12 md:gap-y-14">
               {[
-                { stat: "$536M", label: "DeFAI market cap", accent: "oklch(0.72 0.16 160)" },
-                { stat: "$336M", label: "Sui DEX TVL (SAM)", accent: "oklch(0.65 0.15 260)" },
-                { stat: "$2M+", label: "Active LP commitments", accent: "oklch(0.72 0.14 85)" },
-                { stat: "63%", label: "Users open to AI agents", accent: "oklch(0.65 0.16 25)" },
-              ].map(({ stat, label, accent }) => (
-                <div key={label} className="group relative overflow-hidden rounded-lg border border-border/20 bg-muted/10 p-3 transition-colors hover:bg-muted/20">
-                  <div className="absolute bottom-0 left-0 h-[2px] w-full" style={{ backgroundColor: accent, opacity: 0.3 }} />
-                  <p className="text-lg font-medium tracking-tight" style={{ color: accent }}>{stat}</p>
-                  <p className="mt-0.5 text-[10px] text-muted-foreground/40">{label}</p>
+                { stat: "$536M", label: "DeFAI market cap" },
+                { stat: "$336M", label: "Sui DEX TVL (SAM)" },
+                { stat: "$2M+", label: "Active LP commitments" },
+                { stat: "63%", label: "Users open to AI agents" },
+              ].map(({ stat, label }) => (
+                <div key={label}>
+                  <p className="text-[clamp(1.75rem,3.5vw,2.75rem)] font-medium tracking-[-0.03em] text-foreground">{stat}</p>
+                  <p className="mt-1.5 font-mono text-[10px] tracking-wide text-muted-foreground/45 uppercase">{label}</p>
                 </div>
               ))}
             </div>
@@ -758,7 +762,7 @@ export default function NodoAICaseStudy() {
         <div className="mt-20 grid items-center gap-10 md:mt-32 md:grid-cols-[1.5fr_0.8fr] md:gap-16">
           <figure className="group order-2 md:order-1 w-fit">
             <div className="overflow-hidden rounded-xl border border-border/40 bg-muted/20">
-              <div className="relative aspect-[4/3]">
+              <div className="relative aspect-[4/3] w-fit">
                 <Image
                   src={manageLiquidityImage}
                   alt="Manage Liquidity screen for single-sided deposit"
@@ -952,25 +956,11 @@ export default function NodoAICaseStudy() {
       <div className={dividerRail} />
 
       {/* 17. Next / CTA */}
-      <section className={`${contentRail} py-24 md:py-40`}>
-        <p className="max-w-[48ch] text-base leading-relaxed text-muted-foreground md:text-lg">Every project is a chance to make something clearer than it was before. This one pushed me to think harder about trust, complexity, and what it means to design for systems people depend on.</p>
-        <div className="mt-16 border-t border-border/30 pt-10">
-          <p className="font-mono text-[10px] tracking-wider text-muted-foreground/30 uppercase">Next case study</p>
-          <Link href="/projects/tymebank-crypto" className="group mt-4 block">
-            <h3 className="text-[clamp(2rem,6vw,5rem)] leading-[0.9] font-medium tracking-tighter text-foreground/30 transition-colors duration-300 group-hover:text-foreground/60">
-              TymeBank Crypto
-              <ArrowUpRight className="mb-1 ml-2 inline-block size-[0.25em] transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
-            </h3>
-          </Link>
-          <p className="mt-4 max-w-[40ch] text-sm text-muted-foreground/40">Bringing crypto to a mass-market banking app in a regulated African market.</p>
-        </div>
-        <div className="mt-24 md:mt-32">
-          <p className="text-base text-muted-foreground md:text-lg">Interested in working together?</p>
-          <a href="mailto:leondesigner221@gmail.com" className="mt-3 inline-block font-mono text-sm tracking-wide text-foreground underline decoration-foreground/20 underline-offset-4 transition-colors hover:decoration-foreground/60">leondesigner221@gmail.com</a>
-        </div>
+      <section className="pb-10 pt-24 md:pb-20 md:pt-40">
+        <CaseStudyFooter currentProject="nodo-ai" />
       </section>
 
-      <footer className={`${contentRail} border-t border-border/30 py-8`}>
+      <footer className={`${contentRail} border-t border-border/10 py-8 mt-12`}>
         <div className="flex items-center justify-between">
           <span className="text-xs text-muted-foreground/30">&copy; 2026 Leon</span>
           <span className="text-xs text-muted-foreground/30">Built with quiet intention</span>

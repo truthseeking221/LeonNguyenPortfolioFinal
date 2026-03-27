@@ -1,9 +1,10 @@
 import type { Metadata } from "next"
-import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
+
 import { Badge } from "@workspace/ui/components/badge"
 import { TableOfContents } from "@/components/case-study/table-of-contents"
 import { ImagePlaceholder } from "@/components/case-study/image-placeholder"
+import { CaseStudyFooter } from "@/components/case-study/case-study-footer"
+import { MobileToC } from "@/components/case-study/mobile-toc"
 import goalSaveDashboardImage from "../../images/GoalSave dashboard. Multiple goals, each with its own progress and identity..png"
 import threeGoalsImage from "../../images/Three goals. Three names. Three reasons to not touch the money..png"
 import goalNamingImage from "../../images/The first step is giving it a name, not a number..png"
@@ -39,6 +40,7 @@ export default function GoTymeSavingsCaseStudy() {
       <div className="xl:grid xl:grid-cols-[120px_1fr]">
         <aside className="hidden xl:block xl:pl-6">
           <TableOfContents items={tocItems} />
+          <MobileToC items={tocItems} />
         </aside>
         <div className="min-w-0">
           {/* ──── Hero ──── */}
@@ -102,31 +104,39 @@ export default function GoTymeSavingsCaseStudy() {
           </section>
 
           {/* ──── The Premise ──── */}
-          <section id="premise" className={`${contentRail} py-28 md:py-40`}>
+          <section id="premise" className={`${contentRail} py-32 md:py-48`}>
             <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">
               The premise
             </p>
 
-            <div className="mx-auto mt-12 max-w-[48ch] space-y-8 md:mt-16">
-              <p className="text-lg leading-relaxed text-muted-foreground md:text-xl">
-                The Philippines has 70 million active mobile users and a deep,
-                informal culture of saving.
-              </p>
-              <p className="text-lg leading-relaxed text-foreground/80 md:text-xl">
-                People save. They just don&apos;t save in banks.
-              </p>
-              <p className="text-base leading-relaxed text-muted-foreground">
+            {/* Beat 1 — Context. Small. A stage direction before the line. */}
+            <p className="mt-10 max-w-[34ch] text-sm leading-relaxed text-muted-foreground/60 md:mt-14">
+              The Philippines has 70 million active mobile users
+              and a deep, informal culture of saving.
+            </p>
+
+            {/* Beat 2 — The insight. Offset right. Steps forward. */}
+            <p className="mt-16 text-[clamp(2rem,5vw,3.5rem)] leading-[1.08] font-medium tracking-tight text-foreground md:mt-24 md:ml-[18%] md:max-w-[16ch]">
+              People save.
+              <br />
+              <span className="text-muted-foreground/50">
+                They just don&apos;t save&nbsp;in&nbsp;banks.
+              </span>
+            </p>
+
+            {/* Beat 3 — Product + stats. Quiet landing. */}
+            <div className="mt-16 grid gap-6 border-t border-border/15 pt-8 md:mt-28 md:grid-cols-[1.2fr_1fr] md:gap-20">
+              <p className="max-w-[36ch] text-sm leading-relaxed text-muted-foreground">
                 GoalSave is a goal-based savings account inside the GoTyme Bank
                 app. Name a goal. Set a target if you want. Let the system
                 handle the rest.
               </p>
+              <p className="max-w-[34ch] text-xs leading-relaxed text-muted-foreground/35">
+                Up to 9% annual interest. &#8369;0 to open. Three ways to
+                save&nbsp;&mdash; Auto-Save, Save the Change, or just deposit
+                when it feels right.
+              </p>
             </div>
-
-            <p className="mx-auto mt-14 max-w-[48ch] border-t border-border/20 pt-6 text-sm leading-relaxed text-muted-foreground/50">
-              Up to 9% annual interest. &#8369;0 to open. Three ways to
-              save&nbsp;&mdash; Auto-Save, Save the Change, or just deposit when
-              it feels right.
-            </p>
           </section>
 
           <div className={dividerRail} />
@@ -583,47 +593,9 @@ export default function GoTymeSavingsCaseStudy() {
               Most people who wanted to save already knew how. GoalSave just
               made it harder to stop.
             </p>
-            <div className="mt-16 border-t border-border/30 pt-10">
-              <p className="font-mono text-[10px] tracking-wider text-muted-foreground/30 uppercase">
-                Next case study
-              </p>
-              <Link
-                href="/projects/tymebank-crypto"
-                className="group mt-4 block"
-              >
-                <h3 className="text-[clamp(2rem,6vw,5rem)] leading-[0.9] font-medium tracking-tighter text-foreground/30 transition-colors duration-300 group-hover:text-foreground/60">
-                  TymeBank Crypto
-                  <ArrowUpRight className="mb-1 ml-2 inline-block size-[0.25em] transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
-                </h3>
-              </Link>
-              <p className="mt-4 max-w-[40ch] text-sm text-muted-foreground/40">
-                South Africa&apos;s first regulated bank to offer native crypto
-                trading. Built for people who had never bought a coin.
-              </p>
-            </div>
-            <div className="mt-24 md:mt-32">
-              <p className="text-base text-muted-foreground md:text-lg">
-                Interested in working together?
-              </p>
-              <a
-                href="mailto:leondesigner221@gmail.com"
-                className="mt-3 inline-block font-mono text-sm tracking-wide text-foreground underline decoration-foreground/20 underline-offset-4 transition-colors hover:decoration-foreground/60"
-              >
-                leondesigner221@gmail.com
-              </a>
-            </div>
           </section>
 
-          <footer className={`${contentRail} border-t border-border/30 py-8`}>
-            <div className="flex items-center justify-between">
-              <span className="text-xs text-muted-foreground/30">
-                &copy; 2026 Leon
-              </span>
-              <span className="text-xs text-muted-foreground/30">
-                Built with quiet intention
-              </span>
-            </div>
-          </footer>
+      <CaseStudyFooter currentProject="gotyme-savings" />
         </div>
       </div>
     </main>

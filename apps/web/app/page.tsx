@@ -151,18 +151,12 @@ export default function Page() {
             {/* STATUS BOARD: Ultra clean, no borders */}
             <Reveal delay={100} variant="fade">
               <div className="flex flex-col">
-                <div className="pb-8">
-                  <span className="font-mono text-[9px] tracking-[0.2em] text-muted-foreground/40 uppercase">
-                    Right now
-                  </span>
-                </div>
-                
                 <div className="flex flex-col gap-6">
                 {[
-                  { label: "Working on", value: "TymeBank Crypto: crypto onboarding at scale" },
-                  { label: "Thinking about", value: "How AI reshapes what a product designer actually does" },
+                  { label: "Right now", value: "Taking a break — deep-diving into AI and the latest technologies" },
+                  { label: "Working on", value: "Building MCP servers to enhance designers' productivity with AI" },
                   { label: "Reading", value: "The Shape of Design, Frank Chimero" },
-                  { label: "Using", value: "Claude, Cursor, Figma, Linear" },
+                  { label: "Using", value: "Figma \u00b7 Framer \u00b7 Spline \u00b7 Photoshop \u00b7 Illustrator \u00b7 After Effects \u00b7 Linear \u00b7 Notion \u00b7 HTML/CSS/JS \u00b7 Cursor \u00b7 Claude Code \u00b7 Codex \u00b7 OpenClaw" },
                 ].map((item, idx) => (
                   <div key={idx} className="grid grid-cols-[140px_1fr] md:grid-cols-[160px_1fr] items-baseline">
                     <span className="font-mono text-[9px] tracking-[0.15em] text-muted-foreground/40 uppercase">
@@ -198,11 +192,10 @@ export default function Page() {
       {/* ══════════════════════════════════════════════════
           TESTIMONIALS
           ══════════════════════════════════════════════════ */}
-      <section className="relative px-6 py-10 md:px-[200px] md:py-32 max-w-screen-2xl mx-auto">
-
+      <section className="relative px-6 py-10 md:px-[200px] md:py-24 max-w-screen-2xl mx-auto">
 
         <Reveal variant="fade">
-          <div className="mb-8 flex items-center gap-4 md:mb-16">
+          <div className="mb-8 flex items-center gap-4 md:mb-10">
             <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 dark:text-muted-foreground/70 uppercase">
               What people say
             </p>
@@ -210,7 +203,7 @@ export default function Page() {
           </div>
         </Reveal>
 
-        <div className="space-y-0 divide-y divide-border/10">
+        <div className="divide-y divide-border/10">
           {[
             {
               quote: "Leon consistently demonstrated a sharp product mindset, user-obsessed design thinking, and strong execution capability. One of his greatest strengths is his ability to turn minimal product requirements into fully realized, high-impact product experiences.",
@@ -229,27 +222,16 @@ export default function Page() {
             },
           ].map((t, i) => (
             <Reveal key={i} delay={i * 100} variant="fade">
-              <figure className="grid grid-cols-1 md:grid-cols-[1fr_200px] gap-4 md:gap-16 py-8 md:py-16 items-start">
+              <figure className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-2 md:gap-10 py-6 md:py-10 items-baseline">
+                <figcaption className="flex flex-col gap-1">
+                  <span className="text-[15px] font-medium tracking-tight text-foreground/80">{t.name}</span>
+                  <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground/40 dark:text-muted-foreground/60">{t.role}</span>
+                </figcaption>
                 <blockquote>
-                  <p className="text-[clamp(1.1rem,2vw,1.4rem)] font-light leading-[1.6] tracking-tight text-foreground/80">
+                  <p className="text-[clamp(0.9rem,1.4vw,1.1rem)] font-light leading-[1.7] text-foreground/60">
                     &ldquo;{t.quote}&rdquo;
                   </p>
                 </blockquote>
-                <figcaption className="flex md:flex-col items-center md:items-end gap-3 md:gap-2 md:text-right md:pt-2">
-                  <div className="h-9 w-9 md:h-10 md:w-10 shrink-0 overflow-hidden rounded-full border border-border/20 bg-foreground/[0.06]">
-                    {t.name === "Huy (Jim)" ? (
-                      <img
-                        src="https://media.licdn.com/dms/image/v2/D5603AQFNLaqiZ0pTtg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1689523074193?e=1776297600&v=beta&t=dntNniYXKbYvpKzlN_7EvPPd5s7GCz4oSiBzuMiwI_o"
-                        alt="Profile photo"
-                        className="h-full w-full object-cover"
-                      />
-                    ) : null}
-                  </div>
-                  <div className="flex flex-col md:items-end">
-                    <span className="text-sm font-medium text-foreground/80">{t.name}</span>
-                    <span className="text-xs text-muted-foreground/50 dark:text-muted-foreground/70">{t.role}</span>
-                  </div>
-                </figcaption>
               </figure>
             </Reveal>
           ))}
