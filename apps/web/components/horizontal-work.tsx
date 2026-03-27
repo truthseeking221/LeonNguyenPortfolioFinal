@@ -96,17 +96,6 @@ function CoverCard({
             <span className="font-mono text-[9px] tracking-[0.15em] text-white/50 uppercase mb-1">Outcome</span>
             <p className="text-white/70 text-[13px] font-light leading-relaxed">{outcome}</p>
           </div>
-          {/* Mobile role/outcome */}
-          <div className="flex md:hidden gap-6 pl-5 mt-1">
-            <div>
-              <span className="font-mono text-[8px] tracking-[0.15em] text-white/40 uppercase block mb-0.5">Role</span>
-              <p className="text-white/60 text-[12px] font-light">{role}</p>
-            </div>
-            <div>
-              <span className="font-mono text-[8px] tracking-[0.15em] text-white/40 uppercase block mb-0.5">Outcome</span>
-              <p className="text-white/60 text-[12px] font-light">{outcome}</p>
-            </div>
-          </div>
         </div>
       </div>
     </Link>
@@ -138,7 +127,7 @@ function PlaceholderCard({
         <div className="relative z-10 mt-auto border-l-2 border-border/40 pl-5 transition-all duration-[1s] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:border-foreground/50 group-hover:-translate-y-2">
           <h3 className="mb-3 text-3xl md:text-4xl lg:text-5xl font-light tracking-tight">{name}</h3>
           <p className="mb-4 max-w-sm text-[14px] font-light leading-relaxed text-foreground/60">{desc}</p>
-          <div className="flex flex-wrap gap-x-8 gap-y-2 mb-3">
+          <div className="mb-3 hidden flex-wrap gap-x-8 gap-y-2 md:flex">
             <div>
               <span className="font-mono text-[8px] tracking-[0.15em] text-muted-foreground/40 uppercase block mb-0.5">Role</span>
               <p className="text-[12px] font-light text-foreground/60">{role}</p>
