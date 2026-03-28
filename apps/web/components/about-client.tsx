@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useEffect } from "react"
 import Image, { StaticImageData } from "next/image"
 import Link from "next/link"
 import gsap from "gsap"
@@ -27,6 +27,25 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
   const chaptersRef = useRef<HTMLDivElement>(null)
   const beliefsRef = useRef<HTMLDivElement>(null)
   const studioRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const win = window as any
+    function initUnicorn() {
+      if (win.UnicornStudio?.init && !win.UnicornStudio.isInitialized) {
+        win.UnicornStudio.init()
+        win.UnicornStudio.isInitialized = true
+      }
+    }
+    if (win.UnicornStudio?.init) { initUnicorn(); return }
+    if (!win.UnicornStudio) win.UnicornStudio = { isInitialized: false }
+    if (!document.querySelector("script[data-unicorn-loader]")) {
+      const s = document.createElement("script")
+      s.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.0-1/dist/unicornStudio.umd.js"
+      s.setAttribute("data-unicorn-loader", "true")
+      s.onload = initUnicorn
+      ;(document.head || document.body).appendChild(s)
+    }
+  }, [])
 
   useGSAP(() => {
     if (!containerRef.current) return
@@ -186,7 +205,21 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
           ACT 1 — THE OPENING
           ══════════════════════════════════════════════════ */}
       <section className="relative z-10 flex w-full flex-col justify-center overflow-hidden px-6 py-20 md:min-h-screen md:py-0 md:px-[15%]">
-        <div className="mb-5 flex items-center gap-3 md:mb-8">
+        {/* UnicornStudio background */}
+        <div className="absolute inset-0 z-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute inset-0 w-full h-full opacity-60 mix-blend-screen">
+            <div
+              data-us-project="WdVna2EGJHojbGLRHA52"
+              data-us-dpi="1.5"
+              data-us-fps="60"
+              data-us-lazyload="true"
+              data-us-production="true"
+              className="absolute inset-0 w-full h-full"
+            />
+          </div>
+        </div>
+
+        <div className="relative z-10 mb-5 flex items-center gap-3 md:mb-8">
           <div className="h-px w-8 bg-foreground/[0.2]" />
           <span className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground/60 uppercase">
             About
@@ -195,10 +228,10 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
 
         <GsapTitle
           text={"Ten years of shipping financial products."}
-          className="max-w-[20ch] text-[clamp(2.5rem,6vw,6rem)] leading-[0.92] font-light tracking-tighter"
+          className="relative z-10 max-w-[20ch] text-[clamp(2.5rem,6vw,6rem)] leading-[0.92] font-light tracking-tighter"
         />
 
-        <p className="mt-5 max-w-[42ch] text-base leading-relaxed text-muted-foreground/60 md:mt-8">
+        <p className="relative z-10 mt-5 max-w-[42ch] text-base leading-relaxed text-muted-foreground/60 md:mt-8">
           Product designer and builder based in Ho Chi Minh City. I&apos;ve worked across fintech, DeFi, neobanking, and healthcare with companies like Boston Consulting Group, TymeBank, Kyber Network, and Pizza 4P&apos;s.
         </p>
 
