@@ -12,7 +12,9 @@ import gullSwapNativeDex from "../../images/GullSwap as the native DEX in the Ma
 import tensionImage from "../../images/The tension between infrastructure utility and meme culture appeal.png"
 import memeTradersBehavior from "../../images/How meme traders move across 3 chains.png"
 import utilityVsPersonality from "../../images/Utility vs. personality across the DEX landscape.png"
-import threeLayersImage from "../../images/Three layers_ brand, community, and utility under one roof.png"
+import typeInvitationCodeImage from "../../images/Type invitation code.png"
+import tokenLaunchImage from "../../images/Token launch_ configuration to live trading.png"
+import seagullEvolutionImage from "../../images/The seagull_ from first sketch to final character system.png"
 
 export const metadata: Metadata = {
   title: "Gull Network — Case Study — Leon",
@@ -685,25 +687,39 @@ export default function GullNetworkCaseStudy() {
         </p>
 
         <div className="mt-14 space-y-8">
-          <figure className="group">
-            <div className="overflow-hidden rounded-2xl border border-border/40 bg-muted/20">
-              <Image
-                src={threeLayersImage}
-                alt="Three layers: brand, community, and utility under one roof"
-                width={threeLayersImage.width}
-                height={threeLayersImage.height}
-                sizes="(min-width: 768px) 100vw, calc(100vw - 3rem)"
-                className="h-auto w-full"
-                quality={100}
-              />
-            </div>
-            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
-              Three layers: brand, community, and utility under one roof
-            </figcaption>
-          </figure>
-          <div className="grid gap-8 md:grid-cols-2">
-            <ImagePlaceholder label="[Insert GullGame user flow]" caption="GullGame: wallet connection to seagull evolution" aspectRatio="aspect-[4/3]" variant="artifact" />
-            <ImagePlaceholder label="[Insert DEX token launch flow]" caption="Token launch: configuration to live trading" aspectRatio="aspect-[4/3]" variant="artifact" />
+          <div className="flex flex-col gap-8">
+            <figure className="group">
+              <div className="relative overflow-hidden rounded-lg border border-border/40 bg-muted/20 aspect-[4/3]">
+                <Image
+                  src={typeInvitationCodeImage}
+                  alt="Type invitation code"
+                  width={typeInvitationCodeImage.width}
+                  height={typeInvitationCodeImage.height}
+                  sizes="(min-width: 768px) 50vw, calc(100vw - 3rem)"
+                  className="h-full w-full object-cover"
+                  quality={90}
+                />
+              </div>
+              <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                GullGame: wallet connection to seagull evolution
+              </figcaption>
+            </figure>
+            <figure className="group">
+              <div className="relative overflow-hidden rounded-lg border border-border/40 bg-muted/20 aspect-[4/3]">
+                <Image
+                  src={tokenLaunchImage}
+                  alt="Token launch: configuration to live trading"
+                  width={tokenLaunchImage.width}
+                  height={tokenLaunchImage.height}
+                  sizes="(min-width: 768px) 50vw, calc(100vw - 3rem)"
+                  className="h-full w-full object-cover"
+                  quality={90}
+                />
+              </div>
+              <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                Token launch: configuration to live trading
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
@@ -740,7 +756,22 @@ export default function GullNetworkCaseStudy() {
         </div>
 
         <div className="mt-12">
-          <ImagePlaceholder label="[Insert mascot evolution from sketch to final]" caption="The seagull: from first sketch to final character system" aspectRatio="aspect-[2.5/1]" variant="hero" />
+          <figure className="group">
+            <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-muted/20 aspect-[2.5/1]">
+              <Image
+                src={seagullEvolutionImage}
+                alt="The seagull: from first sketch to final character system"
+                width={seagullEvolutionImage.width}
+                height={seagullEvolutionImage.height}
+                sizes="(min-width: 768px) 100vw, calc(100vw - 3rem)"
+                className="h-full w-full object-cover"
+                quality={90}
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              The seagull: from first sketch to final character system
+            </figcaption>
+          </figure>
         </div>
       </section>
 
