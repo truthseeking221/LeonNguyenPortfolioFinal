@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 const CHAPTERS = [
   {
     year: "2019",
-    conviction: "Crypto taught me that trust is the product",
+    conviction: "Being the only designer teaches you everything",
     context:
-      "I joined Kyber Network as the DeFi ecosystem was forming. Designing swap interfaces taught me that a confusing label can cost someone real money. I stopped treating UI as aesthetics and started treating it as risk management.",
+      "At Incognito Chain I was the sole design lead. Website, mobile app, and the Node hardware, their first physical product. Managed a team of three, built the design process from scratch, and took a privacy platform from pre-launch to 50K+ users. When there's no one to hand off to, you learn what actually matters.",
   },
   {
     year: "2020",

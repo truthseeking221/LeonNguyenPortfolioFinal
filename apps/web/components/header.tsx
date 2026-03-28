@@ -11,6 +11,7 @@ export function Header() {
   const pathname = usePathname()
   
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
   const tl = useRef<gsap.core.Timeline | null>(null)
 
@@ -59,6 +60,17 @@ export function Header() {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 8)
+    }
+
+    handleScroll()
+    window.addEventListener("scroll", handleScroll, { passive: true })
+
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   const navLinks = [
     { name: "Work", href: "/#work" },
     { name: "About", href: "/about" },
@@ -68,7 +80,10 @@ export function Header() {
   return (
     <>
       <header className={cn(
-        "pointer-events-none animate-hero-header fixed inset-x-0 top-0 z-[60] border-b border-border/40 bg-background/78 backdrop-blur-xl shadow-[0_1px_0_0_rgba(0,0,0,0.05)] transition-[background-color,box-shadow,border-color] duration-300"
+        "pointer-events-none animate-hero-header fixed inset-x-0 top-0 z-[60] border-b shadow-[0_1px_0_0_rgba(0,0,0,0.05)] transition-[background-color,box-shadow,border-color,backdrop-filter] duration-300",
+        isScrolled
+          ? "border-border/40 bg-white"
+          : "border-border/40 bg-background/78 backdrop-blur-xl"
       )}>
         <div className="flex h-16 items-center justify-between px-6 md:px-12 lg:px-24 2xl:px-[300px]">
           {/* Logo */}
@@ -125,8 +140,10 @@ export function Header() {
                 </span>
               </span>
               {/* Arrow — delayed second beat */}
-              <span className="relative z-10 inline-block transition-all duration-700 delay-75 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/cv:translate-y-1">
-                ↓
+              <span className="relative z-10 flex h-4 w-4 shrink-0 items-center justify-center overflow-hidden leading-none">
+                <span className="block transition-transform duration-700 delay-75 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/cv:scale-110">
+                  ↓
+                </span>
               </span>
             </a>
             {/* <ThemeToggle /> */}
@@ -191,8 +208,10 @@ export function Header() {
                     The Story So Far
                   </span>
                 </span>
-                <span className="relative inline-block text-foreground/40 transition-all duration-700 delay-75 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/cv:translate-y-1 group-hover/cv:text-foreground">
-                  ↓
+                <span className="relative flex h-4 w-4 shrink-0 items-center justify-center overflow-hidden text-foreground/40 leading-none">
+                  <span className="block transition-transform duration-700 delay-75 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/cv:scale-110 group-hover/cv:text-foreground">
+                    ↓
+                  </span>
                 </span>
               </a>
             </div>

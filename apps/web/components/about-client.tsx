@@ -32,8 +32,9 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
     if (!containerRef.current) return
     const mm = gsap.matchMedia()
 
-    // 1. Portrait Parallax & Scale
-    if (portraitRef.current) {
+    // 1. Portrait Parallax & Scale (desktop only)
+    mm.add("(min-width: 768px)", () => {
+      if (!portraitRef.current) return
       gsap.to(portraitRef.current, {
         yPercent: 15,
         scale: 1.05,
@@ -45,7 +46,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
           scrub: true,
         }
       })
-    }
+    })
 
     // 2. Chapters Pinned Section
     if (chaptersRef.current) {
@@ -219,7 +220,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
         <div className="grid gap-8 md:grid-cols-[1.2fr_1fr] md:gap-16 lg:gap-24">
 
           {/* Portrait */}
-          <div className="relative rounded-2xl border border-border/15">
+          <div className="relative overflow-hidden rounded-2xl border border-border/15">
             <div ref={portraitRef} className="relative">
               <Image
                 src={dashboardFirstImage}
@@ -450,8 +451,8 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
       {/* ══════════════════════════════════════════════════
           ACT 5 — BELIEFS (Pinned fullscreen sequence)
           ══════════════════════════════════════════════════ */}
-      <section ref={beliefsRef} className="relative z-10 flex h-[82svh] w-full flex-col items-center justify-center overflow-hidden bg-foreground md:h-[100vh]">
-        <div className="absolute top-12 left-0 w-full text-center">
+      <section ref={beliefsRef} className="relative z-10 flex h-[60svh] w-full flex-col items-center justify-center overflow-hidden bg-foreground md:h-[100vh]">
+        <div className="absolute top-6 left-0 w-full text-center md:top-12">
             <p className="font-mono text-[10px] tracking-[0.3em] text-background/30 uppercase">
               Principles
             </p>
@@ -460,30 +461,30 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
         <div className="relative w-full h-full flex items-center justify-center">
           {/* Principle 1 */}
           <div className="belief-item absolute flex flex-col items-center text-center opacity-0 w-[90%] md:w-[70%]">
-            <h3 className="text-[clamp(1.8rem,4vw,4.5rem)] leading-[1.18] font-light tracking-tight text-background">
+            <h3 className="text-[clamp(1.35rem,4vw,4.5rem)] leading-[1.18] font-light tracking-tight text-background">
               If your design system slows the team down, it&apos;s overhead.
             </h3>
-            <p className="mt-6 text-[clamp(1rem,1.8vw,1.5rem)] font-light leading-relaxed tracking-tight text-background/40">
+            <p className="mt-3 text-[clamp(0.875rem,1.8vw,1.5rem)] font-light leading-relaxed tracking-tight text-background/40 md:mt-6">
               At Gull Network, my system went from Figma to production in the same sprint.
             </p>
           </div>
 
           {/* Principle 2 */}
           <div className="belief-item absolute flex flex-col items-center text-center opacity-0 w-[90%] md:w-[70%]">
-            <h3 className="text-[clamp(1.8rem,4vw,4.5rem)] leading-[1.18] font-light tracking-tight text-background">
+            <h3 className="text-[clamp(1.35rem,4vw,4.5rem)] leading-[1.18] font-light tracking-tight text-background">
               The best financial UX prevents the support ticket.
             </h3>
-            <p className="mt-6 text-[clamp(1rem,1.8vw,1.5rem)] font-light leading-relaxed tracking-tight text-background/40">
+            <p className="mt-3 text-[clamp(0.875rem,1.8vw,1.5rem)] font-light leading-relaxed tracking-tight text-background/40 md:mt-6">
               At TymeBank, reducing confusion wasn&apos;t a design win. It was a business metric.
             </p>
           </div>
 
           {/* Principle 3 */}
           <div className="belief-item absolute flex flex-col items-center text-center opacity-0 w-[90%] md:w-[70%]">
-            <h3 className="text-[clamp(1.8rem,4vw,4.5rem)] leading-[1.18] font-light tracking-tight text-background">
+            <h3 className="text-[clamp(1.35rem,4vw,4.5rem)] leading-[1.18] font-light tracking-tight text-background">
               Ship the version that teaches you something.
             </h3>
-            <p className="mt-6 text-[clamp(1rem,1.8vw,1.5rem)] font-light leading-relaxed tracking-tight text-background/40">
+            <p className="mt-3 text-[clamp(0.875rem,1.8vw,1.5rem)] font-light leading-relaxed tracking-tight text-background/40 md:mt-6">
               NODO&apos;s first vault interface was deliberately minimal. 24 participants told us what to build next.
             </p>
           </div>

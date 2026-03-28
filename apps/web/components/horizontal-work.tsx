@@ -83,7 +83,7 @@ function CoverCard({
       {/* Content overlay */}
       <div className="absolute bottom-0 left-0 z-10 w-full p-6 md:p-10 transition-transform duration-[1s] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-translate-y-2">
         <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-4">
-          <div className="border-l-2 border-white/15 pl-5 transition-colors group-hover:border-white/50">
+          <div className="pl-0 md:border-l-2 md:border-white/15 md:pl-5 md:transition-colors md:group-hover:border-white/50">
             <span className="font-mono text-[10px] tracking-[0.18em] text-white/50 uppercase mb-3 block">
               {label ?? name}
             </span>
@@ -124,7 +124,7 @@ function PlaceholderCard({
           </div>
         </div>
 
-        <div className="relative z-10 mt-auto border-l-2 border-border/40 pl-5 transition-all duration-[1s] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:border-foreground/50 group-hover:-translate-y-2">
+        <div className="relative z-10 mt-auto pl-0 transition-all duration-[1s] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-translate-y-2 md:border-l-2 md:border-border/40 md:pl-5 md:group-hover:border-foreground/50">
           <h3 className="mb-3 text-3xl md:text-4xl lg:text-5xl font-light tracking-tight">{name}</h3>
           <p className="mb-4 max-w-sm text-[14px] font-light leading-relaxed text-foreground/60">{desc}</p>
           <div className="mb-3 hidden flex-wrap gap-x-8 gap-y-2 md:flex">

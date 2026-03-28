@@ -5,6 +5,7 @@ import { Badge } from "@workspace/ui/components/badge"
 import { TableOfContents } from "@/components/case-study/table-of-contents"
 import { ImagePlaceholder } from "@/components/case-study/image-placeholder"
 import { CaseStudyFooter } from "@/components/case-study/case-study-footer"
+import { ProjectNav } from "@/components/case-study/project-nav"
 import { MobileToC } from "@/components/case-study/mobile-toc"
 import Image from "next/image"
 import airdropPageImage from "../../images/Airdrop Page.png"
@@ -54,13 +55,14 @@ const dividerRail = "mx-auto h-px w-[calc(100%-3rem)] max-w-[1100px] bg-border/3
 
 export default function GullNetworkCaseStudy() {
   return (
-    <main className="min-h-screen overflow-x-hidden">
+    <main className="min-h-screen overflow-x-clip">
+      <ProjectNav currentProject="gull-network" />
+      <MobileToC items={tocItems} currentProject="gull-network" />
 
       <div className="xl:grid xl:grid-cols-[120px_1fr]">
         <aside className="hidden xl:block xl:pl-6">
           <TableOfContents items={tocItems} />
         </aside>
-        <MobileToC items={tocItems} />
         <div className="min-w-0">
 
       {/* ═══ HERO ═══ */}

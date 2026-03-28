@@ -4,6 +4,7 @@ import { Badge } from "@workspace/ui/components/badge"
 import { TableOfContents } from "@/components/case-study/table-of-contents"
 import { ImagePlaceholder } from "@/components/case-study/image-placeholder"
 import { CaseStudyFooter } from "@/components/case-study/case-study-footer"
+import { ProjectNav } from "@/components/case-study/project-nav"
 import { MobileToC } from "@/components/case-study/mobile-toc"
 import goalSaveDashboardImage from "../../images/GoalSave dashboard. Multiple goals, each with its own progress and identity..png"
 import threeGoalsImage from "../../images/Three goals. Three names. Three reasons to not touch the money..png"
@@ -36,11 +37,12 @@ const dividerRail =
 
 export default function GoTymeSavingsCaseStudy() {
   return (
-    <main className="min-h-screen overflow-x-hidden">
+    <main className="min-h-screen overflow-x-clip">
+      <ProjectNav currentProject="gotyme-savings" />
+      <MobileToC items={tocItems} currentProject="gotyme-savings" />
       <div className="xl:grid xl:grid-cols-[120px_1fr]">
         <aside className="hidden xl:block xl:pl-6">
           <TableOfContents items={tocItems} />
-          <MobileToC items={tocItems} />
         </aside>
         <div className="min-w-0">
           {/* ──── Hero ──── */}

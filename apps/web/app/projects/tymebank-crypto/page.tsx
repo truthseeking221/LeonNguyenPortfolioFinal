@@ -6,6 +6,7 @@ import { TableOfContents } from "@/components/case-study/table-of-contents"
 import { ImagePlaceholder } from "@/components/case-study/image-placeholder"
 import { FigmaEmbed } from "@/components/case-study/figma-embed"
 import { CaseStudyFooter } from "@/components/case-study/case-study-footer"
+import { ProjectNav } from "@/components/case-study/project-nav"
 import { MobileToC } from "@/components/case-study/mobile-toc"
 import tymebankHomeImage from "../../images/Tymebank home.png"
 import balanceBarImage from "../../images/The balance bar instead of a warning.png"
@@ -24,6 +25,7 @@ import profileVerificationImage from "../../images/Profile verification required
 import technicalFailureImage from "../../images/Technical failure with support contact and error code.png"
 import amountEntryImage from "../../images/Amount entry screen showing the trust gap — empty state with no balance context, user hesitation point].png"
 import cryptoImage from "../../images/Crypto.png"
+import cryptoHomeScreenImage from "../../images/Crypto as a card and story thumbnail on the home screen.png"
 
 export const metadata: Metadata = {
   title: "TymeBank Crypto · Case Study · Leon",
@@ -49,13 +51,14 @@ const dividerRail = "mx-auto h-px w-[calc(100%-3rem)] max-w-[1100px] bg-border/3
 
 export default function TymeBankCryptoCaseStudy() {
   return (
-    <main className="min-h-screen overflow-x-hidden">
+    <main className="min-h-screen overflow-x-clip">
+      <ProjectNav currentProject="tymebank-crypto" />
+      <MobileToC items={tocItems} currentProject="tymebank-crypto" />
 
       <div className="xl:grid xl:grid-cols-[120px_1fr]">
         <aside className="hidden xl:block xl:pl-6">
           <TableOfContents items={tocItems} />
         </aside>
-        <MobileToC items={tocItems} />
         <div className="min-w-0">
 
           {/* 1. Hero */}
@@ -164,7 +167,7 @@ export default function TymeBankCryptoCaseStudy() {
             <h2 className="mt-4 max-w-[22ch] text-3xl font-medium tracking-tight md:text-4xl">
               A digital bank, a new asset class, and a market that had no clean route in
             </h2>
-            <div className="mt-12 grid gap-12 md:grid-cols-[1.5fr_0.7fr] md:gap-20">
+            <div className="mt-12 grid gap-16 md:grid-cols-[1.4fr_0.6fr] md:gap-24">
               <div className="space-y-6 text-base leading-relaxed text-muted-foreground md:text-lg">
                 <p>
                   TymeBank is South Africa&apos;s first fully digital bank:
@@ -189,50 +192,34 @@ export default function TymeBankCryptoCaseStudy() {
                   them buy Bitcoin.
                 </p>
               </div>
-              <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-3">
-                  {[
-                    {
-                      stat: "R50",
-                      label: "Minimum purchase",
-                      accent: "oklch(0.88 0.18 86)",
-                    },
-                    {
-                      stat: "6",
-                      label: "Coins available at launch",
-                      accent: "oklch(0.60 0.16 250)",
-                    },
-                    {
-                      stat: "1st",
-                      label: "SA licensed bank with native crypto",
-                      accent: "oklch(0.70 0.16 155)",
-                    },
-                    {
-                      stat: "2",
-                      label: "Platforms: iOS and Android",
-                      accent: "oklch(0.68 0.14 30)",
-                    },
-                  ].map(({ stat, label, accent }) => (
-                    <div
-                      key={label}
-                      className="group relative overflow-hidden rounded-lg border border-border/20 bg-muted/10 p-3 transition-colors hover:bg-muted/20"
-                    >
-                      <div
-                        className="absolute bottom-0 left-0 h-[2px] w-full"
-                        style={{ backgroundColor: accent, opacity: 0.35 }}
-                      />
-                      <p
-                        className="text-lg font-medium tracking-tight"
-                        style={{ color: accent }}
-                      >
-                        {stat}
-                      </p>
-                      <p className="mt-0.5 text-[10px] text-muted-foreground/40">
-                        {label}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+              <div className="flex flex-col justify-center gap-10 md:gap-12">
+                {[
+                  {
+                    stat: "R50",
+                    label: "Minimum purchase",
+                  },
+                  {
+                    stat: "6",
+                    label: "Coins available at launch",
+                  },
+                  {
+                    stat: "1st",
+                    label: "SA licensed bank with native crypto",
+                  },
+                  {
+                    stat: "2",
+                    label: "Platforms: iOS and Android",
+                  },
+                ].map(({ stat, label }) => (
+                  <div key={label} className="border-l-2 border-foreground/10 pl-5">
+                    <p className="text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
+                      {stat}
+                    </p>
+                    <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground/50">
+                      {label}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
             <div className="mt-16">
@@ -584,29 +571,34 @@ export default function TymeBankCryptoCaseStudy() {
                   Discovery
                 </h3>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                  A Crypto card appears on the home screen, &quot;Buy and sell
-                  cryptocurrencies directly from your account,&quot; alongside a
-                  story thumbnail in the top navigation row. Both are passive
-                  entry points. Users who aren&apos;t interested never need to
-                  interact with them. Users who tap get the FTUE.
+                  Crypto sits inside the Move Money menu alongside familiar
+                  actions like EFT, SendMoney, and GoalSave. It is one of six
+                  options, not a banner, not a push notification. Users discover
+                  it naturally while doing something they already do.
                 </p>
                 <div className="mt-4 border-l-2 border-foreground/10 pl-4">
                   <p className="text-xs leading-relaxed text-muted-foreground/50">
                     <span className="font-medium text-muted-foreground/70">
                       Why not more prominent:
                     </span>{" "}
-                    Crypto is an opt-in product. Surfacing it aggressively on
-                    the home screen of a bank app would undermine trust for
-                    users not interested in trading.
+                    Crypto is an opt-in product. Placing it as one option among
+                    six keeps it visible without pressuring users who came to
+                    send money or pay a bill. The banking experience stays intact.
                   </p>
                 </div>
               </div>
-              <ImagePlaceholder
-                label="[Insert home screen: Crypto card + stories entry point]"
-                caption="Crypto as a card and story thumbnail on the home screen"
-                aspectRatio="aspect-[3/4]"
-                variant="screen"
-              />
+              <figure className="group">
+                <div className="overflow-hidden rounded-xl border border-border/40 bg-muted/20">
+                  <img
+                    src={cryptoHomeScreenImage.src}
+                    alt="Crypto as one of six actions in the Move Money menu"
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                  Crypto as one of six actions in the Move Money menu
+                </figcaption>
+              </figure>
             </div>
 
             {/* Flow 2: FTUE */}

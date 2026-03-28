@@ -8,6 +8,7 @@ import { ImagePlaceholder } from "@/components/case-study/image-placeholder"
 import { FeatureReactionMatrix } from "@/components/case-study/feature-reaction-matrix"
 import { MobileToC } from "@/components/case-study/mobile-toc"
 import { CaseStudyFooter } from "@/components/case-study/case-study-footer"
+import { ProjectNav } from "@/components/case-study/project-nav"
 import nodoAiMainImage from "../../images/Nodo AI main.png"
 import trustBarriersLandscape from "../../images/The landscape of trust barriers and conversion blockers.png"
 import nodoSuiDefiEcosystem from "../../images/NODO's position in the Sui DeFi ecosystem.png"
@@ -23,6 +24,9 @@ import detailImage from "../../images/Detail.png"
 import ndlpEducationImage from "../../images/NDLP education.png"
 import manageLiquidityImage from "../../images/Manage Liquidity.png"
 import breakdownImage from "../../images/breakdown.png"
+import yieldSourceBreakdown from "../../images/Yield source breakdown showing where returns come from.png"
+import cleanVaultSummary from "../../images/clean summary of each vault.png"
+import trustClarityImage from "../../images/Trust & Clarity.png"
 
 export const metadata: Metadata = {
   title: "NODO AI — Case Study — Leon",
@@ -55,10 +59,11 @@ const dividerRail = "mx-auto h-px w-[calc(100%-3rem)] max-w-[1100px] bg-border/3
 
 export default function NodoAICaseStudy() {
   return (
-    <main className="min-h-screen overflow-x-hidden">
+    <main className="min-h-screen overflow-x-clip">
+      <ProjectNav currentProject="nodo-ai" />
 
       {/* Mobile Table of Contents */}
-      <MobileToC items={tocItems} />
+      <MobileToC items={tocItems} currentProject="nodo-ai" />
 
       <div className="xl:grid xl:grid-cols-[120px_1fr]">
         <aside className="hidden xl:block xl:pl-6">
@@ -797,10 +802,10 @@ export default function NodoAICaseStudy() {
             <div className="overflow-hidden rounded-xl border border-border/40 bg-muted/20">
               <div className="relative aspect-[4/3] w-fit">
                 <Image
-                  src={manageLiquidityImage}
-                  alt="Manage Liquidity screen for single-sided deposit"
-                  width={manageLiquidityImage.width}
-                  height={manageLiquidityImage.height}
+                  src={cleanVaultSummary}
+                  alt="Clean summary of each vault"
+                  width={cleanVaultSummary.width}
+                  height={cleanVaultSummary.height}
                   sizes="(min-width: 768px) 40vw, 100vw"
                   className="h-fit w-fit object-contain"
                   quality={100}
@@ -808,7 +813,7 @@ export default function NodoAICaseStudy() {
               </div>
             </div>
             <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
-              Single-sided deposit flow in the manage liquidity screen
+              Clean summary of each vault
             </figcaption>
           </figure>
         </div>
@@ -884,7 +889,21 @@ export default function NodoAICaseStudy() {
               <p className="text-xs leading-relaxed text-muted-foreground/50"><span className="font-medium text-muted-foreground/70">Key decision:</span> This module exists because research showed that vague yield attribution actively triggers Ponzi suspicion.</p>
             </div>
           </div>
-          <ImagePlaceholder label="[Insert yield attribution module]" caption="Yield source breakdown showing where returns come from" aspectRatio="aspect-[4/3]" variant="screen" />
+          <figure className="group">
+            <div className="relative overflow-hidden border border-border/40 bg-muted/20 rounded-xl aspect-[4/3]">
+              <Image
+                src={yieldSourceBreakdown}
+                alt="Yield source breakdown showing where returns come from"
+                fill
+                className="object-contain"
+                sizes="(min-width: 768px) 40vw, 100vw"
+                quality={100}
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              Yield source breakdown showing where returns come from
+            </figcaption>
+          </figure>
         </div>
 
         <div className="mt-20 grid items-center gap-10 md:mt-32 md:grid-cols-[1.5fr_0.8fr] md:gap-16">
@@ -921,19 +940,16 @@ export default function NodoAICaseStudy() {
       {/* 14. Trust */}
       <section id="trust" className={sectionRail}>
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Trust & Clarity</p>
-        <h2 className="mt-4 max-w-[24ch] text-3xl font-medium tracking-tight md:text-4xl">Designing for confidence in uncertain systems</h2>
-        <blockquote className="mt-12 max-w-[32ch] border-l-2 border-foreground/10 pl-6 text-xl leading-snug font-light tracking-tight text-foreground/80 md:ml-[10%] md:text-2xl">
-          &quot;After FTX, I don&apos;t touch anything that doesn&apos;t have a clear legal entity and jurisdiction. I don&apos;t care how good the yield is.&quot;
-          <cite className="mt-3 block font-mono text-[10px] font-normal tracking-wider text-muted-foreground/30 not-italic">P23, Passive Yield Seeker</cite>
-        </blockquote>
+        <h2 className="mt-4 max-w-[24ch] text-3xl font-medium tracking-tight md:text-4xl">Performance, proof, and action in one screen</h2>
+        <p className="mt-6 max-w-[52ch] text-base leading-relaxed text-muted-foreground md:text-lg">The &quot;Your Performance&quot; tab of each vault shows three things at once: how much the vault is earning you, how the AI is allocating across pools, and a deposit panel to add more capital the moment you feel ready.</p>
         <div className="mt-14 grid gap-8 md:mt-16 md:grid-cols-2 lg:grid-cols-3 md:gap-10">
           {[
-            { title: "Handling Complexity", content: "LP mechanics, rebalancing algorithms, and token pair ratios were abstracted into plain-English summaries. Power users can expand into full technical detail. Beginners see 'the vault adjusts to earn you more' and nothing more unless they ask." },
-            { title: "Building Trust", content: "We published verifiable strategy documentation with on-chain metrics. Ecosystem partner logos for Cetus, DeepBook, and Momentum are displayed prominently. Audit reports, legal entity info, and contract addresses are visible at every decision point." },
-            { title: "Communicating Risk", content: "We created a plain-English IL explanation paired with NODO-specific mitigation messaging. Historical max IL per vault is shown before deposit. Worst-case scenarios are surfaced proactively because honesty builds more trust than silence." },
-            { title: "Educating Users", content: "We designed a beginner mode with plain-English replacements for all DeFi terminology. Education is progressive and contextual. Tooltips appear when relevant, not front-loaded as a tutorial wall that users close without reading." },
-            { title: "Onboarding Confidence", content: "The system supports two-phase deposits. Users can test with a small amount first, see it working, and then commit real capital. Trust is earned incrementally, not demanded upfront through a single high-stakes deposit screen." },
-            { title: "Decision Support", content: "We built a yield source attribution module, a P&L waterfall, and a comprehensive fee calculator. Users don't need raw data. They need answers to three questions: Am I up or down? Is this working? What should I do next?" },
+            { title: "$412.50 on $5,000", content: "Personal profit and deposited capital are the first two numbers on screen. $412.50 earned, $5,000 committed. Users know exactly where they stand before anything else loads." },
+            { title: "Your Rank in the Vault", content: "A distribution chart shows how every depositor in the vault is performing. Each bar is a PnL range. The user\u2019s position is marked clearly. At a glance, you know whether you\u2019re ahead of the crowd or behind it. Social proof through data, not marketing." },
+            { title: "Every Depositor, Transparent", content: "The peer comparison table ranks all depositors by PnL. Wallet aliases, deposit amounts, and returns are visible for everyone. Row 23 is highlighted as the user\u2019s position. \u201CFind me\u201D jumps straight to it. Trust comes from showing the numbers that most protocols hide." },
+            { title: "Deposit Right Here", content: "The manage liquidity panel sits beside the performance data. After seeing $412.50 in profit, the user can deposit more SUI or USDC without leaving the screen. The context that builds confidence is the same screen that takes the action." },
+            { title: "One Token, One Button", content: "The deposit panel defaults to single-token mode. Enter an amount in SUI or USDC, see the estimated NDLP receipt tokens, and hit Deposit. No manual pair splitting, no router selection, no slippage configuration." },
+            { title: "26.02% in the Header", content: "APR, total fees earned, total value, and IL ratio are pinned to the vault header. They stay visible across all three tabs: Overview, Your Holdings, and Your Performance. Every tab inherits the same confidence signal." },
           ].map(({ title, content }) => (
             <div key={title}>
               <h3 className="text-sm font-medium text-foreground/80">{title}</h3>
@@ -942,7 +958,22 @@ export default function NodoAICaseStudy() {
           ))}
         </div>
         <div className="mt-16">
-          <ImagePlaceholder label="[Insert trust design details: risk indicators, educational overlays, confidence-building moments]" caption="Trust design: how the interface builds confidence at every decision point" aspectRatio="aspect-[21/9]" variant="hero" />
+          <figure className="group">
+            <div className="overflow-hidden rounded-2xl border border-border/40 bg-muted/20">
+              <Image
+                src={trustClarityImage}
+                alt="Vault detail page showing performance metrics, fee attribution chart, pool comparison, and deposit interface"
+                width={trustClarityImage.width}
+                height={trustClarityImage.height}
+                className="w-full h-auto"
+                sizes="(min-width: 768px) 80vw, 100vw"
+                quality={100}
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              The vault detail page: performance, peer ranking, deposit panel, all in one view
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -952,18 +983,17 @@ export default function NodoAICaseStudy() {
       <section id="outcomes" className={sectionRail}>
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Outcomes</p>
         <h2 className="mt-4 text-3xl font-medium tracking-tight md:text-4xl">What changed because of this work</h2>
-        <div className="mt-14 grid gap-6 md:mt-16 md:grid-cols-2 lg:grid-cols-4 md:gap-8">
+        <div className="mt-14 grid grid-cols-2 gap-x-8 gap-y-12 md:mt-16 md:grid-cols-4 md:gap-x-12">
           {[
-            { metric: "1", label: "Highest-impact change shipped: single-sided deposit replaced dual-asset as default", type: "Conversion", accent: "oklch(0.72 0.16 160)" },
-            { metric: "6", label: "Persona segments served by one progressive disclosure architecture", type: "Coverage", accent: "oklch(0.65 0.15 260)" },
-            { metric: "0", label: "Screens that launched without a research-backed rationale behind them", type: "Confidence", accent: "oklch(0.72 0.14 85)" },
-            { metric: "Q2", label: "Shipped MVP on Sui mainnet within the planned timeline", type: "Delivery", accent: "oklch(0.65 0.16 25)" },
-          ].map(({ metric, label, type, accent }) => (
-            <div key={type} className="group relative overflow-hidden rounded-xl border border-border/30 bg-muted/10 p-6 transition-colors hover:bg-muted/20">
-              <div className="absolute top-0 left-0 h-[3px] w-full" style={{ backgroundColor: accent, opacity: 0.5 }} />
-              <p className="font-mono text-[10px] tracking-wider text-muted-foreground/40 uppercase">{type}</p>
-              <p className="mt-3 text-3xl font-medium tracking-tight md:text-4xl" style={{ color: accent }}>{metric}</p>
-              <p className="mt-2 text-xs leading-relaxed text-muted-foreground/50">{label}</p>
+            { metric: "$2M+", label: "Active LP commitments under management after launch", type: "Traction" },
+            { metric: "100%", label: "Of shipped screens backed by a research-validated rationale", type: "Confidence" },
+            { metric: "6-in-1", label: "Persona segments served by one progressive disclosure architecture", type: "Coverage" },
+            { metric: "Q2 '25", label: "Shipped MVP on Sui mainnet, on schedule", type: "Delivery" },
+          ].map(({ metric, label, type }) => (
+            <div key={type}>
+              <p className="font-mono text-[9px] tracking-widest text-muted-foreground/30 uppercase">{type}</p>
+              <p className="mt-2 text-[clamp(1.75rem,3.5vw,2.75rem)] font-medium tracking-[-0.03em] text-foreground">{metric}</p>
+              <p className="mt-2 text-xs leading-relaxed text-muted-foreground/45">{label}</p>
             </div>
           ))}
         </div>
