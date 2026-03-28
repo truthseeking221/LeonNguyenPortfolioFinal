@@ -184,8 +184,8 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
       {/* ══════════════════════════════════════════════════
           ACT 1 — THE OPENING
           ══════════════════════════════════════════════════ */}
-      <section className="relative z-10 flex min-h-[82svh] w-full flex-col justify-center overflow-hidden px-6 md:min-h-screen md:px-[15%]">
-        <div className="mb-8 flex items-center gap-3">
+      <section className="relative z-10 flex w-full flex-col justify-center overflow-hidden px-6 py-20 md:min-h-screen md:py-0 md:px-[15%]">
+        <div className="mb-5 flex items-center gap-3 md:mb-8">
           <div className="h-px w-8 bg-foreground/[0.2]" />
           <span className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground/60 uppercase">
             Somewhere between stillness &amp; making
@@ -197,7 +197,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
           className="max-w-[18ch] text-[clamp(2.5rem,6vw,6rem)] leading-[0.92] font-light tracking-tighter"
         />
 
-        <p className="mt-8 max-w-[36ch] text-base leading-relaxed text-muted-foreground/60">
+        <p className="mt-5 max-w-[36ch] text-base leading-relaxed text-muted-foreground/60 md:mt-8">
           I design products for a living. But what I&apos;m really
           searching for is what clarity means. Where it comes from.
           And why most things are built without it.
@@ -217,8 +217,8 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
       {/* ══════════════════════════════════════════════════
           ACT 2 — THE PERSON
           ══════════════════════════════════════════════════ */}
-      <section className="relative z-10 border-t border-border/10 px-6 py-10 md:px-[15%] md:py-40">
-        <div className="grid gap-10 md:grid-cols-[1.2fr_1fr] md:gap-16 lg:gap-24">
+      <section className="relative z-10 border-t border-border/10 px-6 py-8 md:px-[15%] md:py-40">
+        <div className="grid gap-8 md:grid-cols-[1.2fr_1fr] md:gap-16 lg:gap-24">
 
           {/* Portrait */}
           <div className="relative overflow-hidden rounded-2xl border border-border/15 bg-foreground/[0.03]">
@@ -241,12 +241,12 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
 
           {/* Bio */}
           <div className="flex flex-col justify-center">
-            <p className="relative mb-6 overflow-hidden font-mono text-[9px] tracking-[0.25em] text-muted-foreground/40 uppercase md:mb-8">
+            <p className="relative mb-4 overflow-hidden font-mono text-[9px] tracking-[0.25em] text-muted-foreground/40 uppercase md:mb-8">
                Beyond the work
                <span className="absolute bottom-0 left-0 w-full h-px bg-foreground/20" />
             </p>
 
-            <div className="space-y-6 text-[15px] leading-[1.8] text-foreground/75 md:text-md font-light">
+            <div className="space-y-4 text-[15px] leading-[1.8] text-foreground/75 md:space-y-6 md:text-md font-light">
               <p>
                 I&apos;m a product designer based in Vietnam. I think in
                 systems. I ship in clarity. My work lives in the 0-to-1 space,
@@ -274,7 +274,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
               </p>
             </div>
 
-            <div className="mt-8 flex items-center gap-3 md:mt-12">
+            <div className="mt-5 flex items-center gap-3 md:mt-12">
               <div className="h-px flex-1 bg-foreground/[0.1]" />
               <span className="font-mono text-[9px] tracking-[0.15em] text-muted-foreground/40 uppercase">
                 Ask &middot; Reduce &middot; Shape &middot; Ship
@@ -288,11 +288,11 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
       {/* ══════════════════════════════════════════════════
           ACT 3 — CHAPTERS (Pinned Left, Scrolled Right)
           ══════════════════════════════════════════════════ */}
-      <section ref={chaptersRef} className="relative z-10 border-t border-border/10 px-6 py-10 md:px-[15%] md:py-40">
-        <div className="relative grid grid-cols-1 gap-8 md:grid-cols-[1fr_1.5fr] md:gap-12 lg:gap-24">
+      <section ref={chaptersRef} className="relative z-10 border-t border-border/10 px-6 py-8 md:px-[15%] md:py-40">
+        <div className="relative grid grid-cols-1 gap-5 md:grid-cols-[1fr_1.5fr] md:gap-12 lg:gap-24">
           
           <div className="chapters-left h-fit flex flex-col justify-start">
-            <p className="mb-6 font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 uppercase md:mb-12">
+            <p className="mb-4 font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 uppercase md:mb-12">
               Chapters, not résumé
             </p>
             <h2 className="max-w-[15ch] text-[clamp(2rem,3.5vw,3rem)] leading-[1.15] font-light tracking-tight text-foreground/90">
@@ -304,8 +304,8 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
 
           <div className="chapters-right flex flex-col">
             {chapters.map((ch) => (
-              <div key={ch.year} className="chapter-item group relative border-b border-border/10 py-10 md:py-16 last:border-0">
-                <div className="flex items-start gap-5 md:gap-10">
+              <div key={ch.year} className="chapter-item group relative border-b border-border/10 py-6 md:py-16 last:border-0">
+                <div className="flex items-start gap-4 md:gap-10">
                   {/* Year label — left-aligned, highlights on scroll */}
                   <div className="chapter-year shrink-0 w-16 md:w-20 pt-1 font-mono text-sm md:text-base font-semibold tracking-tight text-foreground/10 transition-all duration-500">
                     {ch.year}
@@ -313,7 +313,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
 
                   {/* Content */}
                   <div className="flex-1">
-                    <h3 className="text-[clamp(1.3rem,2.2vw,1.75rem)] leading-[1.25] tracking-tight text-foreground/90 mb-4">
+                    <h3 className="text-[clamp(1.1rem,2.2vw,1.75rem)] leading-[1.25] tracking-tight text-foreground/90 mb-2 md:mb-4">
                       &ldquo;{ch.conviction}&rdquo;
                     </h3>
                     <p className="max-w-[45ch] text-base leading-relaxed text-muted-foreground/60 dark:text-muted-foreground/75">
@@ -331,8 +331,8 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
       {/* ══════════════════════════════════════════════════
           ACT 4 — THE STUDIO & TOOLS
           ══════════════════════════════════════════════════ */}
-      <section ref={studioRef} className="relative z-10 overflow-hidden border-t border-border/10 bg-foreground/[0.02] px-6 py-16 md:px-0 md:py-48">
-        <p className="mb-12 block w-full text-center font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 uppercase md:mb-24">
+      <section ref={studioRef} className="relative z-10 overflow-hidden border-t border-border/10 bg-foreground/[0.02] px-6 py-10 md:px-0 md:py-48">
+        <p className="mb-8 block w-full text-center font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 uppercase md:mb-24">
           The studio, right now
         </p>
         
@@ -344,12 +344,12 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
             style={{ height: '0%' }}
           />
 
-          <div className="space-y-14 md:space-y-32">
+          <div className="space-y-8 md:space-y-32">
             
             {/* Infographic Item 1 */}
             <div className="studio-item flex flex-col md:flex-row items-start md:items-center relative">
                {/* Left Label */}
-               <div className="studio-content opacity-0 md:w-1/2 md:pr-16 md:text-right flex-shrink-0 mb-4 md:mb-0 pl-16 md:pl-0 w-full z-10 flex flex-col md:items-end">
+               <div className="studio-content opacity-0 md:w-1/2 md:pr-16 md:text-right flex-shrink-0 mb-2 md:mb-0 pl-16 md:pl-0 w-full z-10 flex flex-col md:items-end">
                  <p className="font-mono text-[10px] tracking-[0.2em] text-foreground/40 uppercase bg-background px-4 py-2 border border-foreground/10 rounded-full inline-flex md:text-right shadow-sm">
                    Working on
                  </p>
@@ -373,7 +373,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
             {/* Infographic Item 2 */}
             <div className="studio-item flex flex-col md:flex-row-reverse items-start md:items-center relative">
                {/* Right Label (on desktop) */}
-               <div className="studio-content opacity-0 md:w-1/2 md:pl-16 md:text-left flex-shrink-0 mb-4 md:mb-0 pl-16 md:pl-0 w-full z-10 flex flex-col md:items-start">
+               <div className="studio-content opacity-0 md:w-1/2 md:pl-16 md:text-left flex-shrink-0 mb-2 md:mb-0 pl-16 md:pl-0 w-full z-10 flex flex-col md:items-start">
                  <p className="font-mono text-[10px] tracking-[0.2em] text-foreground/40 uppercase bg-background px-4 py-2 border border-foreground/10 rounded-full inline-flex shadow-sm">
                    Thinking about
                  </p>
@@ -396,7 +396,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
 
             {/* Infographic Item 3 */}
             <div className="studio-item flex flex-col md:flex-row items-start md:items-center relative">
-               <div className="studio-content opacity-0 md:w-1/2 md:pr-16 md:text-right flex-shrink-0 mb-4 md:mb-0 pl-16 md:pl-0 w-full z-10 flex flex-col md:items-end">
+               <div className="studio-content opacity-0 md:w-1/2 md:pr-16 md:text-right flex-shrink-0 mb-2 md:mb-0 pl-16 md:pl-0 w-full z-10 flex flex-col md:items-end">
                  <p className="font-mono text-[10px] tracking-[0.2em] text-foreground/40 uppercase bg-background px-4 py-2 border border-foreground/10 rounded-full inline-flex shadow-sm">
                    Obsessed with
                  </p>
@@ -416,7 +416,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
 
             {/* Infographic Item 4 (Tools) */}
             <div className="studio-item flex flex-col md:flex-row-reverse items-start relative">
-               <div className="studio-content opacity-0 md:w-1/2 md:pl-16 md:text-left flex-shrink-0 mb-6 md:mb-0 pl-16 md:pl-0 w-full z-10 flex flex-col md:items-start md:mt-2">
+               <div className="studio-content opacity-0 md:w-1/2 md:pl-16 md:text-left flex-shrink-0 mb-2 md:mb-0 pl-16 md:pl-0 w-full z-10 flex flex-col md:items-start md:mt-2">
                  <p className="font-mono text-[10px] tracking-[0.2em] text-foreground/40 uppercase bg-background px-4 py-2 border border-foreground/10 rounded-full inline-flex shadow-sm">
                    Tools
                  </p>
@@ -444,7 +444,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
 
             {/* Infographic Item 5 (Reading) */}
             <div className="studio-item relative flex flex-col items-start pb-8 md:flex-row md:pb-12">
-               <div className="studio-content opacity-0 md:w-1/2 md:pr-16 md:text-right flex-shrink-0 mb-6 md:mb-0 pl-16 md:pl-0 w-full z-10 flex flex-col md:items-end md:mt-2">
+               <div className="studio-content opacity-0 md:w-1/2 md:pr-16 md:text-right flex-shrink-0 mb-2 md:mb-0 pl-16 md:pl-0 w-full z-10 flex flex-col md:items-end md:mt-2">
                  <p className="font-mono text-[10px] tracking-[0.2em] text-foreground/40 uppercase bg-background px-4 py-2 border border-foreground/10 rounded-full inline-flex shadow-sm">
                    Reading
                  </p>

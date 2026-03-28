@@ -13,8 +13,16 @@ import tensionImage from "../../images/The tension between infrastructure utilit
 import memeTradersBehavior from "../../images/How meme traders move across 3 chains.png"
 import utilityVsPersonality from "../../images/Utility vs. personality across the DEX landscape.png"
 import typeInvitationCodeImage from "../../images/Type invitation code.png"
+import gullGameImage from "../../images/GullGame_ wallet verification, points, and invite system.png"
+import codelessTokenLaunchImage from "../../images/Codeless token launch with tokenomics configuration.png"
+import farmManagementImage from "../../images/Farm management with flexible reward controls.png"
+import sniperProofImage from "../../images/Sniper-proof listing protecting new token launches.png"
+import landingPageOceanImage from "../../images/Landing page_ descending from sky to seafloor.png"
+import seagullSystemImage from "../../images/The seagull system_ expressions, items, poses, evolution stages.png"
 import tokenLaunchImage from "../../images/Token launch_ configuration to live trading.png"
 import seagullEvolutionImage from "../../images/The seagull_ from first sketch to final character system.png"
+import stickerPackSelectionImage from "../../images/60+ reactions for community use.png"
+import templateSystemImage from "../../images/Template system across five content categories.png"
 
 export const metadata: Metadata = {
   title: "Gull Network — Case Study — Leon",
@@ -265,32 +273,72 @@ export default function GullNetworkCaseStudy() {
         <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground/40 uppercase">Role</p>
         <h2 className="mt-4 text-3xl font-medium tracking-tight md:text-4xl">Surface area</h2>
 
-        {/* Tighter format — inline tags, not bullet lists */}
-        <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-12">
+        {/* Three spatial registers — each zone reads differently */}
+        <div className="mt-16 space-y-20">
+
+          {/* BUILT — left-anchored, numbered, steady */}
           <div>
-            <h3 className="text-sm font-medium text-foreground/80">Built</h3>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {["Brand identity", "Seagull mascot (60+ variants)", "GullGame airdrop", "DEX interface", "Token launch flow", "Landing page", "Social templates", "Sticker pack"].map((item) => (
-                <span key={item} className="rounded-full border border-border/30 bg-muted/10 px-3 py-1 text-[11px] text-muted-foreground/60">{item}</span>
+            <div className="mb-7 flex items-center gap-4">
+              <span className="shrink-0 font-mono text-[10px] tracking-wider text-muted-foreground/30 uppercase">Built</span>
+              <div className="h-px flex-1 bg-border/20" />
+            </div>
+            <div className="space-y-3.5">
+              {[
+                "Brand identity & complete visual language",
+                "Seagull mascot — 60+ expressions, 4 evolution stages, accessories",
+                "GullGame airdrop interface and all user flows",
+                "DEX interface: swap, pools, farms, staking",
+                "Codeless token launch flow",
+                "Landing page with layered ocean environment",
+                "Social templates, sticker pack, marketing asset system",
+              ].map((item, i) => (
+                <div key={i} className="flex items-baseline gap-5">
+                  <span className="w-4 shrink-0 font-mono text-[10px] tabular-nums text-muted-foreground/20">{String(i + 1).padStart(2, "0")}</span>
+                  <p className="text-base leading-snug text-foreground/70 md:text-lg">{item}</p>
+                </div>
               ))}
             </div>
           </div>
+
+          {/* SHAPED — right-anchored, tiny, quiet — collaborative, not solely owned */}
           <div>
-            <h3 className="text-sm font-medium text-foreground/80">Shaped</h3>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {["Product strategy", "Airdrop mechanics", "Points math", "Token launch constraints", "Campaign direction", "Referral structure"].map((item) => (
-                <span key={item} className="rounded-full border border-border/30 bg-muted/10 px-3 py-1 text-[11px] text-muted-foreground/60">{item}</span>
+            <div className="mb-7 flex items-center gap-4">
+              <div className="h-px flex-1 bg-border/20" />
+              <span className="shrink-0 font-mono text-[10px] tracking-wider text-muted-foreground/30 uppercase">Shaped</span>
+            </div>
+            <div className="space-y-2 text-right">
+              {[
+                "Product strategy and feature scope with the founding team",
+                "Airdrop mechanics, points math, and referral structure",
+                "Token launch flow within smart contract constraints",
+                "Campaign visual direction and social rollout",
+              ].map((item, i) => (
+                <p key={i} className="text-[11px] leading-relaxed text-muted-foreground/35">{item}</p>
               ))}
             </div>
           </div>
+
+          {/* PUSHED — left-anchored, large scale, heavy — convictions not tasks */}
           <div>
-            <h3 className="text-sm font-medium text-foreground/80">Pushed</h3>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {["Meme-first branding as strategy", "Invite-only as growth mechanic", "Character evolution = engagement", "Environmental storytelling"].map((item) => (
-                <span key={item} className="rounded-full border border-border/30 bg-muted/10 px-3 py-1 text-[11px] text-muted-foreground/60">{item}</span>
+            <div className="mb-7 flex items-center gap-4">
+              <span className="shrink-0 font-mono text-[10px] tracking-wider text-muted-foreground/30 uppercase">Pushed</span>
+              <div className="h-px flex-1 bg-border/20" />
+            </div>
+            <div className="space-y-5">
+              {[
+                "Meme-first branding as a legitimate community strategy",
+                "Invite-only gating as a growth mechanic, not a barrier",
+                "Character evolution tied to engagement, not just points",
+                "Environmental storytelling on the landing page",
+              ].map((item, i) => (
+                <div key={i} className="flex items-baseline gap-5">
+                  <span className="w-4 shrink-0 font-mono text-[10px] tabular-nums text-muted-foreground/20">{String(i + 1).padStart(2, "0")}</span>
+                  <p className="max-w-[34ch] text-xl font-medium leading-snug tracking-tight text-foreground/85 md:text-2xl">{item}</p>
+                </div>
               ))}
             </div>
           </div>
+
         </div>
       </section>
 
@@ -690,6 +738,14 @@ export default function GullNetworkCaseStudy() {
           <div className="flex flex-col gap-8">
             <figure className="group">
               <div className="relative overflow-hidden rounded-lg border border-border/40 bg-muted/20 aspect-[4/3]">
+                <div
+                  className="absolute right-0 bottom-0 h-full w-full opacity-[0.03]"
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(circle, currentColor 0.5px, transparent 0.5px)",
+                    backgroundSize: "24px 24px",
+                  }}
+                />
                 <Image
                   src={typeInvitationCodeImage}
                   alt="Type invitation code"
@@ -706,6 +762,14 @@ export default function GullNetworkCaseStudy() {
             </figure>
             <figure className="group">
               <div className="relative overflow-hidden rounded-lg border border-border/40 bg-muted/20 aspect-[4/3]">
+                <div
+                  className="absolute right-0 bottom-0 h-full w-full opacity-[0.03]"
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(circle, currentColor 0.5px, transparent 0.5px)",
+                    backgroundSize: "24px 24px",
+                  }}
+                />
                 <Image
                   src={tokenLaunchImage}
                   alt="Token launch: configuration to live trading"
@@ -758,6 +822,14 @@ export default function GullNetworkCaseStudy() {
         <div className="mt-12">
           <figure className="group">
             <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-muted/20 aspect-[2.5/1]">
+              <div
+                className="absolute right-0 bottom-0 h-full w-full opacity-[0.03]"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(circle, currentColor 0.5px, transparent 0.5px)",
+                  backgroundSize: "24px 24px",
+                }}
+              />
               <Image
                 src={seagullEvolutionImage}
                 alt="The seagull: from first sketch to final character system"
@@ -790,12 +862,58 @@ export default function GullNetworkCaseStudy() {
               Codes are exclusive to verified traders. The invite itself carries status. Not spam. Currency.
             </p>
           </div>
-          <ImagePlaceholder label="[Insert GullGame interface]" caption="GullGame: wallet verification, points, and invite system" aspectRatio="aspect-[4/3]" variant="screen" />
+          <figure className="group">
+            <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20">
+              <div
+                className="absolute right-0 bottom-0 h-full w-full opacity-[0.03]"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(circle, currentColor 0.5px, transparent 0.5px)",
+                  backgroundSize: "24px 24px",
+                }}
+              />
+              <Image
+                src={gullGameImage}
+                alt="GullGame: wallet verification, points, and invite system"
+                width={gullGameImage.width}
+                height={gullGameImage.height}
+                className="h-auto w-full object-contain"
+                sizes="(min-width: 768px) 40vw, 100vw"
+                quality={100}
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              GullGame: wallet verification, points, and invite system
+            </figcaption>
+          </figure>
         </div>
 
         {/* 02: Token Launch */}
         <div className="mt-20 grid items-center gap-10 md:mt-32 md:grid-cols-[1.5fr_0.8fr] md:gap-16">
-          <ImagePlaceholder label="[Insert codeless token launch flow]" caption="Codeless token launch with tokenomics configuration" aspectRatio="aspect-[4/3]" variant="screen" className="order-2 md:order-1" />
+          <figure className="group order-2 md:order-1">
+            <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20">
+              <div
+                className="absolute right-0 -top-px h-full w-full opacity-[0.03]"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(circle, currentColor 0.5px, transparent 0.5px)",
+                  backgroundSize: "24px 24px",
+                }}
+              />
+              <Image
+                src={codelessTokenLaunchImage}
+                alt="Codeless token launch with tokenomics configuration"
+                width={codelessTokenLaunchImage.width}
+                height={codelessTokenLaunchImage.height}
+                className="h-auto w-full object-contain"
+                sizes="(min-width: 768px) 55vw, 100vw"
+                quality={100}
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              Codeless token launch with tokenomics configuration
+            </figcaption>
+          </figure>
           <div className="order-1 md:order-2">
             <span className="font-mono text-[10px] text-muted-foreground/25">02</span>
             <h3 className="mt-2 text-xl font-medium tracking-tight md:text-2xl">Codeless Token Launch</h3>
@@ -808,7 +926,22 @@ export default function GullNetworkCaseStudy() {
 
         {/* 03: Farms */}
         <div className="mt-20 md:mt-32">
-          <ImagePlaceholder label="[Insert farms and pools interface]" caption="Farm management with flexible reward controls" aspectRatio="aspect-[2.2/1]" variant="hero" />
+          <figure className="group">
+            <div className="overflow-hidden rounded-2xl border border-border/40 bg-muted/20">
+              <Image
+                src={farmManagementImage}
+                alt="Farm management with flexible reward controls"
+                width={farmManagementImage.width}
+                height={farmManagementImage.height}
+                className="h-auto w-full object-contain"
+                sizes="(min-width: 1280px) 1100px, (min-width: 768px) 90vw, 100vw"
+                quality={100}
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              Farm management with flexible reward controls
+            </figcaption>
+          </figure>
           <div className="mt-8 grid gap-8 md:grid-cols-2 md:gap-16">
             <div>
               <span className="font-mono text-[10px] text-muted-foreground/25">03</span>
@@ -833,12 +966,50 @@ export default function GullNetworkCaseStudy() {
               Protection is default, not optional. A trust decision baked into the architecture.
             </p>
           </div>
-          <ImagePlaceholder label="[Insert sniper protection flow]" caption="Sniper-proof listing protecting new token launches" aspectRatio="aspect-[4/3]" variant="screen" />
+          <figure className="group">
+            <div className="relative overflow-hidden rounded-xl border border-border/40 bg-muted/20">
+              <div
+                className="absolute right-0 bottom-0 h-full w-full opacity-[0.03]"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(circle, currentColor 0.5px, transparent 0.5px)",
+                  backgroundSize: "24px 24px",
+                }}
+              />
+              <Image
+                src={sniperProofImage}
+                alt="Sniper-proof listing protecting new token launches"
+                width={sniperProofImage.width}
+                height={sniperProofImage.height}
+                className="h-auto w-full object-contain"
+                sizes="(min-width: 768px) 40vw, 100vw"
+                quality={100}
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              Sniper-proof listing protecting new token launches
+            </figcaption>
+          </figure>
         </div>
 
         {/* 05: Landing Page */}
         <div className="mt-20 grid items-center gap-10 md:mt-32 md:grid-cols-[1.5fr_0.8fr] md:gap-16">
-          <ImagePlaceholder label="[Insert landing page with ocean layers]" caption="Landing page: descending from sky to seafloor" aspectRatio="aspect-[4/3]" variant="screen" className="order-2 md:order-1" />
+          <figure className="group order-2 md:order-1">
+            <div className="overflow-hidden rounded-xl border border-border/40 bg-muted/20">
+              <Image
+                src={landingPageOceanImage}
+                alt="Landing page: descending from sky to seafloor"
+                width={landingPageOceanImage.width}
+                height={landingPageOceanImage.height}
+                className="h-auto w-full object-contain"
+                sizes="(min-width: 768px) 55vw, 100vw"
+                quality={100}
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              Landing page: descending from sky to seafloor
+            </figcaption>
+          </figure>
           <div className="order-1 md:order-2">
             <span className="font-mono text-[10px] text-muted-foreground/25">05</span>
             <h3 className="mt-2 text-xl font-medium tracking-tight md:text-2xl">The Ocean</h3>
@@ -888,11 +1059,63 @@ export default function GullNetworkCaseStudy() {
         </div>
 
         <div className="mt-16 space-y-8">
-          <ImagePlaceholder label="[Insert mascot expression sheet: 60+ variations]" caption="The seagull system: expressions, items, poses, evolution stages" aspectRatio="aspect-[21/9]" variant="hero" />
-          <div className="grid gap-8 md:grid-cols-3">
-            <ImagePlaceholder label="[Insert social template examples]" caption="Template system across five content categories" aspectRatio="aspect-square" variant="artifact" />
-            <ImagePlaceholder label="[Insert sticker pack selection]" caption="60+ reactions for community use" aspectRatio="aspect-square" variant="artifact" />
-            <ImagePlaceholder label="[Insert ocean environment layers]" caption="The layered ocean: sky to seafloor" aspectRatio="aspect-square" variant="artifact" />
+          <figure className="group">
+            <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-muted/20">
+              <div
+                className="absolute right-0 bottom-0 h-full w-full opacity-[0.03]"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(circle, currentColor 0.5px, transparent 0.5px)",
+                  backgroundSize: "24px 24px",
+                }}
+              />
+              <Image
+                src={seagullSystemImage}
+                alt="The seagull system: expressions, items, poses, evolution stages"
+                width={seagullSystemImage.width}
+                height={seagullSystemImage.height}
+                className="h-auto w-full object-contain"
+                sizes="(min-width: 1280px) 1100px, (min-width: 768px) 90vw, 100vw"
+                quality={100}
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              The seagull system: expressions, items, poses, evolution stages
+            </figcaption>
+          </figure>
+          <div className="grid gap-8 md:grid-cols-2">
+            <figure className="group">
+              <div className="overflow-hidden rounded-lg border border-border/40 bg-muted/20">
+                <Image
+                  src={templateSystemImage}
+                  alt="Template system across five content categories"
+                  width={templateSystemImage.width}
+                  height={templateSystemImage.height}
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="h-auto w-full"
+                  quality={100}
+                />
+              </div>
+              <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                Template system across five content categories
+              </figcaption>
+            </figure>
+            <figure className="group">
+              <div className="overflow-hidden rounded-lg border border-border/40 bg-muted/20">
+                <Image
+                  src={stickerPackSelectionImage}
+                  alt="60+ reactions for community use"
+                  width={stickerPackSelectionImage.width}
+                  height={stickerPackSelectionImage.height}
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="h-auto w-full"
+                  quality={100}
+                />
+              </div>
+              <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+                60+ reactions for community use
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
