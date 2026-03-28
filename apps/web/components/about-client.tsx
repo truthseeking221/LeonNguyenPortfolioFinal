@@ -273,7 +273,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
             <p className="mb-4 font-mono text-[10px] tracking-[0.3em] text-muted-foreground/50 uppercase md:mb-12">
               Chapters, not résumé
             </p>
-            <h2 className="max-w-[15ch] text-[clamp(2rem,3.5vw,3rem)] leading-[1.15] font-light tracking-tight text-foreground/90">
+            <h2 className="max-w-[15ch] text-[clamp(2rem,3.5vw,3rem)] leading-[1.18] font-light tracking-tight text-foreground/90">
               Every year teaches one thing clearly.
               <br/>
               <span className="text-muted-foreground/30 italic">The rest is noise.</span>
@@ -460,7 +460,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
         <div className="relative w-full h-full flex items-center justify-center">
           {/* Principle 1 */}
           <div className="belief-item absolute flex flex-col items-center text-center opacity-0 w-[90%] md:w-[70%]">
-            <h3 className="text-[clamp(1.8rem,4vw,4.5rem)] leading-[1.1] font-light tracking-tight text-background">
+            <h3 className="text-[clamp(1.8rem,4vw,4.5rem)] leading-[1.18] font-light tracking-tight text-background">
               If your design system slows the team down, it&apos;s overhead.
             </h3>
             <p className="mt-6 text-[clamp(1rem,1.8vw,1.5rem)] font-light leading-relaxed tracking-tight text-background/40">
@@ -470,7 +470,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
 
           {/* Principle 2 */}
           <div className="belief-item absolute flex flex-col items-center text-center opacity-0 w-[90%] md:w-[70%]">
-            <h3 className="text-[clamp(1.8rem,4vw,4.5rem)] leading-[1.1] font-light tracking-tight text-background">
+            <h3 className="text-[clamp(1.8rem,4vw,4.5rem)] leading-[1.18] font-light tracking-tight text-background">
               The best financial UX prevents the support ticket.
             </h3>
             <p className="mt-6 text-[clamp(1rem,1.8vw,1.5rem)] font-light leading-relaxed tracking-tight text-background/40">
@@ -480,7 +480,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
 
           {/* Principle 3 */}
           <div className="belief-item absolute flex flex-col items-center text-center opacity-0 w-[90%] md:w-[70%]">
-            <h3 className="text-[clamp(1.8rem,4vw,4.5rem)] leading-[1.1] font-light tracking-tight text-background">
+            <h3 className="text-[clamp(1.8rem,4vw,4.5rem)] leading-[1.18] font-light tracking-tight text-background">
               Ship the version that teaches you something.
             </h3>
             <p className="mt-6 text-[clamp(1rem,1.8vw,1.5rem)] font-light leading-relaxed tracking-tight text-background/40">

@@ -404,31 +404,51 @@ export default function NodoAICaseStudy() {
           </figure>
         </div>
 
-        {/* Beat 4: Personas — break wider for card grid */}
+        {/* Beat 4: Personas — clean research table */}
         <div className={`${wideRail} pt-24 md:pt-32`}>
           <div>
             <h3 className="text-xs font-medium tracking-wide text-foreground/70 uppercase">Who We Designed For</h3>
             <p className="mt-2 max-w-[52ch] text-[13px] leading-relaxed text-muted-foreground/45">Six segments emerged from the research, each with distinct trust thresholds and conversion blockers.</p>
           </div>
-          <div className="mt-10 grid gap-3 md:grid-cols-3">
+
+          {/* Column headers — desktop only */}
+          <div className="mt-10 hidden items-center border-b border-border/20 pb-3 font-mono text-[9px] tracking-widest text-muted-foreground/30 uppercase md:grid md:grid-cols-[2fr_2.5fr_1fr_1.2fr]">
+            <span>Segment</span>
+            <span>Behavior</span>
+            <span>Portfolio</span>
+            <span className="text-right">Conversion</span>
+          </div>
+
+          <div>
             {[
-              { name: "Passive Yield Seeker", oneliner: "Wants yield without managing positions", likelihood: "Medium", color: "#f59e0b", portfolio: "$5K – $25K" },
-              { name: "LP-Confused Beginner", oneliner: "Has a wallet but never provided liquidity", likelihood: "Low", color: "#ef4444", portfolio: "Under $5K" },
-              { name: "Skeptical Power User", oneliner: "Evaluates products like an analyst", likelihood: "High if proven", color: "#3b82f6", portfolio: "$25K – $250K+" },
-              { name: "Stablecoin Safety Optimizer", oneliner: "Preserves capital above all", likelihood: "Medium", color: "#8b5cf6", portfolio: "$10K – $250K+" },
-              { name: "Sui-Native DeFi User", oneliner: "Already active on Cetus and DeepBook", likelihood: "Highest", color: "#10b981", portfolio: "$5K – $100K" },
-              { name: "Reward-Driven Explorer", oneliner: "Will try anything with a multiplier", likelihood: "High, then churns", color: "#06b6d4", portfolio: "$1K – $10K" },
-            ].map(({ name, oneliner, likelihood, color, portfolio }) => (
-              <div key={name} className="group relative overflow-hidden rounded-xl border border-border/20 bg-background p-5 transition-colors hover:bg-foreground/[0.02] md:p-6">
-                <div className="absolute inset-x-0 top-0 h-[2px]" style={{ background: `linear-gradient(90deg, ${color}, transparent)`, opacity: 0.5 }} />
-                <div className="flex items-center gap-2.5">
-                  <div className="size-2 shrink-0 rounded-full" style={{ backgroundColor: color }} />
-                  <h4 className="text-[13px] font-medium tracking-tight">{name}</h4>
-                </div>
-                <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground/45">{oneliner}</p>
-                <div className="mt-4 flex items-center justify-between border-t border-border/10 pt-3">
-                  <span className="text-[10px] text-muted-foreground/25">{portfolio}</span>
-                  <span className="rounded-full px-2 py-0.5 text-[9px] font-medium" style={{ backgroundColor: `${color}12`, color }}>{likelihood}</span>
+              { name: "Sui-Native DeFi User", oneliner: "Already active on Cetus and DeepBook", portfolio: "$5K – $100K", likelihood: "Highest", level: 5 },
+              { name: "Skeptical Power User", oneliner: "Evaluates products like an analyst", portfolio: "$25K – $250K+", likelihood: "High if proven", level: 4 },
+              { name: "Passive Yield Seeker", oneliner: "Wants yield without managing positions", portfolio: "$5K – $25K", likelihood: "Medium", level: 3 },
+              { name: "Stablecoin Safety Optimizer", oneliner: "Preserves capital above all", portfolio: "$10K – $250K+", likelihood: "Medium", level: 3 },
+              { name: "Reward-Driven Explorer", oneliner: "Will try anything with a multiplier", portfolio: "$1K – $10K", likelihood: "High, then churns", level: 2 },
+              { name: "LP-Confused Beginner", oneliner: "Has a wallet but never provided liquidity", portfolio: "Under $5K", likelihood: "Low", level: 1 },
+            ].map(({ name, oneliner, portfolio, likelihood, level }) => (
+              <div key={name} className="grid items-baseline gap-3 border-b border-border/10 py-5 md:grid-cols-[2fr_2.5fr_1fr_1.2fr] md:gap-6 md:py-4">
+                <h4 className="text-sm font-medium tracking-tight">{name}</h4>
+                <p className="text-[12px] leading-relaxed text-muted-foreground/50">{oneliner}</p>
+                <span className="hidden font-mono text-[11px] text-muted-foreground/35 md:block">{portfolio}</span>
+                <div className="flex items-center justify-between gap-3 md:justify-end">
+                  <span className="text-[11px] text-muted-foreground/35 md:hidden">{portfolio}</span>
+                  <div className="flex items-center gap-2">
+                    <div className="flex gap-[3px]">
+                      {[1, 2, 3, 4, 5].map((i) => (
+                        <div
+                          key={i}
+                          className="h-[6px] w-[6px] rounded-full"
+                          style={{
+                            backgroundColor: i <= level ? "currentColor" : undefined,
+                            opacity: i <= level ? 0.15 + (level / 5) * 0.45 : 0.06,
+                          }}
+                        />
+                      ))}
+                    </div>
+                    <span className="text-[10px] text-muted-foreground/30">{likelihood}</span>
+                  </div>
                 </div>
               </div>
             ))}

@@ -109,7 +109,7 @@ export default function Page() {
         <Reveal delay={80}>
           <GsapTitle
             text="Product designer and builder. Ten years across fintech, DeFi, and neobanking."
-            className="mt-6 md:mt-0 max-w-[32ch] text-[clamp(1.5rem,3.5vw,3rem)] leading-[1.1] font-light tracking-tight text-foreground/90"
+            className="mt-6 md:mt-0 max-w-[32ch] text-[clamp(1.5rem,3.5vw,3rem)] leading-[1.18] font-light tracking-tight text-foreground/90"
           />
         </Reveal>
 

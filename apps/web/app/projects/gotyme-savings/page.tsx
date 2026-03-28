@@ -116,7 +116,7 @@ export default function GoTymeSavingsCaseStudy() {
             </p>
 
             {/* Beat 2 — The insight. Offset right. Steps forward. */}
-            <p className="mt-16 text-[clamp(2rem,5vw,3.5rem)] leading-[1.08] font-medium tracking-tight text-foreground md:mt-24 md:ml-[18%] md:max-w-[16ch]">
+            <p className="mt-16 text-[clamp(2rem,5vw,3.5rem)] leading-[1.18] font-medium tracking-tight text-foreground md:mt-24 md:ml-[18%] md:max-w-[16ch]">
               People save.
               <br />
               <span className="text-muted-foreground/50">

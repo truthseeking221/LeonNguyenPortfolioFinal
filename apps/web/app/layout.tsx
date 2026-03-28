@@ -42,7 +42,7 @@ export default function RootLayout({
       )}
     >
       <body>
-        <ThemeProvider defaultTheme="light">
+        <ThemeProvider>
           <CustomCursor />
           <Header />
           <SmoothScroll>{children}</SmoothScroll>
@@ -51,4 +51,3 @@ export default function RootLayout({
     </html>
   )
 }
-

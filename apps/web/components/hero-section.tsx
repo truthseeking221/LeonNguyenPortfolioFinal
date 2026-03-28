@@ -73,7 +73,7 @@ export function HeroSection() {
         <div className="gk-element w-full max-w-[90vw] md:max-w-none">
           <h1
             className="font-light tracking-tighter text-foreground"
-            style={{ fontSize: "clamp(2.8rem, 7.5vw, 7.5rem)", lineHeight: 0.95 }}
+            style={{ fontSize: "clamp(2.8rem, 7.5vw, 7.5rem)", lineHeight: 1.18 }}
           >
             I design products<br />people trust with money.
           </h1>

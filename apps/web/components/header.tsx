@@ -4,8 +4,6 @@ import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@workspace/ui/lib/utils"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { GradientButton } from "@/components/gradient-button"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 
@@ -13,16 +11,8 @@ export function Header() {
   const pathname = usePathname()
   
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
   const tl = useRef<gsap.core.Timeline | null>(null)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    onScroll()
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [])
 
   // GSAP Timeline Registration for the mobile menu reveal
   useGSAP(() => {
@@ -78,18 +68,14 @@ export function Header() {
   return (
     <>
       <header className={cn(
-        "pointer-events-none animate-hero-header fixed inset-x-0 top-0 z-[60] transition-all duration-500",
-        scrolled
-          ? "bg-background/70 backdrop-blur-xl shadow-[0_1px_0_0_rgba(0,0,0,0.06)]"
-          : "mix-blend-difference"
+        "pointer-events-none animate-hero-header fixed inset-x-0 top-0 z-[60] border-b border-border/40 bg-background/78 backdrop-blur-xl shadow-[0_1px_0_0_rgba(0,0,0,0.05)] transition-[background-color,box-shadow,border-color] duration-300"
       )}>
         <div className="flex h-16 items-center justify-between px-6 md:px-12 lg:px-24 2xl:px-[300px]">
           {/* Logo */}
           <Link 
             href="/" 
             className={cn(
-              "pointer-events-auto group flex items-center text-xl font-semibold transition-colors duration-500",
-              scrolled ? "text-foreground" : "text-white"
+              "pointer-events-auto group flex items-center text-xl font-semibold text-foreground transition-colors duration-300"
             )}
             onClick={() => setIsMobileMenuOpen(false)}
           >
@@ -97,8 +83,7 @@ export function Header() {
               Leon
             </span>
             <span className={cn(
-              "ml-1 h-[4px] w-[4px] -translate-x-2 rounded-full opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0 group-hover:opacity-100",
-              scrolled ? "bg-foreground" : "bg-white"
+              "ml-1 h-[4px] w-[4px] -translate-x-2 rounded-full bg-foreground opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0 group-hover:opacity-100"
             )} />
           </Link>
           
@@ -110,15 +95,13 @@ export function Header() {
                 href={link.href}
                 className={cn(
                   "group relative px-4 py-2 font-mono text-xs font-medium tracking-[0.15em] uppercase transition-colors duration-300",
-                  scrolled
-                    ? cn("hover:text-foreground", pathname === link.href ? "text-foreground" : "text-foreground/60")
-                    : cn("hover:text-white", pathname === link.href ? "text-white" : "text-white/70")
+                  pathname === link.href ? "text-foreground" : "text-foreground/60 hover:text-foreground"
                 )}
               >
                 {link.name}
                 <span className={cn(
                   "absolute inset-x-4 bottom-1 h-px origin-left scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100",
-                  scrolled ? "bg-foreground/50" : "bg-white/70"
+                  "bg-foreground/50"
                 )} />
               </Link>
             ))}
@@ -127,9 +110,7 @@ export function Header() {
               download
               className={cn(
                 "group/cv relative ml-3 inline-flex items-center gap-2.5 overflow-hidden rounded-full border px-5 py-2 font-mono text-xs font-medium tracking-[0.15em] uppercase transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-black hover:text-white",
-                scrolled
-                  ? "border-foreground/15 text-foreground/50"
-                  : "border-white/20 text-white/60"
+                "border-foreground/15 text-foreground/50"
               )}
             >
               {/* Sweep fill — black */}
@@ -154,8 +135,7 @@ export function Header() {
           {/* Mobile Hamburguer Toggle */}
           <button
             className={cn(
-              "pointer-events-auto md:hidden relative z-[70] flex h-10 w-10 flex-col items-center justify-center transition-colors duration-500",
-              scrolled && !isMobileMenuOpen ? "text-foreground" : "text-white"
+              "pointer-events-auto md:hidden relative z-[70] flex h-10 w-10 flex-col items-center justify-center text-foreground transition-colors duration-300"
             )}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle Menu"
