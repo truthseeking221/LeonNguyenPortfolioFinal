@@ -69,7 +69,7 @@ export function ClosingCTA({ className }: { className?: string }) {
 
       {/* Massive Horizontal/Vertical Typographic Sequence */}
       <div className="flex flex-col items-center justify-center w-full my-4 md:my-16 perspective-1000">
-        {["The work speaks.", "Let's talk."].map((line, i) => (
+        {["Let\u2019s build", "something."].map((line, i) => (
            <div key={i} className="overflow-hidden">
              <span className="closing-word block font-light text-[clamp(3rem,9vw,10.5rem)] leading-[0.9] tracking-tighter text-foreground will-change-transform pb-2 md:pb-4">
                {line}
@@ -78,9 +78,8 @@ export function ClosingCTA({ className }: { className?: string }) {
         ))}
       </div>
 
-      <p className="closing-desc mt-6 md:mt-16 max-w-[45ch] text-[16px] md:text-[18px] leading-relaxed text-muted-foreground/60 mx-auto font-light">
-        I work best with people who see making as a practice, not a
-        transaction. If that resonates, let&apos;s talk.
+      <p className="closing-desc mt-6 md:mt-16 max-w-[52ch] text-[16px] md:text-[18px] leading-relaxed text-muted-foreground/60 mx-auto font-light">
+        I work with fintech companies, DeFi protocols, and founders taking financial products from zero to launch. If you need a designer who ships and writes production code, let&apos;s talk.
       </p>
 
       <div className="closing-cta mt-8 md:mt-20 flex flex-col items-center gap-5">

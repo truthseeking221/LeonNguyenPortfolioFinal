@@ -5,7 +5,7 @@ import { AboutClient } from "@/components/about-client"
 export const metadata: Metadata = {
   title: "About — Leon",
   description:
-    "Product designer. Buddhist practitioner. Searching for what clarity means through design, philosophy, and the open road.",
+    "Product designer and builder. Ten years across fintech, DeFi, and neobanking.",
 }
 
 /* ─────────────────────────────────────────────
@@ -15,39 +15,39 @@ export const metadata: Metadata = {
 const CHAPTERS = [
   {
     year: "2019",
-    conviction: "Design is not decoration",
+    conviction: "Crypto taught me that trust is the product",
     context:
-      "Started in visual design. Learned quickly that beauty and clarity are different disciplines. Chose clarity.",
+      "I joined Kyber Network as the DeFi ecosystem was forming. Designing swap interfaces taught me that a confusing label can cost someone real money. I stopped treating UI as aesthetics and started treating it as risk management.",
   },
   {
     year: "2020",
-    conviction: "The best feature is the one you remove",
+    conviction: "Healthcare raised my standards permanently",
     context:
-      "First 0-to-1 product. Built too much. Every feature is a promise you have to keep. Started subtracting.",
+      "At Diag, I designed diagnostic flows where unclear interactions could delay medical results. Stakes that high change you. You test more, assume less, and never call something done until you\u2019ve watched real people use it.",
   },
   {
     year: "2021",
-    conviction: "Systems outlive screens",
+    conviction: "Systems beat screens",
     context:
-      "Screens get redesigned. Systems get inherited. Started thinking in patterns, tokens, and rules instead of mockups.",
+      "At Satang, a Thai crypto exchange, I saw that screens without a system behind them create debt the moment a team grows. I started building design systems and token architectures before touching any interface.",
   },
   {
     year: "2022",
-    conviction: "Speed is a design material",
+    conviction: "Five million users changed everything",
     context:
-      "Joined a fintech serving millions. A design system that slows down the team is overhead, not design.",
+      "TymeBank\u2019s crypto feature shipped to over 5M users in South Africa. At that scale, every design choice is a bet on real behavior. I learned to cut scope and measure what actually moved onboarding completion.",
   },
   {
     year: "2023",
-    conviction: "The user’s confusion is always the product’s fault",
+    conviction: "I started building what I designed",
     context:
-      "Shipped crypto onboarding to people who don’t think in blockchain. The product was complex. The experience could not be.",
+      "The gap between design intent and shipped code bothered me enough to learn Next.js. At Gull Network, I designed the DEX interface, the brand system, and the token launchpad. Then I helped build it.",
   },
   {
     year: "2024",
-    conviction: "What you remove is the design",
+    conviction: "Research killed our assumptions. Good.",
     context:
-      "Stopped treating clarity as a quality of good work. Started treating it as the work itself.",
+      "At NODO, I ran usability research with 24 participants to understand how people outside crypto perceive AI managed vaults. The findings killed half our design assumptions and shaped a product that made sense to its actual audience.",
   },
 ] as const
 

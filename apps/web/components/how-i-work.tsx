@@ -8,28 +8,28 @@ import { cn } from "@workspace/ui/lib/utils"
 const PRINCIPLES = [
   {
     num: "01",
-    statement: "Start with what needs to become clear — not with a screen.",
-    detail: "Every project begins with the same question: what is the single most important thing this product needs to communicate? The screen comes after the answer.",
+    statement: "Start with the transaction, not the screen.",
+    detail: "At TymeBank, I mapped every point where 5M users could lose money before opening Figma. In financial products, understanding where trust breaks matters more than how screens look.",
   },
   {
     num: "02",
-    statement: "Design the system, not just the surface.",
-    detail: "A beautiful screen that doesn't scale is a prototype. The system — tokens, components, patterns, rules — is what lets a team move fast without breaking things.",
+    statement: "Build the system before the screen.",
+    detail: "At Gull Network, I shipped the token system, component library, and brand before designing a single page. Screens without a system behind them become debt the moment the team scales.",
   },
   {
     num: "03",
-    statement: "If removing it doesn't break anything, it was never needed.",
-    detail: "Every element must earn its place. Decoration is debt. Clarity comes from subtraction, not addition.",
+    statement: "Remove until it breaks.",
+    detail: "NODO\u2019s DeFi vault dashboard started with 40+ data points. After research with 24 participants, we shipped 8. Users who had never touched DeFi could suddenly read their portfolio.",
   },
   {
     num: "04",
-    statement: "Every transition should say something or say nothing at all.",
-    detail: "Motion is communication. If an animation doesn't reinforce meaning, hierarchy, or spatial relationships, it's noise.",
+    statement: "If the team can\u2019t build it, it\u2019s not design.",
+    detail: "I write production code in Next.js and ship with Cursor and Claude Code. When I hand off a component, I already know what it costs to build.",
   },
   {
     num: "05",
-    statement: "Speed is a design input. If the team can't move with it, it's wrong.",
-    detail: "A design system that slows down the team is not a design system. It's overhead. Pragmatism over perfection.",
+    statement: "Ship fast, learn faster.",
+    detail: "Love Birds went from concept to working AI matchmaking product in one sprint. I designed it, then built it. You learn more from one shipped version than ten polished mockups.",
   },
 ]
 

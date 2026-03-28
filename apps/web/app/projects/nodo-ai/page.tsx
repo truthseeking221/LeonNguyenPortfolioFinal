@@ -9,8 +9,8 @@ import { FeatureReactionMatrix } from "@/components/case-study/feature-reaction-
 import { MobileToC } from "@/components/case-study/mobile-toc"
 import { CaseStudyFooter } from "@/components/case-study/case-study-footer"
 import nodoAiMainImage from "../../images/Nodo AI main.png"
-import problemSpaceMap from "../../images/Problem Space Map.png"
-import nodoEcosystemPositioning from "../../images/NODO Ecosystem Positioning.png"
+import trustBarriersLandscape from "../../images/The landscape of trust barriers and conversion blockers.png"
+import nodoSuiDefiEcosystem from "../../images/NODO's position in the Sui DeFi ecosystem.png"
 import nodoResearch1 from "../../images/Nodo Research 1.png"
 import nodoResearch2 from "../../images/Nodo Research 2.png"
 import primaryUserFlow from "../../images/userflow.png"
@@ -178,8 +178,8 @@ export default function NodoAICaseStudy() {
             <div className="overflow-hidden rounded-lg border border-border/40 bg-muted/20">
               <div className="relative aspect-[16/9]">
                 <Image
-                  src={nodoEcosystemPositioning}
-                  alt="NODO positioning and capital flow in the Sui DeFi ecosystem"
+                  src={nodoSuiDefiEcosystem}
+                  alt="NODO's position in the Sui DeFi ecosystem"
                   fill
                   className="object-contain"
                   sizes="(min-width: 768px) 80vw, 100vw"
@@ -220,8 +220,8 @@ export default function NodoAICaseStudy() {
           <figure className="group">
             <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-muted/20 aspect-[21/9]">
               <Image
-                src={problemSpaceMap}
-                alt="Problem space map showing trust barriers and conversion blockers"
+                src={trustBarriersLandscape}
+                alt="The landscape of trust barriers and conversion blockers"
                 fill
                 sizes="(min-width: 768px) 100vw, calc(100vw - 3rem)"
                 className="object-contain"
@@ -793,10 +793,10 @@ export default function NodoAICaseStudy() {
           </figure>
         </div>
 
-        <div className="mt-20 grid items-center gap-10 md:mt-24 md:grid-cols-[1.5fr_0.8fr] md:gap-16">
+        <div className="mt-20 grid items-center gap-10 md:mt-24 md:grid-cols-[1fr_1.2fr] md:gap-16">
           <figure className="group order-2 md:order-1 w-fit">
             <div className="overflow-hidden rounded-xl border border-border/40 bg-muted/20">
-              <div className="relative w-fit">
+              <div className="relative aspect-[4/3] w-fit">
                 <Image
                   src={manageLiquidityImage}
                   alt="Manage Liquidity screen for single-sided deposit"
@@ -804,7 +804,6 @@ export default function NodoAICaseStudy() {
                   height={manageLiquidityImage.height}
                   sizes="(min-width: 768px) 40vw, 100vw"
                   className="h-fit w-fit object-contain"
-                  style={{ width: 'fit-content', height: 'fit-content' }}
                   quality={100}
                 />
               </div>

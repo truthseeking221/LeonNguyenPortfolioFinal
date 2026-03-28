@@ -188,19 +188,17 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
         <div className="mb-5 flex items-center gap-3 md:mb-8">
           <div className="h-px w-8 bg-foreground/[0.2]" />
           <span className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground/60 uppercase">
-            Somewhere between stillness &amp; making
+            About
           </span>
         </div>
 
-        <GsapTitle 
-          text={"Before there is a screen, there is stillness."}
-          className="max-w-[18ch] text-[clamp(2.5rem,6vw,6rem)] leading-[0.92] font-light tracking-tighter"
+        <GsapTitle
+          text={"Ten years of shipping financial products."}
+          className="max-w-[20ch] text-[clamp(2.5rem,6vw,6rem)] leading-[0.92] font-light tracking-tighter"
         />
 
-        <p className="mt-5 max-w-[36ch] text-base leading-relaxed text-muted-foreground/60 md:mt-8">
-          I design products for a living. But what I&apos;m really
-          searching for is what clarity means. Where it comes from.
-          And why most things are built without it.
+        <p className="mt-5 max-w-[42ch] text-base leading-relaxed text-muted-foreground/60 md:mt-8">
+          Product designer and builder based in Ho Chi Minh City. I&apos;ve worked across fintech, DeFi, neobanking, and healthcare with companies like Boston Consulting Group, TymeBank, Kyber Network, and Pizza 4P&apos;s.
         </p>
 
         {/* Scroll hint */}
@@ -248,29 +246,13 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
 
             <div className="space-y-4 text-[15px] leading-[1.8] text-foreground/75 md:space-y-6 md:text-md font-light">
               <p>
-                I&apos;m a product designer based in Vietnam. I think in
-                systems. I ship in clarity. My work lives in the 0-to-1 space,
-                where nothing exists yet and everything needs a point of view.
+                My specialty is taking products from zero to one. I&apos;m most useful when there&apos;s no design system, no established pattern, and the product needs to find its shape. NODO&apos;s AI vaults, Gull Network&apos;s DEX, Love Birds&apos; matchmaking engine all started as a blank file and a research question.
               </p>
               <p>
-                I study Buddhist philosophy. Not as a retreat from the work,
-                but as a way to see it more honestly. Impermanence teaches me
-                not to grip solutions too tightly. Emptiness reminds me that
-                what I remove matters more than what I add. The middle way
-                keeps me from confusing ambition with purpose.
+                Over the past two years, I&apos;ve moved into engineering. I build in Next.js, ship with Cursor and Claude Code, and write production features alongside developers. When I design something, I know exactly what it costs to build.
               </p>
               <p>
-                When I&apos;m not designing, I&apos;m driving. Long roads,
-                open windows, the kind of silence that makes hard problems feel
-                smaller and real questions feel closer. Something about
-                distance resets how I see.
-              </p>
-              <p>
-                AI is part of how I work now. Not as a shortcut. As a mirror.
-                It moves faster than I can think, which forces a better
-                question: what is the part of this craft that only a human can
-                hold? I&apos;m still looking for the answer. I think
-                that&apos;s the point.
+                I study Vajray&#257;na Buddhist philosophy. I mention this because it genuinely shapes how I work. Subtraction over addition. Sitting with ambiguity instead of filling empty space with pixels. Take that as context, not brand.
               </p>
             </div>
 
@@ -363,9 +345,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
                {/* Right Content */}
                <div className="studio-content opacity-0 md:w-1/2 md:pl-16 pl-16 md:pr-0 relative z-10 w-full">
                   <p className="text-[clamp(1rem,1.3vw,1.125rem)] font-light leading-relaxed text-foreground/80 md:max-w-md">
-                    Crypto onboarding at TymeBank. Making blockchain invisible to
-                    five&nbsp;million people who should never have to think about
-                    gas fees.
+                    Building MCP servers that connect Figma directly to AI coding tools, compressing the path from design canvas to production component.
                   </p>
                </div>
             </div>
@@ -387,9 +367,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
                {/* Left Content */}
                <div className="studio-content opacity-0 md:w-1/2 md:pr-16 pl-16 md:pl-0 relative z-10 w-full md:text-right">
                   <p className="text-[clamp(1rem,1.3vw,1.125rem)] font-light leading-relaxed text-foreground/80 md:ml-auto md:max-w-md">
-                    What Buddhist philosophy and product design share: both are
-                    practices of seeing things as they are, not as you wish they
-                    were.
+                    How AI reshapes the economics of design. When generating a screen takes 30 seconds, a designer&apos;s value moves entirely to judgment, systems thinking, and knowing what to build.
                   </p>
                </div>
             </div>
@@ -408,8 +386,7 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
 
                <div className="studio-content opacity-0 md:w-1/2 md:pl-16 pl-16 md:pr-0 relative z-10 w-full">
                   <p className="text-[clamp(1rem,1.3vw,1.125rem)] font-light leading-relaxed text-foreground/80 md:max-w-md">
-                    The moment a complex product suddenly feels inevitable. That
-                    breath of recognition. I reverse-engineer it.
+                    The gap between designed and shipped. Most products lose significant design intent during implementation. I&apos;m building workflows where that number approaches zero.
                   </p>
                </div>
             </div>
@@ -480,38 +457,38 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
       <section ref={beliefsRef} className="relative z-10 flex h-[82svh] w-full flex-col items-center justify-center overflow-hidden bg-foreground md:h-[100vh]">
         <div className="absolute top-12 left-0 w-full text-center">
             <p className="font-mono text-[10px] tracking-[0.3em] text-background/30 uppercase">
-              Truths
+              Principles
             </p>
         </div>
 
         <div className="relative w-full h-full flex items-center justify-center">
-          {/* Belief 1 */}
-          <div className="belief-item absolute flex flex-col items-center text-center opacity-0 w-[90%] md:w-[60%]">
-            <h3 className="text-[clamp(2.5rem,5vw,5.5rem)] leading-[1.05] font-light tracking-tight text-background">
-              Every pixel is a decision.
+          {/* Principle 1 */}
+          <div className="belief-item absolute flex flex-col items-center text-center opacity-0 w-[90%] md:w-[70%]">
+            <h3 className="text-[clamp(1.8rem,4vw,4.5rem)] leading-[1.1] font-light tracking-tight text-background">
+              If your design system slows the team down, it&apos;s overhead.
             </h3>
-            <p className="mt-6 text-[clamp(1.5rem,2.5vw,2.5rem)] font-light tracking-tight text-background/40 italic">
-              Every decision is a position.
+            <p className="mt-6 text-[clamp(1rem,1.8vw,1.5rem)] font-light leading-relaxed tracking-tight text-background/40">
+              At Gull Network, my system went from Figma to production in the same sprint.
             </p>
           </div>
 
-          {/* Belief 2 */}
-          <div className="belief-item absolute flex flex-col items-center text-center opacity-0 w-[90%] md:w-[60%]">
-            <h3 className="text-[clamp(2.5rem,5vw,5.5rem)] leading-[1.05] font-light tracking-tight text-background">
-              The best interface dissolves.
+          {/* Principle 2 */}
+          <div className="belief-item absolute flex flex-col items-center text-center opacity-0 w-[90%] md:w-[70%]">
+            <h3 className="text-[clamp(1.8rem,4vw,4.5rem)] leading-[1.1] font-light tracking-tight text-background">
+              The best financial UX prevents the support ticket.
             </h3>
-            <p className="mt-6 text-[clamp(1.5rem,2.5vw,2.5rem)] font-light tracking-tight text-background/40 italic">
-              Like everything worth making.
+            <p className="mt-6 text-[clamp(1rem,1.8vw,1.5rem)] font-light leading-relaxed tracking-tight text-background/40">
+              At TymeBank, reducing confusion wasn&apos;t a design win. It was a business metric.
             </p>
           </div>
 
-          {/* Belief 3 */}
-          <div className="belief-item absolute flex flex-col items-center text-center opacity-0 w-[90%] md:w-[60%]">
-            <h3 className="text-[clamp(2.5rem,5vw,5.5rem)] leading-[1.05] font-light tracking-tight text-background">
-              Clarity is not a destination.
+          {/* Principle 3 */}
+          <div className="belief-item absolute flex flex-col items-center text-center opacity-0 w-[90%] md:w-[70%]">
+            <h3 className="text-[clamp(1.8rem,4vw,4.5rem)] leading-[1.1] font-light tracking-tight text-background">
+              Ship the version that teaches you something.
             </h3>
-            <p className="mt-6 text-[clamp(1.5rem,2.5vw,2.5rem)] font-light tracking-tight text-background/40 italic">
-              It is a daily practice.
+            <p className="mt-6 text-[clamp(1rem,1.8vw,1.5rem)] font-light leading-relaxed tracking-tight text-background/40">
+              NODO&apos;s first vault interface was deliberately minimal. 24 participants told us what to build next.
             </p>
           </div>
         </div>

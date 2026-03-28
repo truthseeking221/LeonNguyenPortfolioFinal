@@ -6,7 +6,6 @@ import { useGSAP } from "@gsap/react";
 import { ArrowDown } from "lucide-react";
 
 import { WebglHeroBg } from "./webgl-hero-bg";
-import { RotatingHeadline } from "./rotating-headline";
 import { MagneticButton } from "./magnetic-button";
 import { GradientButton } from "./gradient-button";
 
@@ -66,32 +65,31 @@ export function HeroSection() {
             <div className="h-1.5 w-1.5 rounded-full bg-foreground animate-pulse" />
           </div>
           <p className="font-mono text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] text-foreground/80 pt-px">
-            <span className="text-foreground font-bold">Leon</span> &mdash; Product Design &amp; Direction
+            <span className="text-foreground font-bold">Hey, I&apos;m Leon</span> &mdash; Product Designer &amp; Builder
           </p>
         </div>
 
-        {/* Huge, crisp typography */}
+        {/* Headline */}
         <div className="gk-element w-full max-w-[90vw] md:max-w-none">
           <h1
             className="font-light tracking-tighter text-foreground"
-            style={{ fontSize: "clamp(3.5rem, 10vw, 9.5rem)", lineHeight: 0.95 }}
+            style={{ fontSize: "clamp(2.8rem, 7.5vw, 7.5rem)", lineHeight: 0.95 }}
           >
-            <div className="overflow-hidden inline-block pb-[0.15em]"><RotatingHeadline /></div>
+            I design products<br />people trust with money.
           </h1>
         </div>
 
-        {/* Sophisticated Description */}
-        <p className="gk-element mt-6 md:mt-10 max-w-[42ch] text-[1.1rem] leading-[1.65] text-foreground/50 md:text-[1.35rem] font-light">
-          Sculpting clarity from complexity. <br className="hidden md:block"/>
-          I design premium systems, ethereal interfaces, and interactions that feel inevitable.
+        {/* Subtitle */}
+        <p className="gk-element mt-6 md:mt-10 max-w-[48ch] text-[1.1rem] leading-[1.65] text-foreground/50 md:text-[1.35rem] font-light">
+          Product designer and builder with 10 years across fintech, DeFi, and neobanking. I take financial products from zero to launch.
         </p>
 
-        {/* Premium CTA / Coordinates */}
+        {/* CTA / Coordinates */}
         <div className="gk-element mt-10 md:mt-16 flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-12">
           <MagneticButton>
             <GradientButton href="#work">
               <span className="inline-flex items-center gap-2">
-                Explore The Work
+                See the work
                 <ArrowDown className="size-3" />
               </span>
             </GradientButton>

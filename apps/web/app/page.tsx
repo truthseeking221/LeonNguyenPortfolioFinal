@@ -107,9 +107,9 @@ export default function Page() {
 
         {/* Opening line */}
         <Reveal delay={80}>
-          <GsapTitle 
-            text="I don't start with screens. I start with what needs to become clear."
-            className="mt-6 md:mt-0 max-w-[28ch] text-[clamp(1.5rem,3.5vw,3rem)] leading-[1.1] font-light tracking-tight text-foreground/90"
+          <GsapTitle
+            text="Product designer and builder. Ten years across fintech, DeFi, and neobanking."
+            className="mt-6 md:mt-0 max-w-[32ch] text-[clamp(1.5rem,3.5vw,3rem)] leading-[1.1] font-light tracking-tight text-foreground/90"
           />
         </Reveal>
 
@@ -153,8 +153,8 @@ export default function Page() {
               <div className="flex flex-col">
                 <div className="flex flex-col gap-6">
                 {[
-                  { label: "Right now", value: "Taking a break — deep-diving into AI and the latest technologies" },
-                  { label: "Working on", value: "Building MCP servers to enhance designers' productivity with AI" },
+                  { label: "Working on", value: "Building MCP servers that connect Figma directly to AI coding tools, compressing the path from design canvas to production component." },
+                  { label: "Thinking about", value: "How AI reshapes the economics of design. When generating a screen takes 30 seconds, a designer\u2019s value moves entirely to judgment and systems thinking." },
                   { label: "Reading", value: "The Shape of Design, Frank Chimero" },
                   { label: "Using", value: "Figma \u00b7 Framer \u00b7 Spline \u00b7 Photoshop \u00b7 Illustrator \u00b7 After Effects \u00b7 Linear \u00b7 Notion \u00b7 HTML/CSS/JS \u00b7 Cursor \u00b7 Claude Code \u00b7 Codex \u00b7 OpenClaw" },
                 ].map((item, idx) => (
@@ -171,16 +171,16 @@ export default function Page() {
               </div>
             </Reveal>
 
-            {/* Smooth Bio paragraphs */}
+            {/* Bio paragraphs */}
             <div className="space-y-6 text-[14.5px] leading-[1.8] text-muted-foreground/90 md:text-[15px] font-light">
               <Reveal delay={200} variant="fade">
                 <p>
-                  I specialize in 0-to-1 work. Taking something that doesn't exist yet and giving it structure, logic, and a point of view. I start with what needs to become clear, then I remove everything that doesn't support it.
+                  My specialty is zero to one work. I&apos;m most useful when there&apos;s no design system, no established pattern, and the product needs to find its shape.
                 </p>
               </Reveal>
               <Reveal delay={300} variant="fade">
                 <p>
-                  AI is part of how I work — not as a trend, but as a way to think deeper and move faster through ambiguity. The best products don't have the most features. They have the clearest thinking behind them.
+                  I also build what I design. I write production code in Next.js, ship with Cursor and Claude Code, and know exactly what a component costs to implement.
                 </p>
               </Reveal>
             </div>
