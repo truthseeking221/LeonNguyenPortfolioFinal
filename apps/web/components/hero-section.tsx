@@ -94,7 +94,7 @@ export function HeroSection() {
               </span>
             </GradientButton>
           </MagneticButton>
-          
+
           <div className="flex items-center gap-4">
             <span className="h-[2px] w-2 bg-foreground/20 rounded-full hidden sm:block" />
             <div className="flex flex-col">

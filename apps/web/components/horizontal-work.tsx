@@ -30,9 +30,9 @@ const NODO = {
   label: "NODO",
   href: "/projects/nodo-ai",
   year: "2024",
-  desc: "Vault management for non-crypto users. Clarity as the core product decision.",
+  desc: "Designed trust into autonomous DeFi vaults where users delegate money to AI agents.",
   role: "Lead Product Designer",
-  outcome: "Redesigned autonomous vault UX. Research to shipped MVP on Sui.",
+  outcome: "$2M+ LP commitments. Research-driven design shipped to Sui mainnet.",
   category: "DeFi Infrastructure",
 }
 
@@ -41,9 +41,9 @@ const TYMEBANK = {
   label: "TymeBank",
   href: "/projects/tymebank-crypto",
   year: "2024",
-  desc: "Crypto onboarding for a 5-million-customer bank.",
+  desc: "Delayed KYC until first value to reduce abandonment in crypto onboarding.",
   role: "Senior Product Designer",
-  outcome: "Shipped crypto buy/sell flow to 5M+ users. Reduced onboarding drop-off.",
+  outcome: "Shipped crypto buy/sell to 5M+ users. Reduced onboarding drop-off.",
   category: "Fintech · 0 to 1",
 }
 
@@ -284,8 +284,8 @@ export function HorizontalWork({
               Selected<br />Projects.
             </h2>
             <span className="h-px w-32 bg-foreground/10 mb-8" />
-            <p className="text-muted-foreground/60 max-w-sm mb-12">
-              A curated selection of my recent design and engineering endeavors.
+            <p className="text-foreground/60 max-w-sm mb-12">
+              I don&apos;t optimize fintech flows for beauty first. I optimize them for trust, clarity, and commitment.
             </p>
             <div className="flex items-center gap-4">
               <span className="h-px w-12 bg-foreground/20" />

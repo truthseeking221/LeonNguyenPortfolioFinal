@@ -28,7 +28,7 @@ export function ImagePlaceholder({
         )}
       >
         <div
-          className="absolute inset-0 h-full w-full opacity-[0.03]"
+          className="absolute right-0 bottom-0 h-full w-full opacity-[0.03]"
           style={{
             backgroundImage:
               "radial-gradient(circle, currentColor 0.5px, transparent 0.5px)",

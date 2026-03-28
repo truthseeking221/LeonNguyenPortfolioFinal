@@ -20,6 +20,9 @@ import farmManagementImage from "../../images/Farm management with flexible rewa
 import sniperProofImage from "../../images/Sniper-proof listing protecting new token launches.png"
 import landingPageOceanImage from "../../images/Landing page_ descending from sky to seafloor.png"
 import seagullSystemImage from "../../images/The seagull system_ expressions, items, poses, evolution stages.png"
+import directionAImage from "../../images/A_ Minimal. Professional. Forgettable..png"
+import directionBImage from "../../images/B_ Loud. Memorable. Nobody trusts it..png"
+import directionCImage from "../../images/C_ A world with tools inside it..png"
 import tokenLaunchImage from "../../images/Token launch_ configuration to live trading.png"
 import seagullEvolutionImage from "../../images/The seagull_ from first sketch to final character system.png"
 import stickerPackSelectionImage from "../../images/60+ reactions for community use.png"
@@ -651,13 +654,12 @@ export default function GullNetworkCaseStudy() {
             ].map(({ feature, segments }) => (
               <div key={feature}>
                 <p className="text-xs font-medium text-foreground/70">{feature}</p>
-                <div className="mt-2.5 flex items-center gap-1.5">
+                <div className="mt-2.5 flex w-full items-center gap-1.5">
                   {segments.map(({ label, value }) => (
-                    <div key={label} className="group/bar relative">
+                    <div key={label} className="group/bar relative" style={{ flex: value }}>
                       <div
-                        className="h-6 rounded-[4px] transition-opacity duration-200 hover:opacity-100"
+                        className="h-6 w-full rounded-[4px] transition-opacity duration-200 hover:opacity-100"
                         style={{
-                          width: `${Math.max(value * 1.8, 24)}px`,
                           backgroundColor: label === "Degen" ? "oklch(0.72 0.16 85)" : label === "Project" ? "oklch(0.60 0.14 260)" : label === "Farmer" ? "oklch(0.68 0.16 160)" : "oklch(0.65 0.14 300)",
                           opacity: value > 60 ? 0.5 : 0.2,
                         }}
@@ -798,10 +800,55 @@ export default function GullNetworkCaseStudy() {
           How much personality can infrastructure carry before it stops being taken seriously?
         </p>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          <ImagePlaceholder label="[Direction A: clean utility]" caption="A: Minimal. Professional. Forgettable." aspectRatio="aspect-[3/4]" variant="screen" />
-          <ImagePlaceholder label="[Direction B: maximum meme]" caption="B: Loud. Memorable. Nobody trusts it." aspectRatio="aspect-[3/4]" variant="screen" />
-          <ImagePlaceholder label="[Direction C: layered world]" caption="C: A world with tools inside it." aspectRatio="aspect-[3/4]" variant="screen" />
+        <div className="mt-14 flex flex-col gap-6">
+          <figure className="group">
+            <div className="overflow-hidden rounded-xl border border-border/40 bg-muted/20 w-fit">
+              <Image
+                src={directionAImage}
+                alt="Direction A: clean utility"
+                width={directionAImage.width}
+                height={directionAImage.height}
+                sizes="(min-width: 768px) 100vw, calc(100vw - 3rem)"
+                className="block h-auto w-full"
+                quality={100}
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              A: Minimal. Professional. Forgettable.
+            </figcaption>
+          </figure>
+          <figure className="group">
+            <div className="overflow-hidden rounded-xl border border-border/40 bg-muted/20 w-fit">
+              <Image
+                src={directionBImage}
+                alt="Direction B: maximum meme"
+                width={directionBImage.width}
+                height={directionBImage.height}
+                sizes="(min-width: 768px) 100vw, calc(100vw - 3rem)"
+                className="block h-auto w-full"
+                quality={100}
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              B: Loud. Memorable. Nobody trusts it.
+            </figcaption>
+          </figure>
+          <figure className="group">
+            <div className="overflow-hidden rounded-xl border border-border/40 bg-muted/20 w-fit">
+              <Image
+                src={directionCImage}
+                alt="Direction C: layered world"
+                width={directionCImage.width}
+                height={directionCImage.height}
+                sizes="(min-width: 768px) 100vw, calc(100vw - 3rem)"
+                className="block h-auto w-full"
+                quality={100}
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground/35">
+              C: A world with tools inside it.
+            </figcaption>
+          </figure>
         </div>
 
         {/* Verdict — asymmetric */}
