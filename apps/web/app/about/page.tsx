@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import dashboardFirstImage from "../images/Direction A_ Dashboard-first.png"
+import aboutPortraitImage from "../images/Leon - About.png"
 import { AboutClient } from "@/components/about-client"
 
 export const metadata: Metadata = {
@@ -72,7 +72,7 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen overflow-x-hidden">
       <AboutClient 
-        dashboardFirstImage={dashboardFirstImage}
+        dashboardFirstImage={aboutPortraitImage}
         chapters={CHAPTERS}
         tools={TOOLS}
         reading={READING}

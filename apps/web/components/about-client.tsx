@@ -219,18 +219,14 @@ export function AboutClient({ dashboardFirstImage, chapters, tools, reading }: A
         <div className="grid gap-8 md:grid-cols-[1.2fr_1fr] md:gap-16 lg:gap-24">
 
           {/* Portrait */}
-          <div className="relative overflow-hidden rounded-2xl border border-border/15 bg-foreground/[0.03]">
-            <div ref={portraitRef} className="aspect-[4/5] relative w-full h-full scale-[1.1]">
-              <div className="absolute top-4 left-4 h-5 w-5 border-t border-l border-foreground/[0.3] z-10" />
-              <div className="absolute top-4 right-4 h-5 w-5 border-t border-r border-foreground/[0.3] z-10" />
-              <div className="absolute bottom-4 left-4 h-5 w-5 border-b border-l border-foreground/[0.3] z-10" />
-              <div className="absolute bottom-4 right-4 h-5 w-5 border-b border-r border-foreground/[0.3] z-10" />
-              <div className="absolute inset-0 bg-foreground/10 mix-blend-overlay z-10 pointer-events-none" />
+          <div className="relative rounded-2xl border border-border/15">
+            <div ref={portraitRef} className="relative">
               <Image
                 src={dashboardFirstImage}
-                alt="Dashboard-first direction"
-                fill
-                className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                alt="Leon — portrait"
+                width={dashboardFirstImage.width}
+                height={dashboardFirstImage.height}
+                className="block h-auto w-full rounded-2xl"
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 priority
               />

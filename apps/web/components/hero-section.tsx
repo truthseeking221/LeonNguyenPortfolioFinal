@@ -65,7 +65,7 @@ export function HeroSection() {
             <div className="h-1.5 w-1.5 rounded-full bg-foreground animate-pulse" />
           </div>
           <p className="font-mono text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] text-foreground/80 pt-px">
-            <span className="text-foreground font-bold">Hey, I&apos;m Leon</span> &mdash; Product Designer &amp; Builder
+            <span className="text-foreground font-bold">Leon here</span> &mdash; I design it, then I build it
           </p>
         </div>
 
